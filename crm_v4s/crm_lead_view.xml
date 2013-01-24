@@ -1,0 +1,172 @@
+<openerp>
+    <data>
+
+    <record model="ir.ui.view" id="crm_case_tree_view_leads_v4s">
+        <field name="name">Leads</field>
+        <field name="model">crm.lead</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
+        <field name="arch" type="xml">
+            <field name="create_date" position="replace" >
+                <field name="date_action_last" />
+                <field name="partner_name" string="Partner Name" />
+            </field>
+            
+            <field name="email_from" position="replace">
+                <field name="city"/>
+            </field>
+            
+            <field name="phone" position="replace">
+                <field name="zip"/>
+            </field>
+            
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="crm_case_form_view_leads_v4s">
+        <field name="name">CRM - Leads Form</field>
+        <field name="model">crm.lead</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
+            
+            <!--      Leads modifications        -->
+            <!--      ======================================================================================        -->
+            <field name="categ_id" position="replace" />
+            <field name="section_id" position="replace" />
+            <field name="partner_id" position="replace" />
+            
+            <field name="street" position="before" >
+                <field name="company_ext" />
+                <field name="department_company_ext" />
+            </field>
+            
+            <field name="contact_name" position="after" >
+                <field name="prename" colspan="4" />
+            </field>
+            
+            <field name="phone" position="after">
+                <field name="phone2" colspan="2" />
+            </field>
+            
+            <field name="mobile" position="after">
+                <field name="partner_address_website" colspan="2" widget="url" /> 
+                <field name="birthday_communication" colspan="2" />
+                <field name="title_communication" colspan="2" />
+            </field>
+            
+            <button name="%(crm.action_crm_lead2partner)d" position="replace" />
+            <field name="description" position="replace" />
+            
+            <field name="message_ids" position="before">
+                <button string="Schedule/Log Call"
+                        name="%(crm.opportunity2phonecall_act)d" icon="terp-call-start"
+                        type="action" colspan="4" />
+
+                <field name="phonecall" colspan="4" nolabel="1" />
+            </field>
+            
+            <!--     removing separators         -->
+            <separator string="Links" colspan="4" col="3" position="replace" />
+            <separator colspan="4" string="Notes" position="replace" />
+
+        </field>
+    </record>
+    
+    <record model="ir.ui.view" id="crm_case_form_view_oppor_v4s">
+        <field name="name">Opportunities</field>
+        <field name="model">crm.lead</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_oppor"/>
+        <field name="priority">20</field>
+        <field name="arch" type="xml">
+            <!--      Opportunities modifications        -->
+            <!--      ======================================================================================        -->
+            <separator colspan="4" string="Details" position="replace" />
+            <field name="description" position="replace" />
+            <field name="title_action" position="replace" />
+            <field name="date_action" position="replace" />
+            <field name="email_from" position="replace" />
+            <button name="%(mail.action_email_compose_message_wizard)d" position="replace" />
+            <field name="phone" position="replace" />
+            <field name="partner_id" position="replace" />
+            <button name="%(crm.action_crm_lead2partner)d" position="replace" />
+            <button name="%(crm.opportunity2phonecall_act)d" position="replace" />
+
+            
+            
+            <field name="probability" position="replace" >
+                <field name="title_action" />
+            </field>
+            <field name="planned_revenue" position="replace" >
+                <field name="date_action" />
+            </field>
+            
+            <field name="street" position="before" >
+                <field name="company_ext" />
+                <field name="department_company_ext" />
+            </field>
+                    
+            <field name="partner_name" position="after" >
+                <field name="prename" colspan="4" />
+            </field>
+            
+                
+            <field name="mobile" position="after">
+                <field name="partner_address_website" colspan="1" widget="url" /> 
+                <field name="birthday_communication" colspan="1" />
+                <field name="title_communication" colspan="1" />
+                <field name="partner_id" select="1"
+                        on_change="onchange_partner_id(partner_id, email_from)" string="Customer"
+                        colspan="1" />
+                <button name="%(crm.action_crm_lead2partner)d"
+                    icon="terp-partner" type="action"
+                    string="Create" colspan="1"
+                    attrs="{'invisible':[('partner_id','!=',False)]}"/>
+            </field>
+            
+            <field name="fax" position="before">
+                <field name="email_from" widget="email" string="Email" colspan="1" />
+                <button string="Mail" colspan="1"
+                            name="%(mail.action_email_compose_message_wizard)d"
+                            context="{'mail':'new', 'model': 'crm.lead'}"
+                            icon="terp-mail-message-new" type="action" />
+                <newline/>    
+                <field name="phone" colspan="1" />
+                <newline/>
+                <field name="phone2" colspan="1" />
+            </field>
+          
+            <field name="message_ids" position="before">
+                <button string="Schedule/Log Call"
+                        name="%(crm.opportunity2phonecall_act)d" icon="terp-call-start"
+                        type="action" colspan="4" />
+
+                <field name="phonecall" colspan="4" nolabel="1" />
+            </field>
+            <!--
+            <field name="categ_id" position="before" >
+                <field name="description" nolabel="1" colspan="2"/>
+            </field>
+            --><!--
+            <page string="Opportunity" position="replace">
+                <page string="Opportunity" invisible="1" />
+            </page>
+            -->
+            <field name="state_id" position="after" >
+                <separator string="Details" colspan="4"/>
+                <field name="description" nolabel="1" colspan="4" />
+                <newline/>
+<!--                 <separator string="Partner Category" colspan="4"/> -->
+<!--                 <field name="partner_address_category_id" nolabel="1" colspan="4" /> -->
+            </field>
+            
+            
+        </field>
+    </record>
+            
+            
+    </data>
+</openerp>
+
+
