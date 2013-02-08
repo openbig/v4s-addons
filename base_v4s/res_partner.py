@@ -55,7 +55,7 @@ class res_partner(osv.osv):
         'birthday_communication': fields.related('address', 'birthday_communication', type='datetime', string='Birthday'),
         'company_ext': fields.related('address', 'company_ext', type='char', string='Company Name'),    
         'department_company_ext': fields.related('address', 'department_company_ext', type='char', string='Department Company'),
-        
+        'website': fields.char('Website',size=255, help="Website of Partner."),
 
     }
     

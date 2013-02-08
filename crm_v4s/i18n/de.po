@@ -38,12 +38,12 @@ msgstr "Links"
 #. module: crm_v4s
 #: field:crm.lead,title_communication:0
 msgid "Title"
-msgstr "Anrede"
+msgstr "Briefanrede"
 
 #. module: crm_v4s
 #: field:crm.lead,phone2:0
 msgid "Phone2"
-msgstr "Phone2"
+msgstr "Weiteres Telefon"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -58,7 +58,7 @@ msgstr "crm.lead"
 #. module: crm_v4s
 #: field:crm.lead,partner_address_website:0
 msgid "Partner Webpage"
-msgstr "Partner Webpage"
+msgstr "Webpage"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -92,15 +92,13 @@ msgstr "EMail"
 
 #. module: crm_v4s
 #: field:crm.lead,phonecall:0
-#: view:crm.lead:0
 msgid "Phone Calls"
 msgstr "Anrufe"
 
-#. module: crm
-#: view:crm.lead:0 field:crm.lead,email_from:0 field:crm.meeting,email_from:0
-#: field:crm.phonecall,email_from:0
+#. module: crm_v4s
+#: view:crm.lead:0
 msgid "Email"
-msgstr "E-Mail"
+msgstr "EMail"
 
 #. module: crm_v4s
 #: field:crm.lead,company_ext:0
@@ -112,29 +110,3 @@ msgstr "Unternehmen"
 msgid "Website"
 msgstr "Homepage"
 
-#. module: crm_v4s
-#: field:crm.lead,contact_name:0
-msgid "Contact Name"
-msgstr "Nachname"
-
-#. module: crm_v4s
-#: field:base.action.rule,trg_categ_id:0 view:crm.lead:0
-#: field:crm.lead,categ_id:0 view:crm.lead.report:0
-#: field:crm.lead.report,categ_id:0 field:crm.opportunity2phonecall,categ_id:0
-#: field:crm.phonecall,categ_id:0 view:crm.phonecall.report:0
-#: field:crm.phonecall.report,categ_id:0
-#: field:crm.phonecall2phonecall,categ_id:0
-msgid "Category"
-msgstr "Kategorien"
-
-#. module: crm_v4s
-#: field:crm.lead,planned_revenue:0
-#: field:crm.partner2opportunity,planned_revenue:0
-#: field:crm.phonecall2opportunity,planned_revenue:0
-msgid "Expected Revenue"
-msgstr "# Verkaufschancen"
-
-#. module: crm_v4s
-#: field:crm.lead.report,planned_revenue:0
-msgid "Planned Revenue"
-msgstr "# Verkaufschancen"
