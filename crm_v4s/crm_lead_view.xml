@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
         <field name="arch" type="xml">
             <field name="create_date" position="replace" >
-                <field name="write_date" />
+                <field name="date_action_last" />
                 <field name="partner_name" string="Partner Name" />
             </field>
             
