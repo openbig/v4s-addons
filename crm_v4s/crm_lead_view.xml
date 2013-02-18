@@ -8,7 +8,7 @@
         <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
         <field name="arch" type="xml">
             <field name="create_date" position="replace" >
-                <field name="date_action_last" />
+                <field name="write_date" />
                 <field name="partner_name" string="Partner Name" />
             </field>
             
@@ -250,20 +250,30 @@
     </record>
     
         <!-- crm.lead Opportunities Graph View -->
-<!--    <record model="ir.ui.view" id="crm_case_graph_view_opportunity_v4s">
+    <record id="view_report_crm_opportunity_graph_v4s" model="ir.ui.view">
+        <field name="name">crm.opportunity.report.graph</field>
+        <field name="model">crm.lead.report</field>
+        <field name="type">graph</field>
+        <field name="inherit_id" ref="crm.view_report_crm_opportunity_graph"/>
+        <field name="arch" type="xml">
+            <field name="planned_revenue" position="replace" >
+                <field name="nbr" operator="+" string="# Opportunities"/>
+            </field>
+        </field>
+    </record>
+    
+    <!-- crm.lead Opportunities Graph View -->
+    <record model="ir.ui.view" id="crm_case_graph_view_opportunity_v4s">
         <field name="name">CRM - Opportunity Graph</field>
         <field name="model">crm.lead</field>
-        <field name="inherit_id" ref="crm.crm_case_graph_view_opportunity"/>
         <field name="type">graph</field>
+        <field name="inherit_id" ref="crm.crm_case_graph_view_opportunity"/>
         <field name="arch" type="xml">
-            <graph string="Opportunity by Categories" type="bar" orientation="horizontal">
-                <field name="categ_id"/>
-                <field name="planned_revenue" operator="+"  />
-                <field name="state" group="True"/>
-            </graph>
+            <field name="planned_revenue" position="replace" >
+                    <field name="nbr" operator="+" string="# Opportunities"/>
+            </field>
         </field>
-    </record>-->
-    
+    </record>
     
     </data>
 </openerp>

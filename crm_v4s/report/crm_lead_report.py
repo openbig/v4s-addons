@@ -23,6 +23,18 @@
 #
 ##############################################################################
 
-import crm_lead
-import report
-import wizard
+from osv import fields,osv
+import tools
+
+
+class crm_lead_report(osv.osv):
+    """ CRM Lead Analysis """
+    _inherit = "crm.lead.report"
+
+    _columns = {
+        'nbr': fields.integer('# Opportunities', readonly=True),
+    }
+
+crm_lead_report()
+
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

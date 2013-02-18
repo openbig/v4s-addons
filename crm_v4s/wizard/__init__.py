@@ -23,6 +23,4 @@
 #
 ##############################################################################
 
-import crm_lead
-import report
-import wizard
+import crm_lead_to_opportunity
