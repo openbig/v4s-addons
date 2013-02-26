@@ -52,4 +52,13 @@ class crm_lead(osv.osv):
         'nbr' : 1,
     }
     
-    
+    def _lead_create_partner(self, cr, uid, lead, context=None):
+        partner = self.pool.get('res.partner')
+        partner_id = super(crm_lead,self)._lead_create_partner(cr, uid, lead, context=context)
+        vals = {
+                'description' : lead.description,
+            }
+        partner.write(cr, uid, partner_id, vals, context=context)
+        return partner_id
+
+crm_lead()

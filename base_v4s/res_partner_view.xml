@@ -8,11 +8,19 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
-                <field name="website" position="replace" />
+                <field name="website"   position="replace" />
+                <page string="Notes"    position="replace"/>
+                <field name="title"     position="replace" />
                 
-                <xpath expr="/form/notebook/page/field[@name='address']/form/group/field[@name='name']" position="after">
-                    <field name="prename" />
+                <xpath expr="/form/notebook/page/field[@name='address']/form/group[@col='6']" position="replace">
+                    <group colspan="4" col="4">
+                        <field name="name" string="Contact Name"/>
+                        <field name="prename" />
+                        <field name="function"/>
+                        <field domain="[('domain', '=', 'contact')]" name="title" size="0"/>
+                    </group>
                 </xpath>
+                
                 
                 <field name="phone" position="after" >
                     <field name="phone2" />
@@ -27,6 +35,25 @@
                     <field name="company_ext" />
                     <field name="department_company_ext" />
                 </field>
+                
+                <field name="email" position="after" >
+                    <field name="title_communication" />
+                </field>
+                
+                <xpath expr="/form/notebook/page[@string='General']/group[last()]" position="replace">
+                    <group colspan="2" col="2">
+                            <separator colspan="4" string="Details"/>
+                            <field name="description" nolabel="1" colspan="4"/>
+                    </group>
+                    <group  colspan="2" col="2" groups="base.group_extended">
+                            <separator colspan="4" string="Categories"/>
+                            <field  colspan="4" name="category_id" nolabel="1"/>
+                    </group>
+                </xpath>
+                
+                
+                
+                
                 
                 
             </field>

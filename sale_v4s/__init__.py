@@ -4,7 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
-#    Module base_v4s
+#    Module sale_v4s
 #    Copyrigt (C) 2010 OpenGLOBE Grzegorz Grzelak (www.openglobe.pl)
 #                       and big-consulting GmbH (www.openbig.de)
 #
@@ -23,22 +23,6 @@
 #
 ##############################################################################
 
+import sale
 
-{
-    "name" : "V4S - BASE",
-    "version" : "0.03 (6.1)",
-    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
-    "website": "http://www.openbig.org",
-    "category" : "Localisation/Country specific stuff",
-    "description": """
-    Added new fields to customer view.
-    """,
-    "depends" : [],
-    "demo_xml" : [],
-    "update_xml" : [
-                    "res_partner_view.xml",
-                    ],
-    "active": False,
-    "installable": True
-}
-
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

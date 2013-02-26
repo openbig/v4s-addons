@@ -38,6 +38,7 @@ class res_partner_address(osv.osv):
         'birthday_communication': fields.datetime('Birthday'),
         'company_ext' : fields.char('Company Name', size=128),
         'department_company_ext' : fields.char('Department Company', size=128),
+        'title_communication' : fields.char('Title', size=255),
         'prename': fields.char('Prename', size=64),
         'website': fields.related('partner_id', 'website', type='char', string='Website'),
     }
@@ -48,12 +49,15 @@ class res_partner(osv.osv):
     _inherit = 'res.partner'
     
     _columns = {
+        'description': fields.text('Notes'),
         'prename': fields.related('address', 'prename', type='char', string='Prename'),
         'phone2': fields.related('address', 'phone2', type='char', string='Phone2'),
         'street': fields.related('address', 'street', type='char', string='Street'),    
         'zip': fields.related('address', 'zip', type='char', string='Zip'),
         'birthday_communication': fields.related('address', 'birthday_communication', type='datetime', string='Birthday'),
         'company_ext': fields.related('address', 'company_ext', type='char', string='Company Name'),    
+        #'title_communication' : fields.char('Title', size=255),
+        'title_communication' : fields.related('address', 'title_communication', type='char', string='Title'), 
         'department_company_ext': fields.related('address', 'department_company_ext', type='char', string='Department Company'),
         'website': fields.char('Website',size=255, help="Website of Partner."),
 

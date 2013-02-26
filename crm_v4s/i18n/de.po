@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-24 22:29+0000\n"
-"PO-Revision-Date: 2013-01-24 22:29+0000\n"
+"POT-Creation-Date: 2013-02-19 07:43+0000\n"
+"PO-Revision-Date: 2013-02-19 07:43+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,33 +17,23 @@ msgstr ""
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Customer"
-msgstr "Kunde"
-
-#. module: crm_v4s
-#: field:crm.lead,department_company_ext:0
-msgid "Department Company"
-msgstr "Abteilung"
+msgid "Category"
+msgstr "Vertriebskategorie"
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Partner Name"
-msgstr "Partner"
+msgid "Categorization"
+msgstr "Kategorisierung"
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Links"
-msgstr "Links"
+msgid "Lead"
+msgstr "Verkaufskontakt"
 
 #. module: crm_v4s
 #: field:crm.lead,title_communication:0
 msgid "Title"
 msgstr "Briefanrede"
-
-#. module: crm_v4s
-#: field:crm.lead,phone2:0
-msgid "Phone2"
-msgstr "Weiteres Telefon"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -56,14 +46,54 @@ msgid "crm.lead"
 msgstr "crm.lead"
 
 #. module: crm_v4s
-#: field:crm.lead,partner_address_website:0
-msgid "Partner Webpage"
-msgstr "Webpage"
+#: model:ir.model,name:crm_v4s.model_crm_lead2opportunity_partner
+msgid "Lead To Opportunity Partner"
+msgstr "Verkaufskontakt zu Verkaufschance Partner"
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Schedule/Log Call"
-msgstr "Terminiere Anruf"
+msgid "Details"
+msgstr "Anmerkungen"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Partner Name"
+msgstr "Partnerlink"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Mail"
+msgstr "EMail"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Email"
+msgstr "EMail-Versandadresse"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Pending"
+msgstr "Schwebend"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Mark Won"
+msgstr "Abschluss als Verkauf"
+
+#. module: crm_v4s
+#: field:crm.lead,website:0
+msgid "Website"
+msgstr "Homepage"
+
+#. module: crm_v4s
+#: field:crm.lead,department_company_ext:0
+msgid "Department Company"
+msgstr "Abteilung"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Mark Lost"
+msgstr "Kein Verkaufsabschluss"
 
 #. module: crm_v4s
 #: field:crm.lead,prename:0
@@ -71,9 +101,39 @@ msgid "Prename"
 msgstr "Vorname"
 
 #. module: crm_v4s
+#: view:crm.lead:0
+msgid "Escalate"
+msgstr "Eskalation"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Mailings"
+msgstr "Genehmigung Emailversand"
+
+#. module: crm_v4s
 #: field:crm.lead,birthday_communication:0
 msgid "Birthday"
 msgstr "Geburtstag"
+
+#. module: crm_v4s
+#: model:ir.model,name:crm_v4s.model_crm_lead_report
+msgid "CRM Lead Analysis"
+msgstr "CRM Verkaufskontakte Analyse"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Opportunity"
+msgstr "Verkaufschance"
+
+#. module: crm_v4s
+#: field:crm.lead,company_ext:0
+msgid "Company Name"
+msgstr "Unternehmen"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Customer"
+msgstr "Partner"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -81,14 +141,26 @@ msgid "Notes"
 msgstr "Anmerkungen"
 
 #. module: crm_v4s
-#: view:crm.lead:0
-msgid "Details"
-msgstr "Details"
+#: field:crm.lead,partner_address_website:0
+msgid "Partner Webpage"
+msgstr "Webpage"
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Mail"
-msgstr "EMail"
+msgid "Contact"
+msgstr "Nachname"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Customer Name"
+msgstr "Kunde"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+#: field:crm.lead,nbr:0
+#: view:crm.lead.report:0
+msgid "# Opportunities"
+msgstr "# Opportunities"
 
 #. module: crm_v4s
 #: field:crm.lead,phonecall:0
@@ -97,16 +169,36 @@ msgstr "Anrufe"
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Email"
-msgstr "EMail"
+msgid "Communication"
+msgstr "Betreff"
 
 #. module: crm_v4s
-#: field:crm.lead,company_ext:0
-msgid "Company Name"
-msgstr "Unternehmen"
+#: field:crm.lead,phone2:0
+msgid "Phone2"
+msgstr "Tel2"
 
 #. module: crm_v4s
-#: field:crm.lead,website:0
-msgid "Website"
-msgstr "Homepage"
+#: view:crm.lead:0
+msgid "Reset to Draft"
+msgstr "Zurücksetzen auf Entwurf"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Close"
+msgstr "Fertig"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Open"
+msgstr "Offen"
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Schedule/Log Call"
+msgstr "Terminiere Anruf"
 
