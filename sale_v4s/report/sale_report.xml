@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="False" id="report_sale_order_v4s" model="sale.order" name="sale_v4s.sale_order_v4s"
+                rml="sale_v4s/report/sale_order.rml" string="Quotation V4S"
+                usage="default"/>
+
+        <report auto="False" id="report_sale_order_no_discount_v4s" model="sale.order" name="sale_v4s.sale_order_no_disocunt_v4s"
+                rml="sale_v4s/report/sale_order_no_discount.rml" string="Quotation V4S (No Discount)"
+                usage="default"/>
+
+    </data>
+</openerp>

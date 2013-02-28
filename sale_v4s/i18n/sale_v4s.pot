@@ -1,0 +1,152 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* sale_v4s
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120804-232000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-28 19:48+0000\n"
+"PO-Revision-Date: 2013-02-28 19:48+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: sale_v4s
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr ""
+
+#. module: sale_v4s
+#: help:sale.shop,set_mto:0
+msgid "If true, changes field \"Procurement Method\", in sale order lines, to \"on order\"."
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Unit Price"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Order N°"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Disc.(%)"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Description"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Our Salesman"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Total :"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "VAT"
+msgstr ""
+
+#. module: sale_v4s
+#: model:ir.model,name:sale_v4s.model_sale_shop
+msgid "Sales Shop"
+msgstr ""
+
+#. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_no_discount_v4s
+msgid "Quotation V4S (No Discount)"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Date Ordered"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Net Total :"
+msgstr ""
+
+#. module: sale_v4s
+#: field:sale.shop,set_mto:0
+msgid "MTO"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Payment Terms"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Quantity"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Your Reference"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Quotation Date"
+msgstr ""
+
+#. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
+msgid "Quotation V4S"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Quotation N°"
+msgstr ""
+
+#. module: sale_v4s
+#: model:ir.model,name:sale_v4s.model_sale_order_line
+msgid "Sales Order Line"
+msgstr ""
+
+#. module: sale_v4s
+#: model:ir.model,name:sale_v4s.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Price"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Taxes :"
+msgstr ""
+
