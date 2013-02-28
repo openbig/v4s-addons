@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report id="report_picking_list_v4s" 
+                model="stock.picking" 
+                name="stock_v4s.picking_v4s" 
+                string="Packing V4S" 
+                rml="stock_v4s/report/picking.rml"/>
+    </data>
+</openerp>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <report auto="False" id="report_purchase_order_v4s" model="purchase.order"
+                name="purchase_v4s.purchase_order_v4s" rml="purchase_v4s/report/order.rml"
+                usage="default" string="Purchase Order V4S"/>
+    </data>
+</openerp>
