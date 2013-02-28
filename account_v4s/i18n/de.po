@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: account_v4s\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-02-27 21:05+0000\n"
-"PO-Revision-Date: 2013-02-27 22:09+0100\n"
+"PO-Revision-Date: 2013-02-28 21:23+0100\n"
 "Last-Translator: Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>\n"
 "Language-Team: OpenGLOBE <contact@openglobe.pl>\n"
 "Language: \n"
@@ -44,7 +44,7 @@ msgstr "Einzelpreis"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "VAT :"
-msgstr ""
+msgstr "UID :"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
