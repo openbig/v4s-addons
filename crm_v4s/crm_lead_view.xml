@@ -9,7 +9,14 @@
         <field name="arch" type="xml">
             <field name="create_date" position="replace" >
                 <field name="write_date" />
-                <field name="partner_name" string="Partner Name" />
+            </field>
+            
+            <field name="name" position="before" >
+                <field name="partner_name" string="Partner Name" invisible="1" />
+            </field>
+            
+            <field name="name" position="after" >
+                <field name="prename" />
             </field>
             
             <field name="email_from" position="replace">
