@@ -24,5 +24,6 @@
 ##############################################################################
 
 import crm_lead
+import mail_message
 import report
 import wizard

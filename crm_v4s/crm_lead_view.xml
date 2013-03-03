@@ -271,6 +271,26 @@
         </field>
     </record>
     
+        <!-- CRM Lead Kanban View  -->
+    <record model="ir.ui.view" id="crm_case_kanban_view_leads_v4s">
+        <field name="name">CRM - Leads Kanban</field>
+        <field name="model">crm.lead</field>
+         <field name="inherit_id" ref="crm.crm_case_kanban_view_leads"/>
+        <field name="type">kanban</field>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='name']/.." position="before" >
+                <div>
+                    <field name="contact_name"/>
+                </div>
+            </xpath>
+            
+            <xpath expr="//field[@name='planned_revenue'][1]" position="replace" >
+                <field name="planned_revenue" />
+            </xpath>
+        </field>
+    </record>
+
+    
         <!-- crm.lead Opportunities Graph View -->
     <record id="view_report_crm_opportunity_graph_v4s" model="ir.ui.view">
         <field name="name">crm.opportunity.report.graph</field>
