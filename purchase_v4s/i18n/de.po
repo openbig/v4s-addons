@@ -17,7 +17,7 @@ msgstr ""
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Our Order Reference"
-msgstr ""
+msgstr "Unsere Bestellnummer"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
@@ -27,17 +27,17 @@ msgstr "Beschreibung"
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Purchase Order Confirmation N°"
-msgstr ""
+msgstr "Bestellnummer"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Shipping address :"
-msgstr ""
+msgstr "Lieferanschrift"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Order Date"
-msgstr ""
+msgstr "Datum Bestellung"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
@@ -47,7 +47,7 @@ msgstr "Menge"
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Net Total :"
-msgstr "Nettobetrag :"
+msgstr "Nettosumme :"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
@@ -57,22 +57,22 @@ msgstr "Bruttosumme :"
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Request for Quotation N°"
-msgstr ""
+msgstr "Angebotsanfrage Nr."
 
 #. module: purchase_v4s
 #: model:ir.actions.report.xml,name:purchase_v4s.report_purchase_order_v4s
 msgid "Purchase Order V4S"
-msgstr ""
+msgstr "Beschaffungsauftrag V4S"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Net Price"
-msgstr ""
+msgstr "Nettobetrag"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Unit Price"
-msgstr "Einzelpreis"
+msgstr "Stk. Preis"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
@@ -82,5 +82,5 @@ msgstr "Steuern :"
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Validated By"
-msgstr ""
+msgstr "Genehmigt durch"
 

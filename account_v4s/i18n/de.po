@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: account_v4s\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-27 21:05+0000\n"
-"PO-Revision-Date: 2013-02-28 21:23+0100\n"
+"POT-Creation-Date: 2013-03-05 18:50+0000\n"
+"PO-Revision-Date: 2013-03-05 19:52+0100\n"
 "Last-Translator: Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>\n"
 "Language-Team: OpenGLOBE <contact@openglobe.pl>\n"
 "Language: \n"
@@ -19,12 +19,12 @@ msgstr ""
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Picking No"
-msgstr "Lefershein-Nr."
+msgstr "Lieferschein-Nr."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Cancelled Invoice"
-msgstr ""
+msgstr "Abgebrochene Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -34,7 +34,7 @@ msgstr "Zahlungsbedinungen:"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Supplier Invoice"
-msgstr ""
+msgstr "Lieferanten Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -44,7 +44,7 @@ msgstr "Einzelpreis"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "VAT :"
-msgstr "UID :"
+msgstr "UStID :"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -98,6 +98,11 @@ msgstr "Steuern"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
+msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."
+
+#. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
 msgid "Amount"
 msgstr "Betrag"
 
@@ -109,12 +114,7 @@ msgstr "Lieferadressen:"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Draft Invoice"
-msgstr ""
-
-#. module: account_v4s
-#: report:account_v4s.invoice_v4s:0
-msgid "(Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum.)"
-msgstr ""
+msgstr "Entwurf Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -124,12 +124,12 @@ msgstr "Menge"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Refund"
-msgstr ""
+msgstr "Gutschrift"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Fiscal Position Remark :"
-msgstr ""
+msgstr "Hinweis Steuern : "
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -149,7 +149,7 @@ msgstr "Rechnung"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Supplier Refund"
-msgstr ""
+msgstr "Lieferantengutschrift"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -159,5 +159,11 @@ msgstr "Bearbeiter"
 #. module: account_v4s
 #: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
 msgid "Invoices V4S"
-msgstr ""
+msgstr "Rechnung V4S"
 
+#~ msgid ""
+#~ "(Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis "
+#~ "zur vollständigen Bezahlung unser Eigentum.)"
+#~ msgstr ""
+#~ "(Subject to our terms and conditions we reserve all proprietary rights "
+#~ "until full payment of our deliveries.)"

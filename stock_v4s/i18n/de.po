@@ -17,7 +17,7 @@ msgstr ""
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Lot"
-msgstr ""
+msgstr "Lot-Nr."
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -32,7 +32,7 @@ msgstr "Beschreibung"
 #. module: stock_v4s
 #: model:ir.actions.report.xml,name:stock_v4s.report_picking_list_v4s
 msgid "Packing V4S"
-msgstr ""
+msgstr "Packliste V4S"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -47,7 +47,7 @@ msgstr ""
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Shipping Address :"
-msgstr ""
+msgstr "Lieferanschrift"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -62,7 +62,7 @@ msgstr "Lieferdatum"
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Order(Origin)"
-msgstr ""
+msgstr "Kundenreferenz"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -82,7 +82,7 @@ msgstr "Bearbeiter"
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Packing List:"
-msgstr "Liefershein:"
+msgstr "Lieferschein:"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
