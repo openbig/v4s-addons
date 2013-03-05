@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
     <header>
     <pageTemplate>
-        <frame id="first" x1="1.3cm" y1="2.5cm" height="23.0cm" width="19.0cm"/>
+        <frame id="first" x1="1.3cm" y1="2.5cm" height="22.2cm" width="19.0cm"/>
         <pageGraphics>
             <!-- You Logo - Change X,Y,Width and Height -->
             <image x="15.3cm" y="27.0cm" height="80.0" >[[ company.logo or removeParentNode('image') ]]</image>
@@ -26,6 +26,10 @@
             <drawRightString x="20cm" y="24.8cm">[[ company.partner_id.address and company.partner_id.address[0].email or '' ]]</drawRightString>
             <lines>14.5cm 24.7cm 20cm 24.7cm</lines>
 
+<!-- Left side of header   -->   
+            <drawString x="1.3cm" y="24.8cm">Via 4 Spine GmbH Am Holzweg 26, 65830 Kriftel</drawString>
+            <lines>1.2cm 24.7cm 10cm 24.7cm</lines>
+
             <!--page bottom-->
 
             <lines>1.2cm 2.15cm 19.9cm 2.15cm</lines>
@@ -36,5 +40,4 @@
         </pageGraphics>
     </pageTemplate>
 </header>
-
 Via 4 Spine GmbH. Amtgericht Frankfurt HRB80217, Geschäftsführer: Dr. Achim Weinfurth
