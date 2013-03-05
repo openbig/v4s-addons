@@ -28,7 +28,7 @@
 
 {
     "name" : "V4S - SALE",
-    "version" : "0.02 (6.1)",
+    "version" : "0.03 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
