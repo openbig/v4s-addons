@@ -151,7 +151,12 @@
             <xpath expr="//button[@string='Send New Email']" position="after">
                 <field name="opportunity_ids" colspan="4" nolabel="1" 
                     context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 
-                              'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s' }" />
+                              'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s',
+                              'search_default_new':1, 'search_default_open':1, 
+                              'search_default_section_id':section_id, 
+                              'stage_type': 'opportunity', 
+                              'default_type': 'opportunity' }"
+                              domain="[('type','=','opportunity')]"/>
             </xpath>
 
         </field>
