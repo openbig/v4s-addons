@@ -1,12 +1,16 @@
 <openerp>
     <data>
-
+    <!-- crm.lead Leads tree view -->
     <record model="ir.ui.view" id="crm_case_tree_view_leads_v4s">
         <field name="name">Leads</field>
         <field name="model">crm.lead</field>
         <field name="type">tree</field>
         <field name="inherit_id" ref="crm.crm_case_tree_view_leads"/>
         <field name="arch" type="xml">
+            <button name="case_open" position="replace" />
+            <button name="case_close" position="replace" />
+            <button name="case_escalate" position="replace" />
+            
             <field name="create_date" position="replace" >
                 <field name="write_date" />
             </field>
@@ -26,10 +30,10 @@
             <field name="phone" position="replace">
                 <field name="zip"/>
             </field>
-            
         </field>
     </record>
     
+    <!--  crm.lead Leads Form View    -->
     <record model="ir.ui.view" id="crm_case_form_view_leads_v4s">
         <field name="name">CRM - Leads Form</field>
         <field name="model">crm.lead</field>
@@ -139,11 +143,65 @@
                 <field name="phonecall" colspan="4" nolabel="1" />
             </field>
             
+            <field name="message_ids" position="after">
+                <field name="opportunity_ids" colspan="4" nolabel="1" 
+                    context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s' }" />
+            </field>
+            
+            <xpath expr="//button[@string='Send New Email']" position="after">
+                <field name="opportunity_ids" colspan="4" nolabel="1" 
+                    context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 
+                              'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s' }" />
+            </xpath>
 
         </field>
     </record>
-         
-        <!-- Opportunities Form View -->
+    
+    <!-- crm.lead Lead Search View -->
+    <record id="view_crm_case_leads_filter_v4s" model="ir.ui.view">
+        <field name="name">CRM - Leads Search</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+        <field name="type">search</field>
+        <field name="arch" type="xml">
+            <field name="section_id" position="replace" />
+            
+            <field name="country_id" position="replace">
+                <field name="city" />
+            </field>
+            <field name="name" position="after">
+                <field name="stage_id" />
+            </field>
+        </field>
+    </record>
+    
+     <!-- Opportunities Tree View -->
+    <record model="ir.ui.view" id="crm_case_tree_view_oppor_v4s">
+        <field name="name">Opportunities Tree</field>
+        <field name="model">crm.lead</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="crm.crm_case_tree_view_oppor"/>
+        <field name="arch" type="xml">
+            <field name="section_id" position="replace" />
+            <field name="name" position="replace" />
+            
+            <field name="create_date" position="before" >
+                <field name="prename" />
+                <field name="name" string="Opportunity" />
+            </field>
+            
+            <field name="planned_revenue" position="replace" >
+                <field name="zip" />
+            </field>
+            
+            <field name="probability" position="replace" >
+                <field name="city" />
+            </field>
+            
+        </field>
+    </record>
+    
+    <!-- Opportunities Form View -->
     <record model="ir.ui.view" id="crm_case_form_view_oppor_v4s">
         <field name="name">Opportunities</field>
         <field name="model">crm.lead</field>
@@ -268,10 +326,16 @@
                 <field name="phonecall" colspan="4" nolabel="1" />
             </field>
             
+            <xpath expr="//button[@string='Send New Email']" position="after">
+                <field name="opportunity_ids" colspan="4" nolabel="1" 
+                    context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 
+                              'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s' }" />
+            </xpath>
+            
         </field>
     </record>
     
-        <!-- CRM Lead Kanban View  -->
+        <!-- crm.lead Opportunities Kanban View  -->
     <record model="ir.ui.view" id="crm_case_kanban_view_leads_v4s">
         <field name="name">CRM - Leads Kanban</field>
         <field name="model">crm.lead</field>
@@ -298,11 +362,12 @@
             
             <xpath expr="//field[@name='company_currency']/.." position="replace" />
             
+            
         </field>
     </record>
 
     
-        <!-- crm.lead Opportunities Graph View -->
+   <!-- crm.lead Reporting -> Lead Analysis Graph View -->
     <record id="view_report_crm_opportunity_graph_v4s" model="ir.ui.view">
         <field name="name">crm.opportunity.report.graph</field>
         <field name="model">crm.lead.report</field>
@@ -328,19 +393,23 @@
         </field>
     </record>
     
-    <record id="view_crm_case_leads_filter_v4s" model="ir.ui.view">
-        <field name="name">CRM - Leads Search</field>
+    
+    <!--   crm.lead Opportunity search view   -->
+    <record id="view_crm_case_opportunities_filter_v4s" model="ir.ui.view">
+        <field name="name">CRM - Opportunities Search</field>
         <field name="model">crm.lead</field>
-        <field name="inherit_id" ref="crm.view_crm_case_leads_filter"/>
+        <field name="inherit_id" ref="crm.view_crm_case_opportunities_filter"/>
         <field name="type">search</field>
         <field name="arch" type="xml">
-            <field name="country_id" position="replace">
+            <field name="section_id" position="replace" />
+            
+            <field name="user_id" position="after" >
                 <field name="city" />
+                <field name="stage_id" />
             </field>
+            
         </field>
     </record>
-    
-    
     
     </data>
 </openerp>

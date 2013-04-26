@@ -37,7 +37,9 @@ sale_shop()
 class sale_order(osv.osv):
     _inherit ="sale.order"
     
-    
+    _columns = {
+        'valid_until' : fields.date("Valid Until"),
+    }
     def onchange_shop_id(self, cr, uid, ids, shop_id):
         res = super(sale_order, self).onchange_shop_id(cr, uid, ids, shop_id)        
         if not shop_id: return res

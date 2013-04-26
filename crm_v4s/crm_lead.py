@@ -44,8 +44,12 @@ class crm_lead(osv.osv):
         #'partner_address_website': fields.related('partner_id', 'website', type='char', size=64, string='Partner Webpage'),
         #'partner_address_category_id': fields.related('partner_id', 'category_id', type='one2many', string='Partner Category'),
         'phonecall' : fields.one2many('crm.phonecall', 'opportunity_id', 'Phone Calls', ),
-        
+    
+        # field for analysis
         'nbr' : fields.integer('# Opportunities'),
+        
+        'parent_id': fields.many2one('crm.lead', 'Parent', ondelete='cascade'),
+        'opportunity_ids': fields.one2many('crm.lead','parent_id','Opportunities'),
     }
     
     _defaults ={

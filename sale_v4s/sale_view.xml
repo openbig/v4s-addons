@@ -13,5 +13,23 @@
             </field>
         </record>
 
+        
+        <record id="view_order_form_v4s" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='shipped']/.." position="replace">
+                        <group col="4" colspan="2">
+                            <field name="invoiced"/>
+                            <field name="shipped"/>
+                            
+                            <field name="valid_until" colspan="4"/>
+                        </group>
+                </xpath>
+            </field>
+        </record>
+        
     </data>
 </openerp>
