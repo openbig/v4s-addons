@@ -82,6 +82,7 @@
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
@@ -211,10 +212,12 @@
             <para style="terp_default_9">[[ line.name ]]</para>
           </td>
           <td>
-            <para style="terp_default_Right_9">[[ formatLang(line.product_qty, digits=get_digits(dp='Product UoM') ) ]] [[ line.product_uom.name ]] </para>
+            <para style="P1">
+              <font face="Helvetica">[[ formatLang(line.product_qty, digits=0 ) ]] [[ line.product_uom.name ]] </font>
+            </para>
           </td>
           <td>
-            <para style="terp_default_Right_9">[[ formatLang(line.price_unit, digits=get_digits(dp='Purchase Price') ) ]]</para>
+            <para style="P1">[[ formatLang(line.price_unit, digits=get_digits(dp='Purchase Price') ) ]] [[ o.pricelist_id.currency_id.symbol ]]</para>
           </td>
           <td>
             <para style="terp_default_Right_9">[[ formatLang(line.price_subtotal, digits=get_digits(dp='Purchase Price') ) ]] [[ o.pricelist_id.currency_id.symbol ]]</para>
