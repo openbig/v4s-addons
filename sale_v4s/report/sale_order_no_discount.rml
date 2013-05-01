@@ -86,15 +86,8 @@
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
-    <paraStyle name="P1" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P2" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P3" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P4" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P5" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P6" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P7" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P8" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P9" fontName="Helvetica" fontSize="8.0" leading="10" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
@@ -137,14 +130,12 @@
     <blockTable colWidths="265.0,51.0,225.0" style="Table1">
       <tr>
         <td>
-          <para style="P1">
-            <font face="Helvetica" size="9.0">[[ (o.partner_id and o.partner_id.company_ext) or '' ]]</font>
-          </para>
-          <para style="P2">[[ (o.partner_id and o.partner_id.department_company_ext) or '' ]]</para>
-          <para style="P2">[[ (o.partner_id and o.partner_id.title and o.partner_id.title.name) or '' ]] [[ (o.partner_id and o.partner_id.prename) or '' ]] [[ (o.partner_id and o.partner_id.name) or '' ]]</para>
-          <para style="P3">[[ (o. partner_shipping_id and o.partner_shipping_id.street) or '' ]]</para>
-          <para style="P3">[[ (o. partner_shipping_id and o.partner_shipping_id.street2) or removePartentNode('para') ]]</para>
-          <para style="P4">[[ (o. partner_shipping_id and o.partner_shipping_id.zip) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.city) or '' ]]</para>
+          <para style="P1">[[ (o.partner_id and o.partner_id.company_ext) or '' ]]</para>
+          <para style="P1">[[ (o.partner_id and o.partner_id.department_company_ext) or '' ]]</para>
+          <para style="P1">[[ (o.partner_id and o.partner_id.title and o.partner_id.title.name) or '' ]] [[ (o.partner_id and o.partner_id.prename) or '' ]] [[ (o.partner_id and o.partner_id.name) or '' ]]</para>
+          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.street) or '' ]]</para>
+          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.street2) or removePartentNode('para') ]]</para>
+          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.zip) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.city) or '' ]]</para>
         </td>
         <td>
           <para style="terp_default_8">
@@ -198,9 +189,7 @@
           <para style="terp_default_Centre_8">[[ (o.user_id and o.user_id.name) or '' ]]</para>
         </td>
         <td>
-          <para style="P9">
-            <font face="Helvetica">[[ formatLang(o.valid_until,date = True) ]]</font>
-          </para>
+          <para style="terp_default_Centre_8">[[ formatLang(o.valid_until,date = True) ]]</para>
         </td>
       </tr>
     </blockTable>
@@ -237,14 +226,10 @@
             <para style="terp_default_Centre_9">[[ ', '.join(map(lambda x: x.name, line.tax_id)) ]]</para>
           </td>
           <td>
-            <para style="P6">
-              <font face="Helvetica">[[ formatLang(line.product_uos and line.product_uos_qty or line.product_uom_qty, digits=0) ]] [[ line.product_uos and line.product_uos.name or line.product_uom.name ]] </font>
-            </para>
+            <para style="terp_default_Right_9">[[ formatLang(line.product_uos and line.product_uos_qty or line.product_uom_qty, digits=0) ]] [[ line.product_uos and line.product_uos.name or line.product_uom.name ]] </para>
           </td>
           <td>
-            <para style="P5">
-              <font face="Helvetica">[[ formatLang(line.price_unit ) ]] [[ o.pricelist_id.currency_id. symbol ]]</font>
-            </para>
+            <para style="terp_default_Right_9">[[ formatLang(line.price_unit ) ]] [[ o.pricelist_id.currency_id. symbol ]]</para>
           </td>
           <td>
             <para style="terp_default_Right_9">[[ formatLang(line.price_subtotal, digits=get_digits(dp='Sale Price')) ]] [[ o.pricelist_id.currency_id.symbol ]]</para>
@@ -280,8 +265,8 @@
     <blockTable colWidths="320.0,122.0,94.0" style="Table6">
       <tr>
         <td>
-          <para style="P8">
-            <font face="Helvetica"/>
+          <para style="terp_default_9">
+            <font color="white"> </font>
           </para>
         </td>
         <td>
@@ -334,13 +319,12 @@
     <para style="terp_default_8">
       <font color="white"> </font>
     </para>
-    <para style="P7">Payment Terms:</para>
-    <para style="P7">[[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
-    <para style="P7">
+    <para style="terp_default_9">Payment Terms:</para>
+    <para style="terp_default_9">[[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
+    <para style="terp_default_9">
       <font color="white"> </font>
     </para>
-    <para style="P7">All prices excluding VAT.</para>
-    <para style="P7">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
+    <para style="terp_default_9">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
   </story>
 </document>
 

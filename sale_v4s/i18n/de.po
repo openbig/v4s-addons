@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120804-232000\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-28 19:48+0000\n"
-"PO-Revision-Date: 2013-02-28 21:15+0100\n"
+"POT-Creation-Date: 2013-05-01 15:14+0000\n"
+"PO-Revision-Date: 2013-05-01 17:14+0100\n"
 "Last-Translator: Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>\n"
 "Language-Team: OpenGLOBE\n"
 "Language: \n"
@@ -19,6 +19,12 @@ msgstr ""
 #: sql_constraint:sale.order:0
 msgid "Order Reference must be unique per Company!"
 msgstr "Die Auftragsnummer muss eindeutig sein !"
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Payment Terms:"
+msgstr "Zahlungsbedinungen:"
 
 #. module: sale_v4s
 #: help:sale.shop,set_mto:0
@@ -46,25 +52,19 @@ msgstr "Rb. (%)"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Description"
-msgstr "Beschreibung"
+msgstr "Artikel"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Our Salesman"
-msgstr "Verkäufer"
+msgid "Price"
+msgstr "Gesamtpreis"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Total :"
 msgstr "Bruttosumme :"
-
-#. module: sale_v4s
-#: report:sale_v4s.sale_order_no_disocunt_v4s:0
-#: report:sale_v4s.sale_order_v4s:0
-msgid "VAT"
-msgstr "Ust."
 
 #. module: sale_v4s
 #: model:ir.model,name:sale_v4s.model_sale_shop
@@ -75,6 +75,12 @@ msgstr "Vertriebsshop"
 #: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_no_discount_v4s
 msgid "Quotation V4S (No Discount)"
 msgstr "Auftrag V4S (ohne Rabatt)"
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "All prices excluding VAT."
+msgstr "Alle o.g. Preise verstehen sich rein netto zzgl. MwSt."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
@@ -96,14 +102,20 @@ msgstr "Beschaffe von Auftrag (MTO)"
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Payment Terms"
-msgstr "Zahlungsbedingung"
+msgid "VAT"
+msgstr "Ust."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Quantity"
 msgstr "Menge"
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
+msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
@@ -116,6 +128,13 @@ msgstr "Ihre Referenz"
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Quotation Date"
 msgstr "Datum Angebot"
+
+#. module: sale_v4s
+#: field:sale.order,valid_until:0
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Valid Until"
+msgstr "Bindefrist"
 
 #. module: sale_v4s
 #: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
@@ -141,8 +160,8 @@ msgstr "Verkauf Auftrag"
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Price"
-msgstr "Preis"
+msgid "Our Salesman"
+msgstr "Verkäufer"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0

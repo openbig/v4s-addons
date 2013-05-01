@@ -21,7 +21,7 @@
 ##################################################################################
 {
 	"name" : "Product Pack",
-	"version" : "0.3",
+	"version" : "0.4 (6.1)",
 	"description" : """
 Based on the NAN_product_pack this module allows configuring products as a collection of other products.
 If such a product is added in a sale order or a purchase order, all the products of the pack will be added

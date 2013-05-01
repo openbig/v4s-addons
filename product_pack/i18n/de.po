@@ -62,7 +62,7 @@ msgstr "Positionen eines Produktpacks"
 #. module: product_pack
 #: view:product.product:0
 msgid "If you add products in the 'Pack Products' field, all those products will be added automatically when a new quotation or order is created."
-msgstr "Wenn Komponenten über das 'Produkt Pack' Feld zugeweisen werden, werden diese bei einem neuen Angebot oder Auftrag positionsweise aufgelöst."
+msgstr "Wenn Sie unten alle Komponenten für das Pack anlegen, werden diese bei einem neuen Angebot oder Auftrag Zeile für Zeile aufgelöst."
 
 #. module: product_pack
 #: help:purchase.order.line,pack_parent_line_id:0

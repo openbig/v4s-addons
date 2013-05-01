@@ -81,14 +81,7 @@
     </initialize>
     <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P2" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P3" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P5" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P6" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P7" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P9" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P10" fontName="Helvetica" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P3" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
@@ -125,28 +118,16 @@
   </stylesheet>
   <story>
     <para style="terp_default_8">[[repeatIn(objects,'picking')]] </para>
-    <para style="P8">[[ setLang(picking .partner_id.lang) ]]</para>
+    <para style="terp_default_8">[[ setLang(picking.partner_id.lang) ]]</para>
     <blockTable colWidths="269.0,269.0" style="Table_Address_detail">
       <tr>
         <td>
-          <para style="P7">
-            <font face="Helvetica">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.company_ext) or '' ]]</font>
-          </para>
-          <para style="P7">
-            <font face="Helvetica">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.department_company_ext) or '' ]]</font>
-          </para>
-          <para style="P7">
-            <font face="Helvetica">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.title and picking.address_id.partner_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.name) or '' ]]</font>
-          </para>
-          <para style="P7">
-            <font face="Helvetica">[[ (picking.address_id and picking.address_id.street) or '' ]]</font>
-          </para>
-          <para style="P7">
-            <font face="Helvetica">[[ (picking.address_id and picking.address_id.street2) or removePartentNode('para') ]]</font>
-          </para>
-          <para style="P7">
-            <font face="Helvetica">[[ (picking.address_id and picking.address_id.zip) or '' ]] [[ (picking.address_id and picking.address_id.city) or '' ]]</font>
-          </para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.company_ext) or '' ]]</para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.department_company_ext) or '' ]]</para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.title and picking.address_id.partner_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.name) or '' ]]</para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.street) or '' ]]</para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.street2) or removePartentNode('para') ]]</para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.zip) or '' ]] [[ (picking.address_id and picking.address_id.city) or '' ]]</para>
         </td>
         <td>
           <para style="terp_default_Bold_9">
@@ -239,9 +220,7 @@
             <para style="terp_default_Centre_9">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
           </td>
           <td>
-            <para style="P10">
-              <font face="Helvetica">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</font>
-            </para>
+            <para style="terp_default_Right_9">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
           </td>
         </tr>
       </blockTable>
@@ -265,9 +244,7 @@
             <para style="terp_default_Centre_9">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
           </td>
           <td>
-            <para style="P10">
-              <font face="Helvetica">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</font>
-            </para>
+            <para style="terp_default_Right_9">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
           </td>
         </tr>
       </blockTable>
@@ -278,20 +255,19 @@
     <para style="terp_default_2">
       <font color="white"> </font>
     </para>
-    <para style="P9">
+    <para style="P2">
       <font color="white"> </font>
     </para>
-    <para style="P9">
+    <para style="P2">
       <font color="white"> </font>
     </para>
-    <para style="P9">
+    <para style="P2">
       <font color="white"> </font>
     </para>
-    <para style="P9">
+    <para style="P2">
       <font color="white"> </font>
     </para>
-    <para style="P2">All prices excluding VAT.</para>
-    <para style="P1">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
+    <para style="P3">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
   </story>
 </document>
 

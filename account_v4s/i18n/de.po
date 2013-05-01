@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: account_v4s\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-03-05 18:50+0000\n"
-"PO-Revision-Date: 2013-03-05 19:52+0100\n"
+"PO-Revision-Date: 2013-05-01 16:53+0100\n"
 "Last-Translator: Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>\n"
 "Language-Team: OpenGLOBE <contact@openglobe.pl>\n"
 "Language: \n"
@@ -59,12 +59,12 @@ msgstr "Steuern:"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Description"
-msgstr "Kundenreferenz"
+msgstr "Artikel"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Price"
-msgstr "Preis"
+msgstr "Gesamtpreis"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
@@ -89,12 +89,12 @@ msgstr "Bruttosumme:"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "All prices excluding VAT."
-msgstr "Alle o.g. Preise verstehen sich sein netto zzgl. MwST."
+msgstr "Alle o.g. Preise verstehen sich rein netto zzgl. MwSt."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Taxes"
-msgstr "Steuern"
+msgstr "Ust."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
