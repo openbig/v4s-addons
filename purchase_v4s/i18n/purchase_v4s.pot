@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120804-232000\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-28 14:39+0000\n"
-"PO-Revision-Date: 2013-02-28 14:39+0000\n"
+"POT-Creation-Date: 2013-05-01 14:15+0000\n"
+"PO-Revision-Date: 2013-05-01 14:15+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,11 +28,6 @@ msgstr ""
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Purchase Order Confirmation N°"
-msgstr ""
-
-#. module: purchase_v4s
-#: report:purchase_v4s.purchase_order_v4s:0
-msgid "Shipping address :"
 msgstr ""
 
 #. module: purchase_v4s

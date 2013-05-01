@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120804-232000\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-28 14:43+0000\n"
-"PO-Revision-Date: 2013-02-28 14:43+0000\n"
+"POT-Creation-Date: 2013-05-01 14:17+0000\n"
+"PO-Revision-Date: 2013-05-01 14:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -22,7 +22,12 @@ msgstr ""
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
-msgid "Total"
+msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
+msgstr ""
+
+#. module: stock_v4s
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
 msgstr ""
 
 #. module: stock_v4s
@@ -42,17 +47,12 @@ msgstr ""
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+msgid "All prices excluding VAT."
+msgstr ""
+
+#. module: stock_v4s
+#: report:stock_v4s.picking_v4s:0
 msgid "]"
-msgstr ""
-
-#. module: stock_v4s
-#: report:stock_v4s.picking_v4s:0
-msgid "Shipping Address :"
-msgstr ""
-
-#. module: stock_v4s
-#: report:stock_v4s.picking_v4s:0
-msgid "Order Date"
 msgstr ""
 
 #. module: stock_v4s
@@ -61,8 +61,19 @@ msgid "Expected Shipping Date"
 msgstr ""
 
 #. module: stock_v4s
+#: field:stock.picking,create_uid:0
+#: field:stock.picking,write_uid:0
+msgid "Warehouse Worker"
+msgstr ""
+
+#. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Order(Origin)"
+msgstr ""
+
+#. module: stock_v4s
+#: model:ir.model,name:stock_v4s.model_stock_picking
+msgid "Picking List"
 msgstr ""
 
 #. module: stock_v4s
