@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #    Module account_v4s
 #    Copyrigt (C) 2010 OpenGLOBE Grzegorz Grzelak (www.openglobe.pl)
-#                      and big-consulting GmbH (www.openbig.de)
+#                       and big-consulting GmbH (www.openbig.de)
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -19,26 +19,17 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-{
-    "name" : "V4S - Account",
-    "version" : "0.05 (6.1)",
-    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
-    "website": "http://www.openbig.org",
-    "category" : "Localisation/Country specific stuff",
-    "description": """
-    Account customization for via4spine.
-    * invoice report changed
-    * write_uid suer added to account.invoice (0.05)
-    """,
-    "depends" : ["account"],
-    "demo_xml" : [],
-    "update_xml" : [
-            "report/account_print_invoice.xml",
-                    ],
-    "active": False,
-    "installable": True
-}
+
+from osv import fields, osv, orm
+#from tools.translate import _
+
+class account_invoice(osv.osv):
+    _inherit = "account.invoice"
+    _columns = {
+        'write_uid': fields.many2one('res.users', 'Last Editor', readonly=True, states={'draft':[('readonly',False)]}),
+    }
+account_invoice()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

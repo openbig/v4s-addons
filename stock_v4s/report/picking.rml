@@ -209,9 +209,7 @@
       <blockTable colWidths="95.0,249.0,89.0,89.0" style="Move_Line_Contect_Assign_State">
         <tr>
           <td>
-            <para style="terp_default_9">
-              <font color="white"> </font>
-            </para>
+            <para style="terp_default_9">[[ move_lines.product_id.seller_id and move_lines.product_id.seller_id.name or '' ]]</para>
           </td>
           <td>
             <para style="terp_default_9"><font face="Helvetica" size="9.0">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ]</font> [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']] </para>
@@ -233,9 +231,7 @@
       <blockTable colWidths="95.0,248.0,89.0,88.0" style="Table1">
         <tr>
           <td>
-            <para style="terp_default_9">
-              <font color="white"> </font>
-            </para>
+            <para style="terp_default_9">[[ move_lines.product_id.seller_id and move_lines.product_id.seller_id.name or '' ]]</para>
           </td>
           <td>
             <para style="terp_default_9"><font face="Helvetica" size="9.0">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ]</font> [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']]</para>
