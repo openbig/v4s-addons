@@ -58,7 +58,7 @@ msgstr "Anmerkungen"
 #. module: crm_v4s
 #: view:crm.lead:0
 msgid "Partner Name"
-msgstr "Partnerlink"
+msgstr "Partner"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -133,7 +133,7 @@ msgstr "Unternehmen"
 #. module: crm_v4s
 #: view:crm.lead:0
 msgid "Customer"
-msgstr "Partner"
+msgstr "Partnerlink"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -143,7 +143,7 @@ msgstr "Anmerkungen"
 #. module: crm_v4s
 #: field:crm.lead,partner_address_website:0
 msgid "Partner Webpage"
-msgstr "Webpage"
+msgstr "Internetseite"
 
 #. module: crm_v4s
 #: view:crm.lead:0
