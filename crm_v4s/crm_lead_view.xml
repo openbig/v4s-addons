@@ -191,7 +191,7 @@
             <field name="name" position="replace" />
             
             <field name="create_date" position="before" >
-                <field name="prename" />
+                <field name="contact_name" />
                 <field name="name" string="Opportunity" />
             </field>
             
