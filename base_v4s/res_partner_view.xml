@@ -11,7 +11,7 @@
                 <field name="website"   position="replace" />
                 <page string="Notes"    position="replace"/>
                 <field name="title"     position="replace" />
-                
+                <!--
                 <xpath expr="/form/notebook/page/field[@name='address']/form/group[@col='6']" position="replace">
                     <group colspan="4" col="4">
                         <field name="name" string="Contact Name"/>
@@ -49,8 +49,68 @@
                             <separator colspan="4" string="Categories"/>
                             <field  colspan="4" name="category_id" nolabel="1"/>
                     </group>
-                </xpath>
+                </xpath>-->
                 
+                    <page string="General" position="replace">
+                    <page string="General">
+                        <field colspan="4" mode="form,tree" name="address" nolabel="1" select="1" height="260">
+                            <form string="Partner Contacts">
+                                <group colspan="2" col="4">
+                                    <separator string="Contact" colspan="4" col="4"/>
+                                    <field name="name" string="Contact Name" colspan="4" />
+                                    <field name="prename" colspan="4" />
+                                    <newline/>
+                                    <field domain="[('domain', '=', 'contact')]" name="title" widget="selection"/>
+                                    <field name="function" />
+                                    <field name="company_ext" />
+                                    <field name="department_company_ext" />
+                                    <field name="street" colspan="4"/>
+                                    <field name="street2" colspan="4"/>
+                                    <field name="zip"/>
+                                    <field name="city"/>
+                                    <field name="country_id" completion="1"/>
+                                    <field name="state_id"/>   
+                                    <field name="type" string="Type" colspan="4" />
+                                </group>
+                                <group colspan="2" col="3">
+                                    <separator string="Communication" colspan="4" col="3"/>
+                                    <field name="email" widget="email" string="Email"  />
+                                    <newline/>
+                                    <field name="phone" />
+                                    <newline/>
+                                    <field name="phone2" />
+                                    <newline/>
+                                    <field name="fax"/>
+                                    <newline/>
+                                    <field name="mobile"/>
+                                    <newline/>
+                                    <field name="website"  widget="url" /> 
+                                    <newline/>
+                                    <field name="birthday_communication"  />
+                                    <newline/>
+                                    <field name="title_communication" />
+                                </group>
+                            </form>
+                            <tree string="Partner Contacts">
+                                <field name="name"/>
+                                <field name="zip"/>
+                                <field name="city"/>
+                                <field name="country_id"/>
+                                <field name="phone"/>
+                                <field name="email"/>
+                            </tree>
+                        </field>
+                        <group colspan="2" col="2">
+                                <separator colspan="4" string="Details"/>
+                                <field name="description" nolabel="1" colspan="4"/>
+                        </group>
+                        <group  colspan="2" col="2" groups="base.group_extended">
+                                <separator colspan="4" string="Categories"/>
+                                <field  colspan="4" name="category_id" nolabel="1"/>
+                        </group>
+                    </page>
+                    </page>
+                    
             </field>
         </record>
         
