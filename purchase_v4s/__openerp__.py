@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Purchase",
-    "version" : "0.04 (6.1)",
+    "version" : "0.05 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -36,6 +36,7 @@
     "demo_xml" : [],
     "update_xml" : [
             "report/purchase_report.xml",
+            "purchase_view.xml",
                     ],
     "active": False,
     "installable": True
