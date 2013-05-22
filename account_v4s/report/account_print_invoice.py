@@ -81,11 +81,18 @@ class account_invoice(report_sxw.rml_parse):
 #                    logger.warn("res: %s", res[0])
                     so = self.pool.get('sale.order').browse(self.cr, self.uid, res[0])
                     address = so.partner_shipping_id
-                    res_address = address.partner_id.name + '\n' + address.name + '\n' + address.street + '\n' + \
-                            address.zip + ' ' + address.city + '\n' + (address.country_id and address.country_id.name or '')
+                    res_address = ''
+                    res_address+=  (address.partner_id and address.partner_id.company_ext and address.partner_id.company_ext+'\n') or '' 
+                    res_address+=  (address.partner_id and address.partner_id.department_company_ext and address.partner_id.department_company_ext+'\n') or '' 
+                    res_address+=  ((address.title and address.title.name and address.title.name+' ') or '') + ((address.prename and address.prename+' ') or '') + ((address.name) or '') 
+                    if address.title.name or address.prename or address.name: res_address+='\n'
+                    res_address+=  (address.street and address.street+'\n') or '' 
+                    res_address+=  (address.street2 and address.street2+'\n') or '' 
+                    res_address+=  ((address.zip and address.zip+' ') or '')  + ((address.city and address.city+'\n') or '')
+                    #res_address = address.partner_id.name + '\n'\ + address.name + '\n' + address.street + '\n' + \
+                            #address.zip + ' ' + address.city + '\n' + (address.country_id and address.country_id.name or '')
 #                    logger.warn("addres: %s", res_address)
         return res_address
-
 
 #        elif invoice.type == 'in_invoice':
 #            if self.pool.get("purchase.order"):

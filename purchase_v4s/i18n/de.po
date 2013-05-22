@@ -37,7 +37,7 @@ msgstr "Lieferanschrift"
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
 msgid "Order Date"
-msgstr "Datum Bestellung"
+msgstr "Auftragsdatum"
 
 #. module: purchase_v4s
 #: report:purchase_v4s.purchase_order_v4s:0
