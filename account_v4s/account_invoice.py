@@ -30,6 +30,7 @@ class account_invoice(osv.osv):
     _inherit = "account.invoice"
     _columns = {
         'write_uid': fields.many2one('res.users', 'Last Editor', readonly=True, states={'draft':[('readonly',False)]}),
+        'client_order_ref': fields.char('Customer Reference', size=64),
     }
 account_invoice()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

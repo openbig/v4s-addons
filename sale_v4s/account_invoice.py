@@ -4,7 +4,7 @@
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
-#    Module stock_v4s
+#    Module account_v4s
 #    Copyrigt (C) 2010 OpenGLOBE Grzegorz Grzelak (www.openglobe.pl)
 #                       and big-consulting GmbH (www.openbig.de)
 #
@@ -23,17 +23,17 @@
 #
 ##############################################################################
 
-from osv import osv, fields
+from osv import fields, osv, orm
+#from tools.translate import _
 
-class stock_picking(osv.osv):
-    _inherit = 'stock.picking'
+class account_invoice(osv.osv):
+    _inherit = "account.invoice"
     _columns = {
-        'create_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
-        'write_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
+        'write_uid': fields.many2one('res.users', 'Last Editor', readonly=True, states={'draft':[('readonly',False)]}),
+        'client_order_ref': fields.char('Customer Reference', size=64),
     }
     
-        
+
       
-      
-stock_picking()
+account_invoice()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

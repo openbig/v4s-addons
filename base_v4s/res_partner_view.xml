@@ -123,6 +123,9 @@
                     <field name="email" position="after">
                         <field name="zip" />
                     </field>
+                    <field name="user_id" position="after">
+                        <field name="type" string="Type" />
+                    </field>
                 </field>
         </record>
 

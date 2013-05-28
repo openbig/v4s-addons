@@ -51,6 +51,7 @@ class res_partner(osv.osv):
     _columns = {
         'description': fields.text('Notes'),
         'prename': fields.related('address', 'prename', type='char', string='Prename'),
+        'type': fields.related('address', 'type', type='char', string='Address Type'),
         'phone2': fields.related('address', 'phone2', type='char', string='Phone2'),
         'street': fields.related('address', 'street', type='char', string='Street'),    
         'zip': fields.related('address', 'zip', type='char', string='Zip'),

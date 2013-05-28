@@ -28,6 +28,11 @@
                             <field name="valid_until" colspan="4"/>
                         </group>
                 </xpath>
+                
+                <xpath expr="//field[@name='note']" position="after" >
+                    <separator colspan="4" string="Notes on Top"/>
+                    <field colspan="4" name="note2" nolabel="1"/>
+                </xpath>
             </field>
         </record>
         

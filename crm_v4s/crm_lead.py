@@ -48,8 +48,8 @@ class crm_lead(osv.osv):
         # field for analysis
         'nbr' : fields.integer('# Opportunities'),
         
-        'parent_id': fields.many2one('crm.lead', 'Parent', ondelete='cascade'),
-        'opportunity_ids': fields.one2many('crm.lead','parent_id','Opportunities'),
+        #'parent_id': fields.many2one('crm.lead', 'Parent', ondelete='cascade'),
+        #'opportunity_ids': fields.one2many('crm.lead','parent_id','Opportunities'),
     }
     
     _defaults ={

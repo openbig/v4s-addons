@@ -143,12 +143,12 @@
                 <field name="phonecall" colspan="4" nolabel="1" />
             </field>
             
-            <field name="message_ids" position="after">
+            <!--<field name="message_ids" position="after">
                 <field name="opportunity_ids" colspan="4" nolabel="1" 
                     context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s' }" />
             </field>
-            
-            <xpath expr="//button[@string='Send New Email']" position="after">
+            -->
+            <!--<xpath expr="//button[@string='Send New Email']" position="after">
                 <field name="opportunity_ids" colspan="4" nolabel="1" 
                     context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 
                               'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s',
@@ -157,7 +157,7 @@
                               'stage_type': 'opportunity', 
                               'default_type': 'opportunity' }"
                               domain="[('type','=','opportunity')]"/>
-            </xpath>
+            </xpath>-->
 
         </field>
     </record>
@@ -331,11 +331,11 @@
                 <field name="phonecall" colspan="4" nolabel="1" />
             </field>
             
-            <xpath expr="//button[@string='Send New Email']" position="after">
+            <!--<xpath expr="//button[@string='Send New Email']" position="after">
                 <field name="opportunity_ids" colspan="4" nolabel="1" 
                     context="{'tree_view_ref': 'crm_v4s.crm_case_tree_view_oppor_v4s', 
                               'form_view_ref': 'crm_v4s.crm_case_form_view_oppor_v4s' }" />
-            </xpath>
+            </xpath-->
             
         </field>
     </record>

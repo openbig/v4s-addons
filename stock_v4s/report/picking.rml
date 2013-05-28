@@ -82,6 +82,7 @@
     <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P2" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P3" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" rightIndent="0.0" leftIndent="15.0" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
@@ -124,7 +125,7 @@
         <td>
           <para style="P1">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.company_ext) or '' ]]</para>
           <para style="P1">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.department_company_ext) or '' ]]</para>
-          <para style="P1">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.title and picking.address_id.partner_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.name) or '' ]]</para>
+          <para style="P1">[[ (picking.address_id and picking.address_id.title and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]]</para>
           <para style="P1">[[ (picking.address_id and picking.address_id.street) or '' ]]</para>
           <para style="P1">[[ (picking.address_id and picking.address_id.street2) or removePartentNode('para') ]]</para>
           <para style="P1">[[ (picking.address_id and picking.address_id.zip) or '' ]] [[ (picking.address_id and picking.address_id.city) or '' ]]</para>
@@ -171,7 +172,7 @@
     <blockTable colWidths="131.0,131.0,131.0,131.0" style="Content_Order_Reference_Table">
       <tr>
         <td>
-          <para style="terp_default_Centre_8">[[ picking.origin or '']]</para>
+          <para style="terp_default_Centre_8">[[ picking.client_order_ref or '']]</para>
         </td>
         <td>
           <para style="terp_default_Centre_8">[[ (picking.address_id and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]] </para>
@@ -184,6 +185,10 @@
         </td>
       </tr>
     </blockTable>
+    <para style="terp_default_5cm_Above_Space">
+      <font color="white"> </font>
+    </para>
+    <para style="P4">[[ (picking .note and format(picking .note )) or removeParentNode('para') ]]</para>
     <para style="terp_default_5cm_Above_Space">
       <font color="white"> </font>
     </para>
