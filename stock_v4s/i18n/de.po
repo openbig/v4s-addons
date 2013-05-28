@@ -28,7 +28,7 @@ msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis 
 #. module: stock_v4s
 #: sql_constraint:stock.picking:0
 msgid "Reference must be unique per Company!"
-msgstr ""
+msgstr "Die Referenz muss eindeutig sein!"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -58,13 +58,13 @@ msgstr ""
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Expected Shipping Date"
-msgstr "Lieferdatum"
+msgstr "Auftragsdatum"
 
 #. module: stock_v4s
 #: field:stock.picking,create_uid:0
 #: field:stock.picking,write_uid:0
 msgid "Warehouse Worker"
-msgstr ""
+msgstr "Lagerist"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -90,7 +90,7 @@ msgstr "Menge"
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Prepared by:"
-msgstr "Bearbeiter"
+msgstr "Bearbeiter:"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
