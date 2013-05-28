@@ -35,7 +35,7 @@ msgstr "Durch Aktivierung wird beim Verkauf das Feld \"Dispositionsmethode\" auf
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Unit Price"
-msgstr "Einzelpreis"
+msgstr "Preis"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
@@ -58,7 +58,7 @@ msgstr "Artikel"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Price"
-msgstr "Gesamtpreis"
+msgstr "Gesamt"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
