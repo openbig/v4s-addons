@@ -20,6 +20,7 @@
             </field>
             
             <field name="name" position="after" >
+                <field name="department_company_ext" />                
                 <field name="prename" />
             </field>
             
@@ -29,6 +30,12 @@
             
             <field name="phone" position="replace">
                 <field name="zip"/>
+            </field>
+            
+            <field name="stage_id" position="after">
+                <button name="case_open" string="Open"
+                    states="draft,pending" type="object"
+                    icon="gtk-go-forward" />     
             </field>
         </field>
     </record>
@@ -176,7 +183,10 @@
             </field>
             <field name="name" position="after">
                 <field name="stage_id" />
+                <field name="contact_name"/>
             </field>
+            
+            
         </field>
     </record>
     
@@ -190,8 +200,12 @@
             <field name="section_id" position="replace" />
             <field name="name" position="replace" />
             
+            <field name="partner_id" position="replace" >
+                <field name="partner_id" invisible="1" />
+                <field name="partner_name" />
+            </field>
+            
             <field name="create_date" position="before" >
-                <field name="contact_name" />
                 <field name="name" string="Opportunity" />
             </field>
             
@@ -202,6 +216,11 @@
             <field name="probability" position="replace" >
                 <field name="city" />
             </field>
+            
+            <field name="date_action" position="before" >
+                <field name="contact_name" />
+            </field>
+
             
         </field>
     </record>
@@ -364,6 +383,8 @@
             <xpath expr="//field[@name='partner_id']" position="replace" >
                 <field name="partner_name"/>
             </xpath>
+            
+            <xpath expr="//field[@name='partner_address_name']/../.." position="replace" />
             
             <xpath expr="//field[@name='company_currency']/.." position="replace" />
             

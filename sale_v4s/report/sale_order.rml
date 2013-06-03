@@ -81,13 +81,28 @@
       <lineStyle kind="LINEABOVE" colorName="#000000" start="1,2" stop="1,2"/>
       <lineStyle kind="LINEABOVE" colorName="#000000" start="2,2" stop="2,2"/>
     </blockTableStyle>
+    <blockTableStyle id="Table9">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#000000" start="2,-1" stop="2,-1"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table7">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+      <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="0,-1" stop="0,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="1,-1" stop="1,-1"/>
+      <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="2,-1" stop="2,-1"/>
+    </blockTableStyle>
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
     <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P2" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P3" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
-    <paraStyle name="P4" rightIndent="4.0" leftIndent="0.0" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P3" rightIndent="4.0" leftIndent="0.0" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
@@ -201,7 +216,7 @@
     <para style="terp_default_8">
       <font color="white"> </font>
     </para>
-    <blockTable colWidths="202.0,94.0,68.0,58.0,51.0,63.0" repeatRows="1" style="Table4">
+    <blockTable colWidths="202.0,94.0,53.0,73.0,51.0,63.0" repeatRows="1" style="Table4">
       <tr>
         <td>
           <para style="terp_tblheader_Details">Description</para>
@@ -216,16 +231,16 @@
           <para style="terp_tblheader_Details_Right">Unit Price</para>
         </td>
         <td>
-          <para style="P4">Disc.(%)</para>
+          <para style="P3">Disc.(%)</para>
         </td>
         <td>
-          <para style="P3">Price</para>
+          <para style="P2">Price</para>
         </td>
       </tr>
     </blockTable>
     <section>
       <para style="terp_default_1">[[repeatIn(o.order_line,'line')]]</para>
-      <blockTable colWidths="203.0,94.0,58.0,70.0,42.0,70.0" style="Table5">
+      <blockTable colWidths="203.0,94.0,53.0,73.0,51.0,63.0" style="Table5">
         <tr>
           <td>
             <para style="terp_default_9">[[ line.name ]] </para>
@@ -278,7 +293,7 @@
         </tr>
       </blockTable>
     </section>
-    <blockTable colWidths="326.0,116.0,94.0" style="Table6">
+    <blockTable colWidths="326.0,95.0,115.0" style="Table6">
       <tr>
         <td>
           <para style="terp_default_9">
@@ -323,6 +338,51 @@
       <font color="white"> </font>
     </para>
     <para style="terp_default_8">
+      <font color="white"> </font>
+    </para>
+    <para style="terp_default_8">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="209.0,72.0,72.0,186.0" style="Table9">
+      <tr>
+        <td>
+          <para style="terp_tblheader_Details">Tax [[ check_taxes(o.id)==False and removeParentNode('blockTable') ]]</para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">Base </para>
+        </td>
+        <td>
+          <para style="terp_tblheader_Details_Right">Amount </para>
+        </td>
+        <td>
+          <para style="terp_default_8">
+            <font color="white"> </font>
+          </para>
+        </td>
+      </tr>
+    </blockTable>
+    <section>
+      <para style="terp_default_2">[[ repeatIn(get_taxes(o.id).values(),'t') ]]</para>
+      <blockTable colWidths="208.0,72.0,72.0,187.0" style="Table7">
+        <tr>
+          <td>
+            <para style="P5">[[ t[2].split('-')[0] ]]</para>
+          </td>
+          <td>
+            <para style="terp_default_Right_8">[[ formatLang(t[0], digits=get_digits(dp='Sale Price')) ]] [[ o.pricelist_id.currency_id. symbol ]]</para>
+          </td>
+          <td>
+            <para style="terp_default_Right_8">[[ formatLang(t[1], digits=get_digits(dp='Sale Price')) ]] [[ o.pricelist_id.currency_id. symbol ]]</para>
+          </td>
+          <td>
+            <para style="terp_default_8">
+              <font color="white"> </font>
+            </para>
+          </td>
+        </tr>
+      </blockTable>
+    </section>
+    <para style="terp_default_9">
       <font color="white"> </font>
     </para>
     <para style="terp_default_9">[[ (o.note and format(o.note )) or removeParentNode('para') ]]</para>

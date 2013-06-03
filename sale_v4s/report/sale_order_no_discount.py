@@ -32,7 +32,39 @@ class order(report_sxw.rml_parse):
         super(order, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
+            'check_taxes': self.check_taxes,
+            'get_taxes': self.get_taxes,
         })
+        
+    # function checks taxes in sale order line. If find any, return true    
+    def check_taxes(self, order):
+        sale_brw = self.pool.get('sale.order').browse(self.cr, self.uid, order)
+        for line in sale_brw.order_line:
+            if line.tax_id: return True
+        return False
+    
+    # function compute taxes in order line
+    # return { 'tax_id' : [ uncomputed_value, taxed_value ] }
+    def get_taxes(self, order):
+        sale_brw = self.pool.get('sale.order').browse(self.cr, self.uid, order)
+        tax_ids = {}
+        for line in sale_brw.order_line:
+            if line.tax_id:
+                taxes = self.pool.get('account.tax').compute_all(self.cr, self.uid, line.tax_id, line.price_unit * (1-(line.discount or 0.0)/100.0), line.product_uom_qty, line.order_id.partner_invoice_id.id, line.product_id, line.order_id.partner_id)['taxes']
+                #print taxes
+                for tax in taxes:
+                    tax_id = tax['id']
+                    if not tax_ids.has_key(tax['id']):
+                        tax_ids[tax['id']] = [0,0, tax['name']]
+                        
+                    tax_ids[tax['id']][0] += line.price_subtotal
+                    tax_ids[tax['id']][1] += tax['amount']
+                
+                    #val += c.get('amount', 0.0)
+        
+                  #tax_ids[tax_id][1] += sale_brw._amount_line_tax(line)
+        #print tax_ids          
+        return tax_ids
 
 report_sxw.report_sxw('report.sale_v4s.sale_order_no_disocunt_v4s', 'sale.order', 'addons/sale_v4s/report/sale_order_no_discount.rml', parser=order, header="external")
 

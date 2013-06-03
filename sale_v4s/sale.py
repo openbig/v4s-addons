@@ -38,7 +38,7 @@ class sale_order(osv.osv):
     _inherit ="sale.order"
     
     _columns = {
-        'note2' : fields.text("Notes on top"),
+        'note2' : fields.text("Comment on top"),
         'valid_until' : fields.date("Valid Until"),
         
     }

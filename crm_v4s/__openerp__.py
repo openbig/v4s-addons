@@ -26,14 +26,14 @@
 
 {
     "name" : "V4S - CRM",
-    "version" : "0.08 (6.1)",
+    "version" : "0.09 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
     Added new fields for CRM and Customer views.
     """,
-    "depends" : ["crm"],
+    "depends" : ["crm", "crm_claim"],
     "demo_xml" : [],
     "update_xml" : [
                     "crm_lead_view.xml",

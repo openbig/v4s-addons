@@ -51,7 +51,7 @@ class order(report_sxw.rml_parse):
         for line in sale_brw.order_line:
             if line.tax_id:
                 taxes = self.pool.get('account.tax').compute_all(self.cr, self.uid, line.tax_id, line.price_unit * (1-(line.discount or 0.0)/100.0), line.product_uom_qty, line.order_id.partner_invoice_id.id, line.product_id, line.order_id.partner_id)['taxes']
-                print taxes
+                #print taxes
                 for tax in taxes:
                     tax_id = tax['id']
                     if not tax_ids.has_key(tax['id']):
@@ -63,7 +63,7 @@ class order(report_sxw.rml_parse):
                     #val += c.get('amount', 0.0)
         
                   #tax_ids[tax_id][1] += sale_brw._amount_line_tax(line)
-        print tax_ids          
+        #print tax_ids          
         return tax_ids
 
 report_sxw.report_sxw('report.sale_v4s.sale_order_v4s', 'sale.order', 'addons/sale_v4s/report/sale_order.rml', parser=order, header="external")

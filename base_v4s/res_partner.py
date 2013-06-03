@@ -55,6 +55,7 @@ class res_partner(osv.osv):
         'phone2': fields.related('address', 'phone2', type='char', string='Phone2'),
         'street': fields.related('address', 'street', type='char', string='Street'),    
         'zip': fields.related('address', 'zip', type='char', string='Zip'),
+        'city': fields.related('address', 'city', type='char', string='City', store=True),
         'birthday_communication': fields.related('address', 'birthday_communication', type='datetime', string='Birthday'),
         'company_ext': fields.related('address', 'company_ext', type='char', string='Company Name'),    
         #'title_communication' : fields.char('Title', size=255),

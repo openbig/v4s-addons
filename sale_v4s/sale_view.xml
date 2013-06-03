@@ -30,7 +30,7 @@
                 </xpath>
                 
                 <xpath expr="//field[@name='note']" position="after" >
-                    <separator colspan="4" string="Notes on Top"/>
+                    <separator colspan="4" string="Comment on Top"/>
                     <field colspan="4" name="note2" nolabel="1"/>
                 </xpath>
             </field>

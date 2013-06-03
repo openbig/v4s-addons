@@ -141,5 +141,42 @@
                 </field>
             </field>
         </record>
+        
+<!--     res.partner.address     -->
+        
+        <record id="view_partner_address_tree_v4s" model="ir.ui.view">
+            <field name="name">res.partner.address.tree</field>
+            <field name="model">res.partner.address</field>
+            <field name="inherit_id" ref="base.view_partner_address_tree"/>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+
+                    <field name="name" position="after" >
+                        <field name="department_company_ext" />
+                    </field>
+
+            </field>
+        </record>
+        
+        <record id="view_partner_address_form1_v4s" model="ir.ui.view">
+            <field name="name">res.partner.address.form1</field>
+            <field name="model">res.partner.address</field>
+            <field name="inherit_id" ref="base.view_partner_address_form1"/>
+            <field name="type">form</field>
+            <field eval="8" name="priority"/>
+            <field name="arch" type="xml">
+                <field name="title" position="replace" />
+                <field name="company_id" position="replace" >
+                    <field name="title" />
+                </field>
+                
+                <field name="name" position="after" >
+                    <field name="department_company_ext" />
+                </field>
+                
+                
+            </field>
+        </record>
+        
     </data>
 </openerp>
