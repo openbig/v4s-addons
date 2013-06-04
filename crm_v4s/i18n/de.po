@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* crm_v4s
+#               * crm_v4s
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-19 07:43+0000\n"
-"PO-Revision-Date: 2013-02-19 07:43+0000\n"
+"POT-Creation-Date: 2013-06-03 12:05+0000\n"
+"PO-Revision-Date: 2013-06-03 12:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -41,11 +41,6 @@ msgid "Create"
 msgstr "Erstelle"
 
 #. module: crm_v4s
-#: model:ir.model,name:crm_v4s.model_crm_lead
-msgid "crm.lead"
-msgstr "crm.lead"
-
-#. module: crm_v4s
 #: model:ir.model,name:crm_v4s.model_crm_lead2opportunity_partner
 msgid "Lead To Opportunity Partner"
 msgstr "Verkaufskontakt zu Verkaufschance Partner"
@@ -64,6 +59,11 @@ msgstr "Partner"
 #: view:crm.lead:0
 msgid "Mail"
 msgstr "EMail"
+
+#. module: crm_v4s
+#: field:crm.lead,phone2:0
+msgid "Phone2"
+msgstr "Tel2"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -101,14 +101,19 @@ msgid "Prename"
 msgstr "Vorname"
 
 #. module: crm_v4s
-#: view:crm.lead:0
-msgid "Escalate"
-msgstr "Eskalation"
+#: model:ir.model,name:crm_v4s.model_mail_message
+msgid "Email Message"
+msgstr "EMail Nachricht"
 
 #. module: crm_v4s
 #: view:crm.lead:0
 msgid "Mailings"
 msgstr "Genehmigung Emailversand"
+
+#. module: crm_v4s
+#: view:res.partner:0
+msgid "Partners Claim"
+msgstr "Antrag des Partners"
 
 #. module: crm_v4s
 #: field:crm.lead,birthday_communication:0
@@ -119,6 +124,16 @@ msgstr "Geburtstag"
 #: model:ir.model,name:crm_v4s.model_crm_lead_report
 msgid "CRM Lead Analysis"
 msgstr "CRM Verkaufskontakte Analyse"
+
+#. module: crm_v4s
+#: code:addons/crm_v4s/mail_message.py:49
+#, python-format
+msgid "%s Email from %s: \n"
+" Subject: %s \n"
+"               "
+msgstr "%s Email von %s: \n"
+" Betreff: %s \n"
+"               "
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -151,9 +166,9 @@ msgid "Contact"
 msgstr "Nachname"
 
 #. module: crm_v4s
-#: view:crm.lead:0
-msgid "Customer Name"
-msgstr "Kunde"
+#: model:ir.model,name:crm_v4s.model_crm_lead
+msgid "crm.lead"
+msgstr "crm.lead"
 
 #. module: crm_v4s
 #: view:crm.lead:0
@@ -168,14 +183,20 @@ msgid "Phone Calls"
 msgstr "Anrufe"
 
 #. module: crm_v4s
+#: code:addons/crm_v4s/mail_message.py:53
+#, python-format
+msgid " Note from "
+msgstr " Anmerkung von "
+
+#. module: crm_v4s
 #: view:crm.lead:0
 msgid "Communication"
 msgstr "Betreff"
 
 #. module: crm_v4s
-#: field:crm.lead,phone2:0
-msgid "Phone2"
-msgstr "Tel2"
+#: view:crm.lead:0
+msgid "Escalate"
+msgstr "Eskalation"
 
 #. module: crm_v4s
 #: view:crm.lead:0

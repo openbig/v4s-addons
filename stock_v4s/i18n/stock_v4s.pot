@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* stock_v4s
+#               * stock_v4s
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-01 15:16+0000\n"
-"PO-Revision-Date: 2013-05-01 15:16+0000\n"
+"POT-Creation-Date: 2013-06-03 12:08+0000\n"
+"PO-Revision-Date: 2013-06-03 12:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -43,11 +43,6 @@ msgstr ""
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
 msgid "Recipient"
-msgstr ""
-
-#. module: stock_v4s
-#: report:stock_v4s.picking_v4s:0
-msgid "All prices excluding VAT."
 msgstr ""
 
 #. module: stock_v4s

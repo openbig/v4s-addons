@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* sale_v4s
+#               * sale_v4s
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-01 15:14+0000\n"
-"PO-Revision-Date: 2013-05-01 15:14+0000\n"
+"POT-Creation-Date: 2013-06-03 13:08+0000\n"
+"PO-Revision-Date: 2013-06-03 13:08+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,6 +38,11 @@ msgid "Unit Price"
 msgstr ""
 
 #. module: sale_v4s
+#: model:ir.model,name:sale_v4s.model_stock_picking
+msgid "Picking List"
+msgstr "
+
+#. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Order N°"
@@ -57,18 +62,18 @@ msgstr ""
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Price"
+msgid "Our Salesman"
 msgstr ""
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Total :"
+msgid "Base"
 msgstr ""
 
 #. module: sale_v4s
-#: model:ir.model,name:sale_v4s.model_sale_shop
-msgid "Sales Shop"
+#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
+msgid "Quotation V4S"
 msgstr ""
 
 #. module: sale_v4s
@@ -77,9 +82,8 @@ msgid "Quotation V4S (No Discount)"
 msgstr ""
 
 #. module: sale_v4s
-#: report:sale_v4s.sale_order_no_disocunt_v4s:0
-#: report:sale_v4s.sale_order_v4s:0
-msgid "All prices excluding VAT."
+#: model:ir.model,name:sale_v4s.model_sale_shop
+msgid "Sales Shop"
 msgstr ""
 
 #. module: sale_v4s
@@ -91,12 +95,28 @@ msgstr ""
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Net Total :"
+msgid "Amount"
 msgstr ""
 
 #. module: sale_v4s
 #: field:sale.shop,set_mto:0
 msgid "MTO"
+msgstr ""
+
+#. module: sale_v4s
+#: sql_constraint:stock.picking:0
+msgid "Reference must be unique per Company!"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Total :"
+msgstr ""
+
+#. module: sale_v4s
+#: field:sale.order,note2:0
+msgid "Comment on top"
 msgstr ""
 
 #. module: sale_v4s
@@ -109,6 +129,17 @@ msgstr ""
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 msgid "Quantity"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Taxes :"
+msgstr ""
+
+#. module: sale_v4s
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
 msgstr ""
 
 #. module: sale_v4s
@@ -137,8 +168,20 @@ msgid "Valid Until"
 msgstr ""
 
 #. module: sale_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
-msgid "Quotation V4S"
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Tax"
+msgstr ""
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+msgid "Net Total :"
+msgstr ""
+
+#. module: sale_v4s
+#: view:sale.order:0
+msgid "Comment on Top"
 msgstr ""
 
 #. module: sale_v4s
@@ -148,8 +191,13 @@ msgid "Quotation N°"
 msgstr ""
 
 #. module: sale_v4s
-#: model:ir.model,name:sale_v4s.model_sale_order_line
-msgid "Sales Order Line"
+#: field:stock.picking,client_order_ref:0
+msgid "Customer Reference"
+msgstr ""
+
+#. module: sale_v4s
+#: model:ir.model,name:sale_v4s.model_account_invoice
+msgid "Invoice"
 msgstr ""
 
 #. module: sale_v4s
@@ -160,12 +208,11 @@ msgstr ""
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Our Salesman"
+msgid "Price"
 msgstr ""
 
 #. module: sale_v4s
-#: report:sale_v4s.sale_order_no_disocunt_v4s:0
-#: report:sale_v4s.sale_order_v4s:0
-msgid "Taxes :"
+#: model:ir.model,name:sale_v4s.model_sale_order_line
+msgid "Sales Order Line"
 msgstr ""
 

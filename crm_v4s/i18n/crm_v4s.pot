@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-24 22:29+0000\n"
-"PO-Revision-Date: 2013-01-24 22:29+0000\n"
+"POT-Creation-Date: 2013-06-03 12:05+0000\n"
+"PO-Revision-Date: 2013-06-03 12:05+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,22 +17,17 @@ msgstr ""
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Customer"
-msgstr ""
-
-#. module: crm_v4s
-#: field:crm.lead,department_company_ext:0
-msgid "Department Company"
+msgid "Category"
 msgstr ""
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Partner Name"
+msgid "Categorization"
 msgstr ""
 
 #. module: crm_v4s
 #: view:crm.lead:0
-msgid "Links"
+msgid "Lead"
 msgstr ""
 
 #. module: crm_v4s
@@ -41,43 +36,13 @@ msgid "Title"
 msgstr ""
 
 #. module: crm_v4s
-#: field:crm.lead,phone2:0
-msgid "Phone2"
-msgstr ""
-
-#. module: crm_v4s
 #: view:crm.lead:0
 msgid "Create"
 msgstr ""
 
 #. module: crm_v4s
-#: model:ir.model,name:crm_v4s.model_crm_lead
-msgid "crm.lead"
-msgstr ""
-
-#. module: crm_v4s
-#: field:crm.lead,partner_address_website:0
-msgid "Partner Webpage"
-msgstr ""
-
-#. module: crm_v4s
-#: view:crm.lead:0
-msgid "Schedule/Log Call"
-msgstr ""
-
-#. module: crm_v4s
-#: field:crm.lead,prename:0
-msgid "Prename"
-msgstr ""
-
-#. module: crm_v4s
-#: field:crm.lead,birthday_communication:0
-msgid "Birthday"
-msgstr ""
-
-#. module: crm_v4s
-#: view:crm.lead:0
-msgid "Notes"
+#: model:ir.model,name:crm_v4s.model_crm_lead2opportunity_partner
+msgid "Lead To Opportunity Partner"
 msgstr ""
 
 #. module: crm_v4s
@@ -87,24 +52,32 @@ msgstr ""
 
 #. module: crm_v4s
 #: view:crm.lead:0
+msgid "Partner Name"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
 msgid "Mail"
 msgstr ""
 
 #. module: crm_v4s
-#: field:crm.lead,phonecall:0
-#: view:crm.lead:0
-msgid "Phone Calls"
-msgstr "Anrufe"
+#: field:crm.lead,phone2:0
+msgid "Phone2"
+msgstr ""
 
-#. module: crm
-#: view:crm.lead:0 field:crm.lead,email_from:0 field:crm.meeting,email_from:0
-#: field:crm.phonecall,email_from:0
+#. module: crm_v4s
+#: view:crm.lead:0
 msgid "Email"
 msgstr ""
 
 #. module: crm_v4s
-#: field:crm.lead,company_ext:0
-msgid "Company Name"
+#: view:crm.lead:0
+msgid "Pending"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Mark Won"
 msgstr ""
 
 #. module: crm_v4s
@@ -113,28 +86,140 @@ msgid "Website"
 msgstr ""
 
 #. module: crm_v4s
-#: field:crm.lead,contact_name:0
-msgid "Contact Name"
+#: field:crm.lead,department_company_ext:0
+msgid "Department Company"
 msgstr ""
 
 #. module: crm_v4s
-#: field:base.action.rule,trg_categ_id:0 view:crm.lead:0
-#: field:crm.lead,categ_id:0 view:crm.lead.report:0
-#: field:crm.lead.report,categ_id:0 field:crm.opportunity2phonecall,categ_id:0
-#: field:crm.phonecall,categ_id:0 view:crm.phonecall.report:0
-#: field:crm.phonecall.report,categ_id:0
-#: field:crm.phonecall2phonecall,categ_id:0
-msgid "Category"
+#: view:crm.lead:0
+msgid "Mark Lost"
 msgstr ""
 
 #. module: crm_v4s
-#: field:crm.lead,planned_revenue:0
-#: field:crm.partner2opportunity,planned_revenue:0
-#: field:crm.phonecall2opportunity,planned_revenue:0
-msgid "Expected Revenue"
+#: field:crm.lead,prename:0
+msgid "Prename"
 msgstr ""
 
 #. module: crm_v4s
-#: field:crm.lead.report,planned_revenue:0
-msgid "Planned Revenue"
+#: model:ir.model,name:crm_v4s.model_mail_message
+msgid "Email Message"
 msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Mailings"
+msgstr ""
+
+#. module: crm_v4s
+#: view:res.partner:0
+msgid "Partners Claim"
+msgstr ""
+
+#. module: crm_v4s
+#: field:crm.lead,birthday_communication:0
+msgid "Birthday"
+msgstr ""
+
+#. module: crm_v4s
+#: model:ir.model,name:crm_v4s.model_crm_lead_report
+msgid "CRM Lead Analysis"
+msgstr ""
+
+#. module: crm_v4s
+#: code:addons/crm_v4s/mail_message.py:49
+#, python-format
+msgid "%s Email from %s: \n"
+" Subject: %s \n"
+"               "
+msgstr "\n"
+"\n"
+""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Opportunity"
+msgstr ""
+
+#. module: crm_v4s
+#: field:crm.lead,company_ext:0
+msgid "Company Name"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Customer"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Notes"
+msgstr ""
+
+#. module: crm_v4s
+#: field:crm.lead,partner_address_website:0
+msgid "Partner Webpage"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Contact"
+msgstr ""
+
+#. module: crm_v4s
+#: model:ir.model,name:crm_v4s.model_crm_lead
+msgid "crm.lead"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+#: field:crm.lead,nbr:0
+#: view:crm.lead.report:0
+msgid "# Opportunities"
+msgstr ""
+
+#. module: crm_v4s
+#: field:crm.lead,phonecall:0
+msgid "Phone Calls"
+msgstr ""
+
+#. module: crm_v4s
+#: code:addons/crm_v4s/mail_message.py:53
+#, python-format
+msgid " Note from "
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Communication"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Escalate"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Reset to Draft"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Cancel"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Close"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Open"
+msgstr ""
+
+#. module: crm_v4s
+#: view:crm.lead:0
+msgid "Schedule/Log Call"
+msgstr ""
+

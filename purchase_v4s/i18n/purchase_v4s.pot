@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* purchase_v4s
+#               * purchase_v4s
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.1-20120804-232000\n"
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-01 14:15+0000\n"
-"PO-Revision-Date: 2013-05-01 14:15+0000\n"
+"POT-Creation-Date: 2013-06-03 12:06+0000\n"
+"PO-Revision-Date: 2013-06-03 12:06+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"

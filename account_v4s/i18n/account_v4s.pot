@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.1-20120804-232000\n"
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-05-01 14:13+0000\n"
-"PO-Revision-Date: 2013-05-01 14:13+0000\n"
+"POT-Creation-Date: 2013-06-03 12:01+0000\n"
+"PO-Revision-Date: 2013-06-03 12:01+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -76,6 +76,11 @@ msgid "Base"
 msgstr ""
 
 #. module: account_v4s
+#: field:account.invoice,write_uid:0
+msgid "Last Editor"
+msgstr "Last Editor"
+
+#. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Partner Ref."
 msgstr ""
@@ -126,6 +131,11 @@ msgid "Refund"
 msgstr ""
 
 #. module: account_v4s
+#: sql_constraint:account.invoice:0
+msgid "Invoice Number must be unique per Company!"
+msgstr ""
+
+#. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Fiscal Position Remark :"
 msgstr ""
@@ -136,12 +146,24 @@ msgid "Tax"
 msgstr ""
 
 #. module: account_v4s
+#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
+msgid "Invoices V4S"
+msgstr ""
+
+#. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 msgid "Net Total:"
 msgstr ""
 
 #. module: account_v4s
+#: field:account.invoice,client_order_ref:0
 #: report:account_v4s.invoice_v4s:0
+msgid "Customer Reference"
+msgstr ""
+
+#. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
+#: model:ir.model,name:account_v4s.model_account_invoice
 msgid "Invoice"
 msgstr ""
 
@@ -156,7 +178,7 @@ msgid "Prepared by:"
 msgstr ""
 
 #. module: account_v4s
-#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
-msgid "Invoices V4S"
+#: view:account.invoice:0
+msgid "Print Invoice"
 msgstr ""
 

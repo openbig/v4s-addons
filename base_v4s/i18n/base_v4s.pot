@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#   * crm_v4s
+#               * base_v4s
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-24 22:29+0000\n"
-"PO-Revision-Date: 2013-01-24 22:29+0000\n"
+"POT-Creation-Date: 2013-06-03 12:31+0000\n"
+"PO-Revision-Date: 2013-06-03 12:31+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,8 +16,119 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: base_v4s
+#: field:res.partner,zip:0
+msgid "Zip"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,title_communication:0
+#: field:res.partner.address,title_communication:0
+msgid "Title"
+msgstr ""
+
+#. module: base_v4s
 #: view:res.partner:0
-#: field:res.partner,subname:0
-#: field:res.partner.address,name:0
+msgid "Details"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "Type"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "Email"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner.address,website:0
+msgid "Website"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,department_company_ext:0
+#: field:res.partner.address,department_company_ext:0
+msgid "Department Company"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,type:0
+msgid "Address Type"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,phone2:0
+#: field:res.partner.address,phone2:0
+msgid "Phone2"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,birthday_communication:0
+#: field:res.partner.address,birthday_communication:0
+msgid "Birthday"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "Categories"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
 msgid "Contact Name"
 msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+#: field:res.partner,description:0
+msgid "Notes"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "Contact"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "Partner Contacts"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "Communication"
+msgstr ""
+
+#. module: base_v4s
+#: view:res.partner:0
+msgid "General"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,prename:0
+#: field:res.partner.address,prename:0
+msgid "Prename"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,street:0
+msgid "Street"
+msgstr ""
+
+#. module: base_v4s
+#: field:res.partner,company_ext:0
+#: field:res.partner.address,company_ext:0
+msgid "Company Name"
+msgstr ""
+
+#. module: base_v4s
+#: model:ir.model,name:base_v4s.model_res_partner
+msgid "Partner"
+msgstr ""
+
+#. module: base_v4s
+#: model:ir.model,name:base_v4s.model_res_partner_address
+msgid "Partner Addresses"
+msgstr ""
+
