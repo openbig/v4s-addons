@@ -53,7 +53,7 @@
                 
                     <page string="General" position="replace">
                     <page string="General">
-                        <field colspan="4" mode="form,tree" name="address" nolabel="1" select="1" height="260">
+                        <field colspan="4" mode="tree,form" name="address" nolabel="1" select="1" height="260">
                             <form string="Partner Contacts">
                                 <group colspan="2" col="4">
                                     <separator string="Contact" colspan="4" col="4"/>
@@ -98,6 +98,7 @@
                                 <field name="country_id"/>
                                 <field name="phone"/>
                                 <field name="email"/>
+                                <field name="type"/>
                             </tree>
                         </field>
                         <group colspan="2" col="2">
@@ -122,9 +123,6 @@
                 <field name="arch" type="xml">
                     <field name="email" position="after">
                         <field name="zip" />
-                    </field>
-                    <field name="user_id" position="after">
-                        <field name="type" string="Type" />
                     </field>
                 </field>
         </record>

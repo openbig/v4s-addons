@@ -25,5 +25,6 @@
 
 import sale_order
 import sale_order_no_discount
+import parser
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

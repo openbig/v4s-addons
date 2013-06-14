@@ -28,7 +28,7 @@
 
 {
     "name" : "V4S - SALE",
-    "version" : "0.08 (6.1)",
+    "version" : "0.09 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -36,7 +36,7 @@
     * Added MTO fields for Sale Shop.
     * new Sale Order report (0.02)
     """,
-    "depends" : ["sale"],
+    "depends" : ["sale","report_aeroo", "base_v4s"],
     "demo_xml" : [],
     "update_xml" : [
                     "sale_view.xml",

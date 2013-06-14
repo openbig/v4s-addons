@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Account",
-    "version" : "0.07 (6.1)",
+    "version" : "0.08 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -36,8 +36,9 @@
     "depends" : ["account"],
     "demo_xml" : [],
     "update_xml" : [
-            "account_invoice_view.xml",
             "report/account_print_invoice.xml",
+            "account_invoice_view.xml",
+
                     ],
     "active": False,
     "installable": True

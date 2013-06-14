@@ -27,9 +27,9 @@ import time
 
 from report import report_sxw
 
-class order(report_sxw.rml_parse):
+class Parser(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
-        super(order, self).__init__(cr, uid, name, context)
+        super(Parser, self).__init__(cr, uid, name, context)
         self.localcontext.update({
             'time': time,
             'check_taxes': self.check_taxes,
@@ -65,8 +65,6 @@ class order(report_sxw.rml_parse):
                   #tax_ids[tax_id][1] += sale_brw._amount_line_tax(line)
         #print tax_ids          
         return tax_ids
-
-report_sxw.report_sxw('report.sale_v4s.sale_order_v4s', 'sale.order', 'addons/sale_v4s/report/sale_order.rml', parser=order, header="external")
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 
