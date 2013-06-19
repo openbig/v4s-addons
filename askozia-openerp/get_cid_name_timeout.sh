@@ -33,22 +33,22 @@ SELF_PATH=`dirname "$0"`
 PYTHON_BIN="$SELF_PATH/python-static-linux-x86" #python 2.7 static binary
 GET_CID_NAME_PY="$SELF_PATH/get_cid_name.py"
 
-# uncomment the correct timeout implementation
-#TIMEOUT_CMD="timeout 2s" #GNU timeout
-TIMEOUT_CMD="timeout -t 2" #busybox timeout
+# set the correct timeout implementation
+TIMEOUT_CMD="timeout 2s" #GNU timeout
+timeout 1s true 2>/dev/null || TIMEOUT_CMD="timeout -t 2" #busybox timeout implementation
 
 # OpenERP-Server access credentials
-#SERVER="192.168.120.120"
-SERVER="via4spine.remote.openbig.org"
-#PORT="8069"
-PORT="10346"
+SERVER="192.168.120.120"
+#SERVER="via4spine.remote.openbig.org" #for remote testing
+PORT="8069"
+#PORT="10346" #for remote testing
 DATABASE="via4spine_test"
+#DATABASE="via4spine_live"
 USER_ID="16"
 PASSWORD="uAMOTMWn5XlHB9Py4AfH"
 #SSL_OPT="--ssl"
 
-# Settings with geolocalization enabled (requires python phonenumbers)
+# Settings with geolocalization enabled (requires python phonenumbers (not available in default python installation))
 #eval $TIMEOUT_CMD $PYTHON_BIN $GET_CID_NAME_PY --server $SERVER $SSL_OPT --database $DATABASE  --user-id $USER_ID --password "$PASSWORD" --geoloc --geoloc-country "DE" --geoloc-lang "de"
 
-# Settings for testing with OpenBIG-Remote external Access (using test db)
 eval $TIMEOUT_CMD $PYTHON_BIN $GET_CID_NAME_PY --server $SERVER $SSL_OPT --port=$PORT --database $DATABASE  --user-id $USER_ID --password "$PASSWORD"
