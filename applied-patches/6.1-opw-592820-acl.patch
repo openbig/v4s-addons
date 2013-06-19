@@ -1,0 +1,14 @@
+=== modified file 'document/document_storage.py'
+--- document/document_storage.py	2011-12-19 16:54:40 +0000
++++ document/document_storage.py	2013-06-05 15:06:19 +0000
+@@ -573,6 +573,9 @@
+                 raise except_orm(_('Error!'), str(e))
+         elif boo.type == 'db':
+             filesize = len(data)
++            # nodefd_db ccannot be used directly to binary
++            if isinstance(data, nodefd_db):
++                data = data.buf
+             # will that work for huge data?
+             out = psycopg2.Binary(data)
+             cr.execute('UPDATE ir_attachment SET db_datas = %s WHERE id = %s',
+

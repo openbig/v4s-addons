@@ -30,10 +30,10 @@ PATH=/usr/local/sbin:/usr/local/bin:/var/lib/asterisk/agi-bin:/sbin:/bin:/usr/sb
 #timeout 2s get_cid_name.py --server 192.168.120.120 --database via4spine_test  --user-id 12 --password "uAMOTMWn5XlHB9Py4AfH" --geoloc --geoloc-country "DE" --geoloc-lang "de"
 
 # Settings for testing with OpenBIG-Remote external Access (using test db)
-#timeout 2s get_cid_name.py --server via4spine.remote.openbig.org --ssl --port=443 --database via4spine_test  --user-id 16 --password "uAMOTMWn5XlHB9Py4AfH"
+timeout 2s get_cid_name.py --server via4spine.remote.openbig.org --ssl --port=443 --database via4spine_test  --user-id 16 --password "uAMOTMWn5XlHB9Py4AfH"
 
 # settings for OpenERP-DB "via4spine_test" ; for TEST usage, comment out entry for via4spine_live and uncomment this one
-timeout 2s get_cid_name.py --server 192.168.120.120 --ssl --port=443 --database via4spine_test  --user-id 16 --password "uAMOTMWn5XlHB9Py4AfH"
+#timeout 2s get_cid_name.py --server 192.168.120.120 --ssl --port=443 --database via4spine_test  --user-id 16 --password "uAMOTMWn5XlHB9Py4AfH"
 
 # settings for OpenERP-DB "via4spine_live" ; for LIVE usage, comment out entry for via4spine_test and uncomment this one
 #timeout 2s get_cid_name.py --server 192.168.120.120 --ssl --port=443 --database via4spine_live  --user-id 16 --password "uAMOTMWn5XlHB9Py4AfH"
