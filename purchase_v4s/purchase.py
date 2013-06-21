@@ -37,7 +37,18 @@ class purchase_order(osv.osv):
     def do_merge(self, cr, uid, ids, context=None):
         new_orders = super(purchase_order, self).do_merge(cr, uid, ids, context=context)
         
-        print new_orders
+        #update former claims to new purchase_order
+        claim_pool = self.pool.get('crm.claim')
+        for new in new_orders.keys():
+            #finding claims
+            claim_ids = []
+            for id in new_orders[new]:
+                t = claim_pool.search(cr, uid, [('ref2','=','purchase.order,%d' % id)], context=context)
+                for p in t: claim_ids.append(p)
+            print claim_ids
+            claim_pool.write(cr, uid, claim_ids, {
+                'ref2': 'purchase.order,%d' % new,
+                }, context=context)
         
         return new_orders
 

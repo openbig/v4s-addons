@@ -77,14 +77,14 @@ class crm_claim(osv.osv):
             })
         purchase_line_id = purchase_line_pool.create(cr, uid, line_vals, context=context)
         return purchase_line_id
-        
+
     def convert_to_purchase(self, cr, uid, ids, context):
         context = context and context or {}
         
         brw = self.browse(cr, uid, ids[0], context)
         partner = self.pool.get('res.partner')
         
-        if brw.ref._name != 'stock.production.lot' and not brw.partner_id: return True
+        if brw.ref._name != 'stock.production.lot' or not brw.partner_id: return True
         
         # creating new purchase order
         partner_id = brw.partner_id.id
@@ -96,7 +96,11 @@ class crm_claim(osv.osv):
         # creating new purchase line
         purchase_line_id = self.create_purchase_line(cr, uid, ids, product_id, purchase_id)
         
-        
+        # update field ref2
+        self.write(cr, uid, ids, { 
+            'ref2' : 'purchase.order,%d' % purchase_id,
+            }, context=context)
+            
         return {
             'name':_("Requests for Quotation"),
             'view_mode': 'form',
@@ -106,7 +110,6 @@ class crm_claim(osv.osv):
             'res_id': purchase_id,
             'type': 'ir.actions.act_window',
             'nodestroy': True,
-            'target': 'new',
             'domain': '[]',
             'context': context,
         }
