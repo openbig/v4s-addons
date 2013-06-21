@@ -3,7 +3,7 @@
     <data>
 
         <!-- crm.claim Claim From View -->
-    <!--<record model="ir.ui.view" id="crm_case_claims_form_view_v4s">
+    <record model="ir.ui.view" id="crm_case_claims_form_view_v4s">
             <field name="name">CRM - Claims Form</field>
             <field name="model">crm.claim</field>
             <field name="type">form</field>
@@ -17,7 +17,7 @@
                     <field name="ref2" />
                 </field>
             </field>
-    </record>-->
+    </record>
     
     </data>
 </openerp>

@@ -41,16 +41,72 @@ class crm_claim(osv.osv):
     _inherit = "crm.claim"
     
     _columns = {
-        #'ref2' : fields.reference('Reference2', selection=crm._links_get, size=128),
+        'ref2' : fields.reference('Reference2', selection=crm._links_get, size=128),
     }
     
+    def create_purchase(self, cr, uid, ids, partner_id, context=None):
+        context = context and context or {}
+        context.update({'partner_id':partner_id})
+        
+        purchase_pool = self.pool.get('purchase.order')
+        partner = self.pool.get('res.partner').browse(cr, uid, partner_id)
+        
+        values = purchase_pool.onchange_partner_id(cr, uid, ids, partner_id)['value']
+        values.update( {
+            'location_id': partner.property_stock_customer.id,
+            'partner_id': partner_id,
+            })
+        
+        purchase_id = purchase_pool.create(cr, uid, values, context=context)
+        return purchase_id
+    
+    def create_purchase_line(self, cr, uid, ids, product_id, purchase_id, context=None):
+        context = context and context or {}
+        
+        purchase_line_pool = self.pool.get('purchase.order.line')
+        purchase_brw = self.pool.get('purchase.order').browse(cr, uid, purchase_id)
+        
+        line_uom = purchase_line_pool._get_uom_id(cr, uid, context=context)
+        date_order = purchase_brw.date_order
+        partner_id = purchase_brw.partner_id.id
+        pricelist_id = purchase_brw.pricelist_id.id
+        line_vals = purchase_line_pool.onchange_product_id(cr, uid, ids, pricelist_id, product_id, 1, line_uom, partner_id, date_order=date_order)['value']
+        line_vals.update({
+            'order_id': purchase_id,
+            'product_id': product_id,
+            })
+        purchase_line_id = purchase_line_pool.create(cr, uid, line_vals, context=context)
+        return purchase_line_id
+        
     def convert_to_purchase(self, cr, uid, ids, context):
+        context = context and context or {}
         
         brw = self.browse(cr, uid, ids[0], context)
-        print brw.ref._name.__class__
-        if brw.ref._name != 'stock.production.lot': return True
+        partner = self.pool.get('res.partner')
         
-        #return self.pool.get('purchase.order').create(cr, uid, {
-            #'': ,
-            #}, context)
-        return True
+        if brw.ref._name != 'stock.production.lot' and not brw.partner_id: return True
+        
+        # creating new purchase order
+        partner_id = brw.partner_id.id
+        purchase_id = self.create_purchase(cr, uid, ids, partner_id)
+        
+        # getting product id to create purchase_line
+        product_id = brw.ref.product_id.id
+        
+        # creating new purchase line
+        purchase_line_id = self.create_purchase_line(cr, uid, ids, product_id, purchase_id)
+        
+        
+        return {
+            'name':_("Requests for Quotation"),
+            'view_mode': 'form',
+            'view_id': False,
+            'view_type': 'form',
+            'res_model': 'purchase.order',
+            'res_id': purchase_id,
+            'type': 'ir.actions.act_window',
+            'nodestroy': True,
+            'target': 'new',
+            'domain': '[]',
+            'context': context,
+        }
