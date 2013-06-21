@@ -19,7 +19,7 @@
             <field name="inherit_id" ref="purchase.board_purchase_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-                <xpath expr="//form" position="replace">
+                <!--<xpath expr="//form" position="replace">
                 <form string="Purchase Dashboard">
                     <board >
                         <column>
@@ -28,6 +28,8 @@
                     </board>
                 </form>
                 </xpath>
+                -->
+                <xpath expr="//action[@name='%(purchase.action_purchase_order_monthly_categ_graph)d']/.." position="replace"/>
             </field>
         </record>
         
