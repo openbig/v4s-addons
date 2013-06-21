@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Project-Id-Version: OpenERP Server 6.1-20130102-004631\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-03 13:08+0000\n"
-"PO-Revision-Date: 2013-06-03 13:08+0000\n"
+"POT-Creation-Date: 2013-06-20 15:02+0000\n"
+"PO-Revision-Date: 2013-06-20 15:02+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,30 +21,42 @@ msgid "Order Reference must be unique per Company!"
 msgstr "Die Auftragsnummer muss eindeutig sein !"
 
 #. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
+msgid "Quotation V4S ODT"
+msgstr "Quotation V4S ODT"
+
+#. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Payment Terms:"
 msgstr "Zahlungsbedinungen:"
 
 #. module: sale_v4s
-#: help:sale.shop,set_mto:0
-msgid "If true, changes field \"Procurement Method\", in sale order lines, to \"on order\"."
-msgstr "Durch Aktivierung wird beim Verkauf das Feld \"Dispositionsmethode\" auf \"Beschaffe von Auftrag (MTO)\" geändert."
+#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
+msgid "Quotation V4S"
+msgstr "Auftrag V4S"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Unit Price"
 msgstr "Preis"
 
 #. module: sale_v4s
 #: model:ir.model,name:sale_v4s.model_stock_picking
 msgid "Picking List"
-msgstr "Lieferauftrag"
+msgstr "Lieferschein:"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+msgid "Order N°"
+msgstr "Angebot Nr."
+
+#. module: sale_v4s
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Order N°"
 msgstr "Angebot Nr."
 
@@ -56,30 +68,23 @@ msgstr "Rb. (%)"
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Description"
 msgstr "Artikel"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Our Salesman"
 msgstr "Verkäufer"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Base"
 msgstr "Steuergrundbetrag"
-
-#. module: sale_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
-msgid "Quotation V4S"
-msgstr "Auftrag V4S"
-
-#. module: sale_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_no_discount_v4s
-msgid "Quotation V4S (No Discount)"
-msgstr "Auftrag V4S (ohne Rabatt)"
 
 #. module: sale_v4s
 #: model:ir.model,name:sale_v4s.model_sale_shop
@@ -87,32 +92,57 @@ msgid "Sales Shop"
 msgstr "Vertriebsshop"
 
 #. module: sale_v4s
+#: field:account.invoice,write_uid:0
+msgid "Last Editor"
+msgstr "Last Editor"
+
+#. module: sale_v4s
+#: field:account.invoice,client_order_ref:0
+#: field:stock.picking,client_order_ref:0
+msgid "Customer Reference"
+msgstr "Kunden Referenz"
+
+#. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_no_discount_v4s
+msgid "Quotation V4S (No Discount)"
+msgstr "Auftrag V4S (ohne Rabatt)"
+
+#. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Date Ordered"
 msgstr "Datum Angebot"
 
 #. module: sale_v4s
-#: report:sale_v4s.sale_order_no_disocunt_v4s:0
-#: report:sale_v4s.sale_order_v4s:0
-msgid "Amount"
-msgstr "Betrag"
+#: help:sale.shop,set_mto:0
+msgid "If true, changes field \"Procurement Method\", in sale order lines, to \"on order\"."
+msgstr "Durch Aktivierung wird beim Verkauf das Feld \"Dispositionsmethode\" auf \"Beschaffe von Auftrag (MTO)\" geändert."
 
 #. module: sale_v4s
-#: field:sale.shop,set_mto:0
-msgid "MTO"
-msgstr "Beschaffe von Auftrag (MTO)"
+#: field:stock.picking,create_uid:0
+#: field:stock.picking,write_uid:0
+msgid "Warehouse Worker"
+msgstr "Lagerist"
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+msgid "Net Total :"
+msgstr "Nettosumme :"
+
+#. module: sale_v4s
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+msgid "Total :"
+msgstr "Bruttosumme :"
 
 #. module: sale_v4s
 #: sql_constraint:stock.picking:0
 msgid "Reference must be unique per Company!"
 msgstr "Die Referenz muss je Firma eindeutig sein"
-
-#. module: sale_v4s
-#: report:sale_v4s.sale_order_no_disocunt_v4s:0
-#: report:sale_v4s.sale_order_v4s:0
-msgid "Total :"
-msgstr "Bruttosumme :"
 
 #. module: sale_v4s
 #: field:sale.order,note2:0
@@ -122,20 +152,16 @@ msgstr "Anmerkung oben"
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "VAT"
 msgstr "Ust."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Quantity"
 msgstr "Menge"
-
-#. module: sale_v4s
-#: report:sale_v4s.sale_order_no_disocunt_v4s:0
-#: report:sale_v4s.sale_order_v4s:0
-msgid "Taxes :"
-msgstr "Steuern :"
 
 #. module: sale_v4s
 #: sql_constraint:account.invoice:0
@@ -145,12 +171,14 @@ msgstr "Die Rechnungsnummer muss je Firma eindeutig sein"
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
 msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Your Reference"
 msgstr "Ihre Referenz"
 
@@ -161,28 +189,36 @@ msgid "Quotation Date"
 msgstr "Datum Angebot"
 
 #. module: sale_v4s
-#: field:sale.order,valid_until:0
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+#: field:sale.order,valid_until:0
 msgid "Valid Until"
 msgstr "Bindefrist"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Tax"
 msgstr "Umsatzsteuer"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
-msgid "Net Total :"
-msgstr "Nettosumme :"
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+msgid "Amount"
+msgstr "Betrag"
 
 #. module: sale_v4s
 #: view:sale.order:0
 msgid "Comment on Top"
 msgstr "Anmerkung oben"
+
+#. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+msgid "Quotation V4S (No Discount) ODT"
+msgstr "Quotation V4S (No Discount) ODT"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
@@ -191,9 +227,9 @@ msgid "Quotation N°"
 msgstr "Angebot Nr."
 
 #. module: sale_v4s
-#: field:stock.picking,client_order_ref:0
-msgid "Customer Reference"
-msgstr "Kunden Referenz"
+#: model:ir.model,name:sale_v4s.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Auftrag Positionen"
 
 #. module: sale_v4s
 #: model:ir.model,name:sale_v4s.model_account_invoice
@@ -208,11 +244,18 @@ msgstr "Verkauf Auftrag"
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Price"
 msgstr "Gesamt"
 
 #. module: sale_v4s
-#: model:ir.model,name:sale_v4s.model_sale_order_line
-msgid "Sales Order Line"
-msgstr "Auftrag Positionen"
+#: report:sale_v4s.sale_order_no_disocunt_v4s:0
+#: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+msgid "Taxes :"
+msgstr "Steuern :"
 
+#. module: sale_v4s
+#: field:sale.shop,set_mto:0
+msgid "MTO"
+msgstr "Beschaffe von Auftrag (MTO)"

@@ -23,24 +23,34 @@
 #
 ##############################################################################
 
+from osv import fields, osv
+from datetime import datetime
+from crm import crm
+import time
+from crm import wizard
 
-{
-    "name" : "V4S - CRM",
-    "version" : "0.10 (6.1)",
-    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
-    "website": "http://www.openbig.org",
-    "category" : "Localisation/Country specific stuff",
-    "description": """
-    Added new fields for CRM and Customer views.
-    """,
-    "depends" : ["crm", "crm_claim"],
-    "demo_xml" : [],
-    "update_xml" : [
-                    "crm_lead_view.xml",
-                    "res_partner_view.xml",
-                    "crm_claim_view.xml",
-                    ],
-    "active": False,
-    "installable": True
-}
+from tools.translate import _
+import binascii
+import tools
 
+
+class crm_claim(osv.osv):
+    """
+    Crm claim
+    """
+    _inherit = "crm.claim"
+    
+    _columns = {
+        #'ref2' : fields.reference('Reference2', selection=crm._links_get, size=128),
+    }
+    
+    def convert_to_purchase(self, cr, uid, ids, context):
+        
+        brw = self.browse(cr, uid, ids[0], context)
+        print brw.ref._name.__class__
+        if brw.ref._name != 'stock.production.lot': return True
+        
+        #return self.pool.get('purchase.order').create(cr, uid, {
+            #'': ,
+            #}, context)
+        return True

@@ -23,24 +23,22 @@
 #
 ##############################################################################
 
+from osv import fields, osv
+from datetime import datetime
+import time
+from tools.translate import _
+import binascii
+import tools
 
-{
-    "name" : "V4S - CRM",
-    "version" : "0.10 (6.1)",
-    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
-    "website": "http://www.openbig.org",
-    "category" : "Localisation/Country specific stuff",
-    "description": """
-    Added new fields for CRM and Customer views.
-    """,
-    "depends" : ["crm", "crm_claim"],
-    "demo_xml" : [],
-    "update_xml" : [
-                    "crm_lead_view.xml",
-                    "res_partner_view.xml",
-                    "crm_claim_view.xml",
-                    ],
-    "active": False,
-    "installable": True
-}
 
+class purchase_order(osv.osv):
+    _inherit = "purchase.order"
+
+    def do_merge(self, cr, uid, ids, context=None):
+        new_orders = super(purchase_order, self).do_merge(cr, uid, ids, context=context)
+        
+        print new_orders
+        
+        return new_orders
+
+purchase_order()    

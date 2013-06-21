@@ -21,14 +21,17 @@
             <field name="arch" type="xml">
                 <xpath expr="//form" position="replace">
                 <form string="Purchase Dashboard">
-                    <board style="1-1">
+                    <board >
                         <column>
-                            <action name="%(purchase.action_purchase_order_monthly_categ_graph)d" string="Monthly Purchases by Category"/>
+                            <action name="%(purchase.purchase_draft)d" string="Request for Quotations" creatable="true" />
                         </column>
                     </board>
                 </form>
                 </xpath>
             </field>
         </record>
+        
+        
+        
     </data>
 </openerp>
