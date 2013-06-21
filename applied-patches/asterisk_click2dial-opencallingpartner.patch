@@ -1,0 +1,12 @@
+--- asterisk_click2dial/asterisk_click2dial.py.org	2013-06-20 15:28:26.534101418 +0200
++++ asterisk_click2dial/asterisk_click2dial.py	2013-06-20 15:29:22.026376585 +0200
+@@ -282,7 +282,7 @@
+                     _logger.debug("Found a matching Event in 'Ring' state")
+                     calling_party_number = chan.get('CallerIDNum')
+                     break
+-                if chan.get('ChannelState') == '6' and sip_account in chan.get('BridgedChannel'): # 6 = Up
++                if chan.get('ChannelState') == '6' and (chan.get('ConnectedLineNum') == user.internal_number or sip_account in chan.get('BridgedChannel')): # 6 = Up
+                     _logger.debug("Found a matching Event in 'Up' state")
+                     calling_party_number = chan.get('CallerIDNum')
+                     break
+
