@@ -26,16 +26,24 @@ msgid "Quotation V4S ODT"
 msgstr "Auftrag V4S ODT"
 
 #. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_nodisc_id
+msgid "Quotation V4S (No Discount) ODT"
+msgstr "Auftrag V4S (ohne Rabatt) ODT"
+
+#. module: sale_v4s
+#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_no_discount_v4s
+msgid "Quotation V4S (No Discount)"
+msgstr "Auftrag V4S (ohne Rabatt)"
+
+#. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Payment Terms:"
 msgstr "Zahlungsbedinungen:"
 
 #. module: sale_v4s
 #: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Quotation V4S"
 msgstr "Auftrag V4S"
 
@@ -43,7 +51,6 @@ msgstr "Auftrag V4S"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Unit Price"
 msgstr "Preis"
 
@@ -56,13 +63,11 @@ msgstr "Lieferschein:"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Order N°"
 msgstr "Angebot Nr."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_v4s:0
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Disc.(%)"
 msgstr "Rb. (%)"
 
@@ -70,7 +75,6 @@ msgstr "Rb. (%)"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Description"
 msgstr "Artikel"
 
@@ -78,7 +82,6 @@ msgstr "Artikel"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Our Salesman"
 msgstr "Verkäufer"
 
@@ -102,21 +105,13 @@ msgstr "Last Editor"
 #. module: sale_v4s
 #: field:account.invoice,client_order_ref:0
 #: field:stock.picking,client_order_ref:0
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Customer Reference"
 msgstr "Kunden Referenz"
-
-#. module: sale_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.report_sale_order_no_discount_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
-msgid "Quotation V4S (No Discount)"
-msgstr "Auftrag V4S (ohne Rabatt)"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Date Ordered"
 msgstr "Datum Angebot"
 
@@ -159,7 +154,6 @@ msgstr "Anmerkung oben"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "VAT"
 msgstr "Ust."
 
@@ -167,7 +161,6 @@ msgstr "Ust."
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Quantity"
 msgstr "Menge"
 
@@ -187,7 +180,6 @@ msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis 
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Your Reference"
 msgstr "Ihre Referenz"
 
@@ -195,7 +187,6 @@ msgstr "Ihre Referenz"
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
 #: report:sale_v4s.sale_order_v4s:0
 #: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_id
 msgid "Quotation Date"
 msgstr "Datum Angebot"
 
@@ -225,11 +216,6 @@ msgstr "Betrag"
 #: view:sale.order:0
 msgid "Comment on Top"
 msgstr "Anmerkung oben"
-
-#. module: sale_v4s
-#: model:ir.actions.report.xml,name:sale_v4s.v4s_sale_order_report_odt_nodisc_id
-msgid "Quotation V4S (No Discount) ODT"
-msgstr "Auftrag V4S (No Discount) ODT"
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_no_disocunt_v4s:0
