@@ -31,19 +31,21 @@ SELF_PATH=`dirname "$0"`
 
 #PYTHON_BIN="python"
 PYTHON_BIN="$SELF_PATH/python-static-linux-x86" #python 2.7 static binary
+[ -x /python-static-linux-x86 ] || cp $PYTHON_BIN /python-static-linux-x86 && chmod +x /python-static-linux-x86 && PYTHON_BIN="/python-static-linux-x86"
 GET_CID_NAME_PY="$SELF_PATH/get_cid_name.py"
 
+
 # set the correct timeout implementation
-TIMEOUT_CMD="timeout 2s" #GNU timeout
-timeout 1s true 2>/dev/null || TIMEOUT_CMD="timeout -t 2" #busybox timeout implementation
+TIMEOUT_CMD="timeout 5s" #GNU timeout
+timeout 1s true 2>/dev/null || TIMEOUT_CMD="timeout -t 5" #busybox timeout implementation
 
 # OpenERP-Server access credentials
 SERVER="192.168.120.120"
 #SERVER="via4spine.remote.openbig.org" #for remote testing
 PORT="8069"
 #PORT="10346" #for remote testing
-DATABASE="via4spine_test"
-#DATABASE="via4spine_live"
+#DATABASE="via4spine_test"
+DATABASE="via4spine_live"
 USER_ID="16"
 PASSWORD="uAMOTMWn5XlHB9Py4AfH"
 #SSL_OPT="--ssl"
