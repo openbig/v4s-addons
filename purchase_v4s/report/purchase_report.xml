@@ -5,5 +5,31 @@
         <report auto="False" id="report_purchase_order_v4s" model="purchase.order"
                 name="purchase_v4s.purchase_order_v4s" rml="purchase_v4s/report/order.rml"
                 usage="default" string="Purchase Order V4S"/>
+                
+         <!--    ODT Reports                -->        
+        <record id="v4s_purchase_report_odt_id" model="ir.actions.report.xml">
+            <field name="name">Purchase Order V4S ODT</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">purchase.order</field>
+            <field name="report_name">v4s_purchase_odt_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">purchase_v4s/report/parser.py</field>
+            <field name="report_rml">purchase_v4s/report/order.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="styles_mode">global</field>
+            <field name="tml_source">file</field>
+        </record>
+                
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['purchase.order']" name="models"/>
+            <field name="name">Purchase Order V4S ODT</field>
+            <field eval="'ir.actions.report.xml,'+str(v4s_purchase_report_odt_id)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+        
     </data>
 </openerp>

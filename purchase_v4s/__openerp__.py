@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Purchase",
-    "version" : "0.09 (6.1)",
+    "version" : "0.10 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -32,7 +32,7 @@
     Account customization for via4spine.
     * purchase order confirmation report changed
     """,
-    "depends" : ["purchase"],
+    "depends" : ["purchase", "report_aeroo"],
     "demo_xml" : [],
     "update_xml" : [
             "report/purchase_report.xml",

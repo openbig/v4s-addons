@@ -26,17 +26,18 @@
 
 {
     "name" : "V4S - BASE",
-    "version" : "0.09 (6.1)",
+    "version" : "0.10 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
     Added new fields to customer view.
     """,
-    "depends" : ["base", "base_contact"],
+    "depends" : ["base", "report_aeroo", "base_contact"],
     "demo_xml" : [],
     "update_xml" : [
                     "res_partner_view.xml",
+                    "stylesheet.xml",
                     ],
     "active": False,
     "installable": True

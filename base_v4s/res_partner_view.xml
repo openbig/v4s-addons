@@ -57,7 +57,7 @@
                             <form string="Partner Contacts">
                                 <group colspan="2" col="4">
                                     <separator string="Contact" colspan="4" col="4"/>
-                                    <field name="contact_id" string="Contact Name" colspan="4" />
+                                    <field name="name" colspan="4" />
                                     <field name="prename" colspan="4" />
                                     <newline/>
                                     <field domain="[('domain', '=', 'contact')]" name="title" widget="selection"/>
@@ -71,19 +71,26 @@
                                     <field name="country_id" completion="1"/>
                                     <field name="state_id"/>   
                                     <field name="type" string="Type" colspan="4" />
+                                    <field name="contact_id" string="Contact" colspan="4" />
                                     <field name="location_id" colspan="4" />
                                 </group>
                                 <group colspan="2" col="3">
                                     <separator string="Communication" colspan="4" col="3"/>
                                     <field name="email" widget="email" string="Email"  />
                                     <newline/>
-                                    <field name="phone" />
+                                    <group colspan="2" col="8">
+                                        <field name="phone" colspan="7" />
+                                        <button name="action_dial_phone" string="Dial" type="object"/>
+                                    </group>
                                     <newline/>
                                     <field name="phone2" />
                                     <newline/>
                                     <field name="fax"/>
                                     <newline/>
-                                    <field name="mobile"/>
+                                    <group colspan="2" col="8">
+                                        <field name="mobile" colspan="7" />
+                                        <button name="action_dial_mobile" string="Dial" type="object"/>
+                                    </group>
                                     <newline/>
                                     <field name="website"  widget="url" /> 
                                     <newline/>

@@ -34,12 +34,13 @@ class res_partner_address(osv.osv):
     _inherit = 'res.partner.address'
     
     _columns = {
-        'phone2': fields.char('Phone2', size=64),
+        
         'birthday_communication': fields.datetime('Birthday'),
         'company_ext' : fields.char('Company Name', size=128),
         'department_company_ext' : fields.char('Department Company', size=128),
-        'title_communication' : fields.char('Title', size=255),
+        'phone2': fields.char('Phone2', size=64),
         'prename': fields.char('Prename', size=64),
+        'title_communication' : fields.char('Title', size=255),
         'website': fields.related('partner_id', 'website', type='char', string='Website'),
     }
     

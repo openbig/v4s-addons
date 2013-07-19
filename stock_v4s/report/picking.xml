@@ -1,10 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
+        
         <report id="report_picking_list_v4s" 
                 model="stock.picking" 
                 name="stock_v4s.picking_v4s" 
                 string="Packing V4S" 
                 rml="stock_v4s/report/picking.rml"/>
+    
+    
+        <record id="v4s_picking_report_odt_id" model="ir.actions.report.xml">
+            <field name="name">Packing V4S ODT</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">stock.picking</field>
+            <field name="report_name">v4s_picking_odt_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">stock_v4s/report/picking.py</field>
+            <field name="report_rml">stock_v4s/report/picking.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="styles_mode">global</field>
+            <field name="tml_source">file</field>
+        </record>
+                
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['stock.picking']" name="models"/>
+            <field name="name">Packing V4S ODT</field>
+            <field eval="'ir.actions.report.xml,'+str(v4s_picking_report_odt_id)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
+    
     </data>
 </openerp>

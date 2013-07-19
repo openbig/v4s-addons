@@ -50,6 +50,18 @@ class crm_lead(osv.osv):
         
         #'parent_id': fields.many2one('crm.lead', 'Parent', ondelete='cascade'),
         #'opportunity_ids': fields.one2many('crm.lead','parent_id','Opportunities'),
+        
+        #override related fields from base_contact
+        #'street': fields.char('Street', size=128),
+        #'street2': fields.char('Street2', size=128),
+        #'zip': fields.char('Zip', change_default=True, size=24),
+        #'city': fields.char('City', size=128),
+        #'state_id': fields.many2one("res.country.state", 'Fed. State', domain="[('country_id','=',country_id)]"),
+        #'country_id': fields.many2one('res.country', 'Country'),
+
+        #'mobile': fields.char('Mobile', size=64),
+        #'name': fields.char('Name', size=64, select=1),
+        #'title': fields.many2one('res.partner.title','Title'),
     }
     
     _defaults ={

@@ -24,12 +24,12 @@ from report import report_sxw
 from osv import osv
 import pooler
 
-class order(report_sxw.rml_parse):
+class Parser(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
-        super(order, self).__init__(cr, uid, name, context=context)
+        super(Parser, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({'time': time})
 
-report_sxw.report_sxw('report.purchase_v4s.purchase_order_v4s','purchase.order','addons/purchase_v4s/report/order.rml',parser=order)
+report_sxw.report_sxw('report.purchase_v4s.purchase_order_v4s','purchase.order','addons/purchase_v4s/report/order.rml',parser=Parser)
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
 

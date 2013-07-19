@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Stock",
-    "version" : "0.07 (6.1)",
+    "version" : "0.08 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -33,7 +33,7 @@
     * picking report changed
     * Hersteller as supplier in report (0.05)
     """,
-    "depends" : ["stock"],
+    "depends" : ["stock", "base_v4s"],
     "demo_xml" : [],
     "update_xml" : [
             "report/picking.xml",
