@@ -44,6 +44,12 @@ class res_partner_address(osv.osv):
         'website': fields.related('partner_id', 'website', type='char', string='Website'),
     }
     
+    def action_dial_phone2(self, cr, uid, ids, context=None):
+        '''Function called by the button 'Dial' next to the 'phone' field
+        in the partner address view'''
+        return self.dial(cr, uid, ids, phone_field=['phone2', 'phone_e164'], context=context)
+
+    
 res_partner_address()
 
 class res_partner(osv.osv):

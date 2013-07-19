@@ -89,12 +89,17 @@
                             name="%(mail.action_email_compose_message_wizard)d"
                             icon="terp-mail-message-new" type="action" colspan="1"/>
                         <newline/>
-                        <field name="phone"/>
-                        <field name="phone2" colspan="2" />
+                        <field name="phone" />
+                        <button name="action_dial_phone" string="Dial" type="object" colspan="1"/>
+                        <newline/>
+                        <field name="phone2"/>
+                        <button name="action_dial_phone2" string="Dial" type="object" colspan="1"/>
                         <newline/>
                         <field name="fax"/>
                         <newline/>
-                        <field name="mobile"/>
+                        <field name="mobile" />
+                        <button name="action_dial_mobile" string="Dial" type="object" colspan="1"/>
+                        <newline/>
                         <field name="partner_address_website" colspan="2" widget="url" /> 
                         <field name="birthday_communication" colspan="2" />
                         <field name="title_communication" colspan="2" />
@@ -290,12 +295,16 @@
                                     icon="terp-mail-message-new" type="action" />
                         <newline/>
                         <field name="phone" />
+                        <button name="action_dial_phone" string="Dial" type="object" colspan="1"/>
                         <newline/>
-                        <field name="phone2" />
+                        <field name="phone2"/>
+                        <button name="action_dial_phone2" string="Dial" type="object" colspan="1"/>
                         <newline/>
                         <field name="fax"/>
                         <newline/>
-                        <field name="mobile"/>
+                        <field name="mobile" />
+                        <button name="action_dial_mobile" string="Dial" type="object" colspan="1"/>
+                        <newline/>
                         <newline/>
                         <field name="partner_address_website"  widget="url" /> 
                         <newline/>
