@@ -106,3 +106,9 @@ msgstr "Steuern :"
 #: report:ir.actions.report.xml:purchase_v4s.v4s_purchase_report_odt_id
 msgid "Request for Quotation N°"
 msgstr "Angebotsanfrage Nr."
+
+#. module: purchase_v4s
+#: report:purchase_v4s.purchase_order_v4s:0
+#: report:ir.actions.report.xml:purchase_v4s.v4s_purchase_report_odt_id
+msgid "Shipping address :"
+msgstr "Lieferanschrift"

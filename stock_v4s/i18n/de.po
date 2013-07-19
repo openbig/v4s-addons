@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Project-Id-Version: OpenERP Server 6.1-20130102-004631\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-03 12:08+0000\n"
-"PO-Revision-Date: 2013-06-03 12:08+0000\n"
+"POT-Creation-Date: 2013-07-19 23:17+0000\n"
+"PO-Revision-Date: 2013-07-19 23:17+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,11 +17,13 @@ msgstr ""
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Lot"
 msgstr "Lot-Nr."
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
 msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."
 
@@ -32,6 +34,7 @@ msgstr "Die Referenz muss je Firma eindeutig sein"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Description"
 msgstr "Artikel"
 
@@ -42,8 +45,14 @@ msgstr "Packliste V4S"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Recipient"
 msgstr "Ansprechpartner"
+
+#. module: stock_v4s
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
+msgid "Non Assigned Products:"
+msgstr "Non Assigned Products:"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
@@ -52,17 +61,18 @@ msgstr "]"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Expected Shipping Date"
 msgstr "Auftragsdatum"
 
 #. module: stock_v4s
-#: field:stock.picking,create_uid:0
-#: field:stock.picking,write_uid:0
-msgid "Warehouse Worker"
-msgstr "Lagerist"
+#: model:ir.actions.report.xml,name:stock_v4s.v4s_picking_report_odt_id
+msgid "Packing V4S ODT"
+msgstr "Packliste V4S ODT"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Order(Origin)"
 msgstr "Kundenreferenz"
 
@@ -78,21 +88,24 @@ msgstr "["
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Quantity"
 msgstr "Menge"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Prepared by:"
 msgstr "Bearbeiter:"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Packing List:"
 msgstr "Lieferschein:"
 
 #. module: stock_v4s
 #: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Manufacturer"
 msgstr "Hersteller"
-

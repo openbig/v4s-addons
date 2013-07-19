@@ -33,7 +33,7 @@
     * picking report changed
     * Hersteller as supplier in report (0.05)
     """,
-    "depends" : ["stock", "base_v4s"],
+    "depends" : ["stock", ],
     "demo_xml" : [],
     "update_xml" : [
             "report/picking.xml",

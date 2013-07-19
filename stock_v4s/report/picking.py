@@ -28,9 +28,9 @@ from report import report_sxw
 from osv import osv
 import pooler
 
-class picking(report_sxw.rml_parse):
+class Parser(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
-        super(picking, self).__init__(cr, uid, name, context=context)
+        super(Parser, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
             'get_qtytotal':self._get_qtytotal
@@ -42,5 +42,5 @@ class picking(report_sxw.rml_parse):
             total+=move.product_qty
         return {'quantity':total,'uom':uom}
 
-report_sxw.report_sxw('report.stock_v4s.picking_v4s','stock.picking','addons/stock_v4s/report/picking.rml',parser=picking)
+report_sxw.report_sxw('report.stock_v4s.picking_v4s','stock.picking','addons/stock_v4s/report/picking.rml',parser=Parser)
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

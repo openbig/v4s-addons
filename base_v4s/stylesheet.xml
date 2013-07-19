@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-    
+
 <!--    StyleSheet                -->
         <record id="stylesheet_company_aeroo" model="report.stylesheets">
             <field name="name">Company Header/Footer</field>
@@ -26,6 +26,9 @@ DAAAY29udGVudC54bWxQSwECFAAUAAgICAD0hdpCX2ryd8oPAADSeAAACgAAAAAAAAAAAAAAAACTEgAA
 QgAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAAAAEy8AAENvbmZpZ3VyYXRpb25zMi9wb3B1cG1lbnUvUEsBAhQAFAAACAAA9IXaQgAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAAAASy8AAENvbmZpZ3VyYXRpb25zMi9pbWFnZXMvQml0bWFwcy9QSwECFAAUAAgICAD0hdpCi1ynShoBAAA+BAAAFQAAAAAAAAAAAAAAAACILwAATUVUQS1JTkYvbWFuaWZlc3QueG1sUEsFBgAAAAARABEAcAQAAOUwAAAAAA==</field>
         </record>
 
+        <record id="base.main_company" model="res.company">
+            <field name="stylesheet_id" eval="ref('base_v4s.stylesheet_company_aeroo')"/>
+        </record>     
         
     </data>
 </openerp>

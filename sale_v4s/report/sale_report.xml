@@ -10,10 +10,6 @@
                 rml="sale_v4s/report/sale_order_no_discount.rml" string="Quotation V4S (No Discount)"
                 usage="default"/>
                                 
-        <record id="base.main_company" model="res.company">
-            <field name="stylesheet_id" eval="ref('base_v4s.stylesheet_company_aeroo')"/>
-        </record>          
-
 <!--    ODT Reports                -->        
         <record id="v4s_sale_order_report_odt_id" model="ir.actions.report.xml">
             <field name="name">Quotation V4S ODT</field>
