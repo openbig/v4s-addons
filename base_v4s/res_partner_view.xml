@@ -76,14 +76,17 @@
                                 </group>
                                 <group colspan="2" col="3">
                                     <separator string="Communication" colspan="4" col="3"/>
-                                    <field name="email" widget="email" string="Email"  />
+                                    <field name="email" widget="email" string="Email" />
                                     <newline/>
-                                    <group colspan="2" col="8">
+                                    <group colspan="4" col="8">
                                         <field name="phone" colspan="7" />
                                         <button name="action_dial_phone" string="Dial" type="object"/>
                                     </group>
                                     <newline/>
-                                    <field name="phone2" />
+                                    <group colspan="2" col="8">
+                                        <field name="phone2" colspan="7" />
+                                        <button name="action_dial_phone2" string="Dial" type="object" />
+                                    </group>
                                     <newline/>
                                     <field name="fax"/>
                                     <newline/>
