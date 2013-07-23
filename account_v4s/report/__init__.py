@@ -25,5 +25,6 @@
 
 #import crm_lead
 import account_print_invoice
+import parser
 #import wizard
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

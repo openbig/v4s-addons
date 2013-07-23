@@ -39,7 +39,6 @@ class Parser(report_sxw.rml_parse):
     def get_picking(self, invoice):
         if invoice.type == 'out_invoice':
             if self.pool.get("sale.order"):
-#                 netsvc.Logger().notifyChannel("Pickings",netsvc.LOG_DEBUG,str(is_so))
                  self.cr.execute("SELECT p.id, max(p.date), p.name FROM stock_picking as p \
                              LEFT JOIN sale_order as s \
                                  ON (p.sale_id = s.id) \
@@ -52,7 +51,6 @@ class Parser(report_sxw.rml_parse):
                      return res[2]
         elif invoice.type == 'in_invoice':
             if self.pool.get("purchase.order"):
-#                netsvc.Logger().notifyChannel("Pickings",netsvc.LOG_DEBUG,str(is_so))
                 self.cr.execute("SELECT p.id, max(p.date), p.name FROM stock_picking as p \
                             LEFT JOIN purchase_order as po \
                                 ON (p.purchase_id = po.id) \
@@ -66,20 +64,15 @@ class Parser(report_sxw.rml_parse):
         return ""
 
     def get_delivery_address(self, invoice):
-#        logger = logging.getLogger('GET_ADDRESS')
 
         res_address = ""
-#        logger.warn("res_address: %s", res_address)
         if invoice.type == 'out_invoice':
-#            logger.warn("invoice_type: %s", invoice.type)
             if self.pool.get("sale.order"):
-#                logger.warn(" is object: %s", self.pool.get("sale.order"))
                 self.cr.execute("SELECT order_id \
                                 FROM sale_order_invoice_rel \
                                 WHERE invoice_id = %s",(invoice.id,))
                 res = self.cr.fetchone()
-                if res[0]:
-#                    logger.warn("res: %s", res[0])
+                if res and res[0]:
                     so = self.pool.get('sale.order').browse(self.cr, self.uid, res[0])
                     address = so.partner_shipping_id
                     res_address = ''
@@ -90,30 +83,8 @@ class Parser(report_sxw.rml_parse):
                     res_address+=  (address.street and address.street+'\n') or '' 
                     res_address+=  (address.street2 and address.street2+'\n') or '' 
                     res_address+=  ((address.zip and address.zip+' ') or '')  + ((address.city and address.city+'\n') or '')
-                    #res_address = address.partner_id.name + '\n'\ + address.name + '\n' + address.street + '\n' + \
-                            #address.zip + ' ' + address.city + '\n' + (address.country_id and address.country_id.name or '')
-#                    logger.warn("addres: %s", res_address)
+
         return res_address
 
-#        elif invoice.type == 'in_invoice':
-#            if self.pool.get("purchase.order"):
-##                netsvc.Logger().notifyChannel("Pickings",netsvc.LOG_DEBUG,str(is_so))
-#                cr.execute("SELECT p.id, max(p.date), p.name FROM stock_picking as p \
-#                            LEFT JOIN purchase_order as po \
-#                                ON (p.purchase_id = po.id) \
-#                                LEFT JOIN purchase_invoice_rel as i \
-#                                    ON (po.id = i.purchase_id) \
-#                            WHERE (i.invoice_id = %s) AND (p.state = 'done') \
-#                            GROUP BY p.id",(invoice.id,))
-#                res = cr.fetchone()
-#                if res:
-#                    return res[2]  #self.pick_done_last(cr, uid, picking_ids)  # search for last done pick list
-#        return ""
 
-report_sxw.report_sxw(
-    'report.account_v4s.invoice_v4s',
-    'account.invoice',
-    'addons/account_v4s/report/account_print_invoice.rml',
-    parser=Parser
-)
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

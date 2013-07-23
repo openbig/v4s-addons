@@ -21,6 +21,32 @@
             string="Invoices"
             attachment="(object.state in ('open','paid')) and ('INV'+(object.number or '').replace('/','')+'.pdf')"
             usage="-"
-            multi="True"/>    
+            multi="True"/> 
+            
+            
+        <!--    ODT Reports                -->        
+        <record id="v4s_account_print_invoice_report_odt_id" model="ir.actions.report.xml">
+            <field name="name">Invoices V4S ODT</field>
+            <field name="type">ir.actions.report.xml</field>
+            <field name="model">account.invoice</field>
+            <field name="report_name">v4s_account_print_invoice_odt_report</field>
+            <field name="report_type">aeroo</field>
+            <field name="in_format">oo-odt</field>
+            <field name="parser_loc">account_v4s/report/parser.py</field>
+            <field name="report_rml">account_v4s/report/account_print_invoice.odt</field>
+            <field name="parser_state">loc</field>
+            <field name="styles_mode">global</field>
+            <field name="tml_source">file</field>
+        </record>
+                
+        <ir_set>
+            <field eval="'action'" name="key"/>
+            <field eval="'client_print_multi'" name="key2"/>
+            <field eval="['account.invoice']" name="models"/>
+            <field name="name">Invoices V4S ODT</field>
+            <field eval="'ir.actions.report.xml,'+str(v4s_account_print_invoice_report_odt_id)" name="value"/>
+            <field eval="True" name="isobject"/>
+            <field eval="True" name="replace"/>
+        </ir_set>
    </data>
 </openerp>

@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-# 	* account_v4s
+#	* account_v4s
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Project-Id-Version: OpenERP Server 6.1-20130102-004631\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-03 12:01+0000\n"
-"PO-Revision-Date: 2013-06-03 12:01+0000\n"
+"POT-Creation-Date: 2013-07-23 09:53+0000\n"
+"PO-Revision-Date: 2013-07-23 09:53+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,7 @@ msgstr ""
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Picking No"
 msgstr "Lieferschein-Nr."
 
@@ -27,6 +28,7 @@ msgstr "Abgebrochene Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Payment Terms:"
 msgstr "Zahlungsbedinungen:"
 
@@ -37,11 +39,13 @@ msgstr "Lieferanten Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Unit Price"
 msgstr "Einzelpreis"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "VAT :"
 msgstr "UStID :"
 
@@ -52,81 +56,104 @@ msgstr "PRO-FORMA"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Taxes:"
 msgstr "Steuern:"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Description"
 msgstr "Artikel"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Price"
 msgstr "Gesamtpreis"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Invoice Date"
 msgstr "Rechnungsdatum"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Base"
 msgstr "Steuergrundbetrag"
 
 #. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+
+msgid "Fiscal Position Remark :"
+msgstr "Hinweis Steuern : "
+
+#. module: account_v4s
 #: field:account.invoice,write_uid:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+
 msgid "Last Editor"
-msgstr "Letzter Bearbeiter"
+msgstr "Last Editor"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Partner Ref."
 msgstr "Kunden-Nr."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Total:"
 msgstr "Bruttosumme:"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "All prices excluding VAT."
 msgstr "Alle o.g. Preise verstehen sich rein netto zzgl. MwSt."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Taxes"
 msgstr "Ust."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
-msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
-msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."
-
-#. module: account_v4s
-#: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Amount"
 msgstr "Betrag"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Delivery Address:"
 msgstr "Lieferadressen:"
 
 #. module: account_v4s
+#: model:ir.actions.report.xml,name:account_v4s.v4s_account_print_invoice_report_odt_id
+msgid "Invoices V4S ODT"
+msgstr "Rechnung V4S ODT"
+
+#. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Draft Invoice"
 msgstr "Entwurf Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Quantity"
 msgstr "Menge"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Refund"
 msgstr "Gutschrift"
 
@@ -137,48 +164,60 @@ msgstr "Die Rechnungsnummer muss je Firma eindeutig sein"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
-msgid "Fiscal Position Remark :"
-msgstr "Hinweis Steuern : "
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+msgid "Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
+msgstr "Es gelten unsere allgemeinen Geschäftsbedingungen. Die Ware bleibt bis zur vollständigen Bezahlung unser Eigentum."
+
+#. module: account_v4s
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+msgid "All prices excluding VAT.Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
+msgstr "All prices excluding VAT.Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Tax"
 msgstr "Umsatzsteuer"
 
 #. module: account_v4s
-#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
-msgid "Invoices V4S"
-msgstr "Rechnung V4S"
+#: view:account.invoice:0
+msgid "Print Invoice"
+msgstr "Rechnung drucken"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Net Total:"
 msgstr "Nettosumme:"
 
 #. module: account_v4s
-#: field:account.invoice,client_order_ref:0
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+#: field:account.invoice,client_order_ref:0
 msgid "Customer Reference"
 msgstr "Ihre Referenz"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 #: model:ir.model,name:account_v4s.model_account_invoice
 msgid "Invoice"
 msgstr "Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Supplier Refund"
 msgstr "Lieferantengutschrift"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Prepared by:"
 msgstr "Bearbeiter"
 
 #. module: account_v4s
-#: view:account.invoice:0
-msgid "Print Invoice"
-msgstr "Rechnung drucken"
+#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
+msgid "Invoices V4S"
+msgstr "Rechnung V4S"
 
