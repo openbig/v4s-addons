@@ -1,13 +1,13 @@
 # Translation of OpenERP Server.
 # This file contains the translation of the following modules:
-#	* account_v4s
+#   * account_v4s
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: OpenERP Server 6.1-20130102-004631\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-23 09:53+0000\n"
-"PO-Revision-Date: 2013-07-23 09:53+0000\n"
+"POT-Creation-Date: 2013-07-23 17:57+0000\n"
+"PO-Revision-Date: 2013-07-23 17:57+0000\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -39,7 +39,6 @@ msgstr "Lieferanten Rechnung"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
-#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Unit Price"
 msgstr "Einzelpreis"
 
@@ -61,6 +60,11 @@ msgid "Taxes:"
 msgstr "Steuern:"
 
 #. module: account_v4s
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+msgid "Unit Price "
+msgstr "Einzelpreis"
+
+#. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 #: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Description"
@@ -68,7 +72,6 @@ msgstr "Artikel"
 
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
-#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Price"
 msgstr "Gesamtpreis"
 
@@ -87,14 +90,12 @@ msgstr "Steuergrundbetrag"
 #. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 #: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
-
 msgid "Fiscal Position Remark :"
 msgstr "Hinweis Steuern : "
 
 #. module: account_v4s
-#: field:account.invoice,write_uid:0
 #: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
-
+#: field:account.invoice,write_uid:0
 msgid "Last Editor"
 msgstr "Last Editor"
 
@@ -174,6 +175,11 @@ msgid "All prices excluding VAT.Subject to our terms and conditions we reserve a
 msgstr "All prices excluding VAT.Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries."
 
 #. module: account_v4s
+#: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
+msgid "Price "
+msgstr "Gesamtpreis"
+
+#. module: account_v4s
 #: report:account_v4s.invoice_v4s:0
 #: report:ir.actions.report.xml:account_v4s.v4s_account_print_invoice_report_odt_id
 msgid "Tax"
@@ -220,4 +226,3 @@ msgstr "Bearbeiter"
 #: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
 msgid "Invoices V4S"
 msgstr "Rechnung V4S"
-

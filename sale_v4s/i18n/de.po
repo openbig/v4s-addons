@@ -68,6 +68,7 @@ msgstr "Angebot Nr."
 
 #. module: sale_v4s
 #: report:sale_v4s.sale_order_v4s:0
+#: report:ir.actions.report.xml:sale_v4s.v4s_sale_order_report_odt_nodisc_id
 msgid "Disc.(%)"
 msgstr "Rb. (%)"
 
