@@ -6,7 +6,7 @@
             <field name="name">res.partner.crm.v4s.inherit1</field>
             <field name="model">res.partner</field>
             <field name="type">form</field>
-            <field name="inherit_id" ref="base_contact.view_partner_form_inherit"/>
+            <field name="inherit_id" ref="asterisk_click2dial.asterisk_res_partner_dial"/>
             <field name="arch" type="xml">
                 <field name="website"   position="replace" />
                 <page string="Notes"    position="replace"/>
@@ -71,8 +71,8 @@
                                     <field name="country_id" completion="1"/>
                                     <field name="state_id"/>   
                                     <field name="type" string="Type" colspan="4" />
-                                    <field name="contact_id" string="Contact" colspan="4" />
-                                    <field name="location_id" colspan="4" />
+<!--                                     <field name="contact_id" string="Contact" colspan="4" /> -->
+<!--                                     <field name="location_id" colspan="4" /> -->
                                 </group>
                                 <group colspan="2" col="3">
                                     <separator string="Communication" colspan="4" col="3"/>
@@ -170,31 +170,29 @@
         <record id="view_partner_address_form1_v4s" model="ir.ui.view">
             <field name="name">res.partner.address.form1</field>
             <field name="model">res.partner.address</field>
-            <field name="inherit_id" ref="base_contact.view_partner_address_form_inherited0"/>
+            <field name="inherit_id" ref="asterisk_click2dial.asterisk_res_partner_address_dial1"/>
             <field name="type">form</field>
             <field eval="8" name="priority"/>
             <field name="arch" type="xml">
-                <field name="active" position="replace" />
-                <field name="location_id" position="replace" />
-                <field name="contact_id" position="replace" />
-                
+                <field name="title" position="replace" />
+
                 <field name="company_id" position="replace" >
-                    <field name="contact_id" />
+<!--                     <field name="contact_id" /> -->
                     <field name="title" />
                 </field>
                                 
-                <field name="function" position="before" >
-                    <field name="name" />
+                <field name="name" position="after" >
+<!--                     <field name="name" /> -->
                     <field name="prename" />
                 </field>
-                
+                <!--
                 <field name="function" position="after" >
                     <field name="active" />
                 </field>
                 
                 <field name="state_id" position="after">
                     <field name="location_id" />
-                </field>
+                </field>-->
                 
                 
             </field>
