@@ -23,23 +23,15 @@
 #
 ##############################################################################
 
+# ABOUT
+# this script I use to update stylesheet.xml
 
-{
-    "name" : "V4S - BASE",
-    "version" : "0.13 (6.1)",
-    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
-    "website": "http://www.openbig.org",
-    "category" : "Localisation/Country specific stuff",
-    "description": """
-    Added new fields to customer view.
-    """,
-    "depends" : ["base", "report_aeroo", "asterisk_click2dial"],
-    "demo_xml" : [],
-    "update_xml" : [
-                    "res_partner_view.xml",
-                    "stylesheet.xml",
-                    ],
-    "active": False,
-    "installable": True
-}
+# USAGE
+# use command line and execute
+# python base64_script.py > stylesheet.log
+# and copy content from stylesheet.log to xml
+import base64
+file_path = 'stylesheet.odt'
+with open(file_path, "rb") as file:
+    print base64.b64encode(file.read())
 

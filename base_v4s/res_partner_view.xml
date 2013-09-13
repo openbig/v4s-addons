@@ -175,7 +175,7 @@
             <field eval="8" name="priority"/>
             <field name="arch" type="xml">
                 <field name="title" position="replace" />
-
+                <field name="email" position="replace" />
                 <field name="company_id" position="replace" >
 <!--                     <field name="contact_id" /> -->
                     <field name="title" />
@@ -185,15 +185,28 @@
 <!--                     <field name="name" /> -->
                     <field name="prename" />
                 </field>
-                <!--
-                <field name="function" position="after" >
-                    <field name="active" />
+                
+                <xpath expr="//field[@name='phone']/.." position="before">
+                    <field name="email" widget="email" string="Email" />
+                </xpath>
+                
+                <xpath expr="//field[@name='phone']/.." position="after">
+                    <group colspan="2" col="8">
+                        <field name="phone2" colspan="7" />
+                        <button name="action_dial_phone2" string="Dial" type="object"/>
+                    </group>
+                </xpath>
+                
+                <xpath expr="//field[@name='mobile']/.." position="after">
+                    <field name="website"  widget="url" />
+                    <field name="birthday_communication"  />
+                    <field name="title_communication" />
+                </xpath>
+                
+                <field name="function" position="after">
+                    <field name="company_ext" />
+                    <field name="department_company_ext" colspan="4" />
                 </field>
-                
-                <field name="state_id" position="after">
-                    <field name="location_id" />
-                </field>-->
-                
                 
             </field>
         </record>
