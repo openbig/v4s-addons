@@ -26,7 +26,7 @@
 
 {
     "name" : "V4S - BASE",
-    "version" : "0.11 (6.1)",
+    "version" : "0.12 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
