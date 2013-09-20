@@ -30,6 +30,8 @@ class stock_picking(osv.osv):
     _columns = {
         'create_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
         'write_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
+        
+        'notice': fields.text('Notice'),
     }
     
         

@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Stock",
-    "version" : "0.09 (6.1)",
+    "version" : "0.10 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -32,10 +32,12 @@
     Stock customization for via4spine.
     * picking report changed
     * Hersteller as supplier in report (0.05)
+    * added field 'notice' in orders
     """,
     "depends" : ["stock", ],
     "demo_xml" : [],
     "update_xml" : [
+            "stock_view.xml",
             "report/picking.xml",
                     ],
     "active": False,

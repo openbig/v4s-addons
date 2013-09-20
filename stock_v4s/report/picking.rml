@@ -201,7 +201,7 @@
     <para style="P5">
       <font color="white"> </font>
     </para>
-    <para style="P16">[[ (picking .note and format(picking .note )) or removeParentNode('para') ]]</para>
+    <para style="P16">[[ (picking .notice and format(picking .notice )) or removeParentNode('para') ]]</para>
     <para style="P5">
       <font color="white"> </font>
     </para>
