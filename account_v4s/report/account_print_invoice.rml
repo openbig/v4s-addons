@@ -148,9 +148,9 @@
     <blockTable colWidths="297.0,233.0" style="Table_Partner_Address">
       <tr>
         <td>
-          <para style="terp_default_8">[[ (o.partner_id and o.partner_id.company_ext) or '' ]]</para>
-          <para style="terp_default_8">[[ (o.partner_id and o.partner_id.department_company_ext) or '' ]]</para>
-          <para style="terp_default_8">[[ ( o.address_invoice_id and o.address_invoice_id.title and o.address_invoice_id.title.name) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.prename) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.name) or '' ]]</para>
+          <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.company_ext) or '' ]]</para>
+          <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.department_company_ext) or '' ]]</para>
+          <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.title and o.address_invoice_id.title.name) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.prename) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.name) or '' ]]</para>
           <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.street) or '' ]]</para>
           <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.street2) or removePartentNode('para') ]]</para>
           <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.zip) or '' ]] [[ (o.address_invoice_id and o.address_invoice_id.city) or '' ]]</para>
