@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!-- crm.claim Claim From View -->
+<!--    <record model="ir.ui.view" id="crm_case_claims_form_view_v4s">
+            <field name="name">CRM - Claims Form</field>
+            <field name="model">crm.claim</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
+            <field name="arch" type="xml">
+                <button name="stage_next" position="after" >
+                    <button string="Create Purchase Order" type="object" name="convert_to_purchase" icon="gtk-go-forward" colspan="4" />
+                </button>
+                
+                <field name="ref" position="after">
+                    <field name="ref2" />
+                </field>
+            </field>
+    </record>-->
+    
+    </data>
+</openerp>
