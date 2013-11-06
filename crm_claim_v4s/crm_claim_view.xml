@@ -19,5 +19,98 @@
             </field>
     </record>-->
     
+        <!-- crm.claim Claim Form View -->
+        <record model="ir.ui.view" id="crm_case_claims_form_view_improved_v4s">
+                <field name="name">CRM - Claims Form</field>
+                <field name="model">crm.claim</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="crm_v4s.crm_case_claims_form_view_v4s"/>
+                <field name="arch" type="xml">
+                    <xpath expr="//field[@name='name']/.." position="replace" />
+                    <xpath expr="//field[@name='user_id']/.." position="replace" >
+                        <group colspan="4" col="8">
+                            <field name="name"/>
+                            <field name="user_id"/>
+                            <field name="section_id" widget="selection"/>
+                            <field name="date"/>
+                            <field name="partner_id2"/>
+                            <field name="priority"/>
+                            <field name="stage_id" domain="[('section_ids','=',section_id)]"/>
+                            <button name="stage_previous" string="" type="object" icon="gtk-go-back"/>
+                            <button name="stage_next" string="" type="object" icon="gtk-go-forward"/>
+                            <button string="Create Purchase Order" type="object" name="convert_to_purchase" icon="gtk-go-forward" colspan="4" />
+                        </group>
+                    </xpath>
+                    
+                    <xpath expr="//field[@name='ref']/.." position="after">
+                        <group colspan="4" col="4">
+                            <separator colspan="4" string="Vorgangsinformationen"/>
+                            <field name="rga_number"/>
+                            <field name="defect_location"/>
+                            <field name="warranty"/>
+                            <field name="defect_desc"/>
+                            <field name="defect_obtain"/>
+                            <field name="spare_outstanding"/>
+                            <field name="defect_is_replacement"/>
+                            <field name="obtain_per"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <separator colspan="4" string="Instrumente"/>
+                            <field name="defective_product01"/>
+                            <field name="defect_lot01"/>
+                            <field name="defective_product02"/>
+                            <field name="defect_lot02"/>
+                            <field name="defect_substitute01"/>
+                            <field name="replacement_lot01"/>
+                            <field name="defect_substitute02"/>
+                            <field name="replacement_lot02"/>
+                            <field name="defect_susbstitute_supplier01"/>
+                            <field name="replacement__lot_supplier01"/>
+                            <field name="defect_susbstitute_supplier02"/>
+                            <field name="replacement__lot_supplier02"/>
+                        </group>
+                        <group colspan="4" col="4">
+                            <separator colspan="4" string="Ablauf"/>
+                            <field name="sale_order_id"/>
+                            <field name="defect_date"/>
+                            <field name="purchase_id"/>
+                            <field name="wa_to_supplier"/>
+                            <field name="invoice_id"/>
+                            <field name="invoice_amount02"/>
+                            <field name="delivery_number"/>
+                            <field name="we_from_supplier"/>
+                            <field name="invoice_number"/>
+                            <field name="invoice_amount"/>
+                            <field name="credit_date"/>
+                            <field name="credit_amount"/>
+                        </group>
+                    </xpath>
+                    
+                </field>
+        </record>
+        
+        <record model="ir.ui.view" id="crm_case_claims_tree_view_v4s">
+            <field name="name">CRM - Claims Tree</field>
+            <field name="model">crm.claim</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="crm_claim.crm_case_claims_tree_view"/>
+            <field name="arch" type="xml">
+
+                    <field name="partner_id" position="after" >
+                        <field name="rga_number"/>
+                        <field name="defect_location"/>
+                        <field name="defect_obtain"/>
+                        <field name="spare_outstanding"/>
+                        <field name="defect_is_replacement"/>
+                    </field>
+                    
+                    <field name="stage_id" invisible="1" position="replace" >
+                        <field name="stage_id" invisible="0"/>
+                        <button name="stage_previous" string="Previous Stage" states="open,pending" type="object" icon="gtk-go-back"/>
+                        <button name="stage_next" string="Next Stage" states="open,pending" type="object" icon="gtk-go-forward"/>
+                    </field>
+
+            </field>
+        </record>
     </data>
 </openerp>

@@ -50,7 +50,7 @@ class crm_claim(osv.osv):
         'defect_date': fields.date('Defect Date'), # x_defekteingang
         
         'defect_is_replacement': fields.boolean('Replacement of Sieve'), # x_entnahme
-        'defect_obtain': fields.boolean(''), # x_erhalten
+        'defect_obtain': fields.boolean('Defect Obtain'), # x_erhalten
         
         'defect_substitute01': fields.many2one('product.product', 'Substitute for Customer 01'), # x_ersatzkunde01
         'defect_substitute02': fields.many2one('product.product', 'Substitute for Customer 02'), # x_ersatzkunde02
@@ -74,7 +74,7 @@ class crm_claim(osv.osv):
         'invoice_number': fields.char('Invoice Number', size=64), # x_invoice
         'invoice_amount': fields.float('Invoice Amount in $'), # x_invoicebetrag
         
-        'partner_id': fields.many2one('res.partner', 'Customer'), # x_kunde
+        'partner_id2': fields.many2one('res.partner', 'Customer'), # x_kunde
         'supplier_id': fields.many2one('res.partner', 'Supplier'), #x_lieferant
         
         'delivery_number': fields.char('Delivery Number', size=256), # x_lieferschein

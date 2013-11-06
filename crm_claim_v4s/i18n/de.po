@@ -180,3 +180,23 @@ msgstr "Kundenrechnung"
 #: field:crm.claim,purchase_id:0
 msgid "Procurement Order"
 msgstr "Beschaffungsauftrag"
+
+#. module: crm_claim_v4s
+#: field:crm.claim,partner_id2:0
+msgid "Customer"
+msgstr "Kunde"
+
+#. module: crm_claim_v4s
+#: field:crm.claim,defect_obtain:0
+msgid "Defect Obtain"
+msgstr "Defekt erhalten"
+
+#. module: crm_claim_v4s
+#: view:crm.claim:0
+msgid "Claim Reporter"
+msgstr "Lieferant"
+
+#. module: crm_claim_v4s
+#: view:crm.claim:0
+msgid "Claim/Action Description"
+msgstr "Hinweis"
