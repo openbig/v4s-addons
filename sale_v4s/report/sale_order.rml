@@ -102,7 +102,7 @@
     <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
     <paraStyle name="P3" rightIndent="4.0" leftIndent="0.0" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
     <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P5" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
@@ -143,26 +143,34 @@
   <story>
     <para style="terp_default_8">[[repeatIn(objects,'o')]]</para>
     <para style="terp_default_8">[[ setLang(o.partner_id.lang) ]]</para>
-    <blockTable colWidths="265.0,51.0,225.0" style="Table1">
+    <blockTable colWidths="539.0" style="Table1">
       <tr>
         <td>
-          <para style="P1">[[ (o.partner_id and o.partner_id.company_ext) or '' ]]</para>
-          <para style="P1">[[ (o.partner_id and o.partner_id.department_company_ext) or '' ]]</para>
-          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.title and o.partner_shipping_id.title.name) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.prename) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.name) or '' ]]</para>
-          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.street) or '' ]]</para>
+          <para style="P1">
+            <font color="white"> </font>
+          </para>
+          <para style="P1">
+            <font color="white"> </font>
+          </para>
+          <para style="P1">[[ (o.partner_id and o.partner_id.company_ext) or ' ' ]]</para>
+          <para style="P1">[[ (o.partner_id and o.partner_id.department_company_ext) or ' ' ]]</para>
+          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.title and o.partner_shipping_id.title.name) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.prename) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.name) or ' ' ]]</para>
+          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.street) or ' ' ]]</para>
           <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.street2) or removePartentNode('para') ]]</para>
-          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.zip) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.city) or '' ]]</para>
-        </td>
-        <td>
-          <para style="terp_default_8">
+          <para style="P1">[[ (o. partner_shipping_id and o.partner_shipping_id.zip) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.city) or ' ' ]]</para>
+          <para style="P1">
             <font color="white"> </font>
           </para>
-        </td>
-        <td>
-          <para style="terp_default_9">
+          <para style="P1">
             <font color="white"> </font>
           </para>
-          <para style="terp_default_9">
+          <para style="P1">
+            <font color="white"> </font>
+          </para>
+          <para style="P1">
+            <font color="white"> </font>
+          </para>
+          <para style="P1">
             <font color="white"> </font>
           </para>
         </td>
@@ -366,7 +374,7 @@
       <blockTable colWidths="208.0,72.0,72.0,187.0" style="Table7">
         <tr>
           <td>
-            <para style="P5">[[ t[2].split('-')[0] ]]</para>
+            <para style="P4">[[ t[2].split('-')[0] ]]</para>
           </td>
           <td>
             <para style="terp_default_Right_8">[[ formatLang(t[0], digits=get_digits(dp='Sale Price')) ]] [[ o.pricelist_id.currency_id. symbol ]]</para>

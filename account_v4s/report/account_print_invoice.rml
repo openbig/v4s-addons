@@ -104,6 +104,7 @@
     <paraStyle name="P1" fontName="Helvetica" spaceBefore="0.0" spaceAfter="18.0"/>
     <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
     <paraStyle name="P3" rightIndent="0.0" leftIndent="0.0" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" rightIndent="0.0" leftIndent="0.0" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
@@ -145,12 +146,18 @@
   <story>
     <para style="terp_default_8">[[ repeatIn(objects,'o') ]]</para>
     <para style="terp_default_8">[[ setLang(o.partner_id.lang) ]]</para>
-    <blockTable colWidths="297.0,233.0" style="Table_Partner_Address">
+    <blockTable colWidths="530.0" style="Table_Partner_Address">
       <tr>
         <td>
-          <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.company_ext) or '' ]]</para>
-          <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.department_company_ext) or '' ]]</para>
-          <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.title and o.address_invoice_id.title.name) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.prename) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.name) or '' ]]</para>
+          <para style="terp_default_8">
+            <font color="white"> </font>
+          </para>
+          <para style="terp_default_8">
+            <font color="white"> </font>
+          </para>
+          <para style="terp_default_8">[[ ( o.address_invoice_id and o.address_invoice_id.company_ext) or '' ]]</para>
+          <para style="terp_default_8">[[ ( o.address_invoice_id and o.address_invoice_id.department_company_ext) or '' ]]</para>
+          <para style="terp_default_8">[[ ( o.address_invoice_id and o.address_invoice_id.title and o.address_invoice_id.title.name) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.prename) or '' ]] [[ (o. address_invoice_id and o.address_invoice_id.name) or '' ]]</para>
           <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.street) or '' ]]</para>
           <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.street2) or removePartentNode('para') ]]</para>
           <para style="terp_default_8">[[ (o.address_invoice_id and o.address_invoice_id.zip) or '' ]] [[ (o.address_invoice_id and o.address_invoice_id.city) or '' ]]</para>
@@ -158,9 +165,16 @@
             <font color="white"> </font>
           </para>
           <para style="terp_default_8">VAT : [[ (o.partner_id and o.partner_id.vat) or removeParentNode('para') ]]</para>
-        </td>
-        <td>
-          <para style="terp_default_8">
+          <para style="P4">
+            <font color="white"> </font>
+          </para>
+          <para style="P4">
+            <font color="white"> </font>
+          </para>
+          <para style="P4">
+            <font color="white"> </font>
+          </para>
+          <para style="P4">
             <font color="white"> </font>
           </para>
         </td>
