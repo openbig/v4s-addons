@@ -23,13 +23,12 @@
 #
 ##############################################################################
 
-# ABOUT
 # this script I use to update stylesheet.xml
 
 # USAGE
-# use command line and execute
+# use terminal and execute script
 # python base64_script.py > stylesheet.log
-# and copy content from stylesheet.log to xml
+# and copy content from stylesheet.log to stylesheet.xml
 import base64
 file_path = 'stylesheet.odt'
 with open(file_path, "rb") as file:
