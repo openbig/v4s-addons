@@ -39,7 +39,7 @@ class stock_picking(osv.osv):
       
       if picking.sale_id and inv_type in ('out_invoice', 'out_refund') and not invoice_vals.has_key('client_order_ref'):
             invoice_vals['client_order_ref'] = picking.client_order_ref or ''
-      print 'Stock', invoice_vals
+
       return invoice_vals
 
       
