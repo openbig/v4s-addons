@@ -56,10 +56,7 @@ class procurement_order(osv.osv):
         
         for picking in picking_pool.browse(cr, uid, picking_ids):
             if picking.sale_id:
-                print 'znalazlem sale'
-                print 'original', picking.sale_id.id, 'znaleziony', sale_id
                 continue
-            print 'write'
             picking.write({'sale_id': sale_id})
     
     def find_sale_orders(self, cr, uid, procurement_ids, context=None):
@@ -71,7 +68,7 @@ class procurement_order(osv.osv):
                 if 'SO' not in source:
                     continue
                 result[procurement.id] = source
-        print result        
+
         return result
             
     def find_delivery_orders(self, cr, uid, procurement_ids, context=None):
@@ -83,7 +80,7 @@ class procurement_order(osv.osv):
                 continue
             sale_name = sale_names[procurement.id]
             picking_ids = picking_pool.search(cr, uid, [('origin','like', sale_name)])
-            print 'sale', sale_name, picking_ids
+
             result[procurement.id] = picking_ids
         return result
     
