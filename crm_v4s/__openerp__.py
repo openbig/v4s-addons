@@ -26,7 +26,7 @@
 
 {
     "name" : "V4S - CRM",
-    "version" : "0.12 (6.1)",
+    "version" : "0.13 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -39,6 +39,7 @@
                     "crm_lead_view.xml",
                     "res_partner_view.xml",
                     "crm_claim_view.xml",
+                    "report/crm_lead_report_view.xml",
                     ],
     "active": False,
     "installable": True

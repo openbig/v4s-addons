@@ -1,0 +1,32 @@
+<openerp>
+    <data>
+    <!-- crm.lead Leads tree view -->
+    <record model="ir.ui.view" id="view_report_crm_lead_tree_v4s">
+            <field name="name">crm.lead.report.tree</field>
+            <field name="model">crm.lead.report</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="crm.view_report_crm_lead_tree"/>
+            <field name="arch" type="xml">
+                <field name="country_id" position="after">
+                    <field name="company_ext" invisible="1" />
+                    <field name="partner_name" invisible="1" />
+                </field>
+            </field>
+    </record>
+    
+    <record id="view_report_crm_lead_filter_v4s" model="ir.ui.view">
+            <field name="name">crm.lead.report.select</field>
+            <field name="model">crm.lead.report</field>
+            <field name="type">search</field>
+            <field name="inherit_id" ref="crm.view_report_crm_lead_filter"/>
+            <field name="arch" type="xml">
+                <filter string="Partner" position="replace" >
+                    <filter string="Partner Name" icon="terp-partner" context="{'group_by':'partner_name'}" />
+                    <filter string="Company Ext" icon="terp-go-home" context="{'group_by':'company_ext'}" />
+                </filter>
+            </field>
+    </record>
+    
+    </data>
+</openerp>
+    
