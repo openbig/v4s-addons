@@ -66,6 +66,12 @@ msgid "Expected Shipping Date"
 msgstr "Auftragsdatum"
 
 #. module: stock_v4s
+#: report:stock_v4s.picking_v4s:0
+#: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
+msgid "Date Done"
+msgstr "Datum erledigt"
+
+#. module: stock_v4s
 #: model:ir.actions.report.xml,name:stock_v4s.v4s_picking_report_odt_id
 msgid "Packing V4S ODT"
 msgstr "Packliste V4S ODT"

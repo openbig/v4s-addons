@@ -175,7 +175,7 @@
           <para style="P4">Recipient</para>
         </td>
         <td>
-          <para style="P4">Expected Shipping Date </para>
+          <para style="P4">Date Done</para>
         </td>
         <td>
           <para style="P4">Prepared by:</para>
@@ -191,7 +191,7 @@
           <para style="P8">[[ (picking.address_id and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]] </para>
         </td>
         <td>
-          <para style="P8">[[ formatLang(picking.date,date = True) ]]</para>
+          <para style="P8">[[ formatLang(picking.date_done,date = True) ]]</para>
         </td>
         <td>
           <para style="P7">[[ picking.write_uid and picking.write_uid.name or picking.create_uid and picking.create_uid.name or '' ]]</para>
