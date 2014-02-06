@@ -136,8 +136,8 @@
     <blockTable colWidths="269.0,269.0" style="Table_Address_detail">
       <tr>
         <td>
-          <para style="P14">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.company_ext) or '' ]]</para>
-          <para style="P14">[[ (picking.address_id and picking.address_id.partner_id and picking.address_id.partner_id.department_company_ext) or '' ]]</para>
+          <para style="P14">[[ (picking.address_id and picking.address_id.company_ext) or '' ]]</para>
+          <para style="P14">[[ (picking.address_id and picking.address_id.department_company_ext) or '' ]]</para>
           <para style="P14">[[ (picking.address_id and picking.address_id.title and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]]</para>
           <para style="P14">[[ (picking.address_id and picking.address_id.street) or '' ]]</para>
           <para style="P14">[[ (picking.address_id and picking.address_id.street2) or removePartentNode('para') ]]</para>
