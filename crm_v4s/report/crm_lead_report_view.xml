@@ -24,6 +24,7 @@
                     <filter string="Partner Name" icon="terp-partner" context="{'group_by':'partner_name'}" />
                     <filter string="Company Ext" icon="terp-go-home" context="{'group_by':'company_ext'}" />
                 </filter>
+                                            
             </field>
     </record>
     

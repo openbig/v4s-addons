@@ -36,6 +36,7 @@
     "depends" : ["crm", "crm_claim", "asterisk_click2dial_crm", "base_v4s", "sale"],
     "demo_xml" : [],
     "update_xml" : [
+                    "security/crm_security.xml",
                     'security/ir.model.access.csv',
                     "crm_lead_view.xml",
                     "res_partner_view.xml",
