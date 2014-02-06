@@ -52,6 +52,8 @@ msgstr "Anmerkungen"
 
 #. module: crm_v4s
 #: view:crm.lead:0
+#: view:crm.lead.report:0
+#: field:crm.lead.report,partner_name:0
 msgid "Partner Name"
 msgstr "Partner"
 
@@ -142,6 +144,8 @@ msgstr "Verkaufschance"
 
 #. module: crm_v4s
 #: field:crm.lead,company_ext:0
+#: view:crm.lead.report:0
+#: field:crm.lead.report,company_ext:0
 msgid "Company Name"
 msgstr "Unternehmen"
 

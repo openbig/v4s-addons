@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_crm_lead_report_user_v4s,crm.lead.report user,crm.model_crm_lead_report,base.group_sale_salesman,1,0,0,0
+access_crm_phonecall_report_user_v4s,crm.phonecall.report.user,crm.model_crm_phonecall_report,base.group_sale_salesman,1,0,0,0
+access_crm_claim_report_manager_v4s,crm.claim.report.manager,crm_claim.model_crm_claim_report,base.group_sale_salesman,1,0,0,0
