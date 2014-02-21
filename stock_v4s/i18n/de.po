@@ -69,7 +69,7 @@ msgstr "Auftragsdatum"
 #: report:stock_v4s.picking_v4s:0
 #: report:ir.actions.report.xml:stock_v4s.v4s_picking_report_odt_id
 msgid "Date Done"
-msgstr "Datum erledigt"
+msgstr "Datum"
 
 #. module: stock_v4s
 #: model:ir.actions.report.xml,name:stock_v4s.v4s_picking_report_odt_id
