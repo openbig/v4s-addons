@@ -34,7 +34,7 @@
     * Hersteller as supplier in report (0.05)
     * added field 'notice' in orders
     """,
-    "depends" : ["stock", "stock_location"],
+    "depends" : ["stock", "stock_location", "base_v4s"],
     "demo_xml" : [],
     "update_xml" : [
             "stock_view.xml",

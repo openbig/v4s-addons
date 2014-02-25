@@ -223,6 +223,31 @@ msgid "Prepared by:"
 msgstr "Bearbeiter"
 
 #. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
 #: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
 msgid "Invoices V4S"
 msgstr "Rechnung V4S"
+
+#. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
+#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
+msgid "Payment until"
+msgstr "Zahlbar bis zum"
+
+#. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
+#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
+msgid "or with total amount until"
+msgstr "Zahlbar bis zum"
+
+#. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
+#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
+msgid "until"
+msgstr "bis zum"
+
+#. module: account_v4s
+#: report:account_v4s.invoice_v4s:0
+#: model:ir.actions.report.xml,name:account_v4s.account_invoices_v4s
+msgid "with amount"
+msgstr "mit Abzug"

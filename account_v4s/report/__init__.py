@@ -23,8 +23,16 @@
 #
 ##############################################################################
 
-#import crm_lead
-import account_print_invoice
 import parser
-#import wizard
+
+from report import report_sxw
+from parser import Parser
+
+report_sxw.report_sxw(
+    'report.account_v4s.invoice_v4s',
+    'account.invoice',
+    'addons/account_v4s/report/account_print_invoice.rml',
+    parser=Parser
+)
+
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

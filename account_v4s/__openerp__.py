@@ -24,16 +24,18 @@
 ##############################################################################
 {
     "name" : "V4S - Account",
-    "version" : "0.10 (6.1)",
+    "version" : "0.11 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
     Account customization for via4spine.
     * invoice report changed
+    * added invoice in ODT
     * write_uid suer added to account.invoice (0.05)
+    * added payment term calculation in invoice report (0.11)
     """,
-    "depends" : ["account"],
+    "depends" : ["account", "base_v4s"],
     "demo_xml" : [],
     "update_xml" : [
             "report/account_print_invoice.xml",

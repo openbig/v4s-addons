@@ -22,19 +22,22 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+
 import time
+from datetime import datetime
 from report import report_sxw
 import logging
 
 class Parser(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
         super(Parser, self).__init__(cr, uid, name, context=context)
-
         self.localcontext.update({
             'time': time,
             'get_picking': self.get_picking,
             'get_delivery_address': self.get_delivery_address,
+            'get_payment_term_description': self.get_payment_term_description,
         })
+
 
     def get_picking(self, invoice):
         if invoice.type == 'out_invoice':
@@ -60,11 +63,10 @@ class Parser(report_sxw.rml_parse):
                             GROUP BY p.id",(invoice.id,))
                 res = self.cr.fetchone()
                 if res:
-                    return res[2]  #self.pick_done_last(cr, uid, picking_ids)  # search for last done pick list
+                    return res[2] 
         return ""
 
     def get_delivery_address(self, invoice):
-
         res_address = ""
         if invoice.type == 'out_invoice':
             if self.pool.get("sale.order"):
@@ -86,5 +88,38 @@ class Parser(report_sxw.rml_parse):
 
         return res_address
 
+    
+    def get_payment_term_description(self, invoice):
 
+        terms = self.pool.get('account.payment.term').compute(self.cr, self.uid, invoice.payment_term.id, invoice.residual)
+        payment_term = invoice.payment_term
+        
+        if not terms:
+            return False
+        
+        description = ''
+        today = datetime.today()
+        if len(terms) == 1: # we have only balance term line
+            term_line = terms[0]
+            term_due_date, amount_term = term_line
+            description = invoice.payment_term.note
+                        
+        if len(terms) > 1:  # with more lines
+            description = 'Payment '
+            i = 0
+            for term_line in payment_term.line_ids:
+                term_due_date, term_amount = terms[i]
+                if term_line.value == 'fixed':
+                    description += 'until {0} with amount {1}'.format(self.formatLang(term_due_date, date=True), self.formatLang(term_amount, digits=2))
+                if term_line.value == 'procent':
+                    description += 'until {0} with {1}% = {2} less'.format(self.formatLang(term_due_date, date=True), str(term_line.value_amount*100) ,self.formatLang(term_amount,digits=2))                    
+                break
+            term_due_date, term_amount = terms[-1]    
+            description += ' or with total amount until {0}.'.format(self.formatLang(term_due_date, date=True))
+        print description
+        return description
+    
+    def get_balance_amount(self, invoice):
+        pass
+        
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
