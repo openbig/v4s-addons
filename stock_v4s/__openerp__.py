@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Stock",
-    "version" : "0.12 (6.1)",
+    "version" : "0.13 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",

@@ -119,9 +119,7 @@ class Parser(report_sxw.rml_parse):
         
         today = datetime.today()
         if len(terms) == 1: # we have only balance term line
-            term_line = terms[0]
-            term_due_date, amount_term = term_line
-            description = invoice.payment_term.note
+            return ''
         
         if len(terms) > 1:  # with more lines
             description = description_translation['payment']

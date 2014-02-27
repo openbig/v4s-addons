@@ -409,6 +409,7 @@
     </para>
     <para style="P19">Payment Terms:</para>
     <para style="P19">[[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
+    <para style="P19">[[ (o.payment_term and get_payment_term_description(o)) or removeParentNode('para') ]]</para>
     <para style="P19">
       <font color="white"> </font>
     </para>
