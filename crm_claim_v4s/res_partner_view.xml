@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!-- crm.claim Claim Form View -->
+        <record model="ir.ui.view" id="crm_claim_view_partners_tree_v4s">
+                <field name="name">res.partner.crm.claim.v4s.inherit2</field>
+                <field name="model">res.partner</field>
+                <field name="type">form</field>
+                <field name="inherit_id" ref="crm_v4s.view_crm_claim_partner_v4s_form2"/>
+                <field name="arch" type="xml">
+                    
+                    <field name="claims_ids" position="after">
+                        <field name="claims_ids2" colspan="4" nolabel="1" >
+                            <tree string="Customer Claims" editable="bottom">
+                                <field name="name"/>
+                                <field name="date"/>
+                                <field name="state"/>
+                            </tree>
+                        </field>
+                    </field>
+                    
+                </field>
+            </record>
+    
+    </data>
+</openerp>

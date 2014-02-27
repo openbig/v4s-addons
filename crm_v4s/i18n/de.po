@@ -227,3 +227,8 @@ msgstr "Offen"
 msgid "Schedule/Log Call"
 msgstr "Terminiere Anruf"
 
+#. module: crm_v4s
+#: view:res.partner:0
+msgid "Suppliers Claim"
+msgstr "Lieferanten Anspruch"
+

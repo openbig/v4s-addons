@@ -200,3 +200,8 @@ msgstr "Lieferant"
 #: view:crm.claim:0
 msgid "Claim/Action Description"
 msgstr "Hinweis"
+
+#. module: crm_claim_v4s
+#: view:res.partner:0
+msgid "Customer Claims"
+msgstr "Kundenansprüche"

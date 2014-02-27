@@ -23,22 +23,26 @@
 #
 ##############################################################################
 
-{
-    "name" : "V4S - CRM Claim",
-    "version" : "0.2 (6.1)",
-    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
-    "website": "http://www.openbig.org",
-    "category" : "Localisation/Country specific stuff",
-    "description": """
-    Added new fields for Claims.
-    Added claims table for customer in partner view. 
-    """,
-    "depends" : ["crm_claim", "stock", "crm_v4s", "purchase", "product"],
-    "demo_xml" : [],
-    "update_xml" : [
-                    "crm_claim_view.xml",
-                    "res_partner_view.xml",
-                    ],
-    "active": False,
-    "installable": True
-}
+
+from osv import fields, osv
+from datetime import datetime
+from crm import crm
+import time
+from crm import wizard
+
+from tools.translate import _
+import binascii
+import tools
+
+
+class res_partner(osv.osv):
+    """
+    Partner
+    """
+    _inherit = "res.partner"
+    
+    _columns = {
+        'claims_ids2': fields.one2many('crm.claim', 'partner_id2', 'Customer Claims'),
+    }
+    
+res_partner()    

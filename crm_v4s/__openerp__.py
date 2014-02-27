@@ -26,7 +26,7 @@
 
 {
     "name" : "V4S - CRM",
-    "version" : "0.15 (6.1)",
+    "version" : "0.16 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
