@@ -222,7 +222,7 @@
             <para style="P9">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']] </para>
           </td>
           <td>
-            <para style="P20">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
+            <para style="P20">[[ (move_lines.prodlot_id and move_lines.prodlot_id.ref) or '' ]]</para>
           </td>
           <td>
             <para style="P11">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
@@ -244,7 +244,7 @@
             <para style="P9">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']]</para>
           </td>
           <td>
-            <para style="P20">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name) or '' ]]</para>
+            <para style="P20">[[ (move_lines.prodlot_id and move_lines.prodlot_id.ref) or '' ]]</para>
           </td>
           <td>
             <para style="P11">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
