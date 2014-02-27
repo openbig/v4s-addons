@@ -37,6 +37,23 @@ class Parser(report_sxw.rml_parse):
             'get_delivery_address': self.get_delivery_address,
             'get_payment_term_description': self.get_payment_term_description,
         })
+        
+        self.payment_description = {
+            'de_DE': {
+                'payment': 'Zahlbar  ',
+                'or': ', ',
+                'fixed': 'bis zum {0} mit {1}',
+                'procent': 'bis zum {0} mit {1}% = {2} Abzug',
+                'balance': ', bis zum {0} rein Netto = {1}',
+                },
+            'en_US': {
+                'payment': 'Payment ',
+                'or': ' or ',
+                'fixed': 'until {0} with amount {1}',
+                'procent': 'until {0} with {1}% = {2} less',
+                'balance': ', until {0} with total amount = {1} .',
+                },
+        }
 
 
     def get_picking(self, invoice):
@@ -88,38 +105,38 @@ class Parser(report_sxw.rml_parse):
 
         return res_address
 
+
     
     def get_payment_term_description(self, invoice):
-
         terms = self.pool.get('account.payment.term').compute(self.cr, self.uid, invoice.payment_term.id, invoice.residual)
         payment_term = invoice.payment_term
-        
+        lang = self.localcontext['lang']
         if not terms:
             return False
         
         description = ''
+        description_translation = self.payment_description[lang]
+        
         today = datetime.today()
         if len(terms) == 1: # we have only balance term line
             term_line = terms[0]
             term_due_date, amount_term = term_line
             description = invoice.payment_term.note
-                        
+        
         if len(terms) > 1:  # with more lines
-            description = 'Payment '
-            i = 0
+            description = description_translation['payment']
             for term_line in payment_term.line_ids:
-                term_due_date, term_amount = terms[i]
+                term_due_date, term_amount = terms[0]
+
                 if term_line.value == 'fixed':
-                    description += 'until {0} with amount {1}'.format(self.formatLang(term_due_date, date=True), self.formatLang(term_amount, digits=2))
+                    description += description_translation['fixed'].format(self.formatLang(term_due_date, date=True), self.formatLang(term_amount, digits=2))
                 if term_line.value == 'procent':
-                    description += 'until {0} with {1}% = {2} less'.format(self.formatLang(term_due_date, date=True), str(term_line.value_amount*100) ,self.formatLang(term_amount,digits=2))                    
+                    description += description_translation['procent'].format(self.formatLang(term_due_date, date=True), str(term_line.value_amount*100) ,self.formatLang(term_amount,digits=2))                    
                 break
-            term_due_date, term_amount = terms[-1]    
-            description += ' or with total amount until {0}.'.format(self.formatLang(term_due_date, date=True))
-        print description
+
+            date_due = self.pool.get('account.invoice').onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, None)['value']['date_due']
+            description += description_translation['balance'].format(self.formatLang(date_due, date=True), self.formatLang(invoice.amount_total, digits=self.get_digits(dp='Account')))
+          
         return description
-    
-    def get_balance_amount(self, invoice):
-        pass
         
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
