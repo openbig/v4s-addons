@@ -25,6 +25,7 @@
 
 import time
 from datetime import datetime
+from dateutil.relativedelta import relativedelta
 from report import report_sxw
 import logging
 
@@ -48,7 +49,7 @@ class Parser(report_sxw.rml_parse):
                 },
             'en_US': {
                 'payment': 'Payment ',
-                'or': ' or ',
+                'or': ', ',
                 'fixed': 'until {0} with amount {1}',
                 'procent': 'until {0} with {1}% = {2} less',
                 'balance': ', until {0} with total amount = {1} .',
@@ -108,33 +109,55 @@ class Parser(report_sxw.rml_parse):
 
     
     def get_payment_term_description(self, invoice):
-        terms = self.pool.get('account.payment.term').compute(self.cr, self.uid, invoice.payment_term.id, invoice.residual)
+        invoice_pool = self.pool.get('account.invoice')
+        obj_precision = self.pool.get('decimal.precision')
+        precision = obj_precision.precision_get(self.cr, self.uid, 'Account')
+        terms = [term for term in invoice.payment_term.line_ids]
         payment_term = invoice.payment_term
-        lang = self.localcontext['lang']
+        
         if not terms:
             return False
         
+        lang = self.localcontext['lang']
         description = ''
         description_translation = self.payment_description[lang]
+        date_due = invoice_pool.onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, None)['value']['date_due']
         
         today = datetime.today()
-        if len(terms) == 1: # we have only balance term line
-            return ''
-        
-        if len(terms) > 1:  # with more lines
+        print 'terms', terms
+        if len(terms) == 1: # if we have only balance term line
+            description += description_translation['payment']
+            description += description_translation['balance'].format(self.formatLang(date_due, date=True), self.formatLang(invoice.amount_total, digits=self.get_digits(dp='Account')))[2:]
+            
+        if len(terms) > 1:  # if we have more lines
+            i = 0
             description = description_translation['payment']
             for term_line in payment_term.line_ids:
-                term_due_date, term_amount = terms[0]
-
+                if i > 0 and term_line.value != 'balance':
+                    description += description_translation['or']
+                    
+                term_due_date = self.compute_payment_term_line_date(term_line)
                 if term_line.value == 'fixed':
+                    term_amount = round(term_line.value_amount, precision)
                     description += description_translation['fixed'].format(self.formatLang(term_due_date, date=True), self.formatLang(term_amount, digits=2))
                 if term_line.value == 'procent':
+                    term_amount = round(invoice.amount_total * term_line.value_amount, precision)
                     description += description_translation['procent'].format(self.formatLang(term_due_date, date=True), str(term_line.value_amount*100) ,self.formatLang(term_amount,digits=2))                    
-                break
-
-            date_due = self.pool.get('account.invoice').onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, None)['value']['date_due']
+                if term_line.value == 'balance':
+                    continue
+                i+=1
             description += description_translation['balance'].format(self.formatLang(date_due, date=True), self.formatLang(invoice.amount_total, digits=self.get_digits(dp='Account')))
           
         return description
         
+    def compute_payment_term_line_date(self, payment_line):
+        date_ref = datetime.now().strftime('%Y-%m-%d')
+        next_date = (datetime.strptime(date_ref, '%Y-%m-%d') + relativedelta(days=payment_line.days))
+        if payment_line.days2 < 0:
+            next_first_date = next_date + relativedelta(day=1,months=1) #Getting 1st of next month
+            next_date = next_first_date + relativedelta(days=payment_line.days2)
+        if payment_line.days2 > 0:
+            next_date += relativedelta(day=payment_line.days2, months=1)
+        return next_date.strftime('%Y-%m-%d')
+                
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
