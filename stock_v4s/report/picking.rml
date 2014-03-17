@@ -2,7 +2,7 @@
 <document filename="test.pdf">
   <template pageSize="(595.0,842.0)" title="Test" author="Martin Simon" allowSplitting="20">
     <pageTemplate id="first">
-      <frame id="first" x1="37.0" y1="14.0" width="530" height="814"/>
+      <frame id="first" x1="37.0" y1="14.0" width="521" height="814"/>
     </pageTemplate>
   </template>
   <stylesheet>
@@ -11,6 +11,10 @@
       <blockValign value="TOP"/>
     </blockTableStyle>
     <blockTableStyle id="Table_Address_detail">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
+    <blockTableStyle id="Table2">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
     </blockTableStyle>
@@ -48,6 +52,10 @@
       <lineStyle kind="LINEABOVE" colorName="#e6e6e6" start="3,0" stop="3,0"/>
       <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="3,-1" stop="3,-1"/>
     </blockTableStyle>
+    <blockTableStyle id="Table3">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
     <blockTableStyle id="Move_Line_Header">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -64,6 +72,10 @@
       <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="2,-1" stop="2,-1"/>
       <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="3,-1" stop="3,-1"/>
     </blockTableStyle>
+    <blockTableStyle id="Table5">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
     <blockTableStyle id="Table1">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -72,28 +84,35 @@
       <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="2,-1" stop="2,-1"/>
       <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="3,-1" stop="3,-1"/>
     </blockTableStyle>
+    <blockTableStyle id="Table4">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
     <paraStyle name="P1" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P3" fontName="Helvetica" fontSize="2.0" leading="3" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P4" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P5" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="6.0" spaceAfter="0.0"/>
-    <paraStyle name="P6" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P7" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P8" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P9" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P10" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P11" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P12" fontName="Helvetica" fontSize="10.0" leading="13" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P13" fontName="Helvetica-Bold" fontSize="13.0" leading="16" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P14" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P15" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P16" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P17" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P18" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P19" fontName="Helvetica" fontSize="10.0" leading="13" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P5" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P7" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P8" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P9" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P10" fontName="Helvetica" fontSize="10.0" leading="13" alignment="RIGHT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P11" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P12" fontName="Helvetica-Bold" fontSize="10.0" leading="13" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P13" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P14" fontName="Helvetica" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P15" fontName="Helvetica" fontSize="10.0" leading="13" alignment="CENTER" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P16" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P17" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P18" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P19" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P20" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P21" fontName="Helvetica" fontSize="10.0" leading="13" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P22" fontName="Helvetica-Bold" fontSize="13.0" leading="16" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="14.0" leading="17" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
@@ -129,124 +148,158 @@
     <images/>
   </stylesheet>
   <story>
-    <para style="P6">[[repeatIn(objects,'picking')]] [[ setLang(picking.partner_id.lang) ]]</para>
-    <blockTable colWidths="265.0,265.0" style="Table_Address_detail">
+    <para style="P4">[[repeatIn(objects,'picking')]] [[ setLang(picking.partner_id.lang) ]]</para>
+    <blockTable colWidths="522.0" style="Table_Address_detail">
       <tr>
         <td>
-          <para style="P7">[[ (picking.address_id and picking.address_id.company_ext) or '' ]]</para>
-          <para style="P7">[[ (picking.address_id and picking.address_id.department_company_ext) or '' ]]</para>
-          <para style="P7">[[ (picking.address_id and picking.address_id.title and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]]</para>
-          <para style="P7">[[ (picking.address_id and picking.address_id.street) or '' ]]</para>
-          <para style="P7">[[ (picking.address_id and picking.address_id.street2) or removePartentNode('para') ]]</para>
-          <para style="P7">[[ (picking.address_id and picking.address_id.zip) or '' ]] [[ (picking.address_id and picking.address_id.city) or '' ]]</para>
-        </td>
-        <td>
-          <para style="P1">
+          <para style="P5">[[ (picking.address_id and picking.address_id.company_ext) or '' ]]</para>
+          <para style="P5">[[ (picking.address_id and picking.address_id.department_company_ext) or '' ]]</para>
+          <para style="P5">[[ (picking.address_id and picking.address_id.title and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.prename) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]]</para>
+          <para style="P5">[[ (picking.address_id and picking.address_id.street) or '' ]]</para>
+          <para style="P5">[[ (picking.address_id and picking.address_id.street2) or removePartentNode('para') ]]</para>
+          <para style="P5">[[ (picking.address_id and picking.address_id.zip) or '' ]] [[ (picking.address_id and picking.address_id.city) or '' ]]</para>
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+          <para style="P5">
+            <font color="white"> </font>
+          </para>
+          <para style="P5">
             <font color="white"> </font>
           </para>
         </td>
       </tr>
     </blockTable>
-    <para style="P5">
+    <para style="P19">
       <font color="white"> </font>
     </para>
-    <para style="P13">Packing List: [[ picking.name ]]</para>
-    <para style="P14">
-      <font color="white"> </font>
-    </para>
-    <blockTable colWidths="132.0,132.0,132.0,133.0" style="Header_Order_Reference_Tbl">
+    <blockTable colWidths="522.0" style="Table2">
       <tr>
         <td>
-          <para style="P8">Order(Origin)</para>
-        </td>
-        <td>
-          <para style="P8">Recipient</para>
-        </td>
-        <td>
-          <para style="P8">Date Done </para>
-        </td>
-        <td>
-          <para style="P8">Prepared by:</para>
+          <para style="P22">Packing List: [[ picking.name ]]</para>
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="132.0,132.0,132.0,133.0" style="Content_Order_Reference_Table">
+    <para style="P20">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="130.0,130.0,130.0,130.0" style="Header_Order_Reference_Tbl">
       <tr>
         <td>
-          <para style="P17">[[ picking.client_order_ref or '']]</para>
+          <para style="P6">Order(Origin)</para>
         </td>
         <td>
-          <para style="P17">[[ (picking.address_id and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]] </para>
+          <para style="P6">Recipient</para>
         </td>
         <td>
-          <para style="P17">[[ formatLang(picking.date_done,date = True) ]]</para>
+          <para style="P6">Date Done </para>
         </td>
         <td>
-          <para style="P18">[[ picking.write_uid and picking.write_uid.name or picking.create_uid and picking.create_uid.name or '' ]]</para>
+          <para style="P6">Prepared by:</para>
         </td>
       </tr>
     </blockTable>
-    <para style="P5">
-      <font color="white"> </font>
-    </para>
-    <para style="P10">[[ (picking .notice and format(picking .notice )) or removeParentNode('para') ]]</para>
-    <para style="P5">
-      <font color="white"> </font>
-    </para>
-    <blockTable colWidths="96.0,254.0,91.0,89.0" repeatRows="1" style="Move_Line_Header">
+    <blockTable colWidths="130.0,130.0,130.0,130.0" style="Content_Order_Reference_Table">
       <tr>
         <td>
-          <para style="P15">Manufacturer</para>
+          <para style="P13">[[ picking.client_order_ref or '']]</para>
         </td>
         <td>
-          <para style="P15">Description</para>
+          <para style="P13">[[ (picking.address_id and picking.address_id.title.name) or '' ]] [[ (picking.address_id and picking.address_id.name) or '' ]] </para>
         </td>
         <td>
-          <para style="P16">Lot</para>
+          <para style="P13">[[ formatLang(picking.date_done,date = True) ]]</para>
         </td>
         <td>
-          <para style="P9">Quantity</para>
+          <para style="P14">[[ picking.write_uid and picking.write_uid.name or picking.create_uid and picking.create_uid.name or '' ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="P21">
+      <font color="white"> </font>
+    </para>
+    <para style="P21">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="522.0" style="Table3">
+      <tr>
+        <td>
+          <para style="P8">[[ (picking .notice and format(picking .notice )) or removeParentNode('para') ]]</para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="P21">
+      <font color="white"> </font>
+    </para>
+    <para style="P21">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="116.0,252.0,76.0,78.0" repeatRows="1" style="Move_Line_Header">
+      <tr>
+        <td>
+          <para style="P11">Manufacturer</para>
+        </td>
+        <td>
+          <para style="P11">Description</para>
+        </td>
+        <td>
+          <para style="P12">Lot</para>
+        </td>
+        <td>
+          <para style="P7">Quantity</para>
         </td>
       </tr>
     </blockTable>
     <section>
       <para style="P3">[[ repeatIn([line for line in picking.move_lines if (line.state == 'confirmed' or line.state=='done' or line.state=='assigned')],'move_lines') ]]</para>
       <para style="P3">[[ (picking.move_lines!=[] and removeParentNode('para')) or removeParentNode('section')]]</para>
-      <blockTable colWidths="96.0,253.0,90.0,90.0" style="Move_Line_Contect_Assign_State">
+      <blockTable colWidths="117.0,252.0,75.0,77.0" style="Move_Line_Contect_Assign_State">
         <tr>
           <td>
-            <para style="P11">[[ move_lines.product_id.seller_id and move_lines.product_id.seller_id.name or '' ]]</para>
+            <para style="P9">[[ move_lines.product_id.seller_id and move_lines.product_id.seller_id.name or '' ]]</para>
           </td>
           <td>
-            <para style="P11">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']] </para>
+            <para style="P9">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']] </para>
           </td>
           <td>
-            <para style="P19">[[ (move_lines.prodlot_id and move_lines.prodlot_id.ref) or '' ]]</para>
+            <para style="P15">[[ (move_lines.prodlot_id and move_lines.prodlot_id.ref) or '' ]]</para>
           </td>
           <td>
-            <para style="P12">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
+            <para style="P10">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
           </td>
         </tr>
       </blockTable>
     </section>
-    <para style="P2">[[ ([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting' )]) and 'Non Assigned Products:' or removeParentNode('para') ]]</para>
+    <blockTable colWidths="522.0" style="Table5">
+      <tr>
+        <td>
+          <para style="P2">[[ ([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting' )]) and 'Non Assigned Products:' or removeParentNode('para') ]]</para>
+        </td>
+      </tr>
+    </blockTable>
     <para style="P3"/>
     <section>
       <para style="P3">[[ repeatIn([line for line in picking.move_lines if (line.state == 'draft' or line.state=='waiting')],'move_lines') ]]</para>
       <para style="P3">[[ (picking.move_lines!=[] and removeParentNode('para')) or removeParentNode('section')]]</para>
-      <blockTable colWidths="97.0,253.0,91.0,89.0" style="Table1">
+      <blockTable colWidths="117.0,252.0,75.0,77.0" style="Table1">
         <tr>
           <td>
-            <para style="P11">[[ move_lines.product_id.seller_id and move_lines.product_id.seller_id.name or '' ]]</para>
+            <para style="P9">[[ move_lines.product_id.seller_id and move_lines.product_id.seller_id.name or '' ]]</para>
           </td>
           <td>
-            <para style="P11">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']]</para>
+            <para style="P9">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']]</para>
           </td>
           <td>
-            <para style="P19">[[ (move_lines.prodlot_id and move_lines.prodlot_id.ref) or '' ]]</para>
+            <para style="P15">[[ (move_lines.prodlot_id and move_lines.prodlot_id.ref) or '' ]]</para>
           </td>
           <td>
-            <para style="P12">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
+            <para style="P10">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
           </td>
         </tr>
       </blockTable>
@@ -257,19 +310,31 @@
     <para style="P3">
       <font color="white"> </font>
     </para>
-    <para style="P4">
+    <para style="P18">
       <font color="white"> </font>
     </para>
-    <para style="P4">
+    <para style="P18">
       <font color="white"> </font>
     </para>
-    <para style="P4">
+    <para style="P18">
       <font color="white"> </font>
     </para>
-    <para style="P4">
+    <para style="P18">
       <font color="white"> </font>
     </para>
-    <para style="P11">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
+    <para style="P18">
+      <font color="white"> </font>
+    </para>
+    <blockTable colWidths="522.0" style="Table4">
+      <tr>
+        <td>
+          <para style="P9">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
+        </td>
+      </tr>
+    </blockTable>
+    <para style="P9">
+      <font color="white"> </font>
+    </para>
   </story>
 </document>
 
