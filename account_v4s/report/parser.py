@@ -48,11 +48,11 @@ class Parser(report_sxw.rml_parse):
                 'balance': ', bis zum {0} rein Netto = {1}',
                 },
             'en_US': {
-                'payment': 'Payment ',
+                'payment': 'Payable ',
                 'or': ', ',
                 'fixed': 'until {0} with amount {1}',
                 'procent': 'until {0} with {1}% = {2} less',
-                'balance': ', until {0} with total amount = {1} .',
+                'balance': ', until due date {0} with total amount = {1} .',
                 },
         }
 
@@ -124,7 +124,7 @@ class Parser(report_sxw.rml_parse):
         date_due = invoice_pool.onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, None)['value']['date_due']
         
         today = datetime.today()
-        print 'terms', terms
+
         if len(terms) == 1: # if we have only balance term line
             description += description_translation['payment']
             description += description_translation['balance'].format(self.formatLang(date_due, date=True), self.formatLang(invoice.amount_total, digits=self.get_digits(dp='Account')))[2:]
