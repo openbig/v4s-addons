@@ -52,6 +52,10 @@
       <lineStyle kind="LINEABOVE" colorName="#e6e6e6" start="3,0" stop="3,0"/>
       <lineStyle kind="LINEBELOW" colorName="#e6e6e6" start="3,-1" stop="3,-1"/>
     </blockTableStyle>
+    <blockTableStyle id="Table11">
+      <blockAlignment value="LEFT"/>
+      <blockValign value="TOP"/>
+    </blockTableStyle>
     <blockTableStyle id="Table4">
       <blockAlignment value="LEFT"/>
       <blockValign value="TOP"/>
@@ -107,9 +111,10 @@
     <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P2" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="P3" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P4" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
-    <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="1.0" spaceAfter="0.0"/>
+    <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P5" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="P6" fontName="Helvetica-Bold" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P7" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="1.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
@@ -189,15 +194,15 @@
     <blockTable colWidths="522.0" style="Table10">
       <tr>
         <td>
-          <para style="P6">[[ o.state&lt;&gt;'draft' and removeParentNode('para') ]] Quotation N° [[ o.name ]]</para>
-          <para style="P4">[[ o.state=='draft' and removeParentNode('para') ]] Order N° [[ o.name ]]</para>
+          <para style="P7">[[ o.state&lt;&gt;'draft' and removeParentNode('para') ]] Quotation N° [[ o.name ]]</para>
+          <para style="P5">[[ o.state=='draft' and removeParentNode('para') ]] Order N° [[ o.name ]]</para>
         </td>
       </tr>
     </blockTable>
-    <para style="P5">
+    <para style="P6">
       <font color="white"> </font>
     </para>
-    <blockTable colWidths="129.0,131.0,131.0,131.0" style="Table2">
+    <blockTable colWidths="130.0,130.0,130.0,130.0" style="Table2">
       <tr>
         <td>
           <para style="terp_tblheader_General_Centre">Your Reference </para>
@@ -214,7 +219,7 @@
         </td>
       </tr>
     </blockTable>
-    <blockTable colWidths="128.0,131.0,131.0,131.0" style="Table3">
+    <blockTable colWidths="130.0,130.0,130.0,130.0" style="Table3">
       <tr>
         <td>
           <para style="terp_default_Centre_8">[[ o.client_order_ref ]]</para>
@@ -233,11 +238,17 @@
     <para style="terp_default_8">
       <font color="white"> </font>
     </para>
-    <para style="terp_default_9">[[ (o.note2 and format(o.note2 )) or removeParentNode('para') ]]</para>
+    <blockTable colWidths="522.0" style="Table11">
+      <tr>
+        <td>
+          <para style="P4">[[ (o.note2 and format(o.note2 )) or removeParentNode('para') ]]</para>
+        </td>
+      </tr>
+    </blockTable>
     <para style="terp_default_8">
       <font color="white"> </font>
     </para>
-    <blockTable colWidths="197.0,91.0,66.0,82.0,86.0" repeatRows="1" style="Table4">
+    <blockTable colWidths="208.0,70.0,63.0,98.0,83.0" repeatRows="1" style="Table4">
       <tr>
         <td>
           <para style="terp_tblheader_Details">Description</para>
@@ -258,7 +269,7 @@
     </blockTable>
     <section>
       <para style="terp_default_1">[[repeatIn(o.order_line,'line')]]</para>
-      <blockTable colWidths="196.0,91.0,66.0,81.0,85.0" style="Table5">
+      <blockTable colWidths="205.0,70.0,62.0,98.0,83.0" style="Table5">
         <tr>
           <td>
             <para style="terp_default_9">[[ line.name ]] </para>
@@ -303,7 +314,7 @@
         </tr>
       </blockTable>
     </section>
-    <blockTable colWidths="312.0,119.0,91.0" style="Table6">
+    <blockTable colWidths="341.0,98.0,83.0" style="Table6">
       <tr>
         <td>
           <para style="terp_default_9">
@@ -345,7 +356,7 @@
       </tr>
     </blockTable>
     <para style="terp_default_9"/>
-    <blockTable colWidths="202.0,70.0,70.0,180.0" style="Table9">
+    <blockTable colWidths="146.0,153.0,68.0,155.0" style="Table9">
       <tr>
         <td>
           <para style="terp_tblheader_Details">Tax [[ check_taxes(o.id)==False and removeParentNode('blockTable') ]]</para>
@@ -365,7 +376,7 @@
     </blockTable>
     <section>
       <para style="terp_default_2">[[ repeatIn(get_taxes(o.id).values(),'t') ]]</para>
-      <blockTable colWidths="201.0,70.0,70.0,181.0" style="Table7">
+      <blockTable colWidths="147.0,153.0,68.0,154.0" style="Table7">
         <tr>
           <td>
             <para style="P2">[[ t[2].split('-')[0] ]]</para>
