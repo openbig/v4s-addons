@@ -121,7 +121,7 @@ class Parser(report_sxw.rml_parse):
         lang = self.localcontext['lang']
         description = ''
         description_translation = self.payment_description[lang]
-        date_due = invoice_pool.onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, None)['value']['date_due']
+        date_due = invoice_pool.onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, invoice.date_invoice or None)['value']['date_due']
         
         today = datetime.today()
 
@@ -136,7 +136,7 @@ class Parser(report_sxw.rml_parse):
                 if i > 0 and term_line.value != 'balance':
                     description += description_translation['or']
                     
-                term_due_date = self.compute_payment_term_line_date(term_line)
+                term_due_date = self.compute_payment_term_line_date(term_line, invoice.date_invoice or False)
                 if term_line.value == 'fixed':
                     term_amount = round(term_line.value_amount, precision)
                     description += description_translation['fixed'].format(self.formatLang(term_due_date, date=True), self.formatLang(term_amount, digits=2))
@@ -150,8 +150,9 @@ class Parser(report_sxw.rml_parse):
           
         return description
         
-    def compute_payment_term_line_date(self, payment_line):
-        date_ref = datetime.now().strftime('%Y-%m-%d')
+    def compute_payment_term_line_date(self, payment_line, date_ref=None):
+        if not date_ref:
+            date_ref = datetime.now().strftime('%Y-%m-%d')
         next_date = (datetime.strptime(date_ref, '%Y-%m-%d') + relativedelta(days=payment_line.days))
         if payment_line.days2 < 0:
             next_first_date = next_date + relativedelta(day=1,months=1) #Getting 1st of next month

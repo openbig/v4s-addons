@@ -33,7 +33,8 @@ class Parser(report_sxw.rml_parse):
         super(Parser, self).__init__(cr, uid, name, context=context)
         self.localcontext.update({
             'time': time,
-            'get_qtytotal':self._get_qtytotal
+            'get_qtytotal':self._get_qtytotal,
+            'get_prodlot_date' : self._get_prodlot_date,
         })
     def _get_qtytotal(self,move_lines):
         total = 0.0
@@ -41,6 +42,17 @@ class Parser(report_sxw.rml_parse):
         for move in move_lines:
             total+=move.product_qty
         return {'quantity':total,'uom':uom}
+    
+    def _get_prodlot_date(self, move_line):
+        print 'date', move_line.prodlot_id.life_date
+        if not move_line.prodlot_id or not move_line.prodlot_id.life_date:
+            return ''
+        print 2
+        life_date = move_line.prodlot_id.life_date
+        date = self.format_lang(life_date, date_time=True)
+        print date
+        
+        return ''
 
 report_sxw.report_sxw('report.stock_v4s.picking_v4s','stock.picking','addons/stock_v4s/report/picking.rml',parser=Parser)
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
