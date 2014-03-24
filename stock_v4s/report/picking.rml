@@ -266,8 +266,7 @@
             <para style="P9">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']] </para>
           </td>
           <td>
-            <para style="terp_default_Centre_9">[[(move_lines.prodlot_id and move_lines.prodlot_id.ref) or '']] [[(move_lines.prodlot_id and formatLang(move_lines.prodlot_id.life_date, date=True)) or '']]
-            </para>
+            <para style="terp_default_Centre_9">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name_get()[0][1]) or '' ]]</para>
           </td>
           <td>
             <para style="P10">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
@@ -295,8 +294,7 @@
             <para style="P9">[ [[ (move_lines.product_id.default_code) or removeParentNode('font') ]] ] [[ move_lines.product_id.name ]] [[ move_lines.product_id.variants or '']]</para>
           </td>
           <td>
-            <para style="P19">[[(move_lines.prodlot_id and move_lines.prodlot_id.ref) or '']] [[(move_lines.prodlot_id and formatLang(move_lines.prodlot_id.life_date, date=True)) or '']]
-            </para>
+            <para style="P19">[[ (move_lines.prodlot_id and move_lines.prodlot_id.name_get()[0][1]) or '' ]]</para>
           </td>
           <td>
             <para style="P10">[[ formatLang(move_lines.product_qty, digits=0) ]] [[ move_lines.product_uom.name ]]</para>
