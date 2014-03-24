@@ -41,18 +41,20 @@ class Parser(report_sxw.rml_parse):
         
         self.payment_description = {
             'de_DE': {
-                'payment': 'Zahlbar  ',
-                'or': ', ',
-                'fixed': 'bis zum {0} mit {1}',
-                'procent': 'bis zum {0} mit {1}% = {2} Abzug',
-                'balance': ', bis zum {0} rein Netto = {1}',
+                #'payment': 'Zahlbar  ',
+                #'or': ', ',
+                'fixed': u'Zum {0} sind {1}. ',
+                'procent': u'Zum {0} sind {2} € bei {1}% Abzug zahlbar. ',
+                #'Zum 04.04.2014 sind 498,57 € bei 2,0% Abzug zahlbar. Ohne Abzug sind 508,74 € zum 20.04.2014 fällig.'
+                'balance': u'Ohne Abzug sind {1} € zum {0} fällig. ',
+                #'Ohne Abzug sind {1} € zum {0} fällig.'
                 },
             'en_US': {
-                'payment': 'Payable ',
-                'or': ', ',
-                'fixed': 'until {0} with amount {1}',
-                'procent': 'until {0} with {1}% = {2} less',
-                'balance': ', until due date {0} with total amount = {1} .',
+                #'payment': 'Payable ',
+                #'or': ', ',
+                'fixed': 'Until {0} you have to pay {1}. ',
+                'procent': 'Until {0} you have to pay {2} with {1}% discount. ',
+                'balance': 'Without any discount {1} are due lately on {0}. ',
                 },
         }
 
@@ -120,33 +122,35 @@ class Parser(report_sxw.rml_parse):
         
         lang = self.localcontext['lang']
         description = ''
-        description_translation = self.payment_description[lang]
+        payment_translation = self.payment_description[lang]
         date_due = invoice_pool.onchange_payment_term_date_invoice(self.cr, self.uid, invoice.id, payment_term.id, invoice.date_invoice or None)['value']['date_due']
+        date_due = self.formatLang(date_due, date=True)
         
-        today = datetime.today()
-
+        digits = self.get_digits(dp='Account')
         if len(terms) == 1: # if we have only balance term line
-            description += description_translation['payment']
-            description += description_translation['balance'].format(self.formatLang(date_due, date=True), self.formatLang(invoice.amount_total, digits=self.get_digits(dp='Account')))[2:]
+            #description += description_translation['payment']
+            total_amount = self.formatLang(invoice.amount_total, digits=digits)
+            description += payment_translation['balance'].format(date_due, total_amount)
             
         if len(terms) > 1:  # if we have more lines
             i = 0
-            description = description_translation['payment']
+            #description = payment_translation['payment']
             for term_line in payment_term.line_ids:
-                if i > 0 and term_line.value != 'balance':
-                    description += description_translation['or']
+                #if i > 0 and term_line.value != 'balance':
+                    #description += payment_translation['or']
                     
                 term_due_date = self.compute_payment_term_line_date(term_line, invoice.date_invoice or False)
+                term_due_date = self.formatLang(term_due_date, date=True)
                 if term_line.value == 'fixed':
                     term_amount = round(term_line.value_amount, precision)
-                    description += description_translation['fixed'].format(self.formatLang(term_due_date, date=True), self.formatLang(term_amount, digits=2))
+                    description += payment_translation['fixed'].format(term_due_date, self.formatLang(term_amount, digits=digits))
                 if term_line.value == 'procent':
                     term_amount = round(invoice.amount_total * term_line.value_amount, precision)
-                    description += description_translation['procent'].format(self.formatLang(term_due_date, date=True), str(term_line.value_amount*100) ,self.formatLang(term_amount,digits=2))                    
+                    description += payment_translation['procent'].format(term_due_date, str(100-term_line.value_amount*100) ,self.formatLang(term_amount,digits=digits))                    
                 if term_line.value == 'balance':
                     continue
-                i+=1
-            description += description_translation['balance'].format(self.formatLang(date_due, date=True), self.formatLang(invoice.amount_total, digits=self.get_digits(dp='Account')))
+                #i+=1
+            description += payment_translation['balance'].format(date_due, self.formatLang(invoice.amount_total, digits=digits))
           
         return description
         
