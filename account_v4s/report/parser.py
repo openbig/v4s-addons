@@ -98,8 +98,8 @@ class Parser(report_sxw.rml_parse):
                     so = self.pool.get('sale.order').browse(self.cr, self.uid, res[0])
                     address = so.partner_shipping_id
                     res_address = ''
-                    res_address+=  (address.partner_id and address.partner_id.company_ext and address.partner_id.company_ext+'\n') or '' 
-                    res_address+=  (address.partner_id and address.partner_id.department_company_ext and address.partner_id.department_company_ext+'\n') or '' 
+                    res_address+=  ( address.company_ext and address.company_ext+'\n') or '' 
+                    res_address+=  ( address.department_company_ext and address.department_company_ext+'\n') or '' 
                     res_address+=  ((address.title and address.title.name and address.title.name+' ') or '') + ((address.prename and address.prename+' ') or '') + ((address.name) or '') 
                     if address.title.name or address.prename or address.name: res_address+='\n'
                     res_address+=  (address.street and address.street+'\n') or '' 
