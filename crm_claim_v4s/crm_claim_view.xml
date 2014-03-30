@@ -54,6 +54,8 @@
                         </group>
                         <group colspan="4" col="4">
                             <separator colspan="4" string="Ablauf"/>
+                            <field name="incoming_shipment_id"/>
+                            <field name="replacement_delivery_id"/>
                             <field name="sale_order_id"/>
                             <field name="defect_date"/>
                             <field name="purchase_id"/>

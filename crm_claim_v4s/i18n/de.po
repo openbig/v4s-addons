@@ -192,6 +192,16 @@ msgid "Defect Obtain"
 msgstr "Defekt erhalten"
 
 #. module: crm_claim_v4s
+#: field:crm.claim,incoming_shipment_id:0
+msgid "Incoming Shipment Defect Item"
+msgstr "Eingangslieferung defektes Teil"
+
+#. module: crm_claim_v4s
+#: field:crm.claim,replacement_delivery_id:0
+msgid "Replacement Delivery Order"
+msgstr "Ausgangslieferung Ersatzteil"
+
+#. module: crm_claim_v4s
 #: view:crm.claim:0
 msgid "Claim Reporter"
 msgstr "Lieferant"

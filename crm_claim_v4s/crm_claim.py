@@ -58,6 +58,9 @@ class crm_claim(osv.osv):
         'defect_susbstitute_supplier01': fields.many2one('product.product', 'Substitute from Supplier 01'), # x_ersatzlieferant01
         'defect_susbstitute_supplier02': fields.many2one('product.product', 'Substitute from Supplier 02'), # x_ersatzlieferant02
         
+        'incoming_shipment_id': fields.many2one('stock.picking', 'Incoming Shipment Defect Item'),
+        'replacement_delivery_id': fields.many2one('stock.picking', 'Replacement Delivery Order'),
+        
         'replacement_lot01': fields.many2one('stock.production.lot', 'Replacement Lot by Customer 01'), # x_ersatzlotkunde 01
         'replacement_lot02': fields.many2one('stock.production.lot', 'Replacement Lot by Customer 02'), # x_ersatzlotkunde 02
         

@@ -25,13 +25,14 @@
 
 {
     "name" : "V4S - CRM Claim",
-    "version" : "0.2 (6.1)",
+    "version" : "0.3 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
     Added new fields for Claims.
     Added claims table for customer in partner view. 
+    Added field with relation for stock deliveries (0.03)
     """,
     "depends" : ["crm_claim", "stock", "crm_v4s", "purchase", "product"],
     "demo_xml" : [],
