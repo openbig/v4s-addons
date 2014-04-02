@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Account",
-    "version" : "0.11 (6.1)",
+    "version" : "0.12 (6.1)",
     "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
@@ -34,11 +34,13 @@
     * added invoice in ODT
     * write_uid suer added to account.invoice (0.05)
     * added payment term calculation in invoice report (0.11)
+    * added grouping field Invoice in Invoice Analysis (0.12)
     """,
     "depends" : ["account", "base_v4s"],
     "demo_xml" : [],
     "update_xml" : [
             "report/account_print_invoice.xml",
+            "report/account_invoice_report_view.xml",
             "account_invoice_view.xml",
 
                     ],

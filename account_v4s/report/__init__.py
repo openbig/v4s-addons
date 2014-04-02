@@ -24,6 +24,7 @@
 ##############################################################################
 
 import parser
+import account_invoice_report
 
 from report import report_sxw
 from parser import Parser

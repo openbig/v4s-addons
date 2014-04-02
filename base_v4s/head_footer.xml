@@ -24,7 +24,7 @@
             <drawString x="13.5cm" y="24.9cm">Web:</drawString>
             <drawRightString x="19.5cm" y="24.9cm">[[ company.partner_id.address and company.partner_id.address[0].website or '' ]]</drawRightString>
             <drawString x="13.5cm" y="24.5cm">Mail:</drawString>
-            <drawRightString x="19.5cm" y="24.5cm">[[ company.partner_id.address and company.partner_id.address[0].email or '' ]]</drawRightString>
+            <drawRightString x="19.5cm" y="24.5cm">[[ company.email or '' ]]</drawRightString>
             <lines>13.5cm 24.4cm 19.5cm 24.4cm</lines>
 
 <!-- Left side of header   -->   
