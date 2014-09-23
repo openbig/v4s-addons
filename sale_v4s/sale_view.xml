@@ -33,6 +33,9 @@
                     <separator colspan="4" string="Comment on Top"/>
                     <field colspan="4" name="note2" nolabel="1"/>
                 </xpath>
+                <button name="%(sale.report_sale_order)d" position="replace">
+                    <button name="%(report_sale_order_v4s)d" string="Print Order" type="action" icon="gtk-print" states="waiting_date,manual,progress,done,shipping_except,invoice_except"/>
+                </button>
             </field>
         </record>
         
