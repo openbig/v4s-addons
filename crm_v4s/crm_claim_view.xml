@@ -9,10 +9,11 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="crm_claim.crm_case_claims_form_view"/>
             <field name="arch" type="xml">
-                <button name="stage_next" position="after" >
-                    <button string="Create Purchase Order" type="object" name="convert_to_purchase" icon="gtk-go-forward" colspan="4" />
-                </button>
-                
+
+                <xpath expr="//field[@name='stage_id']" position="after">
+                    <button string="Create Purchase Order" type="object" name="convert_to_purchase" icon="gtk-go-forward" colspan="4" attrs="{'invisible':[('partner_id','=',False)]}"/>
+                </xpath>
+
                 <field name="ref" position="after">
                     <field name="ref2" />
                 </field>

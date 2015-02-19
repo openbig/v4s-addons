@@ -23,7 +23,7 @@
 #
 ##############################################################################
 
-from osv import osv, fields
+from openerp.osv import osv, fields
 
 class stock_picking(osv.osv):
     _inherit = 'stock.picking'

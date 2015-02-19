@@ -23,9 +23,9 @@
 #
 ##############################################################################
 
-from osv import osv, fields
-import netsvc
-from tools.translate import _
+from openerp.osv import osv, fields
+import openerp.netsvc
+from openerp.tools.translate import _
 
 class procurement_order(osv.osv):
     _inherit = 'procurement.order'
@@ -45,7 +45,8 @@ class procurement_order(osv.osv):
             pickings = picking_ids[procurement.id]
             self.write_sale_to_pickings(cr, uid, pickings, sale_name)
             
-            
+
+     #custom
     def write_sale_to_pickings(self, cr, uid, picking_ids, sale_name, context=None):
         picking_pool = self.pool.get('stock.picking')
         sale_pool = self.pool.get('sale.order')
@@ -58,7 +59,8 @@ class procurement_order(osv.osv):
             if picking.sale_id:
                 continue
             picking.write({'sale_id': sale_id})
-    
+
+    #custom
     def find_sale_orders(self, cr, uid, procurement_ids, context=None):
         result = {}
         sale_pool = self.pool.get('sale.order')
@@ -70,7 +72,8 @@ class procurement_order(osv.osv):
                 result[procurement.id] = source
 
         return result
-            
+
+    #custom
     def find_delivery_orders(self, cr, uid, procurement_ids, context=None):
         result = {}
         picking_pool = self.pool.get('stock.picking')

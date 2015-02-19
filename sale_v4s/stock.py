@@ -22,8 +22,37 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import logging
 
-from osv import osv, fields
+from openerp.osv import osv, fields
+
+class stock_warehouse(osv.osv):
+    _inherit = "stock.warehouse"
+
+    def _get_set_mto(self, cr, uid, ids, name, arg, context=None):
+        sale_shop_obj = self.pool.get('sale.shop')
+        # self.browse(cr, uid, ids, context=context)
+        ret = {}
+        for id in ids:
+            cr.execute('SELECT set_mto FROM sale_shop WHERE warehouse_id='+str(id))
+            res1 = cr.fetchall()
+            if len(res1) > 0:
+                if len(res1[0]) > 0:
+                    res1 = res1[0][0]
+                    if res1 == True:
+                        ret[id] = True
+                    else:
+                        ret[id] = False
+            else:
+                ret[id] = False
+        return ret
+
+    _columns = {
+        'set_mto':  fields.function(_get_set_mto, store=True, type='boolean', string='MTO'),
+
+    }
+
+stock_warehouse()
 
 class stock_picking(osv.osv):
     _inherit = 'stock.picking'
@@ -35,14 +64,12 @@ class stock_picking(osv.osv):
     
         
     def _prepare_invoice(self, cr, uid, picking, partner, inv_type, journal_id, context=None):
-      invoice_vals = super(stock_picking, self)._prepare_invoice(cr, uid, picking, partner, inv_type, journal_id, context=context)
-      
-      if picking.sale_id and inv_type in ('out_invoice', 'out_refund') and not invoice_vals.has_key('client_order_ref'):
+        invoice_vals = super(stock_picking, self)._prepare_invoice(cr, uid, picking, partner, inv_type, journal_id, context=context)
+
+        if picking.sale_id and inv_type in ('out_invoice', 'out_refund') and not invoice_vals.has_key('client_order_ref'):
             invoice_vals['client_order_ref'] = picking.client_order_ref or ''
 
-      return invoice_vals
+        return invoice_vals
 
-      
-      
 stock_picking()
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
