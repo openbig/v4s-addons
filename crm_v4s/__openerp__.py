@@ -26,23 +26,22 @@
 
 {
     "name" : "V4S - CRM",
-    "version" : "0.01 (8.0)",
-    "author" : "Grzegorz Grzelak, Tadeusz Karpiński / Thorsten Vocks for openbig.org",
+    "version" : "0.16 (6.1)",
+    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
     Added new fields for CRM and Customer views.
     """,
-    # "depends" : ["crm", "crm_claim", "asterisk_click2dial_crm", "base_v4s", "sale"],
-    "depends" : ["crm", "crm_claim", "sale"],
+    "depends" : ["crm", "crm_claim", "asterisk_click2dial_crm", "base_v4s", "sale"],
     "demo_xml" : [],
     "update_xml" : [
-                    # "security/crm_security.xml",
-                    # 'security/ir.model.access.csv',
+                    "security/crm_security.xml",
+                    'security/ir.model.access.csv',
                     "crm_lead_view.xml",
-                    # "res_partner_view.xml",
+                    "res_partner_view.xml",
                     "crm_claim_view.xml",
-                    # "report/crm_lead_report_view.xml",
+                    "report/crm_lead_report_view.xml",
                     ],
     "active": False,
     "installable": True

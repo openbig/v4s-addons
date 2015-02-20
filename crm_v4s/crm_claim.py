@@ -22,17 +22,16 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
-import logging
 
-from openerp.osv import fields, osv
+from osv import fields, osv
 from datetime import datetime
-from openerp.addons.crm import crm
+from crm import crm
 import time
-from openerp.addons.crm import wizard
+from crm import wizard
 
-from openerp.tools.translate import _
+from tools.translate import _
 import binascii
-import openerp.tools
+import tools
 
 
 class crm_claim(osv.osv):
@@ -42,7 +41,7 @@ class crm_claim(osv.osv):
     _inherit = "crm.claim"
     
     _columns = {
-        'ref2' : fields.reference('Reference2', selection=openerp.addons.base.res.res_request.referencable_models, size=128),
+        'ref2' : fields.reference('Reference2', selection=crm._links_get, size=128),
     }
     
     def create_purchase(self, cr, uid, ids, partner_id, context=None):
@@ -81,41 +80,27 @@ class crm_claim(osv.osv):
 
     def convert_to_purchase(self, cr, uid, ids, context):
         context = context and context or {}
-
+        
         brw = self.browse(cr, uid, ids[0], context)
         partner = self.pool.get('res.partner')
-
-        if not brw.ref:
-            raise osv.except_osv(_('Warning'), _('Ref dont link to production lot.'))
-            return True
-
-        if brw.ref._name != 'stock.production.lot':
-            raise osv.except_osv(_('Warning'), _('Ref dont link to production lot.'))
-            return True
-
-        if not brw.partner_id:
-            raise osv.except_osv(_('Warning'), _('No partner set.'))
-            return True
-
+        
         if brw.ref._name != 'stock.production.lot' or not brw.partner_id: return True
-
+        
         # creating new purchase order
         partner_id = brw.partner_id.id
         purchase_id = self.create_purchase(cr, uid, ids, partner_id)
-
+        
         # getting product id to create purchase_line
         product_id = brw.ref.product_id.id
-        logger = logging.getLogger()
-        logger.warn(product_id)
-
+        
         # creating new purchase line
         purchase_line_id = self.create_purchase_line(cr, uid, ids, product_id, purchase_id)
-
+        
         # update field ref2
-        self.write(cr, uid, ids, {
+        self.write(cr, uid, ids, { 
             'ref2' : 'purchase.order,%d' % purchase_id,
             }, context=context)
-
+            
         return {
             'name':_("Requests for Quotation"),
             'view_mode': 'form',

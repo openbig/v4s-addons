@@ -25,6 +25,6 @@
 
 import crm_lead
 import crm_claim
-# import mail_message
-# import report
+import mail_message
+import report
 import wizard

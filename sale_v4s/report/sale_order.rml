@@ -110,18 +110,10 @@
     <initialize>
       <paraStyle name="all" alignment="justify"/>
     </initialize>
-    <paraStyle name="P1" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P2" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="RIGHT" spaceBefore="6.0" spaceAfter="6.0"/>
-    <paraStyle name="P3" rightIndent="4.0" leftIndent="0.0" fontName="Helvetica-Bold" fontSize="9.0" leading="11" alignment="CENTER" spaceBefore="6.0" spaceAfter="6.0"/>
-    <paraStyle name="P4" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P5" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P6" fontName="Helvetica" fontSize="9.0" leading="11" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P7" rightIndent="0.0" leftIndent="-1.0" fontName="Helvetica-Bold" fontSize="15.0" leading="19" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P8" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
-    <paraStyle name="P9" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
+    <paraStyle name="P1" fontName="Helvetica" fontSize="8.0" leading="10" alignment="LEFT" spaceBefore="0.0" spaceAfter="0.0"/>
     <paraStyle name="Standard" fontName="Helvetica"/>
     <paraStyle name="Text body" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
-    <paraStyle name="Heading" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
+    <paraStyle name="Header" fontName="Helvetica" fontSize="8.0" leading="10" spaceBefore="12.0" spaceAfter="6.0"/>
     <paraStyle name="List" fontName="Helvetica" spaceBefore="0.0" spaceAfter="6.0"/>
     <paraStyle name="Table Contents" fontName="Helvetica"/>
     <paraStyle name="Table Heading" fontName="Helvetica" alignment="CENTER"/>
@@ -162,31 +154,31 @@
     <blockTable colWidths="522.0" style="Table1">
       <tr>
         <td>
-          <para style="P1">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
-          <para style="P1">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
-          <para style="P1">[[ (o.partner_id and o.partner_id.company_ext) or ' ' ]]</para>
-          <para style="P1">[[ (o.partner_id and o.partner_id.department_company_ext) or ' ' ]]</para>
-          <para style="P1">[[ (o.partner_shipping_id and o.partner_shipping_id.title and o.partner_shipping_id.title.name) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.prename) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.name) or ' ' ]]</para>
-          <para style="P1">[[ (o.partner_shipping_id and o.partner_shipping_id.street) or ' ' ]]</para>
-          <para style="P1">[[ (o.partner_shipping_id and o.partner_shipping_id.street2) or removePartentNode('para') ]]</para>
-          <para style="P1">[[ (o.partner_shipping_id and o.partner_shipping_id.zip) or '' ]] [[ (o. partner_shipping_id and o.partner_shipping_id.city) or ' ' ]]</para>
-          <para style="P1">
+          <para style="terp_default_8">[[ (o.partner_order_id and o.partner_order_id.company_ext) or ' ' ]]</para>
+          <para style="terp_default_8">[[ (o.partner_order_id and o.partner_order_id.department_company_ext) or ' ' ]]</para>
+          <para style="terp_default_8">[[ (o.partner_order_id and o.partner_order_id.title and o.partner_order_id.title.name) or '' ]] [[ (o.partner_order_id and o.partner_order_id.prename) or '' ]] [[ (o.partner_order_id and o.partner_order_id.name) or ' ' ]]</para>
+          <para style="terp_default_8">[[ (o.partner_order_id and o.partner_order_id.street) or ' ' ]]</para>
+          <para style="terp_default_8">[[ (o.partner_order_id and o.partner_order_id.street2) or removePartentNode('para') ]]</para>
+          <para style="terp_default_8">[[ (o.partner_order_id and o.partner_order_id.zip) or '' ]] [[ (o. partner_order_id and o.partner_order_id.city) or ' ' ]]</para>
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
-          <para style="P1">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
-          <para style="P1">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
-          <para style="P1">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
-          <para style="P1">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
         </td>
@@ -198,9 +190,9 @@
     <blockTable colWidths="522.0" style="Table10">
       <tr>
         <td>
-          <para style="P7">[[ o.state&lt;&gt;'draft' and removeParentNode('para') ]] Quotation N° [[ o.name ]]</para>
+          <para style="terp_header">[[ o.state&lt;&gt;'draft' and removeParentNode('para') ]] Quotation N° [[ o.name ]]</para>
           <para style="terp_header">[[ o.state=='draft' and removeParentNode('para') ]] Order N° [[ o.name ]]</para>
-          <para style="P8">
+          <para style="terp_default_8">
             <font color="white"> </font>
           </para>
         </td>
@@ -248,7 +240,7 @@
     <blockTable colWidths="522.0" style="Table11">
       <tr>
         <td>
-          <para style="P9">[[ (o.note2 and format(o.note2 )) or removeParentNode('para') ]]</para>
+          <para style="terp_default_9">[[ (o.note2 and format(o.note2 )) or removeParentNode('para') ]]</para>
         </td>
       </tr>
     </blockTable>
@@ -270,10 +262,10 @@
           <para style="terp_tblheader_Details_Right">Unit Price</para>
         </td>
         <td>
-          <para style="P3">Disc.(%)</para>
+          <para style="terp_tblheader_Details_Right">Disc.(%)</para>
         </td>
         <td>
-          <para style="P2">Price</para>
+          <para style="terp_tblheader_Details_Right">Price</para>
         </td>
       </tr>
     </blockTable>
@@ -285,7 +277,7 @@
             <para style="terp_default_9">[[ line.name ]] </para>
           </td>
           <td>
-            <para style="terp_default_Centre_9">[[ ', '.join(map(lambda x: x.description, line.tax_id)) ]]</para>
+            <para style="terp_default_Centre_9">[[ ', '.join(map(lambda x: x.name, line.tax_id)) ]]</para>
           </td>
           <td>
             <para style="terp_default_Right_9">[[ formatLang(line.product_uos and line.product_uos_qty or line.product_uom_qty, digits=0) ]] [[ line.product_uos and line.product_uos.name or line.product_uom.name ]] </para>
@@ -399,7 +391,7 @@
       <blockTable colWidths="147.0,152.0,91.0,131.0" style="Table7">
         <tr>
           <td>
-            <para style="P4">[[ t[2].split('-')[0] ]]</para>
+            <para style="P1">[[ t[2].split('-')[0] ]]</para>
           </td>
           <td>
             <para style="terp_default_Right_8">[[ formatLang(t[0], digits=get_digits(dp='Sale Price')) ]] [[ o.pricelist_id.currency_id. symbol ]]</para>
@@ -429,11 +421,11 @@
             <font color="white"> </font>
           </para>
           <para style="terp_default_9">Payment Terms:</para>
-          <para style="P6">[[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
+          <para style="terp_default_9">[[ (o.payment_term and o.payment_term.note and format(o.payment_term and o.payment_term.note)) or removeParentNode('para') ]]</para>
           <para style="terp_default_9">
             <font color="white"> </font>
           </para>
-          <para style="P5">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
+          <para style="terp_default_9">Subject to our terms and conditions we reserve all proprietary rights until full payment of our deliveries.</para>
         </td>
       </tr>
     </blockTable>

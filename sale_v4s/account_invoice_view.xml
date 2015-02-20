@@ -9,12 +9,12 @@
             <field name="type">form</field>
             <field name="arch" type="xml">
               
-            <xpath expr="//page[2]//field[@name='name']" position="before" >
-                <field name="client_order_ref" />
-            </xpath>
-
+              <field name="name" position="before">
+                    <field name="client_order_ref" />
+              </field>
+              
             </field>
-        </record>
+        </record>  
         
         <record id="invoice_supplier_form_sale_v4s" model="ir.ui.view">
             <field name="name">account.invoice.supplier.form</field>

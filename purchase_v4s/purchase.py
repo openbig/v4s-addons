@@ -22,14 +22,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
-import logging
 
-from openerp.osv import fields, osv
+from osv import fields, osv
 from datetime import datetime
 import time
-from openerp.tools.translate import _
+from tools.translate import _
 import binascii
-import openerp.tools
+import tools
 
 
 class purchase_order(osv.osv):
@@ -37,20 +36,20 @@ class purchase_order(osv.osv):
 
     def do_merge(self, cr, uid, ids, context=None):
         new_orders = super(purchase_order, self).do_merge(cr, uid, ids, context=context)
-
+        
         #update former claims to new purchase_order
         claim_pool = self.pool.get('crm.claim')
         for new in new_orders.keys():
             #finding claims
             claim_ids = []
             for id in new_orders[new]:
-                t = claim_pool.search(cr, uid, [('ref','=','purchase.order,'+str(id))], context=context)
+                t = claim_pool.search(cr, uid, [('ref2','=','purchase.order,%d' % id)], context=context)
                 for p in t: claim_ids.append(p)
             print claim_ids
             claim_pool.write(cr, uid, claim_ids, {
-                'ref': 'purchase.order,%d' % new,
+                'ref2': 'purchase.order,%d' % new,
                 }, context=context)
-
+        
         return new_orders
 
 purchase_order()    
