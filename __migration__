@@ -1,0 +1,27 @@
+Custom Modules:
+- account_v4s
+- base_v4s
+- crm_v4s
+- crm_claim_v4s
+- purchase_v4s
+- sale_v4s
+- stock_v4s
+
+Aeroo Modules:
+- report_aeroo_sample
+- report_aeroo_printscreen
+- report_aeroo_direct_print
+- report_aeroo
+
+Asterisk Modules:
+- asterisk_click2dial
+- asterisk_click2dial_crm
+- base_phone_popup
+- crm_claim_phone
+- crm_phone
+- event_phone
+- hr_phone
+- hr_recruitment_phone
+
+Others:
+- mass_editing
