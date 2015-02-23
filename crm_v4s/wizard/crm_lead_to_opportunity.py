@@ -22,10 +22,11 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
+import logging
 
-from osv import osv, fields
-from tools.translate import _
-import tools
+from openerp.osv import osv, fields
+from openerp.tools.translate import _
+import openerp.tools
 import re
 
 import time
@@ -35,33 +36,38 @@ import pprint
 class crm_lead2opportunity_partner(osv.osv_memory):
     _inherit = 'crm.lead2opportunity.partner'
 
+
     def action_apply(self, cr, uid, ids, context=None):
         """
-        This converts lead to opportunity and opens Opportunity view
+        Convert lead to opportunity or merge lead and opportunity and open
+        the freshly created opportunity view.
         """
-        if not context:
+        if context is None:
             context = {}
-        lead = self.pool.get('crm.lead')
-        lead_ids = context.get('active_ids', [])
-        data = self.browse(cr, uid, ids, context=context)[0]
-        
-        # duplicate all ids
-        new_lead_ids = []
-        for i in lead_ids:
-            object_data = lead.copy_data(cr, uid, i)
-            
-            object_id = lead.create(cr, uid, {}, context=context) 
-            # copy_data always copy state as 'new', need to update it
-            lead_brw = lead.browse(cr, uid, i, context=context)
-            object_data.update({'state' : lead_brw.state})
-            lead.write(cr, uid, object_id, object_data, context=context)
-            #for calls in 
-            new_lead_ids.append(object_id)
-        
-        self._convert_opportunity(cr, uid, ids, {'lead_ids': new_lead_ids}, context=context)
-        #self._convert_opportunity(cr, uid, ids, {'lead_ids': lead_ids}, context=context)
-        self._merge_opportunity(cr, uid, ids, data.opportunity_ids, data.name, context=context)
-        return lead.redirect_opportunity_view(cr, uid, lead_ids[0], context=context)
+
+        lead_obj = self.pool['crm.lead']
+
+        w = self.browse(cr, uid, ids, context=context)[0]
+        opp_ids = [o.id for o in w.opportunity_ids]
+        if w.name == 'merge':
+            lead_id = lead_obj.merge_opportunity(cr, uid, opp_ids, context=context)
+            lead_ids = [lead_id]
+            lead = lead_obj.read(cr, uid, lead_id, ['type', 'user_id'], context=context)
+            if lead['type'] == "lead":
+                context = dict(context, active_ids=lead_ids)
+                self._convert_opportunity(cr, uid, ids, {'lead_ids': lead_ids, 'user_ids': [w.user_id.id], 'section_id': w.section_id.id}, context=context)
+            elif not context.get('no_force_assignation') or not lead['user_id']:
+                lead_obj.write(cr, uid, lead_id, {'user_id': w.user_id.id, 'section_id': w.section_id.id}, context=context)
+        else:
+            lead_ids = context.get('active_ids', [])
+            new_lead_ids = []
+            for i in lead_ids:
+                object_data = lead_obj.copy_data(cr, uid, i)
+                object_id = lead_obj.create(cr, uid, object_data, context=context)
+                new_lead_ids.append(object_id)
+            self._convert_opportunity(cr, uid, ids, {'lead_ids': new_lead_ids, 'user_ids': [w.user_id.id], 'section_id': w.section_id.id}, context=context)
+
+        return self.pool.get('crm.lead').redirect_opportunity_view(cr, uid, lead_ids[0], context=context)
 
 
 crm_lead2opportunity_partner()

@@ -9,23 +9,7 @@
                 <field name="type">form</field>
                 <field name="inherit_id" ref="crm_v4s.crm_case_claims_form_view_v4s"/>
                 <field name="arch" type="xml">
-                    <xpath expr="//field[@name='name']/.." position="replace" />
-                    <xpath expr="//field[@name='user_id']/.." position="replace" >
-                        <group colspan="4" col="8">
-                            <field name="name"/>
-                            <field name="user_id"/>
-                            <field name="section_id" widget="selection"/>
-                            <field name="date"/>
-                            <field name="partner_id2"/>
-                            <field name="priority"/>
-                            <field name="stage_id" domain="[('section_ids','=',section_id)]"/>
-                            <button name="stage_previous" string="" type="object" icon="gtk-go-back"/>
-                            <button name="stage_next" string="" type="object" icon="gtk-go-forward"/>
-                            <button string="Create Purchase Order" type="object" name="convert_to_purchase" icon="gtk-go-forward" colspan="4" />
-                        </group>
-                    </xpath>
-                    
-                    <xpath expr="//field[@name='ref']/.." position="after">
+                    <xpath expr="//field[@name='categ_id']/.." position="after">
                         <group colspan="4" col="4">
                             <separator colspan="4" string="Vorgangsinformationen"/>
                             <field name="rga_number"/>
@@ -70,7 +54,7 @@
                             <field name="credit_amount"/>
                         </group>
                     </xpath>
-                    
+
                 </field>
         </record>
         
@@ -89,11 +73,12 @@
                         <field name="defect_is_replacement"/>
                     </field>
                     
-                    <field name="stage_id" invisible="1" position="replace" >
-                        <field name="stage_id" invisible="0"/>
-                        <button name="stage_previous" string="Previous Stage" states="open,pending" type="object" icon="gtk-go-back"/>
-                        <button name="stage_next" string="Next Stage" states="open,pending" type="object" icon="gtk-go-forward"/>
-                    </field>
+                    <!--<field name="stage_id" position="replace" >-->
+                        <!--<field name="stage_id" invisible="0"/>-->
+                        <!--<button name="stage_previous" string="Previous Stage" type="object" icon="gtk-go-back"/>-->
+                        <!--<button name="stage_next" string="Next Stage" type="object" icon="gtk-go-forward"/>-->
+                        <!--&lt;!&ndash;states="open,pending" &ndash;&gt;-->
+                    <!--</field>-->
 
             </field>
         </record>

@@ -24,15 +24,7 @@
 ##############################################################################
 
 
-from osv import fields, osv
-from datetime import datetime
-from crm import crm
-import time
-from crm import wizard
-
-from tools.translate import _
-import binascii
-import tools
+from openerp.osv import fields, osv
 
 
 class res_partner(osv.osv):
@@ -40,9 +32,19 @@ class res_partner(osv.osv):
     Partner
     """
     _inherit = "res.partner"
-    
+
+    def _claim_count2(self, cr, uid, ids, field_name, arg, context=None):
+        Claim = self.pool['crm.claim']
+        return {
+            partner_id: Claim.search_count(cr,uid, [('partner_id2', '=', partner_id)], context=context)
+            for partner_id in ids
+        }
+
     _columns = {
+        'claims_ids': fields.one2many('crm.claim', 'partner_id', 'Claims'),
         'claims_ids2': fields.one2many('crm.claim', 'partner_id2', 'Customer Claims'),
+        'claim_count2': fields.function(_claim_count2, string='# Claims', type='integer'),
     }
-    
-res_partner()    
+
+
+res_partner()
