@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--  Tracking Insertion into Pick list -->
+
+        <record id="view_insert_package_wizard" model="ir.ui.view">
+            <field name="name">Insert Pack</field>
+            <field name="model">insert.package</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+                <form string="Insert Pack">
+                    <group colspan="4" expand="1">
+                        <!--<separator string="Checklist Position" colspan="4"/>-->
+                        <!--<field height="300" width="700" name="checklist_position_ids" colspan="4" nolabel="1" />-->
+                        <label string="This wizard will insert all products with their production lots from selected Pack." colspan="4"/>
+                        <field name="location_id"/>
+                        <field name="location_dest_id"/>
+                        <field name="package_id"/>
+                    </group>
+                    <group colspan="4" col="6">
+                        <label string ="" colspan="2"/>
+                        <button icon="gtk-cancel" special="cancel" string="Cancel"/>
+                        <button icon="gtk-execute" name="insert_package" string="Insert Pack" type="object"/>
+                   </group>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_insert_package" model="ir.actions.act_window">
+            <field name="name">Insert Package</field>
+            <field name="res_model">insert.package</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="view_insert_package_wizard"/>
+            <field name="target">new</field>
+            <field name="context">{}</field>
+        </record>
+
+        <record id="view_picking_form_pack" model="ir.ui.view">
+            <field name="name">stock.picking.form </field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//notebook" position="before" >
+                    <button name="%(action_insert_package)d" states="draft" string="Insert Pack" type="action" class="oe_highlight"/>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</openerp>

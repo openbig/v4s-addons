@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<openerp>
+<data noupdate="1">
+
+    <record id="html_payment_log_msg_report" model="ir.actions.report.xml">
+        <field name="name">Payment Error</field>
+        <field name="type">ir.actions.report.xml</field>
+        <field name="model">payment.log</field>
+        <field name="report_name">html_payment_log_msg</field>
+        <field name="report_type">aeroo</field>
+        <field name="in_format">genshi-raw</field>
+        <field name="out_format" search="[('code', '=', 'genshi-raw')]"/>
+        <field name="report_rml">base_payment/report/payment_log_msg.html</field>
+        <field name="parser_state">default</field>
+        <field name="tml_source">file</field>
+        <field name="charset">utf_8</field>
+    </record>
+
+</data>
+</openerp>
+

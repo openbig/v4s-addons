@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="sale_shop_payment" model="ir.ui.view">
+            <field name="name">sale.shop.payment</field>
+            <field name="model">sale.shop</field>
+            <field name="type">form</field>
+		    <field name="inherit_id" ref="sale.view_shop_form"/>
+            <field name="arch" type="xml">
+                <field name="project_id" position="after">
+                    <separator string="E-Payment" colspan="4"/>
+                    <field name="host"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="base_payment_agency_view_form" model="ir.ui.view">
+            <field name="name">Payment agencies configurations</field>
+            <field name="model">payment.agency.config</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payment agency configurations">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="agency_id" domain="[('profile','=',code)]"/>
+                    <field name="shop_id" domain="[('host','&lt;&gt;',False)]"/>
+                    <field name="api_url" colspan="4"/>
+                    <field name="user"/>
+                    <field name="pwd" password="1"/>
+                    <field name="signature" colspan="4"/>
+                    <field name="sslcert" colspan="2"/>
+                    <field name="logo" colspan="2" widget="image"/>
+                    <field name="button_url" colspan="4" widget="url"/>
+                    <field name="active"/>
+                    <field name="inv_details"/>
+                    <field name="currency_ids"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="base_payment_agency_view_tree" model="ir.ui.view">
+            <field name="name">Payment agencies configurations</field>
+            <field name="model">payment.agency.config</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Payment agencies configurations">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="agency_id"/>
+                    <field name="shop_id"/>
+                    <field name="user"/>
+                    <field name="active"/>
+                    <field name="sequence" invisible="1"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="base_payment_log_view_form" model="ir.ui.view">
+            <field name="name">Payment Log</field>
+            <field name="model">payment.log</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payment Log">
+                    <field name="name"/>
+                    <field name="agency_id"/>
+                    <field name="invoice_id"/>
+                    <field name="trans_ref"/>
+                    <field name="create_date"/>
+                    <field name="datetime"/>
+                    <separator string="Note" colspan="4"/>
+                    <field name="note" colspan="4" nolabel="1"/>
+                    <field name="state"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="base_payment_log_view_tree" model="ir.ui.view">
+            <field name="name">Payment Log</field>
+            <field name="model">payment.log</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <tree string="Payment Log">
+                    <field name="name"/>
+                    <field name="trans_ref"/>
+                    <field name="create_date"/>
+                    <field name="datetime"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <!--<record id="base_payment_log_view_msg" model="ir.ui.view">
+            <field name="name">Payment Log</field>
+            <field name="model">payment.log</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Payment Log">
+                    <field name="user_msg" colspan="4" nolabel="1" widget="html"/>
+                </form>
+            </field>
+        </record>-->
+
+	    <record model="ir.actions.act_window" id="base_payment_agency_action">
+		    <field name="name">Payment agencies configurations</field>
+		    <field name="res_model">payment.agency.config</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+	    <record model="ir.actions.act_window" id="base_payment_log_action">
+		    <field name="name">Payment Log</field>
+		    <field name="res_model">payment.log</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+	    <!--<record model="ir.actions.act_window" id="base_payment_log_action_msg">
+		    <field name="name">Payment Error</field>
+		    <field name="res_model">payment.log</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">form</field>
+		    <field name="view_id" ref="base_payment_log_view_msg"/>
+	    </record>-->
+
+        <record model="ir.actions.act_window.view" id="base_payment_log_action_tree_view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="base_payment_log_view_tree"/>
+            <field name="act_window_id" ref="base_payment_log_action"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="base_payment_log_action_form_view">
+            <field name="sequence" eval="2"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="base_payment_log_view_form"/>
+            <field name="act_window_id" ref="base_payment_log_action"/>
+        </record>
+
+        <menuitem name="Payment Agencies" id="menu_base_payment" parent="base.menu_base_config"/>
+        <menuitem id="menu_base_payment_agency" parent="menu_base_payment" action="base_payment_agency_action"/>
+        <menuitem id="menu_base_payment_log" parent="menu_base_payment" action="base_payment_log_action"/>
+
+    </data>
+</openerp>
+

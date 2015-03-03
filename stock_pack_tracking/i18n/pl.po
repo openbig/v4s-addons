@@ -1,0 +1,175 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: stock_pack_tracking_og\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-06-21 11:30+0000\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Grzegorz Grzelak (Cirrus) <grzegorz.grzelak@cirrus.pl>\n"
+"Language-Team: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Polish\n"
+
+#. module: stock_pack_tracking_og
+#: field:stock.tracking,prodlot_ids:0
+msgid "Serial Numbers"
+msgstr "Numery seryjne"
+
+#. module: stock_pack_tracking_og
+#: model:ir.model,name:stock_pack_tracking_og.model_stock_production_lot
+msgid "Production lot"
+msgstr "Numer seryjny"
+
+#. module: stock_pack_tracking_og
+#: field:insert.tracking,location_dest_id:0
+msgid "Destination"
+msgstr "Cel"
+
+#. module: stock_pack_tracking_og
+#: view:insert.tracking:0
+msgid "This wizard will insert all products with their production lots from selected Pack."
+msgstr "Ten kreator wstawi produkty z odpowiednimi numerami seryjnymi z wybranego zestawu"
+
+#. module: stock_pack_tracking_og
+#: field:insert.tracking,location_id:0
+msgid "Source"
+msgstr "Źródło"
+
+#. module: stock_pack_tracking_og
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr "Kombinacja numeru seryjnego i wewnętrznej referencji musi być unikalna !"
+
+#. module: stock_pack_tracking_og
+#: model:ir.model,name:stock_pack_tracking_og.model_stock_tracking
+#: view:stock.tracking:0
+msgid "Packs"
+msgstr "Zestawy"
+
+#. module: stock_pack_tracking_og
+#: help:stock.tracking,partner_id:0
+msgid "Owner of the pack"
+msgstr "Właściciel paczki"
+
+#. module: stock_pack_tracking_og
+#: help:stock.production.lot,tracking_id:0
+msgid "Pack which this Production Lot belongs to. Can be used for collection of products consisting one kit with its own serial number."
+msgstr "Zestaw, do którego należy dany numer seryjny. Może być stosowane do gromadzenia konkretnych produktów w jeden zestaw z konkretnym numerem seryjnym."
+
+#. module: stock_pack_tracking_og
+#: model:ir.module.module,shortdesc:stock_pack_tracking_og.module_meta_information
+msgid "Kits tracking as sn collection in Packs"
+msgstr "Śledzenie zestawu jako kolekcji numerów seryjnych"
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Upstream traceability"
+msgstr "Śledzenie wprzód"
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Production Lots"
+msgstr "Numery seryjne"
+
+#. module: stock_pack_tracking_og
+#: help:stock.tracking,in_our_hands:0
+msgid "Indicates that pack is temporary in your company or is simply yours."
+msgstr "Oznacza, że zestaw jest tymczasowo w twojej firmie lub jest po prostu firmowy"
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Downstream traceability"
+msgstr "Śledzenie wstecz"
+
+#. module: stock_pack_tracking_og
+#: view:stock.production.lot:0
+msgid "Production Lot"
+msgstr "Numer seryjny"
+
+#. module: stock_pack_tracking_og
+#: field:insert.tracking,tracking_id:0
+#: view:stock.production.lot:0
+#: field:stock.production.lot,tracking_id:0
+msgid "Pack"
+msgstr "Zestaw"
+
+#. module: stock_pack_tracking_og
+#: model:ir.module.module,description:stock_pack_tracking_og.module_meta_information
+msgid ""
+"\n"
+"    This module allows you to collect serial numbers\n"
+"    into packs.\n"
+"\n"
+"    Functionality:\n"
+"    * Serial number is treated as production lot number \n"
+"        for 1 piece of product.\n"
+"    * Packs can collect few serial numbers and works as \n"
+"        kit consisting few products with serial number.\n"
+"        Kit itself can have its own serial number as \n"
+"        Pack number\n"
+"    * You can create several virtual locations (customer\n"
+"        type) and assign them to one parent customer\n"
+"        location. Each location can have one of delivery \n"
+"        address of customer for information.\n"
+"    * If you want to remember in the system that customer\n"
+"        have particular kit at one of his addresses you\n"
+"        can create virtual stock move of Product with \n"
+"        serial number assigned to pack to location of that\n"
+"        address.\n"
+"    REMARKS: This functionality is suitable for unique \n"
+"    serial number per 1 piece of product.\n"
+msgstr ""
+"n    Moduł pozwala gromadzić numery seryjne w zestawy\n"
+"\n"
+"    Funkcjonalność:\n"
+"    * Numer seryjny jest traktowany jak numer partii\n"
+"        dla jednej sztuki produktu.\n"
+"    * Zestawy gromadzą kilka numerów seryjnych i\n"
+"        działają jak zbiór produktów o konkretnych nuerach\n"
+"        Seryjnych. Zestaw również może mieć numer seryjny\n"
+"    UWAGA: Ta funkcjonalność działa tylko dla unikalnych\n"
+"    numerów seryjnych dla każdej sztuki produktu.\n"
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Traceability"
+msgstr "Śledzenie"
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Pack Identification"
+msgstr "Identyfikacja zestawu"
+
+#. module: stock_pack_tracking_og
+#: view:stock.production.lot:0
+msgid "Group By..."
+msgstr "Grupuj wg..."
+
+#. module: stock_pack_tracking_og
+#: field:stock.tracking,in_our_hands:0
+msgid "In Our Company"
+msgstr "W naszej firmie"
+
+#. module: stock_pack_tracking_og
+#: view:insert.tracking:0
+#: model:ir.actions.act_window,name:stock_pack_tracking_og.act_insert_tracking
+#: model:ir.model,name:stock_pack_tracking_og.model_insert_tracking
+msgid "Insert Pack"
+msgstr "Wstaw zestaw"
+
+#. module: stock_pack_tracking_og
+#: view:insert.tracking:0
+msgid "Cancel"
+msgstr "Anuluj"
+
+#. module: stock_pack_tracking_og
+#: field:stock.tracking,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Stock Moves"
+msgstr "Przesunięcia"
+

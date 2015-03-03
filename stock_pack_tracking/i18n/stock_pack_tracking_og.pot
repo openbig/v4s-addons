@@ -1,0 +1,169 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* stock_pack_tracking_og
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.2\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2011-06-21 11:30+0000\n"
+"PO-Revision-Date: 2011-06-21 11:30+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: stock_pack_tracking_og
+#: field:stock.tracking,prodlot_ids:0
+msgid "Serial Numbers"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: model:ir.model,name:stock_pack_tracking_og.model_stock_production_lot
+msgid "Production lot"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: field:insert.tracking,location_dest_id:0
+msgid "Destination"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:insert.tracking:0
+msgid "This wizard will insert all products with their production lots from selected Pack."
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: field:insert.tracking,location_id:0
+msgid "Source"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: sql_constraint:stock.production.lot:0
+msgid "The combination of serial number and internal reference must be unique !"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: model:ir.model,name:stock_pack_tracking_og.model_stock_tracking
+#: view:stock.tracking:0
+msgid "Packs"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: help:stock.tracking,partner_id:0
+msgid "Owner of the pack"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: help:stock.production.lot,tracking_id:0
+msgid "Pack which this Production Lot belongs to. Can be used for collection of products consisting one kit with its own serial number."
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: model:ir.module.module,shortdesc:stock_pack_tracking_og.module_meta_information
+msgid "Kits tracking as sn collection in Packs"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Upstream traceability"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Production Lots"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: help:stock.tracking,in_our_hands:0
+msgid "Indicates that pack is temporary in your company or is simply yours."
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Downstream traceability"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.production.lot:0
+msgid "Production Lot"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: field:insert.tracking,tracking_id:0
+#: view:stock.production.lot:0
+#: field:stock.production.lot,tracking_id:0
+msgid "Pack"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: model:ir.module.module,description:stock_pack_tracking_og.module_meta_information
+msgid "\n"
+"    This module allows you to collect serial numbers\n"
+"    into packs.\n"
+"\n"
+"    Functionality:\n"
+"    * Serial number is treated as production lot number \n"
+"        for 1 piece of product.\n"
+"    * Packs can collect few serial numbers and works as \n"
+"        kit consisting few products with serial number.\n"
+"        Kit itself can have its own serial number as \n"
+"        Pack number\n"
+"    * You can create several virtual locations (customer\n"
+"        type) and assign them to one parent customer\n"
+"        location. Each location can have one of delivery \n"
+"        address of customer for information.\n"
+"    * If you want to remember in the system that customer\n"
+"        have particular kit at one of his addresses you\n"
+"        can create virtual stock move of Product with \n"
+"        serial number assigned to pack to location of that\n"
+"        address.\n"
+"    REMARKS: This functionality is suitable for unique \n"
+"    serial number per 1 piece of product.\n"
+""
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Traceability"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Pack Identification"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.production.lot:0
+msgid "Group By..."
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: field:stock.tracking,in_our_hands:0
+msgid "In Our Company"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:insert.tracking:0
+#: model:ir.actions.act_window,name:stock_pack_tracking_og.act_insert_tracking
+#: model:ir.model,name:stock_pack_tracking_og.model_insert_tracking
+msgid "Insert Pack"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:insert.tracking:0
+msgid "Cancel"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: field:stock.tracking,partner_id:0
+msgid "Partner"
+msgstr ""
+
+#. module: stock_pack_tracking_og
+#: view:stock.tracking:0
+msgid "Stock Moves"
+msgstr ""
+
