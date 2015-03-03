@@ -39,7 +39,7 @@
     "demo_xml" : [],
     "update_xml" : [
             "stock_view.xml",
-            # "report/picking.xml",
+            "report/picking.xml",
     ],
     "active": False,
     "installable": True

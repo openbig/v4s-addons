@@ -34,11 +34,11 @@
     Added new fields to customer view.
     """,
     # "report_aeroo", "asterisk_click2dial"
-    "depends" : ["base"],
+    "depends" : ["base","report_aeroo"],
     "demo_xml" : [],
     "update_xml" : [
                     "res_partner_view.xml",
-                    # "stylesheet.xml",
+                    "stylesheet.xml",
                     ],
     "active": False,
     "installable": True

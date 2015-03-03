@@ -40,7 +40,7 @@
     "demo_xml" : [],
     "update_xml" : [
             "report/account_print_invoice.xml",
-            # "report/account_invoice_report_view.xml",
+            "report/account_invoice_report_view.xml",
             "account_invoice_view.xml",
                     ],
     "active": False,

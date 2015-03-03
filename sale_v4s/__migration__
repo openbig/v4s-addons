@@ -1,7 +1,3 @@
 #TODO
-report xDD
-
-
-#TODO
 In Warehouse is special field set_mto. When Sale Order from warehouse that has checked set_meto, then all sale.order.lines
 make to order. In other case normal qq.

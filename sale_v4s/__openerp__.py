@@ -42,7 +42,7 @@
                     "sale_view.xml",
                     "stock_view.xml",
                     "account_invoice_view.xml",
-                    # "report/sale_report.xml",
+                    "report/sale_report.xml",
                     ],
     "active": False,
     "installable": True

@@ -32,12 +32,11 @@
     Account customization for via4spine.
     * purchase order confirmation report changed
     """,
-    # "depends" : ["purchase", "report_aeroo"],
+    "depends" : ["purchase", "report_aeroo"],
     "depends" : ["purchase"],
     "demo_xml" : [],
     "update_xml" : [
-            # "report/purchase_report.xml",
-            # "purchase_view.xml",
+            "report/purchase_report.xml",
                     ],
     "active": False,
     "installable": True

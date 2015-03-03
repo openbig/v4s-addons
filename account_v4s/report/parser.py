@@ -26,7 +26,7 @@
 import time
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from report import report_sxw
+from openerp.report import report_sxw
 import logging
 
 class Parser(report_sxw.rml_parse):

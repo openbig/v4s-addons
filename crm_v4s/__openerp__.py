@@ -42,7 +42,7 @@
                     "crm_lead_view.xml",
                     # "res_partner_view.xml",
                     "crm_claim_view.xml",
-                    # "report/crm_lead_report_view.xml",
+                    "report/crm_lead_report_view.xml",
                     ],
     "active": False,
     "installable": True
