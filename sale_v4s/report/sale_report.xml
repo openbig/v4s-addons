@@ -21,7 +21,8 @@
             <field name="parser_loc">sale_v4s/report/parser.py</field>
             <field name="report_rml">sale_v4s/report/sale_order.odt</field>
             <field name="parser_state">loc</field>
-            <field name="styles_mode">global</field>
+            <field name="styles_mode">specified</field>
+            <field name="stylesheet_id" ref="base_v4s.stylesheet_company_aeroo"></field>
             <field name="tml_source">file</field>
         </record>
                 
@@ -45,7 +46,8 @@
             <field name="parser_loc">sale_v4s/report/parser.py</field>
             <field name="report_rml">sale_v4s/report/sale_order_no_discount.odt</field>
             <field name="parser_state">loc</field>
-            <field name="styles_mode">global</field>
+            <field name="styles_mode">specified</field>
+            <field name="stylesheet_id" ref="base_v4s.stylesheet_company_aeroo"></field>
             <field name="tml_source">file</field>
         </record>
                 

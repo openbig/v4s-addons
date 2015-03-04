@@ -17,10 +17,11 @@
             <field name="parser_loc">purchase_v4s/report/parser.py</field>
             <field name="report_rml">purchase_v4s/report/order.odt</field>
             <field name="parser_state">loc</field>
-            <field name="styles_mode">global</field>
+            <field name="styles_mode">specified</field>
+            <field name="stylesheet_id" ref="base_v4s.stylesheet_company_aeroo"></field>
             <field name="tml_source">file</field>
         </record>
-                
+
         <ir_set>
             <field eval="'action'" name="key"/>
             <field eval="'client_print_multi'" name="key2"/>

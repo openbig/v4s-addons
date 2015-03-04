@@ -19,7 +19,8 @@
             <field name="parser_loc">stock_v4s/report/picking.py</field>
             <field name="report_rml">stock_v4s/report/picking.odt</field>
             <field name="parser_state">loc</field>
-            <field name="styles_mode">global</field>
+            <field name="styles_mode">specified</field>
+            <field name="stylesheet_id" ref="base_v4s.stylesheet_company_aeroo"></field>
             <field name="tml_source">file</field>
         </record>
                 
