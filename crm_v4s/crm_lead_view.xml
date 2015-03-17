@@ -35,16 +35,34 @@
         </field>
     </record>
     
-      <!--&lt;!&ndash;crm.lead Leads Form View    &ndash;&gt;-->
-    <!--<record model="ir.ui.view" id="crm_case_form_view_leads_v4s">-->
-        <!--<field name="name">CRM - Leads Form</field>-->
-        <!--<field name="model">crm.lead</field>-->
-        <!--<field name="type">form</field>-->
-        <!--<field name="inherit_id" ref="crm.crm_case_form_view_leads"/>-->
-        <!--<field name="arch" type="xml">-->
+      <!--crm.lead Leads Form View    -->
+    <record model="ir.ui.view" id="crm_case_form_view_leads_v4s">
+        <field name="name">CRM - Leads Form</field>
+        <field name="model">crm.lead</field>
+        <field name="type">form</field>
+        <field name="inherit_id" ref="crm.crm_case_form_view_leads"/>
+        <field name="arch" type="xml">
 
-            <!--&lt;!&ndash;      Leads modifications        &ndash;&gt;-->
-            <!--&lt;!&ndash;      ======================================================================================        &ndash;&gt;-->
+            <field name="contact_name" position="after" >
+                <field name="prename" />
+            </field>
+
+            <field name="function" position="after" >
+                <field name="company_ext" />
+                <field name="department_company_ext" />
+            </field>
+
+            <field name="phone" position="after" >
+                <field name="phone2" />
+            </field>
+
+            <field name="fax" position="after" >
+                <field name="partner_address_website" widget="url" />
+                <field name="birthday_communication" />
+                <field name="title_communication" />
+            </field>
+            <!--      Leads modifications        -->
+            <!--      ======================================================================================        -->
             <!--<field name="categ_id" position="replace" />-->
             <!--<field name="section_id" position="replace" />-->
 
@@ -56,7 +74,6 @@
                     <!--<group colspan="4" col="6">-->
                         <!--<field name="partner_name" string="Partner Name" />-->
                         <!--<field name="partner_id" />-->
-                        <!--&lt;!&ndash;<button name="%(crm.action_crm_lead2partner)d"&ndash;&gt;-->
                             <!--&lt;!&ndash;icon="terp-partner" type="action"&ndash;&gt;-->
                             <!--&lt;!&ndash;string="Create" &ndash;&gt;-->
                             <!--&lt;!&ndash;attrs="{'invisible':[('partner_id','!=',False)]}"/>&ndash;&gt;-->
@@ -64,11 +81,14 @@
                     <!--<group colspan="2" col="4">-->
                         <!--<separator string="Contact" colspan="4" col="4"/>-->
                         <!--<field name="contact_name" colspan="4"/>-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="prename" colspan="4" />-->
                         <!--<newline/>-->
                         <!--<field domain="[('domain', '=', 'contact')]" name="title" widget="selection"/>-->
                         <!--<field name="function" />-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="company_ext" />-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="department_company_ext" />-->
                         <!--<field name="street" colspan="4"/>-->
                         <!--<field name="street2" colspan="4"/>-->
@@ -87,6 +107,7 @@
                         <!--<field name="phone" />-->
                         <!--<button name="action_dial_phone" string="Dial" type="object" colspan="1"/>-->
                         <!--<newline/>-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="phone2"/>-->
                         <!--<button name="action_dial_phone2" string="Dial" type="object" colspan="1"/>-->
                         <!--<newline/>-->
@@ -95,8 +116,11 @@
                         <!--<field name="mobile" />-->
                         <!--<button name="action_dial_mobile" string="Dial" type="object" colspan="1"/>-->
                         <!--<newline/>-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="partner_address_website" colspan="2" widget="url" />-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="birthday_communication" colspan="2" />-->
+                        <!--&lt;!&ndash;jest&ndash;&gt;-->
                         <!--<field name="title_communication" colspan="2" />-->
                     <!--</group>-->
                     <!--<group colspan="2" col="2">-->
@@ -144,14 +168,13 @@
 
             <!--<field name="message_ids" position="before">-->
                 <!--<button string="Schedule/Log Call"-->
-                        <!--name="%(crm.opportunity2phonecall_act)d" icon="terp-call-start"-->
                         <!--type="action" colspan="4" />-->
-
+                <!--&lt;!&ndash;jest&ndash;&gt;-->
                 <!--<field name="phonecall" colspan="4" nolabel="1" />-->
             <!--</field>-->
 
-        <!--</field>-->
-    <!--</record>-->
+        </field>
+    </record>
 
     <!-- crm.lead Lead Search View -->
     <record id="view_crm_case_leads_filter_v4s" model="ir.ui.view">
@@ -244,7 +267,6 @@
                         <!--<field name="partner_id" select="1"-->
                                 <!--on_change="onchange_partner_id(partner_id, email_from)" string="Customer"-->
                                 <!--colspan="2" />-->
-                        <!--&lt;!&ndash;<button name="%(crm.action_crm_lead2partner)d"&ndash;&gt;-->
                                 <!--&lt;!&ndash;icon="terp-partner" type="action"&ndash;&gt;-->
                                 <!--&lt;!&ndash;string="Create"&ndash;&gt;-->
                                 <!--&lt;!&ndash;attrs="{'invisible':[('partner_id','!=',False)]}"/>&ndash;&gt;-->
