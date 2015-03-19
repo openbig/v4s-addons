@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="view_warehouse_picking_type_edit" model="ir.ui.view">
+            <field name="name">stock.warehouse.picking.type.edit</field>
+            <field name="model">stock.warehouse</field>
+            <field name="inherit_id" ref="stock.view_warehouse"/>
+            <field name="arch" type="xml">
+                <field name="wh_input_stock_loc_id" position="replace">
+                    <field name="wh_input_stock_loc_id"/>
+                </field>
+                <field name="wh_qc_stock_loc_id" position="replace">
+                    <field name="wh_qc_stock_loc_id"/>
+                </field>
+                <field name="wh_pack_stock_loc_id" position="replace">
+                    <field name="wh_pack_stock_loc_id"/>
+                </field>
+                <field name="wh_output_stock_loc_id" position="replace">
+                    <field name="wh_output_stock_loc_id"/>
+                </field>
+                <field name="in_type_id" position="replace">
+                    <field name="in_type_id"/>
+                </field>
+                <field name="int_type_id" position="replace">
+                    <field name="int_type_id"/>
+                </field>
+                <field name="pick_type_id" position="replace">
+                    <field name="pick_type_id"/>
+                </field>
+                <field name="pack_type_id" position="replace">
+                    <field name="pack_type_id"/>
+                </field>
+                <field name="out_type_id" position="replace">
+                    <field name="out_type_id"/>
+                </field>
+            </field>
+        </record>
+        
+         <record model="ir.ui.view" id="view_picking_type_form_picking_type_edit">
+            <field name="name">Picking Types Edit</field>
+            <field name="model">stock.picking.type</field>
+            <field name="inherit_id" ref="stock.view_picking_type_form"/>
+            <field name="arch" type="xml">
+                <field name="warehouse_id" position="after">
+                    <field name="active" groups='base.group_no_one'/>
+                </field>
+            </field>
+        </record>
+
+    </data>
+</openerp>                    

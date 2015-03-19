@@ -2,24 +2,29 @@
 <openerp>
     <data>
 
-        <!--<record id="view_partners_tree_v4s" model="ir.ui.view">-->
-                <!--<field name="name">view.res.partner.tree.crm.v4s</field>-->
-                <!--<field name="model">res.partner</field>-->
-                <!--<field name="type">tree</field>-->
-                <!--<field name="inherit_id" ref="crm.view_partners_tree_crm2"/>-->
-                <!--<field name="arch" type="xml">-->
-                    <!--<field name="section_id" position="replace" />-->
-                <!--</field>-->
-        <!--</record>-->
-        
-        
+        <record id="view_partners_tree_v4s" model="ir.ui.view">
+                <field name="name">res.partner.tree.form.v4s</field>
+                <field name="model">res.partner</field>
+                <field name="type">tree</field>
+                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="arch" type="xml">
+                    <field name="phone" position="before" >
+                        <field name="ref"></field>
+                    </field>
+                    <field name="phone" position="after" >
+                        <field name="zip"></field>
+                    </field>
+                </field>
+        </record>
+        <!---->
+        <!--&lt;!&ndash;&ndash;&gt;-->
         <!--<record id="view_crm_claim_partner_v4s_form2" model="ir.ui.view">-->
             <!--<field name="name">res.partner.crm.claim.v4s.inherit2</field>-->
             <!--<field name="model">res.partner</field>-->
             <!--<field name="type">form</field>-->
             <!--<field name="inherit_id" ref="crm_claim.view_claim_partner_info_form1"/>-->
             <!--<field name="arch" type="xml">-->
-                <!---->
+
                 <!--<field name="claims_ids" position="replace">-->
                     <!--<field name="claims_ids" colspan="4" nolabel="1">-->
                         <!--<tree string="Suppliers Claim" editable="bottom" >-->

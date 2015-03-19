@@ -14,6 +14,35 @@
         <!--</record>-->
 
         <!--OK-->
+        <record id="view_order_tree_v4s" model="ir.ui.view">
+            <field name="name">sale.order.tree</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_tree"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='partner_id']" position="after" >
+                    <field name="client_order_ref" />
+                </xpath>
+            </field>
+        </record>
+
+        <!--OK-->
+        <record id="view_order_form_v4s" model="ir.ui.view">
+            <field name="name">sale.order.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='note']" position="after" >
+                    <separator colspan="4" string="Comment on Top"/>
+                    <field colspan="4" name="note2" nolabel="1"/>
+                </xpath>
+            </field>
+        </record>
+
+        <!--OK-->
         <record id="view_order_form_v4s" model="ir.ui.view">
             <field name="name">sale.order.form</field>
             <field name="model">sale.order</field>

@@ -1,3 +1,16 @@
+To correct migration please:
+
+    Remove views:
+    - Product Purchase Categories in Sales->Configuration->Product Categories
+    - Brands - this same
+
+    Copy datas:
+    - name from res.user to name in res.partners
+
+Actualise every v4s module, thatn:
+actualise sale, purchase modules
+
+
 Custom Modules:
 - account_v4s
 - base_v4s
