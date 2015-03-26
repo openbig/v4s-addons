@@ -1,14 +1,38 @@
 To correct migration please:
 
-    Remove views:
-    - Product Purchase Categories in Sales->Configuration->Product Categories
-    - Brands - this same
+    Remove views menu:
+    User Interface -> Menu Items:
+    - Products Sales Categories
+    - Brandnames
 
     Copy datas:
-    - name from res.user to name in res.partners
+    - name from res.user to name in res.partners. To do it open customers. Make search for those, who have users set. Enter each and write there first name.
 
-Actualise every v4s module, thatn:
-actualise sale, purchase modules
+Upgrade every v4s module, than:
+Upgrade:
+- sale
+- purchase modules
+- warehouse
+
+Repairation of partner categories:
+- export partner categories from running 6.1
+- remove partner categories in migrated database
+- export all partners (customer/suppliers) in migrated database (just to assing xml_id. After do nothing)
+- export all partners (custimers/suppliers) in 6.1 (name, categories)
+- import this data in migrated database
+
+Repairation of contact titles (for example herr profesor):
+- Export all titles in 6.1
+- Export all titles in 8,0
+- import all titles exported in 6.1
+
+Repairation of titles (for example sp. zoo):
+- Export all titles in 6.1
+- Export all titles in 8,0
+- import all titles exported in 6.1
+
+Titles to partner:
+update res_partner set title_communication = A.title_communication from res_partner_address as A where res_partner.name = A.name;
 
 
 Custom Modules:
