@@ -23,7 +23,7 @@
 {
     "name": "Asterisk Click2dial CRM",
     "version": "0.1",
-    "author": "Akretion",
+    "author": "Akretion,Odoo Community Association (OCA)",
     "website": "http://www.akretion.com",
     "license": "AGPL-3",
     "category": "Phone",
@@ -56,9 +56,7 @@ http://www.akretion.com/products-and-services/openerp-asterisk-voip-connector
         'asterisk_click2dial',
         'crm_phone',
     ],
-    "demo": [],
     "data": [
-        'wizard/create_crm_phonecall_view.xml',
         'res_users_view.xml',
     ],
     "installable": True,

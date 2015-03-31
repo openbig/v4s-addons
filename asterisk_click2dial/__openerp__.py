@@ -93,10 +93,10 @@ functionalities:
 A detailed documentation for this module is available on the Akretion Web site:
 http://www.akretion.com/products-and-services/openerp-asterisk-voip-connector
 """,
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com/',
     'depends': ['base_phone'],
-    'external_dependencies': {'python': ['phonenumbers', 'Asterisk']},
+    'external_dependencies': {'python': ['Asterisk']},
     'data': [
         'asterisk_server_view.xml',
         'res_users_view.xml',
@@ -104,10 +104,6 @@ http://www.akretion.com/products-and-services/openerp-asterisk-voip-connector
         'web_asterisk_click2dial.xml',
         ],
     'demo': ['asterisk_click2dial_demo.xml'],
-    'images': [
-        'images/sshot-click2dial.jpg',
-        'images/sshot-open_calling_party.jpg',
-        ],
     'qweb': ['static/src/xml/*.xml'],
     'css': ['static/src/css/*.css'],
     'application': True,

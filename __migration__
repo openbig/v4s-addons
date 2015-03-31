@@ -12,7 +12,9 @@ Upgrade every v4s module, than:
 Upgrade:
 - sale
 - purchase modules
-- warehouse
+- stock
+
+Enter every user and set Name.
 
 Repairation of partner categories:
 - export partner categories from running 6.1
@@ -24,15 +26,31 @@ Repairation of partner categories:
 Repairation of contact titles (for example herr profesor):
 - Export all titles in 6.1
 - Export all titles in 8,0
-- import all titles exported in 6.1
+- import all titles exported from 6.1
 
 Repairation of titles (for example sp. zoo):
 - Export all titles in 6.1
 - Export all titles in 8,0
 - import all titles exported in 6.1
 
-Titles to partner:
+Check and compare Payment Types:
+- Accounting -> Configuration -> Miscelanceous -> Payment Terms :>
+
+Tities to partner:
 update res_partner set title_communication = A.title_communication from res_partner_address as A where res_partner.name = A.name;
+update res_partner set prename = A.prename from res_partner_address as A where res_partner.name = A.name;
+update res_partner set department_company_ext = A.department_company_ext from res_partner_address as A where res_partner.name = A.name;
+update res_partner set company_ext = A.company_ext from res_partner_address as A where res_partner.name = A.name;
+update res_partner set function = A.function from res_partner_address as A where res_partner.name = A.name;
+update res_partner set street2 = A.street2 from res_partner_address as A where res_partner.name = A.name;
+update res_partner set street = A.street from res_partner_address as A where res_partner.name = A.name;
+update res_partner set phone2 = A.phone2 from res_partner_address as A where res_partner.name = A.name;
+update res_partner set birthday_communication = A.birthday_communication from res_partner_address as A where res_partner.name = A.name;
+
+
+Prepare scpecial CSV file to import tities to customerz :3 match and other functions in excel :3
+
+base_phone
 
 
 Custom Modules:

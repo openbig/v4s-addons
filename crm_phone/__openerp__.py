@@ -39,14 +39,17 @@ This module is independant from the Asterisk connector.
 Please contact Alexis de Lattre from Akretion <alexis.delattre@akretion.com>
 for any help or question about this module.
 """,
-    'author': 'Akretion',
+    'author': "Akretion,Odoo Community Association (OCA)",
     'website': 'http://www.akretion.com/',
     'depends': ['base_phone', 'crm'],
     'data': [
         'security/ir.model.access.csv',
         'crm_view.xml',
+        'res_users_view.xml',
         'wizard/number_not_found_view.xml',
+        'wizard/create_crm_phonecall_view.xml',
         ],
+    'test': ['test/phonenum.yml'],
     'images': [],
     'installable': True,
     'auto_install': True,
