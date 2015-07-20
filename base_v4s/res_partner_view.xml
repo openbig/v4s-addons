@@ -24,6 +24,18 @@
                     <field name="phone2"/>
                 </xpath>
 
+                <xpath expr="//sheet/group/field[@name='function']" position="before">
+                    <field name="title"/>
+                    <field name="prename"/>
+                    <field name="title_communication"/>
+                </xpath>
+
+                <xpath expr="//sheet/group/field[@name='mobile']" position="after">
+                    <field name="fax"/>
+                    <field name="website"/>
+                    <field name="description"/>
+                </xpath>
+
                 <xpath expr="//field[@name='function']" position="before">
                     <field name="prename"/>
                     <field name="title_communication"/>
@@ -59,17 +71,24 @@
             </field>
         </record>
         
-        <!--<record id="view_partners_v4s_tree1" model="ir.ui.view">-->
-                <!--<field name="name">view.res.partner.tree.crm.v4s</field>-->
-                <!--<field name="model">res.partner</field>-->
-                <!--<field name="type">tree</field>-->
-                <!--<field name="inherit_id" ref="base.view_partner_tree"/>-->
-                <!--<field name="arch" type="xml">-->
-                    <!--<field name="email" position="after">-->
-                        <!--<field name="zip" />-->
-                    <!--</field>-->
-                <!--</field>-->
-        <!--</record>-->
+        <record id="view_partners_v4s_tree1" model="ir.ui.view">
+                <field name="name">view.res.partner.tree.crm.v4s</field>
+                <field name="model">res.partner</field>
+                <field name="type">tree</field>
+                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="arch" type="xml">
+                    <field name="display_name" position="after">
+                        <field name="type" />
+                        <field name="company_ext" />
+                    </field>
+                    <field name="email" position="before">
+                        <field name="country_id" />
+                    </field>
+                    <field name="email" position="after">
+                        <field name="user_id" />
+                    </field>
+                </field>
+        </record>
 
             
         <record id="view_res_partner_filter_v4s" model="ir.ui.view">

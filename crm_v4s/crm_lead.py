@@ -58,6 +58,19 @@ class crm_lead(osv.osv):
         'nbr' : 1,
     }
 
+    def on_change_partner_id(self, cr, uid, ids, partner_id, context=None):
+        values = super(crm_lead, self).on_change_partner_id(cr, uid, ids, partner_id, context=context)
+        if partner_id:
+            partner = self.pool.get('res.partner').browse(cr, uid, partner_id, context=context)
+            values['value']['company_ext'] = partner.company_ext
+            values['value']['department_company_ext'] = partner.department_company_ext
+            values['value']['phone2'] = partner.phone2
+            values['value']['title_communication'] = partner.title_communication
+            values['value']['birthday_communication'] = partner.birthday_communication
+            values['value']['partner_address_website'] = partner.website
+            values['value']['prename'] = partner.prename
+        return values
+
     # def _lead_create_partner(self, cr, uid, lead, context=None):
     #     partner = self.pool.get('res.partner')
     #     partner_id = super(crm_lead,self)._lead_create_partner(cr, uid, lead, context=context)
@@ -67,6 +80,23 @@ class crm_lead(osv.osv):
     #     partner.write(cr, uid, partner_id, vals, context=context)
     #     return partner_id
     #
+    def _lead_create_contact(self, cr, uid, lead, name, is_company, parent_id=False, context=None):
+        contact_id = super(crm_lead,self)._lead_create_contact(cr, uid, lead, name, is_company, parent_id, context)
+        logger = logging.getLogger()
+        logger.warn("hihi")
+        logger.warn(contact_id)
+        vals = {
+            'prename': lead.prename,
+            'company_ext': lead.company_ext,
+            'title_communication': lead.title_communication,
+            'phone2': lead.phone2,
+            'department_company_ext': lead.department_company_ext,
+            'birthday_communication': lead.birthday_communication,
+            'website': lead.partner_address_website,
+        }
+        res_partner_obj = self.pool.get('res.partner')
+        res_partner_obj.write(cr, uid, contact_id, vals, context=context)
+        return contact_id
     # def _lead_create_partner_address(self, cr, uid, lead, partner_id, context=None):
     #     address = self.pool.get('res.partner.address')
     #     address_id = super(crm_lead,self)._lead_create_partner_address(cr, uid, lead, partner_id, context=context)

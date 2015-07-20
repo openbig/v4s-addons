@@ -14,6 +14,15 @@ Upgrade:
 - purchase modules
 - stock
 
+Documents. Add Knowledge/User to menu Knowledge
+
+Remove Jera modules from odoo:
+- jera
+- jera_contactus
+- jera_register
+- web_export_view
+- web_shop"
+
 Enter every user and set Name.
 
 Repairation of partner categories:

@@ -9,6 +9,10 @@
                 <field name="type">form</field>
                 <field name="inherit_id" ref="crm_v4s.crm_case_claims_form_view_v4s"/>
                 <field name="arch" type="xml">
+                    <xpath expr="//field[@name='section_id']" position="after">
+                        <field name="partner_id2"/>
+                        <field name="supplier_id"/>
+                    </xpath>
                     <xpath expr="//field[@name='categ_id']/.." position="after">
                         <group colspan="4" col="4">
                             <separator colspan="4" string="Vorgangsinformationen"/>
@@ -66,6 +70,7 @@
             <field name="arch" type="xml">
 
                     <field name="partner_id" position="after" >
+                        <field name="partner_id2"/>
                         <field name="rga_number"/>
                         <field name="defect_location"/>
                         <field name="defect_obtain"/>

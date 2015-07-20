@@ -42,6 +42,8 @@ class crm_lead2opportunity_partner(osv.osv_memory):
         Convert lead to opportunity or merge lead and opportunity and open
         the freshly created opportunity view.
         """
+
+
         if context is None:
             context = {}
 
@@ -66,7 +68,6 @@ class crm_lead2opportunity_partner(osv.osv_memory):
                 object_id = lead_obj.create(cr, uid, object_data, context=context)
                 new_lead_ids.append(object_id)
             self._convert_opportunity(cr, uid, ids, {'lead_ids': new_lead_ids, 'user_ids': [w.user_id.id], 'section_id': w.section_id.id}, context=context)
-
         return self.pool.get('crm.lead').redirect_opportunity_view(cr, uid, lead_ids[0], context=context)
 
 

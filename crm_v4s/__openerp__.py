@@ -34,7 +34,7 @@
     Added new fields for CRM and Customer views.
     """,
     # "depends" : ["crm", "crm_claim", "asterisk_click2dial_crm", "base_v4s", "sale"],
-    "depends" : ["crm", "crm_claim", "sale"],
+    "depends" : ["base","crm", "crm_claim", "sale"],
     "demo_xml" : [],
     "update_xml" : [
                     # "security/crm_security.xml",
