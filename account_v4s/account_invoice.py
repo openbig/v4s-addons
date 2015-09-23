@@ -39,7 +39,7 @@ class account_tax(osv.osv):
     def _get_description(self, cr, uid, ids, fields, arg, context):
         x={}
         for record in self.browse(cr, uid, ids):
-            x[record.id]= str(record.amount) + "%"
+            x[record.id]= str(record.amount*100) + "%"
         return x
 
     _columns = {
