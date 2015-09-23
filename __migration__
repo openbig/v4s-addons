@@ -80,3 +80,12 @@ Asterisk Modules:
 
 Others:
 - mass_editing
+
+
+The payment term is wrong in some sale orders due to a glitch with one term (ID: 2):
+Please note the follwoing manual interventions steps.
+Otherwise we will search again later once again for that issue:
+Solution in V8:
+1. We rename: "30 Tage netto" -> "14 Tage netto"
+(check also to change "Rechnungstext" to be: "Zahlbar innerhalb 14 Tagen rein netto")
+2. delete the line 2 of the term to have only 1 line with 14 days net.

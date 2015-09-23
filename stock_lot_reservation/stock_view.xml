@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+      <record id="view_move_form_res_q_ids" model="ir.ui.view">
+        <field name="model">stock.move</field>
+        <field name="inherit_id" ref="stock.view_move_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//group[@name='quants_grp']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+
+        <record id="view_move_picking_form_res_q_ids" model="ir.ui.view">
+    		<field name="name">stock.move.form.v4s</field>
+        <field name="model">stock.move</field>
+    		<field name="inherit_id" ref="stock.view_move_picking_form"/>
+            <field name="arch" type="xml">
+
+              <xpath expr="//group[@name='quants_grp']" position="after">
+                  <field name='name'/>
+              </xpath>
+
+          </field>
+       </record>
+
+        <record id="search_product_lot_filter_filter" model="ir.ui.view">
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.search_product_lot_filter"/>
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <!--<field name="transfer_id" string="Transfer" filter_domain="[('transfer_id','=',self)]"/>-->
+                    <filter name="available" string="Available" domain="[]" context="{'available': True}"/>
+                </field>
+            </field>
+        </record>
+
+
+        <!-- Dev only
+        <record id="view_production_lot_form_dev" model="ir.ui.view">
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form"/>
+            <field name="arch" type="xml">
+                <field name="ref" position="after">
+                    <field name="is_transferable" />
+                    <field name="transfer_id" />
+                </field>
+            </field>
+        </record>
+         -->
+    </data>
+</openerp>

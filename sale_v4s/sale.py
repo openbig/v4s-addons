@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#    
+#
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
@@ -19,7 +19,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 import logging
@@ -37,11 +37,14 @@ from openerp.osv import fields, osv
 
 class sale_order(osv.osv):
     _inherit ="sale.order"
-    
+
+
+
     _columns = {
         'note2' : fields.text("Comment on top"),
         'valid_until' : fields.date("Valid Until"),
-        
+
+
     }
     # def onchange_shop_id(self, cr, uid, ids, shop_id):
     #     res = super(sale_order, self).onchange_shop_id(cr, uid, ids, shop_id)
@@ -55,15 +58,15 @@ class sale_order(osv.osv):
     #                     if line.product_id.type!='service':
     #                         self.pool.get('sale.order.line').write(cr, uid, line.id, { 'type' : 'make_to_order' })
     #     return res
-    
-    
+
+
     def _prepare_invoice(self, cr, uid, order, lines, context=None):
         invoice_vals = super(sale_order, self)._prepare_invoice(cr, uid, order, lines, context=context)
         if invoice_vals['type'] in ('out_invoice', 'out_refund') and not invoice_vals.has_key('client_order_ref'):
             invoice_vals['client_order_ref'] = invoice_vals['name']
         return invoice_vals
-    
-sale_order()    
+
+sale_order()
 
 class sale_order_line(osv.osv):
     _inherit = "sale.order.line"
@@ -117,7 +120,7 @@ class sale_order_line(osv.osv):
     #
     #     res['value'].update(vals)
     #     return res
-        
+
 sale_order_line()
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

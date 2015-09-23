@@ -24,6 +24,17 @@
                     <field name="phone2"/>
                 </xpath>
 
+                <xpath expr="//sheet/group/field[@name='function']" position="before">
+                    <field name="title"/>
+                    <field name="prename"/>
+                    <field name="title_communication"/>
+                </xpath>
+
+                <xpath expr="//sheet/group/field[@name='mobile']" position="after">
+                    <field name="fax"/>
+                    <field name="website"/>
+                </xpath>
+
                 <xpath expr="//field[@name='function']" position="before">
                     <field name="prename"/>
                     <field name="title_communication"/>
