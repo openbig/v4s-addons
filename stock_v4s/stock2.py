@@ -22,9 +22,25 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import logging
+l = logging.getLogger()
 
-import stock
-import stock2
-import report
-import procurement_pull
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+from openerp import models, fields, api, _
+from openerp import api
+import datetime
+
+
+class StockPicking(models.Model):  # jak w sale.py
+    _inherit = "stock.picking"
+
+
+    @api.one
+    def _compute_purchase_id(self):
+        purchase_ids = []
+        for move_id in self.move_lines:
+            if move_id.purchase_line_id:
+                if move_id.purchase_line_id.order_id:
+                    self.purchase_id = move_id.purchase_line_id.order_id
+                    return
+
+    purchase_id = fields.Many2one(string="Purchase Order",comodel_name="purchase.order", compute=_compute_purchase_id)

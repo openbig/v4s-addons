@@ -13,12 +13,16 @@
                     <field name="stock_journal_id" />
                 </xpath>
 
+                <xpath expr="//field[@name='group_id']" position="after">
+                    <field name="purchase_id" />
+                </xpath>
+
                 <xpath expr="//field[@name='note']" position="before">
                     <separator string="Notice"/>
                     <field name="notice" nolabel="1" colspan="4" />
                     <separator string="Note"/>
                 </xpath>
-                
+
             </field>
         </record>
 
@@ -68,7 +72,7 @@
             <!--</field>-->
         <!--</record>  -->
         <!---->
-        
-        
+
+
     </data>
 </openerp>
