@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-        
+
         <record id="view_crm_partner_v4s_form1" model="ir.ui.view">
             <field name="name">res.partner.crm.v4s.inherit1</field>
             <field name="model">res.partner</field>
@@ -69,20 +69,27 @@
                 <!--</group>-->
             </field>
         </record>
-        
-        <!--<record id="view_partners_v4s_tree1" model="ir.ui.view">-->
-                <!--<field name="name">view.res.partner.tree.crm.v4s</field>-->
-                <!--<field name="model">res.partner</field>-->
-                <!--<field name="type">tree</field>-->
-                <!--<field name="inherit_id" ref="base.view_partner_tree"/>-->
-                <!--<field name="arch" type="xml">-->
-                    <!--<field name="email" position="after">-->
-                        <!--<field name="zip" />-->
-                    <!--</field>-->
-                <!--</field>-->
-        <!--</record>-->
 
-            
+        <record id="view_partners_v4s_tree1" model="ir.ui.view">
+          <field name="name">view.res.partner.tree.crm.v4s</field>
+          <field name="model">res.partner</field>
+          <field name="type">tree</field>
+          <field name="inherit_id" ref="base.view_partner_tree"/>
+          <field name="arch" type="xml">
+            <field name="display_name" position="after">
+                  <field name="type"/>
+                  <field name="company_ext"/>
+              </field>
+              <field name="email" position="before">
+                  <field name="country_id"/>
+              </field>
+              <field name="email" position="after">
+                  <field name="user_id"/>
+              </field>
+          </field>
+        </record>
+
+
         <record id="view_res_partner_filter_v4s" model="ir.ui.view">
             <field name="name">res.partner.select</field>
             <field name="model">res.partner</field>
@@ -94,6 +101,6 @@
                 </xpath>
             </field>
         </record>
-        
+
     </data>
 </openerp>

@@ -41,6 +41,10 @@ class StockPicking(models.Model):  # jak w sale.py
             if move_id.purchase_line_id:
                 if move_id.purchase_line_id.order_id:
                     self.purchase_id = move_id.purchase_line_id.order_id
+                    if self.client_order_ref == False:
+                        if self.purchase_id.partner_ref:
+                            self.write({'client_order_ref':self.purchase_id.partner_ref})
+                            self.client_order_ref = self.purchase_id.partner_ref
                     return
 
     purchase_id = fields.Many2one(string="Purchase Order",comodel_name="purchase.order", compute=_compute_purchase_id)
