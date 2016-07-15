@@ -59,8 +59,8 @@ class stock_production_lot(osv.osv):
         ret = []
         for lot in self.browse(cr, uid, ids):
             stuff = ()
-            if lot.life_date:
-                stuff = (lot.id,'%s [%s]' % (lot.name,lot.life_date))
+            if lot.ref:
+                stuff = (lot.id,'%s [%s]' % (lot.name,lot.ref))
             else:
                 stuff = (lot.id,lot.name)
             ret.append(stuff)

@@ -24,7 +24,7 @@
 ##############################################################################
 {
     "name" : "V4S - Stock",
-    "version" : "0.01 (8.0)",
+    "version" : "0.02 (8.0)",
     "author" : "Grzegorz Grzelak, Tadeusz Karpiński / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
