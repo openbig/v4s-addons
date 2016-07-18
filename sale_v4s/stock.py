@@ -26,52 +26,14 @@ import logging
 
 from openerp.osv import osv, fields
 
-# class stock_warehouse(osv.osv):
-#     _inherit = "stock.warehouse"
-#
-#     def _get_set_mto(self, cr, uid, ids, name, arg, context=None):
-#         # sale_shop_obj = self.pool.get('sale.shop')
-#         # self.browse(cr, uid, ids, context=context)
-#         ret = {}
-#         for id in ids:
-#             cr.execute('SELECT set_mto FROM sale_shop WHERE warehouse_id='+str(id))
-#             res1 = cr.fetchall()
-#             if len(res1) > 0:
-#                 if len(res1[0]) > 0:
-#                     res1 = res1[0][0]
-#                     if res1 == True:
-#                         ret[id] = True
-#                     else:
-#                         ret[id] = False
-#             else:
-#                 ret[id] = False
-#         return ret
-#
-#     _columns = {
-#         'set_mto':  fields.function(_get_set_mto, store=True, type='boolean', string='MTO'),
-#
-#     }
-#
-# stock_warehouse()
-
 class stock_picking(osv.osv):
     _inherit = 'stock.picking'
-
-    # def _get_default_client_order_ref(self, cr, uid, ids, context=None):
-    #     logger = logging.getLogger()
-    #     logger.warn("xoxo xD")
-    #     rasdsa
 
     _columns = {
         'create_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
         'write_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
         'client_order_ref': fields.char('Customer Reference', size=128),
-        # 'client_order_ref': fields.related('sale_id', 'client_order_ref', type='char', string='Customer Reference'),
     }
-
-    # _defaults = {
-    #     'client_order_ref': _get_default_client_order_ref,
-    #     }
 
 
     def _prepare_invoice(self, cr, uid, picking, partner, inv_type, journal_id, context=None):
@@ -83,4 +45,3 @@ class stock_picking(osv.osv):
         return invoice_vals
 
 stock_picking()
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
