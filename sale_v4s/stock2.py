@@ -8,6 +8,7 @@ class stock_picking(models.TransientModel):
     _inherit = "stock.picking"
 
 
+    @api.one
     def _compue_client_order_ref2(self):
         if self.client_order_ref == False:
             if self.sale_id and self.sale_id.client_order_ref:
