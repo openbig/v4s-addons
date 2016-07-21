@@ -4,7 +4,7 @@ import logging
 l = logging.getLogger()
 
 
-class stock_picking(models.TransientModel):
+class stock_picking(models.Model):
     _inherit = "stock.picking"
 
 
