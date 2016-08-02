@@ -10,7 +10,7 @@
             <field name="arch" type="xml">
 
                 <xpath expr="//field[@name='origin']" position="after">
-                    <field name="stock_journal_id" />
+                    <field name="stock_journal_id" attrs="{'required':[('picking_type_code','=','incoming')]}"/>
                 </xpath>
 
                 <xpath expr="//field[@name='group_id']" position="after">
@@ -26,8 +26,23 @@
             </field>
         </record>
 
+        <record model="ir.ui.view" id="view_picking_internal_search_v4s">
+            <field name="name">stock.picking.search</field>
+            <field name="model">stock.picking</field>
+            <field name="type">tree</field>
+            <field name="inherit_id" ref="stock.view_picking_internal_search"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group" position="inside">
+                    <filter string="Stock Journal" domain="[]" context="{'group_by':'stock_journal_id'}"/>
+                </xpath>
+                <xpath expr="//field[@name='group_id']" position="after">
+                    <field name="stock_journal_id"/>
+                </xpath>
+           </field>
+        </record>
+
         <record model="ir.ui.view" id="vpicktree_v4s">
-            <field name="name">CRM - Claims Tree v4s</field>
+            <field name="name">stock.picking.tree</field>
             <field name="model">stock.picking</field>
             <field name="type">tree</field>
             <field name="inherit_id" ref="stock.vpicktree"/>

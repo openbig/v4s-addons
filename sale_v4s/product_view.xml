@@ -1,0 +1,17 @@
+<openerp>
+  <data>
+
+    <record id="product_pricelist_item_tree_view_v4s" model="ir.ui.view">
+      <field name="name">product.pricelist.item.tree</field>
+      <field name="model">product.pricelist.item</field>
+      <field name="inherit_id" ref="product.product_pricelist_item_tree_view"/>
+      <field name="arch" type="xml">
+        <xpath expr="//field[@name='categ_id']" position="after">
+            <field name="price_surcharge" />
+            <field name="price_discount" />
+        </xpath>
+      </field>
+    </record>
+
+  </data>
+</openerp>

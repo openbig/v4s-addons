@@ -36,9 +36,10 @@
     * Added MTO fields for Sale Shop.
     * new Sale Order report (0.02)
     """,
-    "depends" : ["sale", "sale_stock","base_v4s"],
+    "depends" : ["sale", "sale_stock","base_v4s", "product"],
     "demo_xml" : [],
     "update_xml" : [
+                    "product_view.xml",
                     "sale_view.xml",
                     "stock_view.xml",
                     "account_invoice_view.xml",
