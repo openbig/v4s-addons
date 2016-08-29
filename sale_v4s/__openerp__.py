@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#
+#    
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
@@ -19,7 +19,7 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
 
@@ -28,18 +28,17 @@
 
 {
     "name" : "V4S - SALE",
-    "version" : "0.02 (8.0)",
-    "author" : "Grzegorz Grzelak, Tadeusz Karpiński / Thorsten Vocks for openbig.org",
+    "version" : "0.13 (6.1)",
+    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
     * Added MTO fields for Sale Shop.
     * new Sale Order report (0.02)
     """,
-    "depends" : ["sale", "sale_stock","base_v4s", "product"],
+    "depends" : ["sale", ],
     "demo_xml" : [],
     "update_xml" : [
-                    "product_view.xml",
                     "sale_view.xml",
                     "stock_view.xml",
                     "account_invoice_view.xml",
@@ -50,3 +49,5 @@
 }
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+
+

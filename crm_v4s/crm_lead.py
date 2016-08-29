@@ -22,14 +22,13 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
-import logging
 
-from openerp.osv import fields, osv
+from osv import fields, osv
 from datetime import datetime
 import time
-from openerp.tools.translate import _
+from tools.translate import _
 import binascii
-import openerp.tools
+import tools
 
 class crm_lead(osv.osv):
     _inherit = "crm.lead"
@@ -57,29 +56,29 @@ class crm_lead(osv.osv):
     _defaults ={
         'nbr' : 1,
     }
-
-    # def _lead_create_partner(self, cr, uid, lead, context=None):
-    #     partner = self.pool.get('res.partner')
-    #     partner_id = super(crm_lead,self)._lead_create_partner(cr, uid, lead, context=context)
-    #     vals = {
-    #             'description' : lead.description,
-    #         }
-    #     partner.write(cr, uid, partner_id, vals, context=context)
-    #     return partner_id
-    #
-    # def _lead_create_partner_address(self, cr, uid, lead, partner_id, context=None):
-    #     address = self.pool.get('res.partner.address')
-    #     address_id = super(crm_lead,self)._lead_create_partner_address(cr, uid, lead, partner_id, context=context)
-    #     vals = {
-    #             'prename': lead.prename,
-    #             'company_ext': lead.company_ext,
-    #             'title_communication': lead.title_communication,
-    #             'phone2': lead.phone2,
-    #             'department_company_ext': lead.department_company_ext,
-    #             'birthday_communication': lead.birthday_communication,
-    #             'website': lead.partner_address_website,
-    #         }
-    #     address.write(cr, uid, address_id, vals, context=context)
-    #     return address_id
+    
+    def _lead_create_partner(self, cr, uid, lead, context=None):
+        partner = self.pool.get('res.partner')
+        partner_id = super(crm_lead,self)._lead_create_partner(cr, uid, lead, context=context)
+        vals = {
+                'description' : lead.description,
+            }
+        partner.write(cr, uid, partner_id, vals, context=context)
+        return partner_id
+    
+    def _lead_create_partner_address(self, cr, uid, lead, partner_id, context=None):
+        address = self.pool.get('res.partner.address')
+        address_id = super(crm_lead,self)._lead_create_partner_address(cr, uid, lead, partner_id, context=context)
+        vals = {
+                'prename': lead.prename,
+                'company_ext': lead.company_ext,
+                'title_communication': lead.title_communication,
+                'phone2': lead.phone2,
+                'department_company_ext': lead.department_company_ext,
+                'birthday_communication': lead.birthday_communication,
+                'website': lead.partner_address_website,
+            }
+        address.write(cr, uid, address_id, vals, context=context)
+        return address_id
 
 crm_lead()

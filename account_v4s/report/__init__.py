@@ -26,7 +26,7 @@
 import parser
 import account_invoice_report
 
-from openerp.report import report_sxw
+from report import report_sxw
 from parser import Parser
 
 report_sxw.report_sxw(

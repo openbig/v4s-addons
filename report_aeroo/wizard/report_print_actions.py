@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2008-2013 Alistek (http://www.alistek.com) All Rights Reserved.
+# Copyright (c) 2008-2013 Alistek Ltd (http://www.alistek.com) All Rights Reserved.
 #                    General contacts <info@alistek.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -29,24 +29,20 @@
 #
 ##############################################################################
 
-from openerp import api, models, fields, _
-from openerp.exceptions import except_orm, Warning
+from osv import osv
+from osv import fields
+import netsvc
 
-from openerp.report import interface
-import re
+from tools.translate import _
 
-class report_print_actions(models.TransientModel):
+class report_print_actions(osv.osv_memory):
     _name = 'aeroo.print_actions'
     _description = 'Aeroo reports print wizard'
 
-    def _reopen(self, res_id, model):
-        return {'type': 'ir.actions.act_window',
-                'view_mode': 'form',
-                'view_type': 'form',
-                'res_id': res_id,
-                'res_model': self._name,
-                'target': 'new',
-            }
+    def check_report(self, report_name):
+        if 'report.%s' % report_name not in netsvc.Service._services: # check if report exist in register of reports
+            raise osv.except_osv(_('System Error !'), _('Report was not registered in system or deactivated !'))
+        return True
 
     def check_if_deferred(self, report_xml, print_ids):
         extras = report_xml.extras.split(',')
@@ -67,131 +63,108 @@ class report_print_actions(models.TransientModel):
 
         mod_id = mod_obj.search(cr, uid, [('name', '=', 'action_deferred_processing_task_deferred_processing')])[0]
         res_id = mod_obj.read(cr, uid, mod_id, ['res_id'])['res_id']
-        act_win = act_obj.read(cr, uid, res_id, ['name','type','view_id','res_model','view_type',
+        act_win = act_obj.read(cr, uid, res_id, ['name','type','view_id','res_model','view_type', \
                                                 'search_view_id','view_mode','target','context'])
         act_win['res_id'] = process_id
         act_win['view_type'] = 'form'
         act_win['view_mode'] = 'form,tree'
         return act_win
-    
-    @api.multi
-    def simple_print(recs):
-        report_xml = recs._get_report()
-        data = {
-                'model':report_xml.model, 
-                'ids':this.print_ids,
-                'id':context['active_id'],
-                'report_type': 'aeroo'
-                }
-        return {
-                'type': 'ir.actions.report.xml',
-                'report_name': report_xml.report_name,
-                'datas': data,
-                'context': context
-                }
-    
-    @api.multi
-    def get_strids(recs):
-        valid_input = re.match('^\[\s*((\d+)(\s*,\s*\d+)*)\s*\]$',
-            recs.print_ids)
-        if not valid_input:
-            raise Warning(_("Wrong or not ids!"))
-        return eval(recs.print_ids, {})
-    
-    @api.multi
-    def to_print(recs=None):
-        report_xml = recs._get_report()
-        obj_print_ids = recs.get_strids()
-        print_ids = []
-        if recs.copies <= 1:
-            print_ids = obj_print_ids
-        else:
-            copies = recs.copies
-            while(copies):
-                print_ids.extend(obj_print_ids)
-                copies -= 1
-        if recs.check_if_deferred(report_xml, print_ids):
-            recs.write({
-                'state': 'confirm',
-                'message': _("This process may take too long for interactive \
-                    processing. It is advisable to defer the process as a \
-                    background process. Do you want to start a deferred \
-                    process?"),
-                'print_ids': str(print_ids)
-                })
-            return self._reopen(recs.id, recs._model)
-        ##### Simple print #####
-        data = {
-                'model': report_xml.model,
-                'ids': print_ids,
-                'id': print_ids[0],
-                'report_type': 'aeroo'
-                }
-        res = {
-               'type': 'ir.actions.report.xml',
-               'report_name': report_xml.report_name,
-               'datas': data,
-               'context': recs.env.context
-               }
-        return res
 
-    @api.model
-    def _out_formats_get(self):
-        report_xml = self._get_report()
-        if report_xml:
-            mtyp_obj = self.env['report.mimetypes']
-            mtyp_ids = mtyp_obj.search([('compatible_types','=',report_xml.in_format)])
-            return [(str(r.id), r.name) for r in mtyp_ids]
+    def simple_print(self, cr, uid, ids, context):
+        this = self.browse(cr, uid, ids[0], context=context)
+        report_xml = self.pool.get('ir.actions.report.xml').browse(cr, uid, context['report_action_id'])
+        data = {'model':report_xml.model, 'ids':this.print_ids, 'id':context['active_id'], 'report_type': 'aeroo'}
+        if report_xml.out_format.id != this.out_format:
+            report_xml.write({'out_format':this.out_format}, context=context)
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name': report_xml.report_name,
+            'datas': data,
+            'context':context
+        }
+
+    def to_print(self, cr, uid, ids, context=None):
+        this = self.browse(cr, uid, ids[0], context=context)
+        report_xml = self.pool.get('ir.actions.report.xml').browse(cr, uid, context['report_action_id'])
+        self.check_report(report_xml.report_name)
+        print_ids = []
+        if this.copies<=0:
+            print_ids = this.print_ids
+        else:
+            while(this.copies):
+                print_ids.extend(this.print_ids)
+                this.copies -= 1
+        if report_xml.out_format.id != this.out_format:
+            report_xml.write({'out_format':this.out_format}, context=context)
+        if self.check_if_deferred(report_xml, print_ids):
+            return this.write({'state':'confirm','message':_("This process may take too long for interactive processing. \
+It is advisable to defer the process in background. \
+Do you want to start a deferred process?"),'print_ids':print_ids}, context=context)
+        ##### Simple print #####
+        data = {'model':report_xml.model, 'ids':print_ids, 'id':context['active_id'], 'report_type': 'aeroo'}
+        return {
+            'type': 'ir.actions.report.xml',
+            'report_name': report_xml.report_name,
+            'datas': data,
+            'context':context
+        }
+
+    def _out_format_get(self, cr, uid, context={}):
+        obj = self.pool.get('report.mimetypes')
+        report_action_id = context.get('report_action_id',False)
+        if report_action_id:
+            in_format = self.pool.get('ir.actions.report.xml').read(cr, uid, report_action_id, ['in_format'])['in_format']
+            ids = obj.search(cr, uid, [('compatible_types','=',in_format)], context=context)
+            res = obj.read(cr, uid, ids, ['name'], context)
+            return [(r['id'], r['name']) for r in res]
         else:
             return []
     
-    ### Fields
-    
-    out_format = fields.Selection(selection=_out_formats_get,
-        string='Output format', required=True)
-    out_format_code = fields.Char(string='Output format code', 
-        size=16, required=False, readonly=True)
-    copies = fields.Integer(string='Number of copies', required=True)
-    message = fields.Text('Message')
-    state = fields.Selection([('draft','Draft'),('confirm','Confirm'),
-        ('done','Done'),],'State', select=True, readonly=True)
-    print_ids = fields.Text()
-    report_id = fields.Many2one('ir.actions.report.xml', 'Report')
-    
-    ### ends Fields
+    _columns = {
+        'out_format': fields.selection(_out_format_get, 'Output format', required=True),
+        'out_format_code':fields.char('Output format code', size=16, required=False, readonly=True),
+        'copies': fields.integer('Number of copies', required=True),
+        'message': fields.text('Message'),
+        'state':fields.selection([
+            ('draft','Draft'),
+            ('confirm','Confirm'),
+            ('done','Done'),
+            
+        ],'State', select=True, readonly=True),
+        'print_ids':fields.serialized(),
+    }
 
     def onchange_out_format(self, cr, uid, ids, out_format_id):
         if not out_format_id:
             return {}
-        out_format = self.pool.get('report.mimetypes').read(cr, uid, int(out_format_id), ['code'])
+        out_format = self.pool.get('report.mimetypes').read(cr, uid, out_format_id, ['code'])
         return { 'value':
             {'out_format_code': out_format['code']}
         }
 
-    @api.model
-    def _get_report(self):
-        report_id = self.env.context.get('report_action_id')
-        return report_id and self.env['ir.actions.report.xml'].browse(report_id)
-    
-    @api.model
-    def default_get(self, allfields):
-        res = super(report_print_actions, self).default_get(allfields)
-        report_xml = self._get_report()
-        lcall = self.search([('report_id','=',report_xml.id),('create_uid','=',self.env.uid)])
-        lcall = lcall and lcall[-1] or False
-        if 'copies' in allfields:
-            res['copies'] = (lcall or report_xml).copies
-        if 'out_format' in allfields:
-            res['out_format'] = lcall and lcall.out_format or str(report_xml.out_format.id)
-        if 'out_format_code' in allfields:
-            res['out_format_code'] = lcall and lcall.out_format_code or report_xml.out_format.code
-        if 'print_ids' in allfields:
-            res['print_ids'] = self.env.context.get('active_ids')
-        if 'report_id' in allfields:
-            res['report_id'] = report_xml.id
-        return res
-    
+    def _get_default_outformat(field):
+        def get_default_outformat(self, cr, uid, context):
+            report_action_id = context.get('report_action_id',False)
+            if report_action_id:
+                report_xml = self.pool.get('ir.actions.report.xml').browse(cr, uid, report_action_id)
+                return getattr(report_xml.out_format, field)
+            else:
+                return False
+        return get_default_outformat
+
+    def _get_default_number_of_copies(self, cr, uid, context):
+        report_action_id = context.get('report_action_id',False)
+        if not report_action_id:
+            return False
+        report_xml = self.pool.get('ir.actions.report.xml').browse(cr, uid, context['report_action_id'])
+        return report_xml.copies
+
     _defaults = {
+        'out_format': _get_default_outformat('id'),
+        'out_format_code': _get_default_outformat('code'),
+        'copies': _get_default_number_of_copies,
         'state': 'draft',
+        'print_ids': lambda self,cr,uid,ctx: ctx.get('active_ids')
     }
+report_print_actions()
 

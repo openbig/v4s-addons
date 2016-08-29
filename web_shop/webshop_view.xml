@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <record model='ir.ui.view' id='view_web_shop_form_inherit'>
+          <field name='name'>sale.shop.form.web_shop.inherit</field>
+          <field name='model'>sale.shop</field>
+          <field name='type'>form</field>
+          <field name='priority'>16</field>
+          <field ref='sale.view_shop_form' name='inherit_id'/>
+          <field type='xml' name='arch'>
+            <data>
+              <field position='after' name='project_id'>
+                <separator string="E-Commerce" colspan="4"/>
+                <field name='catalog_layout'/>
+              </field>
+            </data>
+          </field>
+        </record>
+
+	    <record model="ir.ui.view" id="view_webshop_checkout_form">
+		    <field name="name">webshop.checkout.form</field>
+		    <field name="model">webshop.checkout</field>
+		    <field name="type">form</field>
+		    <field name="arch" type="xml">
+			    <form string="Checkout">
+                  <group colspan="4" states="method">
+		              <field name="method" colspan="2" widget="radio"/>
+                  </group>
+                  <group colspan="4" states="bill_info" string="Billing Information">
+		              <field name="first_name" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="name" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="email" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="address" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="city" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="zip"/>
+		              <field name="country_id" widget="selection" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="phone" attrs="{'required':[('state','=','bill_info')]}"/>
+		              <field name="fax"/>
+                  </group>
+                  <group colspan="4" states="bill_company" string="Billing Company Information">
+		              <field name="company_name"/>
+		              <field name="ref"/>
+		              <field name="vat"/>
+                  </group>
+                  <group colspan="4" states="shipp_info" string="Shipping Information">
+		              <field name="is_shipping_address"/>
+                      <newline/>
+		              <field name="shipping_first_name" attrs="{'required':[('state','=','shipp_info'),('is_shipping_address','&lt;&gt;',True)],'readonly':[('is_shipping_address','=',True)]}"/>
+		              <field name="shipping_name" attrs="{'required':[('state','=','shipp_info'),('is_shipping_address','&lt;&gt;',True)],'readonly':[('is_shipping_address','=',True)]}"/>
+		              <field name="shipping_address" attrs="{'required':[('state','=','shipp_info'),('is_shipping_address','&lt;&gt;',True)],'readonly':[('is_shipping_address','=',True)]}"/>
+		              <field name="shipping_city" attrs="{'required':[('state','=','shipp_info'),('is_shipping_address','&lt;&gt;',True)],'readonly':[('is_shipping_address','=',True)]}"/>
+		              <field name="shipping_zip" attrs="{'readonly':[('is_shipping_address','=',True)]}"/>
+                      <field name="shipping_country_id" widget="selection" attrs="{'required':[('state','=','shipp_info'),('is_shipping_address','&lt;&gt;',True)],'readonly':[('is_shipping_address','=',True)]}"/>
+		              <field name="shipping_phone" attrs="{'required':[('state','=','shipp_info'),('is_shipping_address','&lt;&gt;',True)],'readonly':[('is_shipping_address','=',True)]}"/>
+                  </group>
+                  <group colspan="4" states="shipp_method">
+		              <field name="carrier_id" widget="radio"/>
+                  </group>
+                  <group colspan="2" states="done">
+		              <label string="Checkout ready to confirm!" colspan="4"/>
+                  </group>
+                  <group colspan="2" states="stop">
+		              <label string="Checkout is removed." colspan="4"/>
+                  </group>
+                  <group colspan="4">
+                      <button type="object" string="Back" name="jera_request_action_back" colspan="2" states="register,bill_info,bill_company,shipp_info,shipp_method,pay_info,done"/>
+                      <button type="object" string="Next" name="jera_request_action_next" colspan="2" attrs="{'invisible':[('state','=','stop')]}"/>
+                  </group>
+                  <field name="state" invisible="1"/>
+                  <field name="so_id" invisible="1"/>
+			    </form>
+		    </field>
+	    </record>
+
+        <record id="action_webshop_checkout_wizard" model="ir.actions.act_window">
+          <field name="name">Checkout</field>
+          <field name="type">ir.actions.act_window</field>
+          <field name="res_model">webshop.checkout</field>
+          <field name="view_type">form</field>
+          <field name="view_mode">form</field>
+          <field name="target">new</field>
+        </record>
+
+        <function model="webshop.checkout" name="_set_random_password">
+            <value eval="ref('res_users_web_shop_admin')"/>
+        </function>
+
+    </data>
+</openerp>

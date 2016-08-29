@@ -41,7 +41,7 @@
 					<field name="target_picking_id_type" invisible="1" />
 					<field name="target_picking_id_invoice_state" invisible="1" />
 
-					<!--<field name="target_picking_id_stock_journal_id" invisible="1" />-->
+					<field name="target_picking_id_stock_journal_id" invisible="1" />
 					<field name="target_picking_id_location_id" invisible="1" />
 					<field name="target_picking_id_location_dest_id" invisible="1" />
 					<field name="target_picking_id_address_id" invisible="1" />
@@ -51,11 +51,12 @@
 					<field name="picking_ids" colspan="4" nolabel="1"
 						domain="[('id','&lt;&gt;',target_picking_id),
 						        ('state','=',target_picking_id_state),
-						        ('picking_type_id','=',target_picking_id_type),
+						        ('type','=',target_picking_id_type),
 						        ('invoice_state','=',target_picking_id_invoice_state),
+						        ('stock_journal_id','=',target_picking_id_stock_journal_id),
 						        ('location_id','=',target_picking_id_location_id),
 						        ('location_dest_id','=',target_picking_id_location_dest_id),
-						        ('partner_id','=',target_picking_id_address_id),
+						        ('address_id','=',target_picking_id_address_id),
 						        ('company_id','=',target_picking_id_company_id),
 						        ]" />
 					<group col="2" colspan="4">

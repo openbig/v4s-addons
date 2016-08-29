@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
-################################################################################
+##############################################################################
 #
-# Copyright (c) 2009-2014 Alistek ( http://www.alistek.com ) All Rights Reserved.
+# Copyright (c) 2009-2013 Alistek Ltd (http://www.alistek.com) All Rights Reserved.
 #                    General contacts <info@alistek.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -28,27 +28,23 @@
 # along with this program; if not, write to the Free Software
 # Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 #
-################################################################################
+##############################################################################
 
-from openerp import registry, models, _
 from barcode import barcode
-from openerp.tools import translate
+from tools import translate
 #from currency_to_text import currency_to_text
 from ctt_objects import supported_language
 import base64
 import StringIO
 from PIL import Image
+import pooler
 import time
-import openerp.osv as osv
-from openerp.report import report_sxw
-import openerp.netsvc as netsvc
-from openerp.tools.safe_eval import safe_eval as eval
+import osv
+from report import report_sxw
+from tools.translate import _
+import netsvc
+from tools.safe_eval import safe_eval as eval
 from aeroolib.plugins.opendocument import _filter
-
-from openerp.osv.orm import browse_record_list #TODO v8?
-
-import logging
-logger = logging.getLogger('report_aeroo')
 
 try:
     from docutils.examples import html_parts # use python-docutils library
@@ -97,7 +93,7 @@ def domain2statement(domain):
                 operator=False
         statement+=' o.'+str(d[0])+' '+(d[1]=='=' and '==' or d[1])+' '+(isinstance(d[2], str) and '\''+d[2]+'\'' or str(d[2]))
         if d!=domain[-1]:
-            statement+=operator or ' and'
+             statement+=operator or ' and'
         operator=False
     return statement
 
@@ -108,7 +104,7 @@ class ExtraFunctions(object):
     def __init__(self, cr, uid, report_id, context):
         self.cr = cr
         self.uid = uid
-        self.registry = registry(self.cr.dbname)
+        self.pool = pooler.get_pool(self.cr.dbname)
         self.report_id = report_id
         self.context = context
         self.functions = {
@@ -159,7 +155,6 @@ class ExtraFunctions(object):
             'text_wiki': wikitext_ok and self._text_wiki or \
                 self._text_plain('"wikimarkup" format is not supported! Need to be installed "python-mediawiki" package.'),
             'text_markup': self._text_markup,
-            'text_remove_markup': self._text_remove_markup,
             '__filter': self.__filter, # Don't use in the report template!
         }
 
@@ -167,19 +162,19 @@ class ExtraFunctions(object):
         if isinstance(val, osv.orm.browse_null):
             return ''
         elif isinstance(val, osv.orm.browse_record):
-            return val.with_context(lang=self._get_lang()).name_get()[0][1]
+            return val.name_get({'lang':self._get_lang()})[0][1]
         return _filter(val)
 
     def _perm_read(self, cr, uid):
         def get_log(obj, field=None):
             if field:
-                return obj.perm_read()[0][field]
+                return obj.perm_read(self.uid, [obj.id])[0][field]
             else:
-                return obj.perm_read()[0]
+                return obj.perm_read(self.uid, [obj.id])[0]
         return get_log
 
     def _get_report_xml(self):
-        return self.registry['ir.actions.report.xml'].browse(self.cr, self.uid, self.report_id)
+        return self.pool.get('ir.actions.report.xml').browse(self.cr, self.uid, self.report_id)
 
     def _get_lang(self, source='current'):
         if source=='current':
@@ -224,7 +219,7 @@ class ExtraFunctions(object):
         return c_to_text
 
     def _translate_text(self, source):
-        trans_obj = self.registry['ir.translation']
+        trans_obj = self.pool.get('ir.translation')
         trans = trans_obj.search(self.cr,self.uid,[('res_id','=',self.report_id),('type','=','report'),('src','=',source),('lang','=',self.context['lang'] or self.context['user_lang'])])
         if not trans:
             #trans_obj.create(self.cr, self.uid, {'src':source,'type':'report','lang':self._get_lang(),'res_id':self.report_id,'name':('ir.actions.report.xml,%s' % source)[:128]})
@@ -285,50 +280,59 @@ class ExtraFunctions(object):
         return localspace['value_list']
 
     def _get_name(self, obj):
-        if isinstance(obj, models.Model):
-            return obj.name_get()[0][1]
+        if obj.__class__==osv.orm.browse_record:
+            return self.pool.get(obj._table_name).name_get(self.cr, self.uid, [obj.id], {'lang':self._get_lang()})[0][1]
+        elif type(obj)==str: # only for fields in root record
+            model = self.context['model']
+            field, rec_id = obj.split(',')
+            rec_id = int(rec_id)
+            if rec_id:
+                field_data = self.pool.get(model).fields_get(self.cr, self.uid, [field], context=self.context)
+                return self.pool.get(field_data[field]['relation']).name_get(self.cr, self.uid, [rec_id], {'lang':self._get_lang()})[0][1]
+            else:
+                return ''
         return ''
 
     def _get_label(self, obj, field):
         if not obj:
             return ''
         try:
-            if isinstance(obj, browse_record_list):
+            if isinstance(obj, report_sxw.browse_record_list):
                 obj = obj[0]
             if isinstance(obj, (str,unicode)):
                 model = obj
             else:
-                model = obj._name
+                model = obj._table_name
             if isinstance(obj, (str,unicode)) or hasattr(obj, field):
-                labels = self.registry[model].fields_get(self.cr, self.uid, allfields=[field], context=self.context)
+                labels = self.pool.get(model).fields_get(self.cr, self.uid, allfields=[field], context=self.context)
                 return labels[field]['string']
         except Exception, e:
-            raise e
+            return ''
 
     def _field_size(self, obj, field):
         try:
-            if isinstance(obj, browse_record_list):
+            if isinstance(obj, report_sxw.browse_record_list):
                 obj = obj[0]
             if isinstance(obj, (str,unicode)):
                 model = obj
             else:
-                model = obj._name
+                model = obj._table_name
             if isinstance(obj, (str,unicode)) or hasattr(obj, field):
-                size = self.registry[model]._columns[field].size
+                size = self.pool.get(model)._columns[field].size
                 return size
         except Exception, e:
             return ''
 
     def _field_accuracy(self, obj, field):
         try:
-            if isinstance(obj, browse_record_list):
+            if isinstance(obj, report_sxw.browse_record_list):
                 obj = obj[0]
             if isinstance(obj, (str,unicode)):
                 model = obj
             else:
-                model = obj._name
+                model = obj._table_name
             if isinstance(obj, (str,unicode)) or hasattr(obj, field):
-                digits = self.registry[model]._columns[field].digits
+                digits = self.pool.get(model)._columns[field].digits
                 return digits or [16,2]
         except Exception:
             return []
@@ -336,26 +340,26 @@ class ExtraFunctions(object):
     def _get_selection_items(self, kind='items'):
         def get_selection_item(obj, field, value=None):
             try:
-                if isinstance(obj, browse_record_list):
+                if isinstance(obj, report_sxw.browse_record_list):
                     obj = obj[0]
                 if isinstance(obj, (str,unicode)):
                     model = obj
                     field_val = value
                 else:
-                    model = obj._name
+                    model = obj._table_name
                     field_val = getattr(obj, field)
                 if kind=='item':
                     if field_val:
-                        return dict(self.registry[model].fields_get(self.cr, self.uid, allfields=[field], context=self.context)[field]['selection'])[field_val]
+                        return dict(self.pool.get(model).fields_get(self.cr, self.uid, allfields=[field], context=self.context)[field]['selection'])[field_val]
                 elif kind=='items':
-                    return self.registry[model].fields_get(self.cr, self.uid, allfields=[field], context=self.context)[field]['selection']
+                    return self.pool.get(model).fields_get(self.cr, self.uid, allfields=[field], context=self.context)[field]['selection']
                 return ''
             except Exception:
                 return ''
         return get_selection_item
 
     def _get_attachments(self, o, index=None, raw=False):
-        attach_obj = self.registry['ir.attachment']
+        attach_obj = self.pool.get('ir.attachment')
         srch_param = [('res_model','=',o._name),('res_id','=',o.id)]
         if type(index)==str:
             srch_param.append(('name','=',index))
@@ -390,7 +394,7 @@ class ExtraFunctions(object):
                 tf.seek(0)
                 im.save(tf, format)
         except Exception, e:
-            logger.error("Error in '_asimage' method", exc_info=True)
+            print e
 
         if hold_ratio:
             img_ratio = im.size[0] / float(im.size[1]) # width / height
@@ -429,7 +433,7 @@ class ExtraFunctions(object):
                 toreturn = '<img%s %ssrc="data:image/%s;base64,%s">' % (width, height, extention, str(img))
             return toreturn
         except Exception, exp:
-            logger.error("Error in '_embed_image' method", exc_info=True)
+            print exp
             return 'No image'
 
     def _large(self, attr, field, n):
@@ -461,11 +465,11 @@ class ExtraFunctions(object):
             yield l[i:i+n]
 
     def _search_ids(self, model, domain):
-        obj = self.registry[model]
+        obj = self.pool.get(model)
         return obj.search(self.cr, self.uid, domain)
 
     def _search(self, model, domain):
-        obj = self.registry[model]
+        obj = self.pool.get(model)
         ids = obj.search(self.cr, self.uid, domain)
         return obj.browse(self.cr, self.uid, ids, {'lang':self._get_lang()})
 
@@ -479,7 +483,7 @@ class ExtraFunctions(object):
             model, id = args
         else:
             raise None
-        return self.registry[model].browse(self.cr, self.uid, id)
+        return self.pool.get(model).browse(self.cr, self.uid, id)
 
     def _get_safe(self, expression, obj):
         try:
@@ -524,7 +528,7 @@ class ExtraFunctions(object):
         try:
             return ''.join(map(lambda a: toesc.get(a, a), s))
         except TypeError:
-            return s
+           return s
 
     def _http_prettyuri(self, s):
         def do_filter(c):
@@ -568,7 +572,7 @@ class ExtraFunctions(object):
 
     def _text_plain(self, msg):
         def text_plain(text):
-            logger.info(msg)
+            netsvc.Logger().notifyChannel('report_aeroo', netsvc.LOG_INFO, msg)
             return text
         return text_plain
 
@@ -583,9 +587,3 @@ class ExtraFunctions(object):
             return self._text_rest('\n'.join(lines))
         return text
 
-    def _text_remove_markup(self, text):
-        lines = text.splitlines()
-        first_line = lines.pop(0)
-        if first_line in ['text/x-markdown', 'text/x-wiki', 'text/x-rst']:
-            return '\n'.join(lines)
-        return text

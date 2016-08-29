@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from openerp.osv import fields, osv
+from osv import fields, osv
 
 class stock_picking(osv.osv):
     _name = "stock.picking"

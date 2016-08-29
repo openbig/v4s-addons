@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+
+	    <record model="res.partner" id="jera_anonym_partner">
+		    <field name="name">JERA Anonymous</field>
+		    <field name="ref">JERA</field>
+	    </record>
+
+	    <record model="res.partner.address" id="jera_anonym_partner_address">
+		    <field name="partner_id" ref="jera_anonym_partner"/>
+            <field name="email">jera@alistek.com</field>
+	    </record>
+
+    </data>
+</openerp>

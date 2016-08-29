@@ -25,7 +25,7 @@
 
 import time
 
-from openerp.report import report_sxw
+from report import report_sxw
 
 class Parser(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):

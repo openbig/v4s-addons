@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<openerp>
+	<data>
+
+        <record id="jera_mirror_user_wizard" model="ir.ui.view">
+            <field name="name">Copy user from OpenERP to Joomla</field>
+            <field name="model">jera.user_mirror_wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Copy user from OpenERP to Joomla">
+                    <group colspan="4" states="draft">
+                        <group colspan="4">
+                            <field name="config" required="1" colspan="4"/>
+                            <field name="user_id" on_change="change_user(user_id)"/>
+                            <field name="new_password" password="1"/>
+                        </group>
+                        <group colspan="4">
+                            <field name="email"/>
+                        </group>
+                        <button name="mirror_user" type="object" string="Copy user" colspan="2" icon="gtk-copy"/>
+                        <button special="cancel" string="Cancel" colspan="2" icon="gtk-cancel"/>
+                    </group>
+                    <group colspan="4" states="done">
+                        <field name="note" colspan="4" nolabel="1" readonly="1"/>
+                        <button name="back" string="Back" type="object" icon="gtk-go-back"/>
+                        <button special="cancel" string="Close" icon="gtk-close"/>
+                    </group>
+                    <field name="state" invisible="1"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_jera_mirror_user_wizard" model="ir.actions.act_window">
+            <field name="name">Copy user from OpenERP to Joomla</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">jera.user_mirror_wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <menuitem parent="base.menu_users" action="action_jera_mirror_user_wizard" id="menu_era_mirror_user_wizard"/>
+
+	</data>
+</openerp>

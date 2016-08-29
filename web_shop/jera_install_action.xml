@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <record id="action_jera_web_shop_wizard" model="ir.actions.act_window">
+      <field name="name">WEB shop install</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">jera.installer.action</field>
+      <field name="view_id" ref="jera.view_jera_installer_action"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+      <field name="context">{'menu':True,'module_name':'web_shop','states_seq':['action','menu','module']}</field>
+    </record>
+
+	<menuitem id="menu_jera_web_shop_wizard" action="action_jera_web_shop_wizard" icon="STOCK_CONVERT" parent="jera.jera_menu"/>
+
+    </data>
+</openerp>

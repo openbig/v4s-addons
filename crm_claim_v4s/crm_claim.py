@@ -23,7 +23,15 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from osv import fields, osv
+from datetime import datetime
+from crm import crm
+import time
+from crm import wizard
+
+from tools.translate import _
+import binascii
+import tools
 
 
 class crm_claim(osv.osv):
@@ -33,11 +41,8 @@ class crm_claim(osv.osv):
     _inherit = "crm.claim"
     
     _columns = {
-        #
         'purchase_id': fields.many2one('purchase.order', 'Procurement Order'), # x_beschaffungsauftrag
-        #
         'credit_date': fields.char('Credit Note-Nr. / Date', size=64), # x_creditnote
-        #
         'credit_amount': fields.float('Credit Note Amount in $'), # x_creditnotebetrag
         'spare_outstanding': fields.boolean('Spare Outstanding'), # x_ersatzlieferung
         

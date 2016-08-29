@@ -1,0 +1,109 @@
+<openerp>
+  <data>
+
+    <record id="view_jera_installer_action" model="ir.ui.view">
+      <field name="name">jera.installer.action.view</field>
+      <field name="model">jera.installer.action</field>
+      <field name="type">form</field>
+      <field name="arch" type="xml">
+          <form string="JERA install wizard">
+              <group colspan="4" col="8">
+                <group colspan="1" height="300" width="250">
+                  <!--<field name="logo" widget="image" width="220" height="130" nolabel="1" colspan="1"/>-->
+                  <newline/>
+                  <group states="site">
+                    <label align="0.0" width="200" colspan="2" string="Please select site where you want to make installation."/>
+                  </group>
+                  <group states="user">
+                    <label align="0.0" width="200" colspan="2" string="Here you can install user(s) to Joomla site where is installed JERA component."/>
+                  </group>
+                  <group states="action">
+                    <label align="0.0" width="200" colspan="2" string="Here you can install OpenERP actions to Joomla site where is installed JERA component."/>
+                  </group>
+                  <group states="menu">
+                    <label align="0.0" width="200" colspan="2" string="Here you can install menu(s) to Joomla site for specified OpenERP actions."/>
+                  </group>
+                  <group states="module">
+                    <label align="0.0" width="200" colspan="2" string="Here you can install module(s) to Joomla site for specified OpenERP actions."/>
+                  </group>
+                </group>
+                <separator orientation="vertical" colspan="1" rowspan="16"/>
+                <group colspan="6">
+                  <group colspan="8" height="300" width="540">
+                      <group states="site" expand="1">
+                          <separator string="Site selection" colspan="4"/>
+                          <field name="config" required="1"/>
+                      </group>
+                      <group states="user" expand="1">
+                          <field name="jera_user_ids" colspan="4" nolabel="1" context="{'module_name':context.get('module_name')}">
+                            <tree string="JERA user profiles" editable="bottom">
+                              <field name="install"/>
+		                      <field name="login"/>
+		                      <field name="user_id"/>
+		                      <field name="name" />
+		                      <field name="email"/>
+                            </tree>
+                          </field>
+                      </group>
+                      <group states="action" expand="1">
+                          <field name="jera_action_ids" colspan="4" nolabel="1" context="{'module_name':context.get('module_name')}">
+                            <tree string="JERA action profiles" editable="bottom">
+                              <field name="install"/>
+                              <field name="action_name" readonly="1"/>
+                              <field name="alias" />
+                              <field name="used_user"/>
+                              <field name="searchable"/>
+                            </tree>
+                          </field>
+                      </group>
+                      <group states="menu" expand="1">
+                          <field name="jera_menu_ids" colspan="4" nolabel="1" context="{'module_name':context.get('module_name')}">
+                            <tree string="JERA menu profiles" editable="bottom">
+                              <field name="install"/>
+                              <field name="name"/>
+                              <field name="action_id" />
+                              <field name="layout" />
+                              <field name="used_user"/>
+                              <field name="access" />
+                            </tree>
+                          </field>
+                      </group>
+                      <group states="module" expand="1">
+                          <field name="jera_module_ids" colspan="4" nolabel="1" context="{'module_name':context.get('module_name')}">
+                            <tree string="JERA module profiles" editable="bottom">
+                              <field name="install"/>
+                              <field name="name"/>
+                              <field name="action_id" />
+                              <field name="used_user"/>
+                              <field name="access" />
+                              <field name="position"/>
+                            </tree>
+                          </field>
+                      </group>
+                      <group states="install">
+                          <!--<separator string="Installation Summary" colspan="4"/>-->
+                          <separator string="Installation Ready" colspan="4"/>
+                      </group>
+                      <group states="done">
+                          <separator string="Installation Summary" colspan="4"/>
+                      </group>
+                      <group attrs="{'invisible':[('state','not in',['install','done'])]}" colspan="4">
+                        <field name="messages" colspan="4" nolabel="1" readonly="1"/>
+                      </group>
+                      <field name="state" invisible="1"/>
+                  </group>
+                </group>
+              </group>
+              <group colspan="8" col="8">
+                <separator string="" colspan="8"/>
+                <button colspan="1" icon="gtk-close" special="cancel" string="_Close"/>
+                <button name="action_back" icon="gtk-go-back" type="object" string="_Back" colspan="1" states="user,action,menu,module,install"/>
+                <button name="action_next" icon="gtk-go-forward" type="object" string="_Next" colspan="1" states="site,user,action,menu,module"/>
+                <button name="process" icon="gtk-convert" type="object" string="_Install" colspan="1" states="install"/>
+              </group>
+          </form>
+      </field>
+    </record>
+
+  </data>
+</openerp>

@@ -23,7 +23,8 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv, orm
+from osv import fields, osv, orm
+#from tools.translate import _
 
 class account_invoice(osv.osv):
     _inherit = "account.invoice"
@@ -32,20 +33,4 @@ class account_invoice(osv.osv):
         'client_order_ref': fields.char('Customer Reference', size=64),
     }
 account_invoice()
-
-class account_tax(osv.osv):
-    _inherit = "account.tax"
-
-    def _get_description(self, cr, uid, ids, fields, arg, context):
-        x={}
-        for record in self.browse(cr, uid, ids):
-            x[record.id]= str(record.amount*100) + "%"
-        return x
-
-    _columns = {
-        'description' : fields.function(_get_description, method=True, string='Description',type='char'),
-    }
-account_invoice()
-
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

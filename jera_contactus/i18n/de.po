@@ -1,0 +1,163 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* jera_contactus
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-15 08:57+0000\n"
+"PO-Revision-Date: 2013-06-17 16:38+0100\n"
+"Last-Translator: openbig.org - Thorsten Vocks <thorsten.vocks@openbig.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. module: jera_contactus
+#: field:jera.contactus,category:0
+msgid "Category"
+msgstr "Kategorie"
+
+#. module: jera_contactus
+#: code:addons/jera_contactus/jera_contactus.py:36
+#, python-format
+msgid "Your enquiry is successfully registered!"
+msgstr "Ihre Anfrage wurde erfolgreich registriert!"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Message:"
+msgstr "Mitteilung"
+
+#. module: jera_contactus
+#: field:jera.contactus,optin:0
+msgid "Opt-in"
+msgstr ""
+
+#. module: jera_contactus
+#: code:addons/jera_contactus/jera_contactus.py:39
+#, python-format
+msgid ""
+"Please enter the characters displayed in the box. If you are unable to see "
+"the text clearly, you may click image for a new code."
+msgstr ""
+"Bitte geben Sie hier die in der Box angezeigten Zeichen an. Sollten Sie den "
+"Text dabei nicht genau erkennen, können Sie auf die Bildanzeige klicken, um "
+"eine neue Anzeige des Code zu starten. "
+
+#. module: jera_contactus
+#: help:jera.contactus,captcha:0
+msgid "Click on image to refresh"
+msgstr "Klicke auf Bild für Aktualisieren der Ansicht"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Send"
+msgstr "Sende"
+
+#. module: jera_contactus
+#: field:jera.contactus,email_from:0
+msgid "E-mail"
+msgstr "E-Mail"
+
+#. module: jera_contactus
+#: field:jera.contactus,code_verify:0
+msgid "Captcha code Type characters you see"
+msgstr "gelesene Zeichenkette aus angezeigter Captcha Code Zeichenkette "
+
+#. module: jera_contactus
+#: field:jera.contactus,sid:0
+msgid "Session Id"
+msgstr "Sitzung ID"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Phone:"
+msgstr "Telefon: "
+
+#. module: jera_contactus
+#: field:jera.contactus,partner_name:0
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Category:"
+msgstr "Kategorie"
+
+#. module: jera_contactus
+#: field:jera.contactus,phone:0
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "E-mail:"
+msgstr "E-Mail:"
+
+#. module: jera_contactus
+#: code:addons/jera_contactus/jera_contactus.py:39
+#, python-format
+msgid "Captcha Input Error"
+msgstr "Captcha Eingabefehler"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Name:"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,contact_name:0
+msgid "Name"
+msgstr ""
+
+#. module: jera_contactus
+#: model:ir.actions.act_window,name:jera_contactus.action_jera_contatus_wizard
+#: model:ir.ui.menu,name:jera_contactus.menu_jera_contactus_wizard
+msgid "Contact Us install"
+msgstr "Kontaktformular Installation "
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Type characters:"
+msgstr "Eingabe der Zeichenkette"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Subject:"
+msgstr "Betreff:"
+
+#. module: jera_contactus
+#: field:jera.contactus,description:0
+msgid "Message"
+msgstr "Mitteilung"
+
+#. module: jera_contactus
+#: field:jera.contactus,code:0
+msgid "Code"
+msgstr "Code"
+
+#. module: jera_contactus
+#: view:jera.contactus:0 field:jera.contactus,captcha:0
+msgid "Captcha"
+msgstr "Captcha"
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Company:"
+msgstr "Unternehmen:"
+
+#. module: jera_contactus
+#: model:ir.actions.act_window,name:jera_contactus.action_jera_contactus_contact_us
+#: model:ir.model,name:jera_contactus.model_jera_contactus
+#: view:jera.contactus:0
+msgid "Contact Us"
+msgstr "Kontaktieren Sie uns"
+
+#. module: jera_contactus
+#: field:jera.contactus,name:0
+msgid "Subject"
+msgstr "Betreff"

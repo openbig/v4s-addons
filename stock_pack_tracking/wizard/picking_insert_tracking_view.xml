@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <!--  Tracking Insertion into Pick list -->
+
+        <record id="view_insert_tracking_wizard" model="ir.ui.view">
+            <field name="name">Insert Pack</field>
+            <field name="model">insert.tracking</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Insert Pack">
+                    <label string="This wizard will insert all products with their production lots from selected Pack." colspan="4"/>
+                    <field name="location_id"/>
+                    <field name="location_dest_id"/>
+                    <field name="tracking_id"/>
+                    <newline/>
+                    <separator colspan="4"/>
+                    <group col="2" colspan="4">
+                        <button icon='gtk-cancel' special="cancel"
+                            string="Cancel" />
+                        <button name="insert_tracking" string="Insert Pack"
+                            colspan="1" type="object" icon="gtk-ok" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <act_window name="Insert Pack"
+            res_model="insert.tracking"
+            src_model="stock.picking"
+            view_mode="form"
+            target="new"
+            id="act_insert_tracking"/>
+
+<!--            key2="client_action_multi" 
+                    <field name="date_planned"/>   
+-->
+    </data>
+</openerp>

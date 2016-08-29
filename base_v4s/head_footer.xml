@@ -35,7 +35,7 @@
 
             <lines>1.5cm 2.15cm 19.5cm 2.15cm</lines>
 
-            <drawCentredString x="10.5cm" y="1.7cm">[[ company.rml_footer ]]</drawCentredString>
+            <drawCentredString x="10.5cm" y="1.7cm">[[ company.rml_footer1 ]]</drawCentredString>
             <drawCentredString x="10.5cm" y="1.25cm">Sparkasse Pforzheim Calw. Kto.: 7201109 BLZ: 66650085,</drawCentredString>
             <drawCentredString x="10.5cm" y="0.85cm">USt.-ID: DE255709189 IBAN DE 69 666 500 85 0007 2011 09 / BIC PZHSDE 66</drawCentredString>
 <!--            <drawCentredString x="10.5cm" y="0.8cm">Kontakt : [[ user.name ]] - Seite: <pageNumber/></drawCentredString>  -->

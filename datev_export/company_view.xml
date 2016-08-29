@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="view_company_inherit_form_datev">
+            <field name="name">res.company.form.inherit.datev</field>
+            <field name="inherit_id" ref="base.view_company_form"/>
+            <field name="model">res.company</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <page string="Configuration" position="inside">
+                  <group col="4" colspan="2">
+                      <separator string="Datev Export settings" colspan="4"/>
+                      <field name="client_number" colspan="2"/>
+                      <field name="consultant_number" colspan="2"/>
+<!--                      <newline/>
+                      <field name="guid_number" colspan="4"/>
+-->
+                  </group>
+                </page>
+            </field>
+        </record>
+
+    </data>
+</openerp>

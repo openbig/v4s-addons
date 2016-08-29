@@ -1,0 +1,27 @@
+${setLang(getLang('user'))}
+<table width="100%">
+    <tbody>
+        <tr class="sectiontableheader">
+            <th>${get_label(o,'origin')}</th>
+            <th>${get_label(o,'partner_id')}</th>
+            <th>${get_label(o,'amount_untaxed')}</th>
+            <th>${get_label(o,'amount_total')}</th>
+        </tr>
+{% for o in objects %}\
+    {% with 
+        index=(objects.index(o)+1);
+        partner = get_partner(o.partner_id.id);
+    %}
+    {% choose index % 2 %}\
+        {% when 1 %}<tr class="sectiontableentry1">{% end %}\
+        {% when 0 %}<tr class="sectiontableentry2">{% end %}\
+        <td><a href="index.php?option=com_jera&view=jera&layout=form&id=inv_to_pay&active_id=${o.id}">${o.origin or '...'}</a></td>
+        <td>${(partner.name + (partner.title and ', ' + partner.title.shortcut or ''))}</td>
+        <td>${format_price([o.amount_untaxed, o.currency_id])}</td>
+        <td>${format_price([o.amount_total, o.currency_id])}</td>
+    </tr>{% end %}
+    {% end % }
+    {% end %}
+{% end %}
+    </tbody>
+</table>

@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+    <record id="act_jera_report_xml" model="ir.ui.view">
+        <field name="name">ir.actions.report.xml</field>
+        <field name="model">ir.actions.report.xml</field>
+        <field name="type">form</field>
+		<field name="inherit_id" ref="report_aeroo.act_report_xml_view1"/>
+        <field name="arch" type="xml">
+            <xpath expr='/form/notebook/page[@string="Other Configuration"]/group/separator[@string="Attachments"]/..' position='before'>
+                <group col="2" colspan="2">
+                    <separator string="Filters" colspan="2"/>
+                    <field name="domain"/>
+                </group>
+            </xpath>
+        </field>
+    </record>
+
+	<record model="ir.ui.view" id="view_jera_config_form">
+		<field name="name">jera.config.form</field>
+		<field name="model">jera.config</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="JERA connection configuration">
+			      <field name="hostname" required="1"/>
+			      <field name="port"/>
+			      <field name="ssl"/>
+                  <field name="name"/>
+                  <field name="login" required="1"/>
+                  <field name="password" password="1" required="1"/>
+                  <field name="version" colspan="2" attrs="{'invisible':[('version','=',False)]}" readonly="1"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_config_tree">
+		<field name="name">jera.config.tree</field>
+		<field name="model">jera.config</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JERA connection configuration">
+			      <field name="name"/>
+                  <field name="hostname"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_users_form">
+		<field name="name">jera.users.form</field>
+		<field name="model">jera.users</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="JERA users">
+                  <field name="user_id" select="1" required="1" on_change="change_user(user_id,login,email)" context="{'show_all':True}"/>
+			      <field name="login" select="1"/>
+                  <field name="password" select="1" password="1" required="1"/>
+                  <field name="email" colspan="4" required="1"/>
+                  <separator colspan="4"/>
+                  <field name="config_id" colspan="4" required="1"/>
+                  <field name="auto"/>
+                  <field name="create_ip_address"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_users_tree">
+		<field name="name">jera.users.tree</field>
+		<field name="model">jera.users</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JERA users">
+			      <field name="login"/>
+                  <field name="email"/>
+                  <field name="user_id"/>
+                  <field name="config_id"/>
+                  <field name="auto"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_res_users_jera_form">
+		<field name="name">res.users.form</field>
+		<field name="model">res.users</field>
+		<field name="type">form</field>
+		<field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <field name='new_password' position='after'>
+                <field name="site_id" readonly="1"/>
+                <field name="address_id"/>
+            </field>
+        </field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_act_profile_form">
+		<field name="name">jera.action.profiles.form</field>
+		<field name="model">jera.action.profiles</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="JERA action profiles">
+		      <field name="action_id" domain="[('type','in',['ir.actions.act_window','ir.actions.report.xml'])]"/>
+              <field name="module_id"/>
+              <field name="name"/>
+              <field name="alias"/>
+		      <field name="used_user"/>
+		      <field name="user_id" domain="[('module_id','=',module_id)]" attrs="{'invisible':[('used_user','&lt;&gt;','custom')]}"/>
+              <field name="r_metainfo"/>
+              <field name="id_security"/>
+              <field name="domain"/>
+              <field name="context"/>
+              <separator colspan="4"/>
+              <field name="searchable"/>
+              <field name="search_area"/>
+              <field name="dd_action_id"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_act_profile_tree">
+		<field name="name">jera.action.profiles.tree</field>
+		<field name="model">jera.action.profiles</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JERA action profiles">
+		      <field name="action_name"/>
+              <field name="module_id"/>
+              <field name="name"/>
+		      <field name="used_user"/>
+              <field name="alias"/>
+              <field name="r_metainfo"/>
+              <field name="id_security"/>
+              <field name="searchable"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_menu_profile_form">
+		<field name="name">jera.menu.profiles.form</field>
+		<field name="model">jera.menu.profiles</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="JERA menu profiles">
+		      <field name="name"/>
+		      <field name="action_id"/>
+              <field name="module_id" invisible="context.get('module_name')"/>
+              <field name="access"/>
+		      <field name="layout"/>
+              <newline/>
+		      <field name="used_user"/>
+		      <field name="user_id" domain="[('module_id','=',module_id)]" attrs="{'invisible':[('used_user','&lt;&gt;','custom')]}"/>
+              <field name="parent_id" domain="[('id','&lt;&gt;',active_id)]"/>
+              <field name="published"/>
+              <group attrs="{'invisible':[('layout','&lt;&gt;','list')]}" colspan="4">
+		          <field name="dd_action_id"/>
+		          <field name="dd_click"/>
+                  <group colspan="2">
+                    <field name="show_search"/>
+                  </group>
+                  <newline/>
+                  <group colspan="2">
+                    <field name="custom_search_fields" attrs="{'invisible':[('show_search','&lt;&gt;','2')]}"/>
+                  </group>
+              </group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_menu_profile_tree">
+		<field name="name">jera.menu.profiles.tree</field>
+		<field name="model">jera.menu.profiles</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JERA menu profiles">
+		      <field name="name"/>
+              <field name="action_id"/>
+              <field name="access"/>
+              <field name="module_id"/>
+              <field name="published"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_module_profile_form">
+		<field name="name">jera.module.profiles.form</field>
+		<field name="model">jera.module.profiles</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="JERA module profiles">
+		      <field name="name"/>
+		      <field name="action_id"/>
+		      <field name="module_id" invisible="context.get('module_name')"/>
+		      <field name="access"/>
+		      <field name="position"/>
+              <newline/>
+		      <field name="published"/>
+		      <field name="showtitle"/>
+              <newline/>
+		      <field name="used_user"/>
+		      <field name="user_id" domain="[('module_id','=',module_id)]" attrs="{'invisible':[('used_user','&lt;&gt;','custom')]}"/>
+		      <field name="layout"/>
+		      <field name="cache"/>
+		      <field name="cache_time"/>
+		      <field name="menus"/>
+              <group attrs="{'invisible':[('menus','&lt;&gt;','select')]}" colspan="4" expand="1">
+                <separator string="Menu Selection" colspan="4"/>
+                <field name="menu_ids" colspan="4" nolabel="1"/>
+              </group>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_module_profile_tree">
+		<field name="name">jera.module.profiles.tree</field>
+		<field name="model">jera.module.profiles</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JERA module profiles">
+		      <field name="name"/>
+		      <field name="module_id"/>
+              <field name="action_id"/>
+              <field name="access"/>
+              <field name="position"/>
+              <field name="published"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_user_profile_form">
+		<field name="name">jera.user.profiles.form</field>
+		<field name="model">jera.user.profiles</field>
+		<field name="type">form</field>
+		<field name="arch" type="xml">
+			<form string="JERA user profiles">
+		      <field name="login"/>
+		      <field name="password" password="1"/>
+		      <field name="user_id"/>
+		      <field name="name"/>
+		      <field name="email"/>
+		      <field name="module_id" invisible="context.get('module_name')"/>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.ui.view" id="view_jera_user_profile_tree">
+		<field name="name">jera.user.profiles.tree</field>
+		<field name="model">jera.user.profiles</field>
+		<field name="type">tree</field>
+		<field name="arch" type="xml">
+			<tree string="JERA user profiles">
+		      <field name="login"/>
+		      <field name="user_id"/>
+		      <field name="name"/>
+		      <field name="email"/>
+		      <field name="module_id"/>
+			</tree>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="jera_users_action">
+		<field name="name">JERA users</field>
+		<field name="res_model">jera.users</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>	
+	</record>
+
+	<record model="ir.actions.act_window" id="jera_act_profiles_action">
+		<field name="name">JERA action profiles</field>
+		<field name="res_model">jera.action.profiles</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>	
+	</record>
+
+	<record model="ir.actions.act_window" id="jera_menu_profiles_action">
+		<field name="name">JERA menu profiles</field>
+		<field name="res_model">jera.menu.profiles</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>	
+	</record>
+
+	<record model="ir.actions.act_window" id="jera_module_profiles_action">
+		<field name="name">JERA module profiles</field>
+		<field name="res_model">jera.module.profiles</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>	
+	</record>
+
+	<record model="ir.actions.act_window" id="jera_user_profiles_action">
+		<field name="name">JERA user profiles</field>
+		<field name="res_model">jera.user.profiles</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>	
+	</record>
+
+	<record model="ir.actions.act_window" id="jera_connect_users_action">
+		<field name="name">JERA Connected Users</field>
+		<field name="res_model">res.users</field>
+		<field name="view_type">form</field>
+		<field name="view_mode">tree,form</field>	
+		<field name="domain">[('site_id','&lt;&gt;',False)]</field>	
+		<field name="context">{'show_all':True}</field>
+	</record>
+
+    <menuitem id="jera_users_menu" action="jera_users_action" parent="base.menu_users"/>
+    <menuitem id="jera_connect_users_menu" action="jera_connect_users_action" parent="base.menu_users"/>
+    <menuitem id="jera_menu" name="JERA" parent="base.menu_custom" sequence="10"/>
+    <menuitem id="jera_menu_user_profiles" name="User Profiles" parent="jera_menu" action="jera_user_profiles_action" sequence="1"/>
+    <menuitem id="jera_menu_act_profiles" name="Action Profiles" parent="jera_menu" action="jera_act_profiles_action" sequence="2"/>
+    <menuitem id="jera_menu_menu_profiles" name="Menu Profiles" parent="jera_menu" action="jera_menu_profiles_action" sequence="3"/>
+    <menuitem id="jera_menu_module_profiles" name="Module Profiles" parent="jera_menu" action="jera_module_profiles_action" sequence="4"/>
+
+    </data>
+</openerp>
+

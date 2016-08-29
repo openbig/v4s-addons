@@ -29,9 +29,10 @@
 #
 ##############################################################################
 
-from openerp.osv import osv, fields
-from openerp.tools import convert_xml_import
-from openerp.tools.translate import _
+from osv import osv
+from osv import fields
+from tools import convert_xml_import
+from tools.translate import _
 import base64
 import lxml.etree
 import zipfile
@@ -147,4 +148,6 @@ class report_aeroo_import(osv.osv_memory):
     _defaults = {
         'state': 'draft',
     }
+
+report_aeroo_import()
 

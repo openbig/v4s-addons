@@ -23,8 +23,8 @@
 #
 ##############################################################################
 
-from openerp.osv import fields,osv
-import openerp.tools as tools
+from osv import fields,osv
+import tools
 
 
 class crm_lead_report(osv.osv):
@@ -48,14 +48,19 @@ class crm_lead_report(osv.osv):
             CREATE OR REPLACE VIEW crm_lead_report AS (
                 SELECT
                     id,
-                    c.date_deadline,
-                    count(id) as nbr_cases,
 
-                    c.date_open as opening_date,
-                    c.date_closed as date_closed,
+                    to_char(c.date_deadline, 'YYYY') as deadline_year,
+                    to_char(c.date_deadline, 'MM') as deadline_month,
+                    to_char(c.date_deadline, 'YYYY-MM-DD') as deadline_day,
 
-                    c.date_last_stage_update as date_last_stage_update,
+                    to_char(c.create_date, 'YYYY') as creation_year,
+                    to_char(c.create_date, 'MM') as creation_month,
+                    to_char(c.create_date, 'YYYY-MM-DD') as creation_day,
 
+                    to_char(c.date_open, 'YYYY-MM-DD') as opening_date,
+                    to_char(c.date_closed, 'YYYY-mm-dd') as date_closed,
+
+                    c.state,
                     c.user_id,
                     c.probability,
                     c.stage_id,
@@ -63,23 +68,24 @@ class crm_lead_report(osv.osv):
                     c.company_id,
                     c.priority,
                     c.section_id,
-                    c.campaign_id,
-                    c.source_id,
-                    c.medium_id,
+                    c.channel_id,
+                    c.type_id,
+                    c.categ_id,
                     c.partner_id,
                     c.partner_name,
                     c.company_ext,
                     c.country_id,
-                    c.planned_revenue as planned_revenue,
+                    c.planned_revenue,
                     c.planned_revenue*(c.probability/100) as probable_revenue,
-                    c.create_date as create_date,
+                    1 as nbr,
+                    (SELECT count(id) FROM mail_message WHERE model='crm.lead' AND res_id=c.id AND email_from is not null) AS email,
+                    date_trunc('day',c.create_date) as create_date,
                     extract('epoch' from (c.date_closed-c.create_date))/(3600*24) as  delay_close,
                     abs(extract('epoch' from (c.date_deadline - c.date_closed))/(3600*24)) as  delay_expected,
                     extract('epoch' from (c.date_open-c.create_date))/(3600*24) as  delay_open
                 FROM
                     crm_lead c
                 WHERE c.active = 'true'
-                GROUP BY c.id
             )""")
 
 crm_lead_report()

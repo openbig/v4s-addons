@@ -2,7 +2,7 @@
 # -*- coding: utf8 -*-
 # lv_LV
 
-from openerp.addons.report_aeroo.ctt_objects import ctt_language
+from report_aeroo.ctt_objects import ctt_language
 
 class lv_LV(ctt_language):
     def _init_lang(self):

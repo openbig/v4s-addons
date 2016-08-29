@@ -2,88 +2,36 @@
 <openerp>
     <data>
 
-        <record model="ir.actions.act_window" id="crm.crm_case_category_act_leads_all">
-            <field name="name">Leads</field>
-            <field name="res_model">crm.lead</field>
-            <field name="view_mode">tree,form</field>
-            <field name="domain">['|', ('type','=','lead'), ('type','=',False)]</field>
-            <field name="view_id" ref="crm.crm_case_tree_view_leads"/>
-            <field name="search_view_id" ref="crm.view_crm_case_leads_filter"/>
-            <field name="context">{
-                    'default_type':'lead',
-                    'stage_type':'lead',
-                    'empty_list_help_model': 'crm.case.section',
-                    'needaction_menu_ref': 'crm.menu_crm_opportunities',
-                }
-            </field>
-            <field name="help" type="html">
-                <p>
-                    Use leads if you need a qualification step before creating an
-                    opportunity or a customer. It can be a business card you received,
-                    a contact form filled in your website, or a file of unqualified
-                    prospects you import, etc.
-                </p><p>
-                    Once qualified, the lead can be converted into a business
-                    opportunity and/or a new customer in your address book.
-                </p>
-            </field>
-        </record>
-
-        <record id="view_partners_form_crm1_v4s" model="ir.ui.view">
-            <field name="name">view.res.partner.form.crm.v4s.inherited1</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field eval="18" name="priority"/>
-            <field name="arch" type="xml">
-                <data>
-                    <xpath expr="//div[@name='buttons']" position="inside">
-                        <button class="oe_inline oe_stat_button" type="action"
-                            attrs="{'invisible': [('customer', '=', False)]}"
-                            name="%(crm.crm_case_category_act_leads_all)d"
-                            icon="fa-star"
-                            context="{'search_default_partner_id': active_id}">
-                            <field string="Leads" name="opportunity_count" widget="statinfo"/>
-                        </button>
-                    </xpath>
-                </data>
-            </field>
-        </record>
-
         <record id="view_partners_tree_v4s" model="ir.ui.view">
-                <field name="name">res.partner.tree.form.v4s</field>
+                <field name="name">view.res.partner.tree.crm.v4s</field>
                 <field name="model">res.partner</field>
                 <field name="type">tree</field>
-                <field name="inherit_id" ref="base.view_partner_tree"/>
+                <field name="inherit_id" ref="crm.view_partners_tree_crm2"/>
                 <field name="arch" type="xml">
-                    <field name="phone" position="before" >
-                        <field name="ref"></field>
-                    </field>
-                    <field name="phone" position="after" >
-                        <field name="zip"></field>
-                    </field>
+                    <field name="section_id" position="replace" />
                 </field>
         </record>
-        <!---->
-        <!--&lt;!&ndash;&ndash;&gt;-->
-        <!--<record id="view_crm_claim_partner_v4s_form2" model="ir.ui.view">-->
-            <!--<field name="name">res.partner.crm.claim.v4s.inherit2</field>-->
-            <!--<field name="model">res.partner</field>-->
-            <!--<field name="type">form</field>-->
-            <!--<field name="inherit_id" ref="crm_claim.view_claim_partner_info_form1"/>-->
-            <!--<field name="arch" type="xml">-->
-
-                <!--<field name="claims_ids" position="replace">-->
-                    <!--<field name="claims_ids" colspan="4" nolabel="1">-->
-                        <!--<tree string="Suppliers Claim" editable="bottom" >-->
-                            <!--<field name="name"/>-->
-                            <!--<field name="date"/>-->
-                            <!--<field name="state"/>-->
-                        <!--</tree>-->
-                    <!--</field>-->
-                <!--</field>-->
-
-            <!--</field>-->
-        <!--</record>-->
+        
+        
+        <record id="view_crm_claim_partner_v4s_form2" model="ir.ui.view">
+            <field name="name">res.partner.crm.claim.v4s.inherit2</field>
+            <field name="model">res.partner</field>
+            <field name="type">form</field>
+            <field name="inherit_id" ref="crm_claim.view_claim_partner_info_form1"/>
+            <field name="arch" type="xml">
+                
+                <field name="claims_ids" position="replace">
+                    <field name="claims_ids" colspan="4" nolabel="1">
+                        <tree string="Suppliers Claim" editable="bottom" >
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="state"/>
+                        </tree>
+                    </field>
+                </field>
+                
+            </field>
+        </record>
         
     </data>
 </openerp>

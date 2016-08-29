@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data noupdate='1'>
+    <record model='ir.actions.act_window' id='action_jera_contactus_contact_us'>
+      <field name='context'>{}</field>
+      <field name='name'>Contact Us</field>
+      <field name='res_model'>jera.contactus</field>
+      <field name='target'>new</field>
+      <field name='view_mode'>tree,form</field>
+      <field name='view_type'>form</field>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_8'>
+      <field search="[(u'name', '=', u'jera_contactus')]" name='module_id'/>
+      <field ref='action_jera_contactus_contact_us' name='action_id'/>
+      <field name='alias'>contact-us</field>
+      <field name='context'>{'priority':'3', 'company_id':1, 'channel_id':1, 'section_id':1, 'view_name':'jera.contactus.form_vertical'}</field>
+      <field name='name'>Contact Us</field>
+      <field name='r_metainfo'>never</field>
+      <field name='action_name'>Contact Us</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+    </record>
+    <record model='jera.menu.profiles' id='profile_jera_menu_profiles_2'>
+      <field search="[(u'name', '=', u'jera_contactus')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_8'))"/>
+      <field name='dd_click'>1</field>
+      <field name='layout'>form</field>
+      <field name='name'>Contact Us</field>
+      <field name='published' eval='True'/>
+      <field name='show_search'>0</field>
+      <field name='used_user'>default</field>
+    </record>
+    <record model='jera.module.profiles' id='profile_jera_module_profiles_1'>
+      <field search="[(u'name', '=', u'jera_contactus')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_8'))"/>
+      <field name='cache'>0</field>
+      <field name='cache_time' eval='900'/>
+      <field name='layout'>form</field>
+      <field name='menus'>all</field>
+      <field name='name'>Contact Us</field>
+      <field name='position'>right</field>
+      <field name='published' eval='False'/>
+      <field name='showtitle' eval='True'/>
+      <field name='used_user'>default</field>
+    </record>
+  </data>
+</openerp>

@@ -21,7 +21,7 @@
 ##################################################################################
 
 import math
-from openerp.osv import fields,osv
+from osv import fields,osv
 
 class product_pack( osv.osv ):
     _name = 'product.pack.line'
@@ -207,10 +207,10 @@ class sale_order(osv.osv):
                         'sequence': sequence,
                         'delay': subproduct.sale_delay or 0.0,
                         'product_id': subproduct.id,
-                        # 'procurement_id': line.procurement_id and line.procurement_id.id or False,
+                        'procurement_id': line.procurement_id and line.procurement_id.id or False,
                         'price_unit': price,
                         'tax_id': [(6,0,tax_ids)],
-                        # 'type': subproduct.procure_method,
+                        'type': subproduct.procure_method,
                         'property_ids': [(6,0,[])],
                         'address_allotment_id': False,
                         'product_uom_qty': quantity,
@@ -247,7 +247,6 @@ class sale_order(osv.osv):
             # Try to expand again all those orders that had a pack in this iteration.
             # This way we support packs inside other packs.
             self.expand_packs(cr, uid, ids, context, depth+1)
-        # adasd
         return
 
 class purchase_order_line(osv.osv):

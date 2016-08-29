@@ -1,0 +1,357 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* product_sales_specs
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-15 09:08+0000\n"
+"PO-Revision-Date: 2013-06-17 17:13+0100\n"
+"Last-Translator: openbig.org - Thorsten Vocks <thorsten.vocks@openbig.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_product_feature_group
+#: field:product.feature_definition,group_id:0
+msgid "Feature Group"
+msgstr "Feature Gruppe"
+
+#. module: product_sales_specs
+#: field:product.product,prim_sales_category_id:0
+msgid "Primary Sales Category"
+msgstr "Primäre Verkauf Kategorie"
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_product_image
+#: view:product.image:0
+msgid "Product Image"
+msgstr "Produkt Bild"
+
+#. module: product_sales_specs
+#: view:product.image:0 field:product.image,image_fullscale:0
+msgid "Full Scale Image"
+msgstr "Hochauflösendes Bild"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:42
+#: selection:sale.shop,available_products:0
+#, python-format
+msgid "Selected and Other Products"
+msgstr "Ausgewählte und andere Produkte"
+
+#. module: product_sales_specs
+#: model:ir.actions.act_window,name:product_sales_specs.action_product_brandname_brandnames
+#: model:ir.ui.menu,name:product_sales_specs.product_brandname_brandnames_menu
+msgid "Brandnames"
+msgstr "Marken"
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_product_feature_definition
+msgid "Feature"
+msgstr "Feature"
+
+#. module: product_sales_specs
+#: field:product.sales_category,publish:0
+msgid "Publish"
+msgstr "Veröffentlichen"
+
+#. module: product_sales_specs
+#: view:product.product:0 field:product.product,image_ids:0
+msgid "Product Images"
+msgstr "Produkte Bilder"
+
+#. module: product_sales_specs
+#: field:product.image,fullscale_size_x:0 field:product.image,large_size_x:0
+#: field:product.image,midsize_size_x:0 field:product.image,thumb_size_x:0
+msgid "Width"
+msgstr "Breite"
+
+#. module: product_sales_specs
+#: field:product.image,fullscale_md5:0
+msgid "MD5 (Fullscale)"
+msgstr "MD5 (Hochauflösung)"
+
+#. module: product_sales_specs
+#: view:product.product:0 field:product.product,related_product_ids:0
+msgid "Related Products"
+msgstr "Verknüpfte Produkte"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:136
+#, python-format
+msgid "Input error!"
+msgstr "Eingabe Fehler!"
+
+#. module: product_sales_specs
+#: view:product.product:0
+msgid "Up-Selling Products"
+msgstr "Up Selling Produkte"
+
+#. module: product_sales_specs
+#: field:product.sales_category,type:0
+msgid "Type"
+msgstr "Typ"
+
+#. module: product_sales_specs
+#: field:product.image,autocreated:0
+msgid "Autocreated"
+msgstr "Automatisch erstellt"
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_product_product
+#: field:product.image,product_id:0
+msgid "Product"
+msgstr "Produkt"
+
+#. module: product_sales_specs
+#: help:product.product,paywithatweet_code:0
+msgid ""
+"Code (id) for the 'Pay with a Tweet' online service.\n"
+"For more information refer: http://www.paywithatweet.com"
+msgstr ""
+"Kürzel (ID) für den 'Pay wit a tweet' Online Service. \n"
+"Für weitere Informationen: http://www.paywithatweet.com"
+
+#. module: product_sales_specs
+#: field:product.feature_definition,description:0
+#: field:product.sales_category,description:0
+msgid "Description"
+msgstr "Beschreibung"
+
+#. module: product_sales_specs
+#: field:product.image,image_midsize:0
+msgid "Midsize Image"
+msgstr "Mittleres Bild"
+
+#. module: product_sales_specs
+#: field:product.product,paywithatweet_code:0
+msgid "Pay with a Tweet Code"
+msgstr "Pay with a Tweet Code"
+
+#. module: product_sales_specs
+#: view:product.product:0
+msgid "Cross-Selling Products"
+msgstr "Cross-Selling Produkte"
+
+#. module: product_sales_specs
+#: field:product.product,up_selling_product_ids:0
+msgid "Up-Selling"
+msgstr "Up-Selling Produkte"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:95
+#, python-format
+msgid "Value can not display"
+msgstr "Wert darf nicht angezeigt werden"
+
+#. module: product_sales_specs
+#: view:product.image:0
+msgid "Midsized Image"
+msgstr "Mittelgrosses Bild"
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_product_brandname
+#: view:product.brandname:0 field:product.product,brandname:0
+msgid "Brandname"
+msgstr "Marke"
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_product_sales_category
+#: view:product.sales_category:0
+msgid "Sale Categories"
+msgstr "Verkauf Kategorien"
+
+#. module: product_sales_specs
+#: help:product.image,autocreated:0
+msgid ""
+"Designates, that whole record is generated automatically or imported from "
+"external data source."
+msgstr ""
+"Unter der Prämisse, dass der Eintrag automatisch generiert wurde oder von "
+"einer externen Datenquelle importiert wurde."
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:43
+#: selection:sale.shop,available_products:0
+#, python-format
+msgid "Selected Products Only"
+msgstr "Nur ausgewählte Produkte"
+
+#. module: product_sales_specs
+#: field:product.product,cross_selling_product_ids:0
+msgid "Cross-Selling"
+msgstr "Cross-Selling"
+
+#. module: product_sales_specs
+#: view:product.image:0
+msgid "Data"
+msgstr "Daten"
+
+#. module: product_sales_specs
+#: view:product.product:0
+msgid "Categories"
+msgstr "Kategorien"
+
+#. module: product_sales_specs
+#: view:product.product:0
+msgid "Sales Specs"
+msgstr "Verkauf Spezifikation"
+
+#. module: product_sales_specs
+#: view:product.product:0
+msgid "Promotions"
+msgstr "Promotion"
+
+#. module: product_sales_specs
+#: field:product.product,oth_sales_category_id:0
+msgid "Additional Sales Categories"
+msgstr "Weitere Verkauf Kategorien"
+
+#. module: product_sales_specs
+#: view:product.product:0
+msgid "Limit to Selected Shops"
+msgstr "Limitiert für Shopauswahl"
+
+#. module: product_sales_specs
+#: field:product.brandname,name:0 field:product.feature_definition,name:0
+#: field:product.feature_group,name:0 field:product.sales_category,name:0
+msgid "Name"
+msgstr "Bezeichnung"
+
+#. module: product_sales_specs
+#: view:product.image:0
+msgid "Auto Large"
+msgstr "Automatische Grösse"
+
+#. module: product_sales_specs
+#: field:product.sales_category,parent_id:0
+msgid "Parent Category"
+msgstr "Hauptkategorie"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:91
+#, python-format
+msgid "No value"
+msgstr "Kein Wert"
+
+#. module: product_sales_specs
+#: help:product.image,midsize_gen:0
+msgid ""
+"Designates, that midsized image to be generated from higher resolution image "
+"if available."
+msgstr ""
+"Legt fest, dass mittlere Bildgrösse von hochaufgelöstem Bild abgeleitet "
+"wird, falls es vorhanden ist."
+
+#. module: product_sales_specs
+#: view:product.image:0
+msgid "Meta Info"
+msgstr "Meta Information"
+
+#. module: product_sales_specs
+#: model:ir.actions.act_window,name:product_sales_specs.action_product_sales_category_products_sales_categories
+#: model:ir.ui.menu,name:product_sales_specs.product_sales_category_products_sales_categories_menu
+msgid "Products Sales Categories"
+msgstr "Produkt Verkauf Kategorie"
+
+#. module: product_sales_specs
+#: view:product.image:0
+msgid "Auto Mid."
+msgstr "Auto Mid."
+
+#. module: product_sales_specs
+#: model:ir.model,name:product_sales_specs.model_sale_shop
+msgid "Sales Shop"
+msgstr "Verkaufsshop"
+
+#. module: product_sales_specs
+#: view:product.image:0
+msgid "Auto Thumb."
+msgstr "Auto Bildvorschau"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:91
+#, python-format
+msgid "Error"
+msgstr "Fehler"
+
+#. module: product_sales_specs
+#: field:product.product,shop_ids:0
+msgid "Shops"
+msgstr "Shops"
+
+#. module: product_sales_specs
+#: field:product.image,large_gen:0 field:product.image,midsize_gen:0
+#: field:product.image,thumb_gen:0
+msgid "Auto Generate"
+msgstr "Auto Erstellung"
+
+#. module: product_sales_specs
+#: view:product.image:0 field:product.image,image_large:0
+msgid "Large Image"
+msgstr "Grosses Bild"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:220
+#: selection:product.sales_category,type:0
+#, python-format
+msgid "View"
+msgstr "Ansicht"
+
+#. module: product_sales_specs
+#: help:product.image,thumb_gen:0
+msgid ""
+"Designates, that thumbnail to be generated from higher resolution image if "
+"available."
+msgstr ""
+"Legt fest, dass kleines Vorschaubild aus Bild mit höherer Auflösung "
+"generiert wird, falls es vorhanden sein sollte."
+
+#. module: product_sales_specs
+#: field:product.brandname,code:0
+msgid "Code"
+msgstr "Kürzel"
+
+#. module: product_sales_specs
+#: field:product.image,sequence:0
+msgid "Sequence"
+msgstr "Reihenfolge"
+
+#. module: product_sales_specs
+#: code:addons/product_sales_specs/product_sales_specs.py:219
+#: selection:product.sales_category,type:0
+#, python-format
+msgid "Normal"
+msgstr "Normal"
+
+#. module: product_sales_specs
+#: field:product.image,fullscale_size_y:0 field:product.image,large_size_y:0
+#: field:product.image,midsize_size_y:0 field:product.image,thumb_size_y:0
+msgid "Height"
+msgstr "Höhe"
+
+#. module: product_sales_specs
+#: field:sale.shop,available_products:0
+msgid "Available Products"
+msgstr "Verfügbare Produkte"
+
+#. module: product_sales_specs
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr "Fehler: Fehlerhafter EAN"
+
+#. module: product_sales_specs
+#: view:product.image:0 field:product.image,image_thumb:0
+msgid "Thumbnail Image"
+msgstr "Kleines Vorschau Bild"
+
+#. module: product_sales_specs
+#: field:product.brandname,logo_image:0
+msgid "Logo"
+msgstr "Logo"

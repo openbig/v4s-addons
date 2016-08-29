@@ -1,0 +1,30 @@
+${setLang(getLang('user'))}
+<table width="100%">
+    <tbody>
+        <tr class="sectiontableheader">
+            <th>${get_label(o,'create_date')}</th>
+            <th>${get_label(o,'user_id')}</th>
+            <th>${get_label(o,'partner_id')}</th>
+            <th>${get_label(o,'amount_total')}</th>
+            <th></th>
+        </tr>
+{% for o in objects %}\
+    {% with index=(objects.index(o)+1) %}
+    {% choose index % 2 %}\
+        {% when 1 %}<tr class="sectiontableentry1">{% end %}\
+        {% when 0 %}<tr class="sectiontableentry2">{% end %}\
+        <td>${o.create_date}</td>
+        <td>${o.user_id.name != j_anonym and get_name(o.user_id) or ''}</td>
+        <td>${get_name_spec(o.partner_id) != j_anonym and get_name_spec(o.partner_id) or ''}</td>
+        <td>${format_price([o.amount_total, o.pricelist_id.currency_id])}</td>
+        <td class="oecont-button">
+        {% if o.origin!=sid %}
+            <div class="oe-button gtk-go-forward" onclick="sendSignal(this, 'jera_request_set_active','object',${o.id},null,null,'');" title="${'To shopping cart'}"></div>
+        {% end %}
+        </td>
+    </tr>{% end %}
+    {% end % }
+    {% end %}
+{% end %}
+    </tbody>
+</table>

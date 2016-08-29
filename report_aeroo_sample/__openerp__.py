@@ -1,6 +1,6 @@
 ##############################################################################
 #
-# Copyright (c) 2008-2014 Alistek (http://www.alistek.com) All Rights Reserved.
+# Copyright (c) 2008-2012 Alistek Ltd (http://www.alistek.com) All Rights Reserved.
 #                    General contacts <info@alistek.com>
 #
 # WARNING: This program as such is intended to be used by professional
@@ -30,17 +30,18 @@
 ##############################################################################
 
 {
-	"name": "Aeroo Reports - Sample",
-	"version": "1.0",
-	'summary': 'Just a demo report',
-	"description" : "Report sample for Aeroo Reports (report_aeroo) module",
-	"author": "Alistek",
+	"name" : "Aeroo Reports - Sample",
+	"version" : "1.2",
+	"description" : "Report sample for report_aeroo module",
+	"author" : "Alistek Ltd",
     'website': 'http://www.alistek.com',
-	"depends": ["base", "report_aeroo"],
-	"category": "Generic Modules/Aeroo Reporting",
-	"data": ["report/report_sample.xml"],
+    'complexity': "easy",
+	"depends" : ["base", "report_aeroo"],
+	"category" : "Generic Modules/Aeroo Reporting",
+	"init_xml" : [],
+	"demo_xml" : [],
+	"update_xml" : ["report/report_sample.xml"],
 	"installable": True,
-	'application': True,
-    "license": "GPL-3 or any later version",
+    "license" : "GPL-3 or any later version",
 }
 

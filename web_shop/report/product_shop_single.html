@@ -1,0 +1,250 @@
+${setLang(getLang('user'))}\
+{% with
+    category = categ_id and search('product.sales_category', [('id','=',categ_id)])[0] or False;
+    brandname = brand_id and search('product.brandname', [('id','=',brand_id)])[0] or False;
+    product_params = {'option':'com_jera', 'view':'jera', 'layout':'form','id':'product_single', 'Itemid': uri.get('Itemid', '')};
+    prices = price_get(objects + objects[0].up_selling_product_ids)
+%}
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>${html_escape(objects[0].name)}</title>
+        <meta name="breadcrumbs" content="index.php?${ context.get('referer') and http_builduri(context.get('referer')) }" />
+        {% if categ_id %}\
+        <title>${html_escape(category.name)}</title>
+        <meta name="breadcrumbs" content="${html_escape(_('Categories'))}" />
+        <meta name="breadcrumbs" content="${html_escape(html_escape(category.name))};index.php?option=com_jera&view=jera&layout=list&id=product_catalog&categ_id=${categ_id}" />
+        {% end %}\
+        {% if brand_id %}\
+        <meta name="breadcrumbs" content="${html_escape(_('Brands'))}" />
+        <meta name="breadcrumbs" content="${html_escape(html_escape(brandname.name))};index.php?option=com_jera&view=jera&layout=list&id=product_catalog&${ http_builduri({'brand_id': brand_id, 'Itemid': uri.get('Itemid', '')}) }" />
+        {% end %}\
+        <meta name="breadcrumbs" content="${len(objects[0].name) > 30 and html_escape(objects[0].name[:30]+'...') or html_escape(objects[0].name) }" />
+    </head>
+    <body>
+    <style type="text/css">
+    div.product-image {display: block;
+                     text-align: center;
+                     width: 300px;
+                     min-height: 300px;}
+                     
+    div.product-image img {max-width: 300px;
+                         max-height: 300px;}
+    
+    
+    div.product-no-image {  background: url("/images/empty_tag.png") center no-repeat ;
+                        height: 300px;
+                        width: 300px;
+                    }
+    
+    ul.products-grid div.product-no-image, ul.products-list div.product-no-image {  background: url("/images/empty_tag.png");
+                        height: 120px;
+                        width: 120px;
+                    }
+    
+    div.more-views ul li {background: none;
+                          padding-left: 0px;
+                          float: left;
+                          list-style-type: none;
+                          }
+    div.more-views ul li div {width: 75px;
+                            height: 75px;
+                            text-align: center;
+                            display: block;
+                            outline: none;
+                            cursor: pointer;}
+    div.product-name h1 { text-overflow: ellipsis;
+                          overflow: hidden;     
+                        }
+    
+    
+    /*----------------------------------------------------------*/
+    
+    div.upsell-products { 
+            display: inline-block;
+            margin-top: 20px;
+            }
+    
+    div.upsell-products ul.products-grid { 
+            border-bottom: 1px solid #D9DDD3;
+            position: relative;
+            margin: 0 auto;
+            width: 635px;
+            float: left;
+            clear: both;
+            }
+    div.upsell-products ul.products-grid.last { 
+                border-bottom: 0 none;
+                }
+
+    div.upsell-products ul.products-grid li.item {
+                            float: left;
+                            padding: 12px 10px 20px;
+                            width: 138px;
+                            background: none;
+                            border-right: 1px solid #D9DDD3;
+                            }
+
+    div.upsell-products ul.products-grid li.last {
+                        border-right: 0 none;
+                        }
+                        
+    div.upsell-products ul.products-grid li.item .product-name{
+                            font-size: 13px;
+                            display: inline-block;
+                            width: 100%;
+                            overflow: hidden;
+                            }
+
+    div.upsell-products ul.products-grid li.item .product-name a {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                overflow-wrap: break-word;
+                word-wrap: break-word;
+                }
+
+    div.upsell-products ul.products-grid li.item a.product-image {
+                width: 138px;
+                height: 138px;
+                text-align: center;
+                float: left;
+                }
+    div.upsell-products ul.products-grid li.item a.product-image img {
+                vertical-align: top;
+                }
+    div.upsell-products ul.products-grid li.item div.price-box {
+                margin: 5px 0;
+                }
+    .price-box .regular-price {
+                color: #C76200;
+                font-size: 13px;
+                font-weight: bold;
+                }
+    
+    </style>
+    <script language="javascript" type="text/javascript">
+        function addToCart(id) {
+            qty_elem = document.getElementById("jera_product_quantity")
+            , '{&quot;shop_id&quot;:${ shop_id }}'
+            var context = "{'qty':"+qty_elem.value+", 'shop_id':"+${ shop_id }+"}"
+            sendSignal(this, 'jera_request_add_so_line', 'object', id, null, null, context)
+        }
+        function displayImage(id){
+            var image_elem = document.getElementById("jera_product_fullscale_image")
+            image_elem.src = "index.php?option=com_jera&view=jera&layout=form&format=image&id=product_image&active_id="+id+"&name=image_fullscale"
+        }
+    </script> 
+    <div class="jera-product-view">
+        <div class="product-essential">
+            <form name="adminForm" method="post">
+                <div class="product-shop" style="width: 300px; float: right;">
+                    <div class="product-name">
+                        <h1>${ html_escape(objects[0].name) }</h1>
+                    </div>
+                    {% if o.brandname %}\
+                    <p class="brandname">${ html_escape(_("Brandname")) }:&nbsp;<span>${ html_escape(o.brandname.name) }</span></p>
+                    {% end %}\
+                    <p class="partnumber">${ html_escape(_("Part Number")) }:&nbsp;<span>${ o.default_code and html_escape(o.default_code) or '' }</span></p>
+                    {% if o.type == 'product' %}\
+                    <p class="availability in-stock">${html_escape(_("Availability"))}:&nbsp;<span>${ product_available(objects[0].id) > 0 and html_escape(_('In stock')) or html_escape(_('Out of stock')) }</span></p>
+                    <p class="warranty">${ html_escape(_("Warranty (months)")) }:&nbsp;<span>${ html_escape(str(int(o.warranty))) }</span></p>
+                    <p class="ean13">${ html_escape(_("EAN13")) }:&nbsp;<span>${ o.ean13 and html_escape(o.ean13) or '' }</span></p>
+                    {% end %}\
+                    {% if hasattr(o, 'paywithatweet_code') and not o.paywithatweet_code or not hasattr(o, 'paywithatweet_code') %}\
+                    <div class="price-box-bundle">
+                        <div class="price-box">
+                            <p class="minimal-price">
+                                <span class="price-label">${ html_escape(get_label(o, 'list_price')) }:&nbsp;</span>
+                                <span class="price">${ prices.get(o.id) and prices.get(o.id)[0] and html_escape(format_price(prices.get(o.id))) or html_escape(_('Call!')) }</span>
+                            </p>
+                        </div>
+                    </div>
+                    {% if prices.get(o.id) and prices.get(o.id)[0] %}
+                    <div>
+                        ${ html_escape(_("Quantity")) }: <input type="text" value="1" class="inputbox oecont-default" id="jera_product_quantity">
+                        <div class="oe-button gtk-sort-descending" style="float: right;" title="${html_escape(_('Buy'))}" onclick="javascript:addToCart(${o.id});"></div>
+                    </div>
+                    {% end %}\
+                    {% end %}\
+                    {% if hasattr(o, 'paywithatweet_code') and o.paywithatweet_code %}\
+                    <script type="text/javascript">
+                        function openNewWindow(URLtoOpen, windowName, windowFeatures) {
+                            newWindow=window.open(URLtoOpen, windowName, windowFeatures);
+                        }
+
+                        function openWindow(theURL,winName,features) {
+                            window.open(theURL,winName,features);
+                        }
+                    </script>
+                    <div class="pay-with-a-tweet">
+                        <a href="javascript:openWindow('http://www.paywithatweet.com/pay/?id=${ o.paywithatweet_code }','','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=810,height=490')">
+                            <img src="http://www.paywithatweet.com/pics/pay_button.png" alt="Pay with a Tweet" width="145" height="24" border="0" />
+                        </a>
+                    </div>
+                    {% end %}\
+                    {% if o.description_sale %}\
+                    <div class="short-description">
+                        <h2>${html_escape(_("Quick Overview"))}</h2>
+                        <div class="std">${ text_markup(o.description_sale or '') }</div>
+                    </div>
+                    {% end %}\
+                </div>
+                <div class="product-img-box" style="width: 300px; float: left;">
+                    {% if o.image_ids %}\
+                    <div class="product-image product-image-zoom">
+                            <img id="jera_product_fullscale_image" title="${ html_escape(objects[0].name or '') }" alt="${ html_escape(objects[0].name or '') }" src="index.php?option=com_jera&view=jera&layout=form&format=image&id=product_image&active_id=${o.image_ids[0].id}&name=image_fullscale"/>
+                    </div>
+                    {% end %}\
+                    {% if not o.image_ids %}\
+                    <div class="product-no-image">
+                    </div>
+                    {% end %}\
+                    <div class="more-views">
+                    {% if len(o.image_ids) > 1 %}\
+                        <h2>${_("More Views")}</h2>
+                        <ul>
+                            {% for image_id in o.image_ids %}\
+                            <li>
+                                <div onclick="javascript:displayImage(${image_id.id});"><img src="index.php?option=com_jera&view=jera&layout=form&format=image&id=product_image&active_id=${image_id.id}&name=image_thumb"/></div>
+                            </li>
+                            {% end %}\
+                        </ul>
+                    {% end %}\
+                    </div>
+                </div>
+                <div class="clearer"></div>
+            </form>
+        </div>
+        <div class="upsell-products">
+            {% if objects[0].up_selling_product_ids %}\
+            <h2>${_("You may also be interested in the following product(s)")}</h2>
+            {% for row_ind, row_num, prod_row, is_even_row, is_odd_row, is_first_row, is_last_row in itemize(chunks(objects[0].up_selling_product_ids, 4)) %}\
+            <ul class="products-grid${ is_first_row and ' first' }${ is_last_row and ' last' }${ is_odd_row and ' odd' }${ is_even_row and ' even' }">
+                {% for prod_ind, prod_num, product, is_even_prod, is_odd_prod, is_first_prod, is_last_prod in itemize(prod_row) %}\
+                <li class="item${is_first_prod and ' first'}${is_last_prod and ' last'}">
+                    <a class="product-image" title="${product.name}" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">
+                        {% if product.image_ids %}\
+                            <img src="index.php?option=com_jera&view=jera&layout=form&format=image&id=product_image&active_id=${product.image_ids[0].id}&name=image_midsize"/>
+                        {% end %}\
+                        {% if not product.image_ids %}\
+                            <div class="product-no-image"></div>
+                        {% end %}\
+                    </a>
+                    <h3 class="product-name">
+                        <a title="${ html_escape(product.name) }" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">${ html_escape(len(product.name) > 50 and product.name[:50]+'...' or product.name) }</a>
+                    </h3>
+                    <div class="price-box">
+                        <span class="regular-price">
+                            <span class="price">${ prices.get(product.id) and prices.get(product.id)[0] and html_escape(format_price(prices.get(product.id))) or html_escape(_('Call!')) }</span>
+                        </span>
+                    </div>
+                </li>
+                {% end %}\
+            </ul>
+            {% end %}\
+            {% end %}\
+        </div>
+    </div>
+    </body>
+</html>
+{% end %}\

@@ -1,0 +1,1111 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* jera
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-15 08:56+0000\n"
+"PO-Revision-Date: 2013-06-15 08:56+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: jera
+#: code:addons/jera/jera.py:735
+#: selection:jera.menu.profiles,show_search:0
+#: selection:jera.menu.profiles.temp,show_search:0
+#, python-format
+msgid "Hide"
+msgstr ""
+
+#. module: jera
+#: constraint:jera.users:0
+msgid "You cannot have two users with the same login!"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,version:0
+#: field:jera.installer,version:0
+msgid "Joomla version"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,name:0
+#: field:jera.menu.profiles.temp,name:0
+#: field:jera.module.profiles,name:0
+#: field:jera.module.profiles.temp,name:0
+msgid "Title"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Site selection"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,action_id:0
+#: field:jera.menu.profiles.temp,action_id:0
+#: field:jera.module.profiles,action_id:0
+#: field:jera.module.profiles.temp,action_id:0
+msgid "Action Profile"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,access:0
+#: field:jera.menu.profiles.temp,access:0
+#: field:jera.module.profiles,access:0
+#: field:jera.module.profiles.temp,access:0
+msgid "Access"
+msgstr ""
+
+#. module: jera
+#: help:jera.config,login:0
+#: help:jera.installer,login:0
+msgid "User in joomla site"
+msgstr ""
+
+#. module: jera
+#: field:jera.module.profiles,cache:0
+#: field:jera.module.profiles.temp,cache:0
+msgid "Cahce"
+msgstr ""
+
+#. module: jera
+#: selection:jera.action.profiles,id_security:0
+#: selection:jera.action.profiles.temp,id_security:0
+msgid "None (Plain)"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:714
+#: code:addons/jera/jera.py:799
+#: selection:jera.menu.profiles,access:0
+#: selection:jera.menu.profiles.temp,access:0
+#: selection:jera.module.profiles,access:0
+#: selection:jera.module.profiles.temp,access:0
+#, python-format
+msgid "Public"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+#: view:jera.installer.action:0
+msgid "_Close"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.action_jera_mirror_user_wizard
+#: model:ir.model,name:jera.model_jera_user_mirror_wizard
+#: model:ir.ui.menu,name:jera.menu_era_mirror_user_wizard
+#: view:jera.user_mirror_wizard:0
+msgid "Copy user from OpenERP to Joomla"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+msgid "title"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,company_id:0
+#: field:jera.installer,company_id:0
+msgid "Company"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Here you can install OpenERP actions to Joomla site where is installed JERA component."
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_module_profiles_temp
+msgid "jera.module.profiles.temp"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,hostname:0
+#: field:jera.installer,hostname:0
+msgid "Host"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:629
+#: selection:jera.action.profiles,used_user:0
+#: selection:jera.action.profiles.temp,used_user:0
+#: selection:jera.menu.profiles,used_user:0
+#: selection:jera.menu.profiles.temp,used_user:0
+#: selection:jera.module.profiles,used_user:0
+#: selection:jera.module.profiles.temp,used_user:0
+#, python-format
+msgid "Anonymous"
+msgstr ""
+
+#. module: jera
+#: model:ir.ui.menu,name:jera.jera_menu_user_profiles
+msgid "User Profiles"
+msgstr ""
+
+#. module: jera
+#: model:ir.ui.menu,name:jera.jera_menu_act_profiles
+msgid "Action Profiles"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Please select site where you want to make installation."
+msgstr ""
+
+#. module: jera
+#: field:jera.user_mirror_wizard,note:0
+msgid "Notes"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,messages:0
+msgid "Messages"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_installer
+msgid "jera.installer"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:433
+#: code:addons/jera/jera.py:455
+#: code:addons/jera/jera.py:474
+#: code:addons/jera/wizard/jera_installer_action.py:135
+#: code:addons/jera/wizard/jera_installer_action.py:141
+#: code:addons/jera/wizard/jera_installer_action.py:145
+#: code:addons/jera/wizard/jera_installer_action.py:297
+#, python-format
+msgid "Error!"
+msgstr ""
+
+#. module: jera
+#: help:jera.user.profiles,name:0
+#: help:jera.user.profiles.temp,name:0
+msgid "The new user's real name"
+msgstr ""
+
+#. module: jera
+#: field:jera.module.profiles,position:0
+#: field:jera.module.profiles.temp,position:0
+msgid "Position"
+msgstr ""
+
+#. module: jera
+#: selection:jera.action.profiles,r_metainfo:0
+#: selection:jera.action.profiles.temp,r_metainfo:0
+msgid "XHTML"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,jera_module_ids:0
+#: selection:jera.installer.action,state:0
+msgid "Modules"
+msgstr ""
+
+#. module: jera
+#: field:ir.actions.report.xml,domain:0
+msgid "Domain Value"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,searchable:0
+#: field:jera.action.profiles.temp,searchable:0
+msgid "Searchable"
+msgstr ""
+
+#. module: jera
+#: help:jera.config,trans_login:0
+#: help:jera.installer,trans_login:0
+msgid "Allow directly login in OpenERP system for new created JERA users"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,states_seq:0
+msgid "Installation states sequence"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+msgid "Default settings for new users"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "_Install"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,states_prev:0
+msgid "List of previous state"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:264
+#: code:addons/jera/jera.py:266
+#, python-format
+msgid "Warning!"
+msgstr ""
+
+#. module: jera
+#: help:jera.users,create_ip_address:0
+msgid "IP Address from which the user was registered."
+msgstr ""
+
+#. module: jera
+#: constraint:res.users:0
+msgid "The chosen company is not in the allowed companies for this user"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles.temp,install_id:0
+#: field:jera.menu.profiles.temp,install_id:0
+#: field:jera.module.profiles.temp,install_id:0
+#: field:jera.user.profiles.temp,install_id:0
+msgid "Install Id"
+msgstr ""
+
+#. module: jera
+#: field:jera.user.profiles,user_id:0
+#: field:jera.user.profiles.temp,user_id:0
+#: field:jera.users,user_id:0
+msgid "OpenERP User"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "_Back"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.jera_act_profiles_action
+#: view:jera.action.profiles:0
+#: view:jera.installer.action:0
+msgid "JERA action profiles"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_installer_action
+msgid "jera.installer.action"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,dd_click:0
+#: field:jera.menu.profiles.temp,dd_click:0
+msgid "Drilldown click"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "JERA install wizard"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,state:0
+#: field:jera.user_mirror_wizard,state:0
+msgid "State"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles.temp,realid:0
+#: field:jera.menu.profiles.temp,realid:0
+#: field:jera.module.profiles.temp,realid:0
+#: field:jera.user.profiles.temp,realid:0
+msgid "Real profile Id"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/installer.py:47
+#, python-format
+msgid "- Create new -"
+msgstr ""
+
+#. module: jera
+#: field:jera.user.profiles,password:0
+#: field:jera.user.profiles.temp,password:0
+#: field:jera.users,password:0
+msgid "Joomla User Password"
+msgstr ""
+
+#. module: jera
+#: field:jera.user.profiles,email:0
+#: field:jera.user.profiles.temp,email:0
+#: field:jera.user_mirror_wizard,email:0
+#: field:jera.users,email:0
+msgid "Email"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+msgid "JERA users permission"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:708
+#: code:addons/jera/jera.py:824
+#: selection:jera.menu.profiles,layout:0
+#: selection:jera.menu.profiles.temp,layout:0
+#: selection:jera.module.profiles,layout:0
+#: selection:jera.module.profiles.temp,layout:0
+#, python-format
+msgid "Form"
+msgstr ""
+
+#. module: jera
+#: selection:jera.module.profiles,position:0
+#: selection:jera.module.profiles.temp,position:0
+msgid "bottom"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:715
+#: code:addons/jera/jera.py:800
+#: selection:jera.menu.profiles,access:0
+#: selection:jera.menu.profiles.temp,access:0
+#: selection:jera.module.profiles,access:0
+#: selection:jera.module.profiles.temp,access:0
+#, python-format
+msgid "Registered"
+msgstr ""
+
+#. module: jera
+#: selection:jera.action.profiles,r_metainfo:0
+#: selection:jera.action.profiles.temp,r_metainfo:0
+msgid "HTML"
+msgstr ""
+
+#. module: jera
+#: view:jera.user_mirror_wizard:0
+msgid "Copy user"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,name:0
+#: field:jera.action.profiles.temp,name:0
+msgid "Profile name"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:264
+#, python-format
+msgid "XML-RPC services is not enabled on the host: \"%s\""
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:266
+#, python-format
+msgid "XML-RPC - JERA plugin is not enabled on the host: \"%s\""
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:808
+#: selection:jera.module.profiles,menus:0
+#: selection:jera.module.profiles.temp,menus:0
+#, python-format
+msgid "None"
+msgstr ""
+
+#. module: jera
+#: model:ir.ui.menu,name:jera.jera_menu
+#: model:res.groups,name:jera.group_jera
+msgid "JERA"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+msgid "Here you can configure OpenERP connection to Joomla site where is installed JERA component."
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:737
+#: selection:jera.menu.profiles,show_search:0
+#: selection:jera.menu.profiles.temp,show_search:0
+#, python-format
+msgid "Manual"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,r_metainfo:0
+#: field:jera.action.profiles.temp,r_metainfo:0
+msgid "Use meta info"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,used_user:0
+#: field:jera.menu.profiles.temp,used_user:0
+#: field:jera.module.profiles,used_user:0
+#: field:jera.module.profiles.temp,used_user:0
+msgid "User Usage"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:829
+#: selection:jera.module.profiles,cache:0
+#: selection:jera.module.profiles.temp,cache:0
+#, python-format
+msgid "No Caching"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,published:0
+#: field:jera.menu.profiles.temp,published:0
+#: field:jera.module.profiles,published:0
+#: field:jera.module.profiles.temp,published:0
+msgid "Published"
+msgstr ""
+
+#. module: jera
+#: view:jera.module.profiles:0
+#: field:jera.module.profiles,menu_ids:0
+#: field:jera.module.profiles.temp,menu_ids:0
+msgid "Menu Selection"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_config
+#: view:jera.config:0
+#: view:jera.installer:0
+#: field:jera.installer,jera_config:0
+#: field:jera.users,config_id:0
+msgid "JERA connection configuration"
+msgstr ""
+
+#. module: jera
+#: help:jera.module.profiles,cache_time:0
+#: help:jera.module.profiles.temp,cache_time:0
+msgid "The period of time in seconds before the Module is re-cached"
+msgstr ""
+
+#. module: jera
+#: model:ir.ui.menu,name:jera.jera_menu_module_profiles
+msgid "Module Profiles"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,domain:0
+#: field:jera.action.profiles.temp,domain:0
+msgid "Domain"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer,config_logo:0
+msgid "Image"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Here you can install module(s) to Joomla site for specified OpenERP actions."
+msgstr ""
+
+#. module: jera
+#: view:jera.user_mirror_wizard:0
+msgid "Back"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,ssl:0
+#: field:jera.installer,ssl:0
+msgid "SSL"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,used_user:0
+#: field:jera.action.profiles.temp,used_user:0
+#: field:jera.user_mirror_wizard,user_id:0
+msgid "User"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.jera_menu_profiles_action
+#: view:jera.installer.action:0
+#: view:jera.menu.profiles:0
+msgid "JERA menu profiles"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_ir_actions_report_xml
+#: selection:jera.action.profiles,action_id:0
+#: selection:jera.action.profiles.temp,action_id:0
+msgid "ir.actions.report.xml"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,trans_login:0
+#: field:jera.installer,trans_login:0
+msgid "Transparent login"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,id_security:0
+#: field:jera.action.profiles.temp,id_security:0
+msgid "Apply id security"
+msgstr ""
+
+#. module: jera
+#: selection:jera.module.profiles,position:0
+#: selection:jera.module.profiles.temp,position:0
+msgid "right"
+msgstr ""
+
+#. module: jera
+#: selection:jera.user_mirror_wizard,state:0
+msgid "Draft"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,search_area:0
+#: field:jera.action.profiles.temp,search_area:0
+msgid "As Separate Search Area"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.jera_connect_users_action
+#: model:ir.ui.menu,name:jera.jera_connect_users_menu
+msgid "JERA Connected Users"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.jera_module_profiles_action
+#: view:jera.installer.action:0
+#: view:jera.module.profiles:0
+msgid "JERA module profiles"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,action_name:0
+#: field:jera.action.profiles.temp,action_name:0
+msgid "Action Name"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+msgid "Configure"
+msgstr ""
+
+#. module: jera
+#: field:jera.user.profiles,login:0
+#: field:jera.user.profiles.temp,login:0
+#: field:jera.users,login:0
+msgid "Joomla User"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Here you can install user(s) to Joomla site where is installed JERA component."
+msgstr ""
+
+#. module: jera
+#: selection:jera.module.profiles,position:0
+#: selection:jera.module.profiles.temp,position:0
+msgid "top"
+msgstr ""
+
+#. module: jera
+#: field:jera.user.profiles,name:0
+#: field:jera.user.profiles.temp,name:0
+msgid "User Name"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/installer.py:167
+#, python-format
+msgid "Here you can configure OpenERP connection to Joomla site where is installed JERA component"
+msgstr ""
+
+#. module: jera
+#: field:jera.user_mirror_wizard,new_password:0
+msgid "New Password"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:474
+#, python-format
+msgid "Cannot delete Joomla user! Username: %s; Connection: %s."
+msgstr ""
+
+#. module: jera
+#: field:jera.config,active:0
+#: field:jera.installer,active:0
+msgid "Active"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,handler:0
+#: field:jera.installer,handler:0
+msgid "Joomla xmlrpc handler"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,user_id:0
+#: field:jera.action.profiles.temp,user_id:0
+#: field:jera.menu.profiles,user_id:0
+#: field:jera.menu.profiles.temp,user_id:0
+#: field:jera.module.profiles,user_id:0
+#: field:jera.module.profiles.temp,user_id:0
+msgid "Jera user"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,parent_id:0
+#: field:jera.menu.profiles.temp,parent_id:0
+msgid "Parent Menu"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:628
+#: selection:jera.action.profiles,used_user:0
+#: selection:jera.action.profiles.temp,used_user:0
+#: selection:jera.menu.profiles,used_user:0
+#: selection:jera.menu.profiles.temp,used_user:0
+#: selection:jera.module.profiles,used_user:0
+#: selection:jera.module.profiles.temp,used_user:0
+#, python-format
+msgid "Default"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.action_jera_installer
+#: view:jera.installer:0
+msgid "JERA Configuration"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,group_ids:0
+#: field:jera.installer,group_ids:0
+msgid "Groups for new users"
+msgstr ""
+
+#. module: jera
+#: help:jera.config,password:0
+#: help:jera.installer,password:0
+msgid "User password in joomla site"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Installation Summary"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles.temp,install:0
+#: selection:jera.installer.action,state:0
+#: field:jera.menu.profiles.temp,install:0
+#: field:jera.module.profiles.temp,install:0
+#: field:jera.user.profiles.temp,install:0
+msgid "Install"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,action_id:0
+#: field:jera.action.profiles.temp,action_id:0
+msgid "Action"
+msgstr ""
+
+#. module: jera
+#: help:jera.config,hostname:0
+#: help:jera.installer,hostname:0
+msgid "Host name where joomla site is located"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_action_profiles_temp
+msgid "jera.action.profiles.temp"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_user_profiles
+msgid "Profiles for JERA users"
+msgstr ""
+
+#. module: jera
+#: sql_constraint:res.users:0
+msgid "You can not have two users with the same login !"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,custom_search_fields:0
+#: field:jera.menu.profiles.temp,custom_search_fields:0
+msgid "Custom Search Fields"
+msgstr ""
+
+#. module: jera
+#: model:res.groups,name:jera.group_jera_reg_users
+msgid "JERA register users"
+msgstr ""
+
+#. module: jera
+#: field:jera.users,create_ip_address:0
+msgid "IP Address"
+msgstr ""
+
+#. module: jera
+#: selection:jera.action.profiles,action_id:0
+#: selection:jera.action.profiles.temp,action_id:0
+msgid "ir.actions.act_window"
+msgstr ""
+
+#. module: jera
+#: selection:jera.installer.action,state:0
+#: selection:jera.user_mirror_wizard,state:0
+msgid "Done"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "_Next"
+msgstr ""
+
+#. module: jera
+#: field:jera.module.profiles,cache_time:0
+#: field:jera.module.profiles.temp,cache_time:0
+msgid "Cache Time"
+msgstr ""
+
+#. module: jera
+#: view:jera.user_mirror_wizard:0
+msgid "Cancel"
+msgstr ""
+
+#. module: jera
+#: view:jera.user_mirror_wizard:0
+msgid "Close"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:716
+#: code:addons/jera/jera.py:801
+#: selection:jera.menu.profiles,access:0
+#: selection:jera.menu.profiles.temp,access:0
+#: selection:jera.module.profiles,access:0
+#: selection:jera.module.profiles.temp,access:0
+#, python-format
+msgid "Special"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.jera_users_action
+#: model:ir.model,name:jera.model_jera_users
+#: model:ir.ui.menu,name:jera.jera_users_menu
+#: view:jera.users:0
+msgid "JERA users"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,layout:0
+#: field:jera.menu.profiles.temp,layout:0
+#: field:jera.module.profiles,layout:0
+#: field:jera.module.profiles.temp,layout:0
+msgid "Layout"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Installation Ready"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:736
+#: selection:jera.menu.profiles,show_search:0
+#: selection:jera.menu.profiles.temp,show_search:0
+#, python-format
+msgid "Show"
+msgstr ""
+
+#. module: jera
+#: selection:jera.installer.action,state:0
+msgid "Sites"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_res_users
+msgid "res.users"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:630
+#: selection:jera.action.profiles,used_user:0
+#: selection:jera.action.profiles.temp,used_user:0
+#: selection:jera.menu.profiles,used_user:0
+#: selection:jera.menu.profiles.temp,used_user:0
+#: selection:jera.module.profiles,used_user:0
+#: selection:jera.module.profiles.temp,used_user:0
+#, python-format
+msgid "Custom"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,jera_menu_ids:0
+#: selection:jera.installer.action,state:0
+#: field:jera.module.profiles,menus:0
+#: field:jera.module.profiles.temp,menus:0
+msgid "Menus"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,module_id:0
+#: field:jera.action.profiles.temp,module_id:0
+#: field:jera.menu.profiles,module_id:0
+#: field:jera.menu.profiles.temp,module_id:0
+#: field:jera.module.profiles,module_id:0
+#: field:jera.module.profiles.temp,module_id:0
+#: field:jera.user.profiles,module_id:0
+#: field:jera.user.profiles.temp,module_id:0
+msgid "Module"
+msgstr ""
+
+#. module: jera
+#: field:res.users,site_id:0
+msgid "Created by JERA"
+msgstr ""
+
+#. module: jera
+#: model:ir.actions.act_window,name:jera.jera_user_profiles_action
+#: view:jera.installer.action:0
+#: view:jera.user.profiles:0
+msgid "JERA user profiles"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer,description:0
+msgid "Description"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer:0
+msgid "Skip"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_user_profiles_temp
+msgid "jera.user.profiles.temp"
+msgstr ""
+
+#. module: jera
+#: selection:jera.action.profiles,r_metainfo:0
+#: selection:jera.action.profiles.temp,r_metainfo:0
+msgid "Never"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,dd_action_id:0
+#: field:jera.action.profiles.temp,dd_action_id:0
+#: field:jera.menu.profiles,dd_action_id:0
+#: field:jera.menu.profiles.temp,dd_action_id:0
+msgid "Drillldown action"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_module_profiles
+msgid "Profiles for JERA module"
+msgstr ""
+
+#. module: jera
+#: selection:jera.action.profiles,id_security:0
+#: selection:jera.action.profiles.temp,id_security:0
+msgid "Signed (MD5 Hash)"
+msgstr ""
+
+#. module: jera
+#: field:res.users,address_id:0
+msgid "Address"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:809
+#: selection:jera.module.profiles,menus:0
+#: selection:jera.module.profiles.temp,menus:0
+#, python-format
+msgid "Select Menu Item(s)"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,password:0
+#: field:jera.installer,password:0
+msgid "Password"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:453
+#, python-format
+msgid "Please check connection data."
+msgstr ""
+
+#. module: jera
+#: model:ir.ui.menu,name:jera.jera_menu_menu_profiles
+msgid "Menu Profiles"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,login:0
+#: field:jera.installer,login:0
+msgid "Username"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,name:0
+#: field:jera.installer,name:0
+msgid "Name"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_menu_profiles
+msgid "Profiles for JERA menu"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:731
+#: selection:jera.menu.profiles,dd_click:0
+#: selection:jera.menu.profiles.temp,dd_click:0
+#, python-format
+msgid "Double"
+msgstr ""
+
+#. module: jera
+#: field:jera.menu.profiles,show_search:0
+#: field:jera.menu.profiles.temp,show_search:0
+msgid "Search Panel"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:707
+#: code:addons/jera/jera.py:823
+#: selection:jera.menu.profiles,layout:0
+#: selection:jera.menu.profiles.temp,layout:0
+#: selection:jera.module.profiles,layout:0
+#: selection:jera.module.profiles.temp,layout:0
+#, python-format
+msgid "List"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:457
+#: code:addons/jera/wizard/jera_installer_action.py:143
+#: code:addons/jera/wizard/jera_installer_action.py:299
+#, python-format
+msgid "Error %s"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,alias:0
+#: field:jera.action.profiles.temp,alias:0
+msgid "Alias"
+msgstr ""
+
+#. module: jera
+#: view:jera.installer.action:0
+msgid "Here you can install menu(s) to Joomla site for specified OpenERP actions."
+msgstr ""
+
+#. module: jera
+#: field:jera.module.profiles,showtitle:0
+#: field:jera.module.profiles.temp,showtitle:0
+msgid "Show Title"
+msgstr ""
+
+#. module: jera
+#: field:jera.action.profiles,context:0
+#: field:jera.action.profiles.temp,context:0
+msgid "Context"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:830
+#: selection:jera.module.profiles,cache:0
+#: selection:jera.module.profiles.temp,cache:0
+#, python-format
+msgid "Use Global"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,jera_user_ids:0
+#: selection:jera.installer.action,state:0
+msgid "Users"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:807
+#: selection:jera.module.profiles,menus:0
+#: selection:jera.module.profiles.temp,menus:0
+#, python-format
+msgid "All"
+msgstr ""
+
+#. module: jera
+#: field:jera.users,auto:0
+msgid "Auto Create"
+msgstr ""
+
+#. module: jera
+#: constraint:jera.users:0
+msgid "You cannot have two users with the same email!"
+msgstr ""
+
+#. module: jera
+#: help:jera.user.profiles,login:0
+#: help:jera.user.profiles.temp,login:0
+#: help:jera.users,login:0
+msgid "The new user's login"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,config:0
+#: field:jera.user_mirror_wizard,config:0
+msgid "Site"
+msgstr ""
+
+#. module: jera
+#: field:jera.installer.action,jera_action_ids:0
+#: selection:jera.installer.action,state:0
+msgid "Actions"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:730
+#: selection:jera.menu.profiles,dd_click:0
+#: selection:jera.menu.profiles.temp,dd_click:0
+#, python-format
+msgid "Single"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_menu_profiles_temp
+msgid "jera.menu.profiles.temp"
+msgstr ""
+
+#. module: jera
+#: model:ir.model,name:jera.model_jera_action_profiles
+msgid "Profiles for JERA actions"
+msgstr ""
+
+#. module: jera
+#: view:ir.actions.report.xml:0
+msgid "Filters"
+msgstr ""
+
+#. module: jera
+#: selection:jera.module.profiles,position:0
+#: selection:jera.module.profiles.temp,position:0
+msgid "left"
+msgstr ""
+
+#. module: jera
+#: field:jera.config,port:0
+#: field:jera.installer,port:0
+msgid "Port"
+msgstr ""
+
+#. module: jera
+#: code:addons/jera/jera.py:433
+#: code:addons/jera/wizard/jera_installer_action.py:135
+#, python-format
+msgid "Can't connect to JERA. Please define connection."
+msgstr ""
+

@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="datev_export_view" model="ir.ui.view">
+             <field name="name">Export data to Datev</field>
+             <field name="model">datev.export</field>
+             <field name="type">form</field>
+            <field name="priority" eval="2"/>
+             <field name="arch" type="xml">
+                <form string="Export">
+
+                        <group>
+                            <separator string="Save Datev file"/>
+<!--                            <label width="120"/>  -->
+                              <newline/>
+<!--                              <field name="name" invisible="1"/>  -->
+                              <field name="filename"/>
+                              <newline/>
+                              <field name="file" filename="filename"/>
+                              <newline/>
+                              <button icon="gtk-close" special="cancel" string="_Close" colspan="2"/>
+                        </group>
+                </form>
+             </field>
+         </record>
+
+        <act_window name="Export to Datev"
+            res_model="datev.export"
+            src_model="account.invoice"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="act_datev_export"/>
+
+
+<!--
+        <record id="act_datev_export" model="ir.actions.act_window">
+            <field name="name">Datev Export</field>
+            <field name="res_model">datev.export</field>
+            <field name="src_model">account.invoice</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="datev_export_view"/>
+            <field name="target">new</field>
+            <field name="key2">client_action_multi</field>
+        </record>
+-->
+
+<!--
+        <record id="view_datev_export_options_final" model="ir.ui.view">
+             <field name="name">Export data to Datev</field>
+             <field name="model">datev.export.options</field>
+             <field name="type">form</field>
+            <field name="priority" eval="2"/>
+             <field name="arch" type="xml">
+                <form string="Export">
+                        <group>
+                            <separator string="Save Datev file"/>
+                              <newline/>
+                              <field name="name" colspan="2"/>
+                              <newline/>
+                              <field name="export_file" nolabel="1" readonly="1" fieldname="name" colspan="2"/>
+                              <newline/>
+                              <button icon="gtk-close" special="cancel" string="_Close" colspan="2"/>
+                        </group>
+                </form>
+             </field>
+         </record>
+        <record id="action_datev_export_options_final" model="ir.actions.act_window">
+            <field name="name">Export Invoices to Datev file</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">datev.export.options</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_datev_export_options_final"/>
+            <field name="target">new</field>
+        </record>
+-->
+
+        <record id="view_datev_export_options" model="ir.ui.view">
+             <field name="name">Export data to Datev</field>
+             <field name="model">datev.export.options</field>
+             <field name="type">form</field>
+             <field name="arch" type="xml">
+                <form string="Export Invoices to Datev file">
+                                <field invisible="1" name="state"/>
+                        <group height="350" colspan="4" states="choose">
+                           <field name="company_id"/>
+                              <newline/>
+                            <field name='in_invoice'/>
+                            <field name='out_invoice'/>
+                            <field name='in_refund'/>
+                            <field name='out_refund'/>
+                            <field name='date_start'/>
+                            <field name='date_stop'/>
+                            <field name='period_id'/>
+                              <newline/>
+
+<!--                            <field name='state' invisible="1"/>  -->
+                              <button name="do_export_file" string="Export Invoices" type="object" icon="gtk-ok" colspan="4"/>
+                        </group>
+                        <group states="get" colspan="4">
+                            <separator string="Result File" colspan="4"/>
+                              <newline/>
+                              <field name="datev_filename"/>
+                              <newline/>
+                              <field name="datev_file" filename="datev_filename"/>
+                              <newline/>
+                            <button icon="gtk-close" name="act_destroy" special="cancel" string="_Close" type="object"/>
+                        </group>
+                </form>
+             </field>
+         </record>
+
+        <record id="action_datev_export_options" model="ir.actions.act_window">
+            <field name="name">Export Invoices to Datev file</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">datev.export.options</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+<!-- for 6.1   -->
+<!--
+        <menuitem
+            name="Export Invoices to Datev File"
+            parent="account.menu_finance_reporting"
+            action="action_datev_export_options"
+            id="menu_account_datev_export_options_61"
+            sequence="120"
+            icon="STOCK_EXECUTE"/>
+-->
+
+<!-- for 6.0.x -->
+        <menuitem
+            name="Export Invoices to Datev File"
+            parent="account.menu_finance_periodical_processing"
+            action="action_datev_export_options"
+            id="menu_account_datev_export_options_60"
+            sequence="120"
+            icon="STOCK_EXECUTE"/>
+
+
+
+    </data>
+</openerp>

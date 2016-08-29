@@ -23,8 +23,8 @@
 ##############################################################################
 {
     "name" : "Kits tracking as sn collection in Packs",
-    "version" : "0.01 (8.0)",
-    "author" : "Grzegorz Grzelak, Tadeusz Karpiński - OpenGLOBE",
+    "version" : "0.1 (6.1)",
+    "author" : "Grzegorz Grzelak - OpenGLOBE",
     "category" : "Enterprise Specific Modules",
     "website" : "http://www.openglobe.pl",
     "description": """
@@ -57,7 +57,13 @@
     "init_xml" : [],
     "demo_xml" : [],
     "update_xml" : [
-                    "wizard/picking_insert_package_view.xml",
+#                    "security/purchase_tender.xml",
+                    "wizard/picking_insert_tracking_view.xml",
+#                    "purchase_requisition_data.xml",
+                    "stock_pack_tracking_view.xml",
+#                    "purchase_requisition_report.xml",
+#                    "security/ir.model.access.csv",
+#                    "purchase_requisition_sequence.xml"
     ],
     "active": False,
     "test":[],

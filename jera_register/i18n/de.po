@@ -1,0 +1,243 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+# 	* jera_register
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-15 08:58+0000\n"
+"PO-Revision-Date: 2013-06-17 16:53+0100\n"
+"Last-Translator: openbig.org - Thorsten Vocks <thorsten.vocks@openbig.org>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.5\n"
+
+#. module: jera_register
+#: field:jera.users,confirmed:0
+msgid "Confirmed"
+msgstr "Bestätigt"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:168
+#, python-format
+msgid "Configuration for site \"%s\" is not defined!"
+msgstr "Konfiguration der Seite \"%s\" ist nicht erfolgt! "
+
+#. module: jera_register
+#: help:jera.register,name:0 help:jera.users,name:0
+msgid "The new user's real name"
+msgstr "Name des neuen Benutzers"
+
+#. module: jera_register
+#: help:jera.register,captcha:0 help:jera.users,captcha:0
+msgid "Click on image to refresh"
+msgstr "Auf Bild klicken, um Anzeige zu aktualisieren"
+
+#. module: jera_register
+#: model:ir.model,name:jera_register.model_jera_users
+msgid "JERA users"
+msgstr "JERA Benutzer"
+
+#. module: jera_register
+#: model:ir.actions.report.xml,name:jera_register.jera_reg_confirm_id
+msgid "HTML Confirm Registration"
+msgstr "HTML Bestätigung der Anmeldung"
+
+#. module: jera_register
+#: field:jera.register,code_verify:0 field:jera.users,code_verify:0
+msgid "Captcha code Type characters you see"
+msgstr "Erkannte Captcha Code Zeichenkette "
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:180
+#: code:addons/jera_register/jera_register.py:182
+#: code:addons/jera_register/jera_register.py:184
+#: code:addons/jera_register/jera_register.py:186
+#, python-format
+msgid "Input error!"
+msgstr "Eingabefehler !"
+
+#. module: jera_register
+#: field:jera.register,sid:0 field:jera.users,sid:0
+msgid "Session Id"
+msgstr "Sitzung ID"
+
+#. module: jera_register
+#: field:jera.register,email:0
+msgid "Email"
+msgstr "Email"
+
+#. module: jera_register
+#: model:ir.actions.act_window,name:jera_register.action_jera_users_wizard
+msgid "JERA Registration"
+msgstr "JERA Anmeldung"
+
+#. module: jera_register
+#: field:jera.register,hash:0 field:jera.users,hash:0
+msgid "Hash"
+msgstr ""
+
+#. module: jera_register
+#: report:ir.actions.report.xml:jera_register.jera_reg_confirm_id
+msgid "Your login: %s"
+msgstr "Ihre Anmeldung: %s"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:186
+#, python-format
+msgid "Account with email \"%s\" already exist!"
+msgstr "Das Konto mit der Email  \"%s\" existiert bereits!"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:180
+#, python-format
+msgid "The captcha code is invalid!"
+msgstr "Der Captcha Code ist fehlerhaft!"
+
+#. module: jera_register
+#: report:ir.actions.report.xml:jera_register.jera_reg_confirm_id
+msgid "Your password: %s"
+msgstr "Ihr Passwort ist: %s"
+
+#. module: jera_register
+#: help:jera.register,login:0
+msgid "Used to log into the system"
+msgstr "Wird genutzt zur Anmeldung"
+
+#. module: jera_register
+#: field:jera.register,name:0 field:jera.users,name:0
+msgid "User Name"
+msgstr "Benutzername"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:182
+#, python-format
+msgid "Password cannot contain non latin letters!"
+msgstr "Das Passwort darf keinen nicht lateinischen Buchstaben enthalten!"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:171
+#, python-format
+msgid "Server error!"
+msgstr "Server Fehler!"
+
+#. module: jera_register
+#: view:jera.register:0 field:jera.register,password:0
+msgid "Password"
+msgstr "Passwort"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:184
+#, python-format
+msgid "The password verify is false!"
+msgstr "Die Passwort Prüfung ist negativ!"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:171
+#, python-format
+msgid "Not configured Joomla connection!"
+msgstr "Keine konfigurierte Joomla Verbindung!"
+
+#. module: jera_register
+#: report:ir.actions.report.xml:jera_register.jera_reg_confirm_id
+msgid ""
+"Your account <strong>\"%s\"</strong> was created in %s. Click on the "
+"following link to confirm your registration. <a href=\"%s\">Click here</a>."
+msgstr ""
+"Ihr Benutzerkonto <strong>\"%s\"</strong> wurde erstellt in %s. Klicken Sie "
+"auf den folgenden Link, um Ihre Anmeldung zu bestätigen. <a href=\"%s\">Hier "
+"klicken</a>."
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:232
+#, python-format
+msgid "To e-mail %s was sent a link that you have to confirm registration."
+msgstr ""
+"An die Email %s wurde ein Link mit der Bitte um Bestätigung Ihrer Anmeldung "
+"gesendet."
+
+#. module: jera_register
+#: field:jera.register,context_lang:0 field:jera.users,context_lang:0
+msgid "Language"
+msgstr "Sprache"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:168
+#, python-format
+msgid "System Error!"
+msgstr "System Fehler!"
+
+#. module: jera_register
+#: view:jera.register:0
+msgid "Register"
+msgstr "Anmeldung"
+
+#. module: jera_register
+#: model:ir.model,name:jera_register.model_jera_register
+msgid "Captcha data"
+msgstr "Captcha Daten"
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:238
+#, python-format
+msgid ""
+"Account <strong>\"%s\"</strong> registration was successfully confirmed. You "
+"can login."
+msgstr ""
+"Die Anmeldung für Benutzerkonto <strong>\"%s\"</strong> war erfolgreich! Sie "
+"können sich jetzt anmelden."
+
+#. module: jera_register
+#: constraint:jera.users:0
+msgid "You cannot have two users with the same email!"
+msgstr "Sie dürfen nicht einen Benutzer mit identischer Email anlegen."
+
+#. module: jera_register
+#: code:addons/jera_register/jera_register.py:232
+#, python-format
+msgid "Account registration was successfully done."
+msgstr "Ihre Benutzerkonto Anmeldung war erfolgreich."
+
+#. module: jera_register
+#: view:jera.register:0 field:jera.register,login:0
+msgid "Login"
+msgstr "Anmelden"
+
+#. module: jera_register
+#: model:ir.model,name:jera_register.model_jera_config
+msgid "JERA connection configuration"
+msgstr "JERA Verbindung Konfiguration"
+
+#. module: jera_register
+#: field:jera.register,code:0 field:jera.users,code:0
+msgid "Code"
+msgstr "Kürzel"
+
+#. module: jera_register
+#: field:jera.register,password_verify:0 field:jera.users,password_verify:0
+msgid "Verify Password"
+msgstr "Passwort Bestätigung"
+
+#. module: jera_register
+#: help:jera.register,context_lang:0 help:jera.users,context_lang:0
+msgid "Sets the language for the user interface"
+msgstr "Definiert die Sprache für das Benutzer Interface"
+
+#. module: jera_register
+#: constraint:jera.users:0
+msgid "You cannot have two users with the same login!"
+msgstr "Sie können nicht zwei Benutzer mit einem identischen Login haben!"
+
+#. module: jera_register
+#: field:jera.register,captcha:0 field:jera.users,captcha:0
+msgid "Captcha"
+msgstr "Captcha"
+
+#. module: jera_register
+#: view:jera.register:0
+msgid "Registration"
+msgstr "Registrierung"

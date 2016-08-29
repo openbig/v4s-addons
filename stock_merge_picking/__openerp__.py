@@ -14,8 +14,8 @@
 ##############################################################################
 {
     'name' : 'Merge Picking',
-    'version' : '0.01 (8.0)',
-    'author' : 'Marco Dieckhoff (Bremskerl), Tadeusz Karpiński - OpenGLOBE',
+    'version' : '6.0',
+    'author' : 'Marco Dieckhoff (Bremskerl)',
     'website' : 'www.bremskerl.com',
     'depends' : ['stock'],
     'category' : 'Warehouse',

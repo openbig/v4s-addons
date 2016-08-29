@@ -1,0 +1,24 @@
+<div class="shopping-cart">
+${setLang(getLang('user'))}
+{% with sales_order = search('sale.order', domain)%}
+    {% if sales_order %}
+        <ul class="shopping-cart-items">
+        {% for o in sales_order[0].order_line %}\
+            <li>
+                <div class="remove-item"><button title="Remove" class="oe-button terp-dialog-close" onclick="sendSignal(this,'jera_request_remove_so_line','object',${o.id},'product.product','');"></button></div>
+                <div><strong>${get_label(o,'name')}:</strong><br/><a title="${ html_escape(o.name) }" href="index.php?option=com_jera&view=jera&layout=form&id=product_single&active_id=${o.product_id.id}">${html_escape(o.product_id and o.product_id.name or o.name)}</a><br/></div>
+                ${o.product_uom_qty}&nbsp;x&nbsp;${ o.price_unit and format_price([o.price_unit, sales_order[0].pricelist_id.currency_id]) or _('Call!') }&nbsp;=&nbsp;${ o.price_subtotal and format_price([o.price_subtotal, sales_order[0].pricelist_id.currency_id]) or _('Call!') }
+            </li>
+        {% end %}
+        </ul>
+    <div><strong>${get_label(sales_order[0],'amount_total')}:</strong>&nbsp;${format_price([sales_order[0].amount_total, sales_order[0].pricelist_id.currency_id])}</div>
+    <hr/>
+    <div class="checkout">
+        <input type="button" onclick="sendSignal(this,'billinfo','action',null,null,'',&quot;&quot;);this.blur();" name="billinfo" id="buttidbillinfo" value="${_('Checkout')}" class="button">
+    </div>
+    {% end %}
+    {% if not sales_order %}
+        ${_("Shopping cart is empty")}
+    {% end %}
+{% end %}
+</div>

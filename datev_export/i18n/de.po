@@ -1,0 +1,275 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* datev_export
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-24 22:36+0000\n"
+"PO-Revision-Date: 2013-01-24 22:36+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:206
+#, python-format
+msgid "Address of partner %s must have Name, Zip and City"
+msgstr "Die Anschrift des Partners %s sollte mindestens Name, PLZ und Stadt beinhalten"
+
+#. module: datev_export
+#: field:datev.export.options,in_refund:0
+msgid "Incoming Refunds"
+msgstr "Lieferantengutschriften"
+
+#. module: datev_export
+#: model:ir.model,name:datev_export.model_datev_export
+msgid "Export to XML Datev format"
+msgstr "Exportiere Datev .xml"
+
+#. module: datev_export
+#: constraint:res.company:0
+msgid "Error! You can not create recursive companies."
+msgstr "Fehler! Sie können keine rekursiven Unternehmen erzeugen."
+
+#. module: datev_export
+#: field:datev.export,filename:0
+#: field:datev.export.options,datev_filename:0
+msgid "Filename"
+msgstr "Dateiname"
+
+#. module: datev_export
+#: field:datev.export.options,date_stop:0
+msgid "To Date"
+msgstr "Bis Datum"
+
+#. module: datev_export
+#: field:res.company,consultant_number:0
+msgid "Beraternummer"
+msgstr "Beraternummer"
+
+#. module: datev_export
+#: field:datev.export.options,date_start:0
+msgid "From Date"
+msgstr "Von Datum"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:504
+#, python-format
+msgid "You have to fill the VAT id for your company!"
+msgstr "Sie müssen die UStVA-ID Ihres Unternehmens eintragen!"
+
+#. module: datev_export
+#: view:res.company:0
+msgid "Datev Export settings"
+msgstr "Einstellungen Datev Export"
+
+#. module: datev_export
+#: view:datev.export.options:0
+#: model:ir.actions.act_window,name:datev_export.action_datev_export_options
+msgid "Export Invoices to Datev file"
+msgstr "Exportiere Rechnungen nach Datev"
+
+#. module: datev_export
+#: view:datev.export:0
+#: view:datev.export.options:0
+msgid "_Close"
+msgstr "_Schliessen"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:641
+#, python-format
+msgid "Try to solve the problem with '%s' according to message below:\n"
+"\n"
+""
+msgstr "Versuchen Sie das Problem zu '%s' folgendermassen zu lösen:\n"
+"\n"
+""
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:641
+#, python-format
+msgid "Wrong Data in XML file!"
+msgstr "Fehlerhafte Daten in XML Datei!"
+
+#. module: datev_export
+#: field:datev.export.options,state:0
+msgid "unknown"
+msgstr "unbekannt"
+
+#. module: datev_export
+#: field:datev.export.options,company_id:0
+msgid "Company"
+msgstr "Unternehmen"
+
+#. module: datev_export
+#: field:datev.export.options,in_invoice:0
+msgid "Incoming Invoices"
+msgstr "Eingangsrechnungen"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:317
+#, python-format
+msgid "You have to fill the VAT id for partner of invoice %s!"
+msgstr "Sie sollten die UStVA-ID des Partners eintragen %s!"
+
+#. module: datev_export
+#: view:res.company:0
+msgid "Configuration"
+msgstr "Konfiguration"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:496
+#, python-format
+msgid "Only invoices in state 'Open' or 'Paid' can be exported !"
+msgstr "Nur Rechnungen im Status 'Offen' oder 'Bezahlt' können exportiert werden !"
+
+#. module: datev_export
+#: model:ir.ui.menu,name:datev_export.menu_account_datev_export_options_60
+msgid "Export Invoices to Datev File"
+msgstr "Exportiere Rechnungen in Datev Format "
+
+#. module: datev_export
+#: selection:datev.export.options,state:0
+msgid "choose"
+msgstr "auswählen"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:551
+#, python-format
+msgid "You have to fill the address for partner of invoice %s. The partner address has to have official company name!"
+msgstr "Für die Rechnung %s geben Sie die Anschrift des Kunden ein . Die Adresse soll in diesem Fall ein offiziellen Firmenadresse sein !"
+
+#. module: datev_export
+#: sql_constraint:res.company:0
+msgid "The company name must be unique !"
+msgstr "Das Unternehmen muss eindeutig sein!"
+
+#. module: datev_export
+#: selection:datev.export.options,state:0
+msgid "get"
+msgstr "empfangen"
+
+#. module: datev_export
+#: field:datev.export.options,out_invoice:0
+msgid "Outgoing Invoices"
+msgstr "Ausgangsrechnungen"
+
+#. module: datev_export
+#: model:ir.model,name:datev_export.model_res_company
+msgid "Companies"
+msgstr "Unternehmen"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:183
+#, python-format
+msgid "In company settings you have to enter: Consultant Number and Client Number"
+msgstr "In den Einstellungen des Unternehmens benötigen Sie: Beraternummer und Kundennummer"
+
+#. module: datev_export
+#: field:res.company,client_number:0
+msgid "Mandantennummer"
+msgstr "Mandantennummer"
+
+#. module: datev_export
+#: field:datev.export.options,out_refund:0
+msgid "Outgoing Refunds"
+msgstr "Kundengutschriften"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:111
+#, python-format
+msgid "Please select Period or at least Start Date"
+msgstr "Bitte wählen sie die Periode oder mindestens das Start Datum"
+
+#. module: datev_export
+#: help:res.company,consultant_number:0
+msgid "Number from 1000 to 9999999"
+msgstr "Nummer zwischen 1000 und 9999999"
+
+#. module: datev_export
+#: view:datev.export.options:0
+msgid "Result File"
+msgstr "Erstellte Datei"
+
+#. module: datev_export
+#: view:datev.export.options:0
+msgid "Export Invoices"
+msgstr "Export Rechnungen"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:319
+#, python-format
+msgid "You have to fill the address for partner of invoice %s!"
+msgstr "Sie müssen die Anschrift des Partners für die Rechnung %s eingeben!"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:496
+#, python-format
+msgid "No active invoice in selection !"
+msgstr "Keine aktuelle Rechnung zur Auswahl !"
+
+#. module: datev_export
+#: field:datev.export,file:0
+#: field:datev.export.options,datev_file:0
+msgid ".zip File"
+msgstr ".zip Datei"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:100
+#: code:addons/datev_export/wizard/datev_export.py:111
+#: code:addons/datev_export/wizard/datev_export.py:183
+#: code:addons/datev_export/wizard/datev_export.py:206
+#: code:addons/datev_export/wizard/datev_export.py:317
+#: code:addons/datev_export/wizard/datev_export.py:319
+#: code:addons/datev_export/wizard/datev_export.py:504
+#: code:addons/datev_export/wizard/datev_export.py:551
+#, python-format
+msgid "Data Insufficient !"
+msgstr "Daten sind unzureichend !"
+
+#. module: datev_export
+#: help:datev.export.options,date_start:0
+#: help:datev.export.options,date_stop:0
+msgid "Ignored if Period is selected"
+msgstr "Wird ignoriert bei Periodenauswahl"
+
+#. module: datev_export
+#: code:addons/datev_export/wizard/datev_export.py:100
+#, python-format
+msgid "Please check at least one invoice type to export"
+msgstr "Bitte stellen Sie sicher, dass mindestens ein Typ zum Export bereitsteht."
+
+#. module: datev_export
+#: field:datev.export.options,period_id:0
+msgid "Period"
+msgstr "Periode"
+
+#. module: datev_export
+#: model:ir.actions.act_window,name:datev_export.act_datev_export
+msgid "Export to Datev"
+msgstr "Export nach Datev"
+
+#. module: datev_export
+#: view:datev.export:0
+msgid "Export"
+msgstr "Export"
+
+#. module: datev_export
+#: view:datev.export:0
+msgid "Save Datev file"
+msgstr "Speichern Datev Datei"
+
+#. module: datev_export
+#: help:res.company,client_number:0
+msgid "Number from 0 to 99999"
+msgstr "Nummer zwischen 0 und 99999"
+
+#. module: datev_export
+#: model:ir.model,name:datev_export.model_datev_export_options
+msgid "Export to XML Datev format using options"
+msgstr "Export in XML Datev Format unter bestimmten Voraussetzungen"

@@ -1,0 +1,14 @@
+${setLang(getLang('user'))}
+{% with 
+    msg_link=_('Your account <strong>"%s"</strong> was created in %s. Click on the following link to confirm your registration. <a href="%s">Click here</a>.') % (o.name,host,get_link(o.id));
+    msg_login=_('Your login: %s') % o.login;
+    msg_pass=_('Your password: %s') % o.password;
+%}
+<html>
+    <body>
+        <div>${msg_link}</div></br>
+        <div>${msg_login}</div></br>
+        <div>${msg_pass}</div></br>
+    </body>
+</html>
+{% end %}

@@ -133,8 +133,3 @@ msgstr "Bemerkung"
 #: view:stock.picking:0
 msgid "Summary of comments"
 msgstr "Bemerkungen zur Zusammenfassung"
-
-#. module: stock_v4s
-#: field:stock.picking,purchase_id:0
-msgid "Purchase Order"
-msgstr "Beschaffungsauftrag"

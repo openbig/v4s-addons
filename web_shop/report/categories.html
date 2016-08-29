@@ -1,0 +1,30 @@
+{% with
+    order_by = uri.get('order_by', False);
+    brandname = brand_id and search('product.brandname', [('id','=',brand_id)])[0] or False;
+    product_params = {'option':'com_jera', 'view':'jera', 'layout':'list','id':'product_catalog', 'Itemid': context.get('Itemid', '')};
+    product_params = dict(product_params.items() + (brand_id and [('brand_id', brand_id)] or []));
+    product_params = dict(product_params.items() + (order_by and [('order_by', order_by)] or []));
+    categ_products = show_count and categ_count_get(objects, brand_id);
+    activecateg = search('product.sales_category',[('id', '=', categ_id)]);
+    activecateg = activecateg and activecateg[0] or False;
+    subcatdom = [('parent_id', '=', categ_id)];
+    subcatdom = (activecateg and activecateg.parent_id and ['|',('parent_id', '=', activecateg.parent_id.id)] or []) + subcatdom;
+    subcategs = search('product.sales_category', subcatdom);
+    subcateg_products = show_count and categ_count_get(subcategs, brand_id);
+    
+%}
+<ul class="category-list menu">
+{% for categ in objects %}\
+    <li class="${ ((categ_id == categ.id) or (int(activecateg and activecateg.parent_id) == categ.id)) and 'active' or '' }">
+        <a href="index.php?${ http_builduri(product_params, {'categ_id': categ.id}) }" title="${html_escape(_('Browse for all %s products!') % categ.name)}"><span>${html_escape(categ.name)+(show_count and '&nbsp;(&nbsp;'+str(categ_products.get(categ.id, 0))+'&nbsp;)' or '')}</span></a>
+        {% if categ_id == categ.id or int(activecateg and activecateg.parent_id) == categ.id %}\
+        {% for child_categ in subcategs %}\
+        <ul>
+            <li class="${ categ_id == child_categ.id and 'active' or '' }"><a href="index.php?${ http_builduri(product_params, {'categ_id': child_categ.id}) }" title="${html_escape(_('Browse for all %s products!') % child_categ.name)}"><span>${html_escape(child_categ.name)+(show_count and '&nbsp;(&nbsp;'+str(subcateg_products.get(child_categ.id, 0))+'&nbsp;)' or '')}</span></a></li>
+        </ul>
+        {% end %}\
+        {% end %}\
+    </li>
+{% end %}\
+</ul>
+{% end %}\

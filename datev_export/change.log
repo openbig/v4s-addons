@@ -1,0 +1,4 @@
+* 0.59 clientNumber, consultantNumber and GUID no longer obligatory    
+* 0.59 Datev format file changed to version 3
+* 0.59 changed description and keywords in document.xml
+

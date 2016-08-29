@@ -1,0 +1,77 @@
+<openerp>
+  <data>
+
+    <record id="view_jera_installer" model="ir.ui.view">
+      <field name="name">jera.installer.view</field>
+      <field name="model">jera.installer</field>
+      <field name="type">form</field>
+      <field name="inherit_id" ref="base.res_config_installer"/>
+      <field name="arch" type="xml">
+          <data>
+              <form position="attributes">
+                  <attribute name="string">JERA Configuration</attribute>
+              </form>
+              <separator string="title" position="attributes">
+                   <attribute name="string">JERA connection configuration</attribute>
+              </separator>
+              <xpath expr="//label[@string='description']" position="attributes">
+                  <attribute name="string">Here you can configure OpenERP connection to Joomla site where is installed JERA component.</attribute>
+              </xpath>
+	          <xpath expr="//button[@string='Install Modules']" position="replace">
+                <button colspan="1" icon="gtk-close" special="cancel" string="_Close" invisible="not context.get('menu',False)"/>
+                <button name="action_next" icon="gtk-go-forward"
+                        type="object" string="Configure" colspan="1" invisible="context.get('menu',False)"/>
+              </xpath>
+              <xpath expr="//button[@name='action_skip']" position="replace">
+                <button name="action_skip" icon="gtk-jump-to" special="cancel"
+                        type="object" string="Skip" colspan="1" invisible="context.get('menu',False)"/>
+              </xpath>
+              <xpath expr='//separator[@string="vsep"]' position='attributes'>
+		  		<attribute name='string'></attribute>
+		  		<attribute name='rowspan'>30</attribute>
+		  	  </xpath>
+		  	  <group colspan="8" position="replace">
+              <group colspan="8" expand="1">
+                  <group colspan="4" expand="1">
+                      <field name="jera_config" colspan="4" nolabel="1" on_change="change_jera_config(jera_config)"/>
+                      <separator colspan="4"/>
+                      <field name="hostname" colspan="4"/>
+                      <field name="port" colspan="2"/>
+                      <field name="ssl" colspan="2" on_change="change_ssl(ssl,port)"/>
+                      <field name="login" colspan="4"/>
+                      <field name="password" password="1" colspan="4"/>
+                      <field name="name" colspan="4"/>
+                      <field name="active" colspan="2"/>
+                      <field name="version" colspan="2" attrs="{'invisible':[('version','=',False)]}" readonly="1"/>
+                      <group colspan="4" string="Default settings for new users" expand="1">
+                        <field name="company_id" colspan="2" widget="selection"/>
+                        <field name="trans_login" colspan="2"/>
+                        <separator string="JERA users permission" colspan="4"/>
+                        <field name="group_ids" nolabel="1" colspan="4"/>
+                      </group>
+                  </group>
+              </group>
+              </group>
+          </data>
+      </field>
+    </record>
+
+    <record id="action_jera_installer" model="ir.actions.act_window">
+      <field name="name">JERA Configuration</field>
+      <field name="type">ir.actions.act_window</field>
+      <field name="res_model">jera.installer</field>
+      <field name="view_id" ref="view_jera_installer"/>
+      <field name="view_type">form</field>
+      <field name="view_mode">form</field>
+      <field name="target">new</field>
+    </record>
+
+    <record id="jera_installer_todo" model="ir.actions.todo">
+        <field name="action_id" ref="action_jera_installer"/>
+        <field name="restart">always</field>
+        <field name="type">automatic</field>
+        <field name="sequence">3</field>
+    </record>
+
+  </data>
+</openerp>

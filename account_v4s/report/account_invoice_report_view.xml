@@ -2,19 +2,19 @@
 <openerp>
     <data>
 
-    <!--<record id="view_account_invoice_report_tree_v4s" model="ir.ui.view">-->
-        <!--<field name="name">account.invoice.report.tree</field>-->
-        <!--<field name="model">account.invoice.report</field>-->
-        <!--<field name="type">tree</field>-->
-        <!--<field name="inherit_id" ref="account.view_account_invoice_report_tree"/>-->
-        <!--<field name="arch" type="xml">-->
-
-            <!--<field name="categ_id" position="after">-->
-                <!--<field name="invoice_number" invisible="1"/>-->
-            <!--</field>-->
-
-        <!--</field>-->
-    <!--</record>-->
+    <record id="view_account_invoice_report_tree_v4s" model="ir.ui.view">
+        <field name="name">account.invoice.report.tree</field>
+        <field name="model">account.invoice.report</field>
+        <field name="type">tree</field>
+        <field name="inherit_id" ref="account.view_account_invoice_report_tree"/>
+        <field name="arch" type="xml">
+            
+            <field name="categ_id" position="after">
+                <field name="invoice_number" invisible="1"/>
+            </field>
+            
+        </field>
+    </record>
     
     <record id="view_account_invoice_report_search_v4s" model="ir.ui.view">
         <field name="name">account.invoice.report.search</field>
@@ -22,11 +22,11 @@
         <field name="type">search</field>
         <field name="inherit_id" ref="account.view_account_invoice_report_search"/>
         <field name="arch" type="xml">
-
-            <filter string="Partner" position="before">
+            
+            <filter string="Journal" position="after">
                 <filter string="Invoice" icon="terp-folder-orange" context="{'group_by':'invoice_number'}"/>
             </filter>
-
+            
         </field>
     </record>
     

@@ -1,0 +1,406 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* web_shop
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1-20120910-233309\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-15 09:09+0000\n"
+"PO-Revision-Date: 2013-06-15 09:09+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: web_shop
+#: sql_constraint:sale.order:0
+msgid "Order Reference must be unique per Company!"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,city:0
+#: field:webshop.checkout,shipping_city:0
+msgid "City"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_html_sales_orders_report
+msgid "HTML Sales Orders"
+msgstr ""
+
+#. module: web_shop
+#: field:sale.shop,catalog_layout:0
+msgid "Catalog Layout"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,states_prev:0
+msgid "Previous states sequence"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+msgid "Learn More!"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,state:0
+msgid "Stop"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_html_shopping_cart_report
+msgid "Shopping cart is empty"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_html_payment_return
+msgid "Payment return"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+msgid "Back"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+msgid "Billing Company Information"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,state:0
+msgid "State"
+msgstr ""
+
+#. module: web_shop
+#: code:addons/web_shop/webshop.py:41
+#: selection:sale.shop,catalog_layout:0
+#, python-format
+msgid "Vertical List"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+msgid "Call!"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,state:0
+msgid "Shipping Method"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "In stock"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.act_window,name:web_shop.action_jera_web_shop_wizard
+#: model:ir.ui.menu,name:web_shop.menu_jera_web_shop_wizard
+msgid "WEB shop install"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.act_window,name:web_shop.action_webshop_checkout_wizard
+#: report:ir.actions.report.xml:web_shop.action_report_html_shopping_cart_report
+#: model:ir.model,name:web_shop.model_webshop_checkout
+#: view:webshop.checkout:0
+msgid "Checkout"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+msgid "View as:"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Warranty (months)"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,is_shipping_address:0
+msgid "Same as billing address"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,fax:0
+msgid "Fax"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Buy"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,shipping_zip:0
+#: field:webshop.checkout,zip:0
+msgid "Zip"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_html_shopping_cart_report
+msgid "HTML Shopping Cart"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,carrier_id:0
+msgid "Delivery Method"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,company_name:0
+msgid "Company"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.act_window,name:web_shop.action_product_image_product_image
+msgid "Product Image"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_html_payment_invoice
+msgid "Invoice to pay"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,phone:0
+#: field:webshop.checkout,shipping_phone:0
+msgid "Phone"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "More Views"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+msgid "Billing Information"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,email:0
+msgid "E-Mail"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Brandname"
+msgstr ""
+
+#. module: web_shop
+#: code:addons/web_shop/webshop.py:42
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+#: selection:sale.shop,catalog_layout:0
+#, python-format
+msgid "Grid"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.model,name:web_shop.model_sale_shop
+msgid "Sales Shop"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,country_id:0
+#: field:webshop.checkout,shipping_country_id:0
+msgid "Country"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+msgid "Brands"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_product_product_html_catalog
+msgid "HTML Products SHOP catalog layouts"
+msgstr ""
+
+#. module: web_shop
+#: model:res.groups,name:web_shop.group_web_shop_admin
+msgid "JERA / Administration / WEB Shop"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,so_id:0
+msgid "Sale Order"
+msgstr ""
+
+#. module: web_shop
+#: model:res.groups,name:web_shop.group_web_shop
+msgid "JERA / WEB Shop"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Out of stock"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,states_seq:0
+msgid "Next states sequence"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Part Number"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+msgid "Add to Cart"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,name:0
+#: field:webshop.checkout,shipping_name:0
+msgid "Last Name"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,method:0
+#: selection:webshop.checkout,state:0
+msgid "Register"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_html_catalog
+msgid "List"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.model,name:web_shop.model_product_product
+msgid "Product"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,method:0
+msgid "Already registered"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+msgid "Checkout ready to confirm!"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_html_product_brandname_list
+msgid "HTML Brandnames"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+msgid "Next"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_html_product_brandname_list
+msgid "Browse for all %s products!"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,vat:0
+msgid "VAT"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Quantity"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,method:0
+#: selection:webshop.checkout,state:0
+msgid "Checkout Method"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "EAN13"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,ref:0
+msgid "Reference"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,first_name:0
+#: field:webshop.checkout,shipping_first_name:0
+msgid "First Name"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,state:0
+msgid "Billing Inforamtion"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,method:0
+msgid "Checkout as Guest"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,state:0
+msgid "Billing Company"
+msgstr ""
+
+#. module: web_shop
+#: view:sale.shop:0
+msgid "E-Commerce"
+msgstr ""
+
+#. module: web_shop
+#: constraint:product.product:0
+msgid "Error: Invalid ean code"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,state:0
+msgid "Done"
+msgstr ""
+
+#. module: web_shop
+#: selection:webshop.checkout,state:0
+msgid "Payment Information"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+#: selection:webshop.checkout,state:0
+msgid "Shipping Information"
+msgstr ""
+
+#. module: web_shop
+#: model:ir.actions.report.xml,name:web_shop.action_report_product_product_one_product
+msgid "HTML Products SHOP Single"
+msgstr ""
+
+#. module: web_shop
+#: view:webshop.checkout:0
+msgid "Checkout is removed."
+msgstr ""
+
+#. module: web_shop
+#: model:ir.model,name:web_shop.model_sale_order
+msgid "Sales Order"
+msgstr ""
+
+#. module: web_shop
+#: report:ir.actions.report.xml:web_shop.action_report_product_product_one_product
+msgid "Availability"
+msgstr ""
+
+#. module: web_shop
+#: field:webshop.checkout,address:0
+#: field:webshop.checkout,shipping_address:0
+msgid "Street"
+msgstr ""
+

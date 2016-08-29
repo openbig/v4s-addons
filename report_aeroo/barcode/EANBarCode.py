@@ -1,8 +1,8 @@
 # Copyright (c) 2009-2011 Alistek Ltd (http://www.alistek.com) All Rights Reserved.
 #                    General contacts <info@alistek.com>
 
-from openerp.tools import config, ustr
-fontsize = 12
+from tools import config, ustr
+fontsize = 15
 
 """
 This class generate EAN bar code, it required PIL (python imaging library)
@@ -116,7 +116,7 @@ class EanBarCode:
       
       # Create a new image
       position = 8
-      im = Image.new("L",(len(bits)+position,height+2))
+      im = Image.new("1",(len(bits)+position,height))
       
       # Load font
       ad = os.path.abspath(os.path.join(ustr(config['root_path']), u'addons'))
@@ -125,10 +125,9 @@ class EanBarCode:
 
       for mod_path in mod_path_list:
           font_file = mod_path+os.path.sep+ \
-                      "report_aeroo"+os.path.sep+"barcode"+os.path.sep+"FreeMonoBold.ttf"#"courB08.pil"
+                      "report_aeroo"+os.path.sep+"barcode"+os.path.sep+"FreeMonoBold.ttf"
           if os.path.lexists(font_file):
               font = ImageFont.truetype(font_file, fontsize)
-              #font = ImageFont.load(font_file)
       
       # Create drawer
       draw = ImageDraw.Draw(im)
@@ -140,10 +139,10 @@ class EanBarCode:
       draw.text((0, height-9), code[0], font=font, fill=0)
       
       # Draw first part of number
-      draw.text((position+3, height-9), code[1:7], font=font, fill=0)
+      draw.text((position+7, height-9), code[1:7], font=font, fill=0)
          
       # Draw second part of number
-      draw.text((len(bits)/2+2+position, height-9), code[7:], font=font, fill=0)
+      draw.text((len(bits)/2+6+position, height-9), code[7:], font=font, fill=0)
       
       # Draw the bar codes
       for bit in range(len(bits)):

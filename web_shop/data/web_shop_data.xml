@@ -1,0 +1,537 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data noupdate='1'>
+    <record model='ir.actions.report.xml' id='action_report_html_shopping_cart_report'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>sale.order</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>HTML Shopping Cart</field>
+      <field name='parser_loc'>web_shop/report/shopping_cart_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>html_shopping_cart_report</field>
+      <field name='report_rml'>web_shop/report/shopping_cart.html</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>default</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_11'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_html_shopping_cart_report' name='action_id'/>
+      <field name='context'>{'cart':1}</field>
+      <field name='name'>Shopping Cart</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>default</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='report.stylesheets' id='report_stylesheet_products_single_12'>
+      <field name='name'>Products Single (CSS)</field>
+      <field name='report_styles'>ZGl2LnByb2R1Y3QtaW1hZ2Uge2Rpc3BsYXk6IGJsb2NrOwogICAgICAgICAgICAgICAgIHRleHQt
+YWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgICAgICB3aWR0aDogMzAwcHg7CiAgICAgICAgICAg
+ICAgICAgbWluLWhlaWdodDogMzAwcHg7fQogICAgICAgICAgICAgICAgIApkaXYucHJvZHVjdC1p
+bWFnZSBpbWcge21heC13aWR0aDogMzAwcHg7CiAgICAgICAgICAgICAgICAgICAgIG1heC1oZWln
+aHQ6IDMwMHB4O30KCgpkaXYucHJvZHVjdC1uby1pbWFnZSB7ICBiYWNrZ3JvdW5kOiB1cmwoIi9p
+bWFnZXMvZW1wdHlfdGFnLnBuZyIpIGNlbnRlciBuby1yZXBlYXQgOwogICAgICAgICAgICAgICAg
+ICAgIGhlaWdodDogMzAwcHg7CiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDMwMHB4OwogICAg
+ICAgICAgICAgICAgfQoKdWwucHJvZHVjdHMtZ3JpZCBkaXYucHJvZHVjdC1uby1pbWFnZSwgdWwu
+cHJvZHVjdHMtbGlzdCBkaXYucHJvZHVjdC1uby1pbWFnZSB7ICBiYWNrZ3JvdW5kOiB1cmwoIi9p
+bWFnZXMvZW1wdHlfdGFnLnBuZyIpOwogICAgICAgICAgICAgICAgICAgIGhlaWdodDogMTIwcHg7
+CiAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEyMHB4OwogICAgICAgICAgICAgICAgfQoKZGl2
+Lm1vcmUtdmlld3MgdWwgbGkge2JhY2tncm91bmQ6IG5vbmU7CiAgICAgICAgICAgICAgICAgICAg
+ICBwYWRkaW5nLWxlZnQ6IDBweDsKICAgICAgICAgICAgICAgICAgICAgIGZsb2F0OiBsZWZ0Owog
+ICAgICAgICAgICAgICAgICAgICAgbGlzdC1zdHlsZS10eXBlOiBub25lOwogICAgICAgICAgICAg
+ICAgICAgICAgfQpkaXYubW9yZS12aWV3cyB1bCBsaSBkaXYge3dpZHRoOiA3NXB4OwogICAgICAg
+ICAgICAgICAgICAgICAgICBoZWlnaHQ6IDc1cHg7CiAgICAgICAgICAgICAgICAgICAgICAgIHRl
+eHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgICAgICAgICAgICAgZGlzcGxheTogYmxvY2s7
+CiAgICAgICAgICAgICAgICAgICAgICAgIG91dGxpbmU6IG5vbmU7CiAgICAgICAgICAgICAgICAg
+ICAgICAgIGN1cnNvcjogcG9pbnRlcjt9CmRpdi5wcm9kdWN0LW5hbWUgaDEgeyB0ZXh0LW92ZXJm
+bG93OiBlbGxpcHNpczsKICAgICAgICAgICAgICAgICAgICAgIG92ZXJmbG93OiBoaWRkZW47ICAg
+ICAKICAgICAgICAgICAgICAgICAgICB9CgoKLyotLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCmRpdi51cHNlbGwtcHJvZHVjdHMgeyAK
+ICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgbWFyZ2luLXRvcDogMjBweDsK
+ICAgICAgICB9CgpkaXYudXBzZWxsLXByb2R1Y3RzIHVsLnByb2R1Y3RzLWdyaWQgeyAKICAgICAg
+ICBib3JkZXItYm90dG9tOiAxcHggc29saWQgI0Q5REREMzsKICAgICAgICBwb3NpdGlvbjogcmVs
+YXRpdmU7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgICAgd2lkdGg6IDYzNXB4OwogICAg
+ICAgIGZsb2F0OiBsZWZ0OwogICAgICAgIGNsZWFyOiBib3RoOwogICAgICAgIH0KZGl2LnVwc2Vs
+bC1wcm9kdWN0cyB1bC5wcm9kdWN0cy1ncmlkLmxhc3QgeyAKICAgICAgICAgICAgYm9yZGVyLWJv
+dHRvbTogMCBub25lOwogICAgICAgICAgICB9CgpkaXYudXBzZWxsLXByb2R1Y3RzIHVsLnByb2R1
+Y3RzLWdyaWQgbGkuaXRlbSB7CiAgICAgICAgICAgICAgICAgICAgICAgIGZsb2F0OiBsZWZ0Owog
+ICAgICAgICAgICAgICAgICAgICAgICBwYWRkaW5nOiAxMnB4IDEwcHggMjBweDsKICAgICAgICAg
+ICAgICAgICAgICAgICAgd2lkdGg6IDEzOHB4OwogICAgICAgICAgICAgICAgICAgICAgICBtaW4t
+aGVpZ2h0OiAyMzZweDsKICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogbm9uZTsK
+ICAgICAgICAgICAgICAgICAgICAgICAgYm9yZGVyLXJpZ2h0OiAxcHggc29saWQgI0Q5REREMzsK
+ICAgICAgICAgICAgICAgICAgICAgICAgfQoKZGl2LnVwc2VsbC1wcm9kdWN0cyB1bC5wcm9kdWN0
+cy1ncmlkIGxpLmxhc3QgewogICAgICAgICAgICAgICAgICAgIGJvcmRlci1yaWdodDogMCBub25l
+OwogICAgICAgICAgICAgICAgICAgIH0KICAgICAgICAgICAgICAgICAgICAKZGl2LnVwc2VsbC1w
+cm9kdWN0cyB1bC5wcm9kdWN0cy1ncmlkIGxpLml0ZW0gLnByb2R1Y3QtbmFtZXsKICAgICAgICAg
+ICAgICAgICAgICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgICAgICAgICAgICAgICAgICAgICBk
+aXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMDAl
+OwogICAgICAgICAgICAgICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgICAgICAg
+ICAgICAgICAgICB9CgpkaXYudXBzZWxsLXByb2R1Y3RzIHVsLnByb2R1Y3RzLWdyaWQgbGkuaXRl
+bSAucHJvZHVjdC1uYW1lIGEgewogICAgICAgICAgICB0ZXh0LW92ZXJmbG93OiBlbGxpcHNpczsK
+ICAgICAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgICAgICAgICAgb3ZlcmZsb3ctd3JhcDog
+YnJlYWstd29yZDsKICAgICAgICAgICAgd29yZC13cmFwOiBicmVhay13b3JkOwogICAgICAgICAg
+ICB9CgpkaXYudXBzZWxsLXByb2R1Y3RzIHVsLnByb2R1Y3RzLWdyaWQgbGkuaXRlbSBhLnByb2R1
+Y3QtaW1hZ2UgewogICAgICAgICAgICB3aWR0aDogMTM4cHg7CiAgICAgICAgICAgIGhlaWdodDog
+MTM4cHg7CiAgICAgICAgICAgIHRleHQtYWxpZ246IGNlbnRlcjsKICAgICAgICAgICAgZmxvYXQ6
+IGxlZnQ7CiAgICAgICAgICAgIH0KZGl2LnVwc2VsbC1wcm9kdWN0cyB1bC5wcm9kdWN0cy1ncmlk
+IGxpLml0ZW0gYS5wcm9kdWN0LWltYWdlIGltZyB7CiAgICAgICAgICAgIHZlcnRpY2FsLWFsaWdu
+OiB0b3A7CiAgICAgICAgICAgIH0KZGl2LnVwc2VsbC1wcm9kdWN0cyB1bC5wcm9kdWN0cy1ncmlk
+IGxpLml0ZW0gZGl2LnByaWNlLWJveCB7CiAgICAgICAgICAgIG1hcmdpbjogNXB4IDA7CiAgICAg
+ICAgICAgIGJvdHRvbTogNXB4OwogICAgICAgICAgICBwb3NpdGlvbjogYWJzb2x1dGU7CiAgICAg
+ICAgICAgIH0KLnByaWNlLWJveCAucmVndWxhci1wcmljZSB7CiAgICAgICAgICAgIGNvbG9yOiAj
+Qzc2MjAwOwogICAgICAgICAgICBmb250LXNpemU6IDEzcHg7CiAgICAgICAgICAgIGZvbnQtd2Vp
+Z2h0OiBib2xkOwogICAgICAgICAgICB9Cg==
+</field>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_product_product_one_product'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field ref='report_stylesheet_products_single_12' name='stylesheet_id'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='domain'>[('id','=',active_id)]</field>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>product.product</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>HTML Products SHOP Single</field>
+      <field name='parser_loc'>web_shop/report/product_shop_single_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>product.product.one_product</field>
+      <field name='report_rml'>web_shop/report/product_shop_single.html</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>specified</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_13'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_product_product_one_product' name='action_id'/>
+      <field name='alias'>product_single</field>
+      <field name='context'>{'Itemid':0,'shop_id':1}</field>
+      <field name='name'>Products SHOP Single</field>
+      <field name='r_metainfo'>html</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='report.stylesheets' id='report_stylesheet_catalog_layouts_11'>
+      <field name='name'>Catalog layouts (CSS)</field>
+      <field name='report_styles'>ZGl2LmNhdGVnb3J5LXByb2R1Y3RzIHVsLnByb2R1Y3RzLWdyaWQgeyAKICAgICAgICAgICAgYm9y
+ZGVyLWJvdHRvbTogMXB4IHNvbGlkICNEOURERDM7CiAgICAgICAgICAgIHBvc2l0aW9uOiByZWxh
+dGl2ZTsKICAgICAgICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgICAgICAgIHdpZHRoOiA2MzVw
+eDsKICAgICAgICAgICAgZmxvYXQ6IGxlZnQ7CiAgICAgICAgICAgIGNsZWFyOiBib3RoOwogICAg
+ICAgICAgICB9CmRpdi5jYXRlZ29yeS1wcm9kdWN0cyB1bC5wcm9kdWN0cy1ncmlkLmxhc3QgeyAK
+ICAgICAgICAgICAgYm9yZGVyLWJvdHRvbTogMCBub25lOwogICAgICAgICAgICB9CgpkaXYuY2F0
+ZWdvcnktcHJvZHVjdHMgdWwucHJvZHVjdHMtZ3JpZCBsaS5pdGVtIHsKICAgICAgICAgICAgICAg
+ICAgICAgICAgZmxvYXQ6IGxlZnQ7CiAgICAgICAgICAgICAgICAgICAgICAgIHBhZGRpbmc6IDEy
+cHggMTBweCA4MHB4OwogICAgICAgICAgICAgICAgICAgICAgICB3aWR0aDogMTM4cHg7CiAgICAg
+ICAgICAgICAgICAgICAgICAgIG1pbi1oZWlnaHQ6IDIzNnB4OwogICAgICAgICAgICAgICAgICAg
+ICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXItcmln
+aHQ6IDFweCBzb2xpZCAjRDlEREQzOwogICAgICAgICAgICAgICAgICAgICAgICBvdmVyZmxvdzog
+aGlkZGVuOwogICAgICAgICAgICAgICAgICAgICAgICBsaXN0LXN0eWxlLXR5cGU6IG5vbmU7CiAg
+ICAgICAgICAgICAgICAgICAgICAgIH0KCmRpdi5jYXRlZ29yeS1wcm9kdWN0cyB1bC5wcm9kdWN0
+cy1ncmlkIGxpLmxhc3QgewogICAgICAgICAgICAgICAgICAgICAgICBib3JkZXItcmlnaHQ6IDAg
+bm9uZTsKICAgICAgICAgICAgICAgICAgICAgICAgfQoKZGl2LmNhdGVnb3J5LXByb2R1Y3RzIHVs
+LnByb2R1Y3RzLWdyaWQgbGkuaXRlbSAucHJvZHVjdC1uYW1lIHsKICAgICAgICAgICAgICAgICAg
+ICAgICAgZm9udC1zaXplOiAxM3B4OwogICAgICAgICAgICAgICAgICAgICAgICBkaXNwbGF5OiBp
+bmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICAgICAgICAgIHdpZHRoOiAxMDAlOwogICAgICAg
+ICAgICAgICAgICAgICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgICAgICAgICAgICAgICAg
+ICB9CgpkaXYuY2F0ZWdvcnktcHJvZHVjdHMgdWwucHJvZHVjdHMtZ3JpZCBsaS5pdGVtIC5wcm9k
+dWN0LW5hbWUgYSB7CiAgICAgICAgICAgIHRleHQtb3ZlcmZsb3c6IGVsbGlwc2lzOwogICAgICAg
+ICAgICBvdmVyZmxvdzogaGlkZGVuOwogICAgICAgICAgICBvdmVyZmxvdy13cmFwOiBicmVhay13
+b3JkOwogICAgICAgICAgICB3b3JkLXdyYXA6IGJyZWFrLXdvcmQ7CiAgICAgICAgICAgIH0KCmRp
+di5jYXRlZ29yeS1wcm9kdWN0cyB1bC5wcm9kdWN0cy1ncmlkIGxpLml0ZW0gYS5wcm9kdWN0LWlt
+YWdlIHsKICAgICAgICAgICAgd2lkdGg6IDEzOHB4OwogICAgICAgICAgICBoZWlnaHQ6IDEzOHB4
+OwogICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7CiAgICAgICAgICAgIGZsb2F0OiBsZWZ0
+OwogICAgICAgICAgICB9CgpkaXYuY2F0ZWdvcnktcHJvZHVjdHMgdWwucHJvZHVjdHMtZ3JpZCBs
+aS5pdGVtIGEucHJvZHVjdC1pbWFnZSBpbWcgewogICAgICAgICAgICB2ZXJ0aWNhbC1hbGlnbjog
+dG9wOwogICAgICAgICAgICBtYXgtd2lkdGg6IDEyMHB4OwogICAgICAgICAgICBtYXgtaGVpZ2h0
+OiAxMjBweDsKICAgICAgICAgICAgfQpkaXYuY2F0ZWdvcnktcHJvZHVjdHMgdWwucHJvZHVjdHMt
+Z3JpZCBsaS5pdGVtIGRpdi5wcmljZS1ib3ggewogICAgICAgICAgICBtYXJnaW46IDVweCAwOwog
+ICAgICAgICAgICBib3R0b206IDQ1cHg7CiAgICAgICAgICAgIHBvc2l0aW9uOiBhYnNvbHV0ZTsK
+ICAgICAgICAgICAgfQoucHJpY2UtYm94IC5yZWd1bGFyLXByaWNlIHsKICAgICAgICAgICAgY29s
+b3I6ICNDNzYyMDA7CiAgICAgICAgICAgIGZvbnQtc2l6ZTogMTNweDsKICAgICAgICAgICAgZm9u
+dC13ZWlnaHQ6IGJvbGQ7CiAgICAgICAgICAgIH0KZGl2LmNhdGVnb3J5LXByb2R1Y3RzIHVsLnBy
+b2R1Y3RzLWdyaWQgbGkuaXRlbSBkaXYuYWN0aW9ucyB7CiAgICAgICAgICAgIGJvdHRvbTogMTJw
+eDsKICAgICAgICAgICAgcG9zaXRpb246IGFic29sdXRlOwogICAgICAgICAgICB9CgoKLyotLS0t
+LS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tKi8KCgpkaXYuY2F0ZWdvcnktcHJv
+ZHVjdHMgdWwucHJvZHVjdHMtbGlzdCB7IGxpc3Qtc3R5bGU6IG5vbmUgb3V0c2lkZSBub25lO30K
+CmRpdi5jYXRlZ29yeS1wcm9kdWN0cyB1bC5wcm9kdWN0cy1saXN0IGxpLml0ZW0gewogICAgICAg
+ICAgICAgICAgICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgICAgICAgICAgICAgICAg
+ICBwYWRkaW5nOiAxMnB4IDEwcHg7CiAgICAgICAgICAgICAgICAgICAgICAgIGJvcmRlci1ib3R0
+b206IDFweCBzb2xpZCAjRDlEREQzOwogICAgICAgICAgICAgICAgICAgICAgICBoZWlnaHQ6IDEz
+NXB4OwogICAgICAgICAgICAgICAgICAgICAgICBtYXJnaW4tbGVmdDogMHB4OwogICAgICAgICAg
+ICAgICAgICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgICAgICAgICAgICAgICAgICBs
+aXN0LXN0eWxlLXR5cGU6IG5vbmU7CiAgICAgICAgICAgICAgICAgICAgICAgIH0KZGl2LmNhdGVn
+b3J5LXByb2R1Y3RzIHVsLnByb2R1Y3RzLWxpc3QgbGkuaXRlbS5sYXN0IHtib3JkZXItYm90dG9t
+OiAwIG5vbmU7fQoKZGl2LmNhdGVnb3J5LXByb2R1Y3RzIHVsLnByb2R1Y3RzLWxpc3QgbGkuaXRl
+bSBoMyB7IG1hcmdpbjogMHB4OyB9CgpkaXYuY2F0ZWdvcnktcHJvZHVjdHMgdWwucHJvZHVjdHMt
+bGlzdCBsaS5pdGVtIGEucHJvZHVjdC1pbWFnZSB7CiAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBmbG9hdDogbGVmdDsKICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgIG1hcmdpbjogMCAwIDEwcHg7CiAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB0ZXh0LWFsaWduOiBjZW50ZXI7
+CiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB9CiAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAKZGl2LmNhdGVnb3J5
+LXByb2R1Y3RzIHVsLnByb2R1Y3RzLWxpc3QgbGkuaXRlbSBhLnByb2R1Y3QtaW1hZ2UgaW1newog
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBtYXgtaGVp
+Z2h0OiAxMjBweDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgbWF4LXdpZHRoOiAxMjBweDsKICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIH0KCmRpdi5jYXRlZ29yeS1wcm9kdWN0cyB1bC5wcm9kdWN0cy1saXN0
+IGxpLml0ZW0gZGl2LnByb2R1Y3Qtc2hvcHsKICAgICAgICAgICAgICAgICAgICAgICAgbWFyZ2lu
+LWxlZnQ6IDE1MHB4OwogICAgICAgICAgICAgICAgICAgICAgICB9Cgp1bC5wcm9kdWN0cy1ncmlk
+IGRpdi5wcm9kdWN0LW5vLWltYWdlLCB1bC5wcm9kdWN0cy1saXN0IGRpdi5wcm9kdWN0LW5vLWlt
+YWdlIHsKICAgICAgICAgICAgICAgICAgICAgICAgYmFja2dyb3VuZDogdXJsKCIvaW1hZ2VzL2Vt
+cHR5X3RhZy5wbmciKTsKICAgICAgICAgICAgICAgICAgICAgICAgaGVpZ2h0OiAxMjBweDsKICAg
+ICAgICAgICAgICAgICAgICAgICAgd2lkdGg6IDEyMHB4OwogICAgICAgICAgICAgICAgICAgICAg
+ICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgICAgICAgICAgICAgfQo=
+</field>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_product_product_html_catalog'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field ref='report_stylesheet_catalog_layouts_11' name='stylesheet_id'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='domain'>[]</field>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>product.product</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>HTML Products SHOP catalog layouts</field>
+      <field name='parser_loc'>web_shop/report/catalog_layouts_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>product.product.html_catalog</field>
+      <field name='report_rml'>web_shop/report/catalog_layouts.html</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>specified</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_12'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_product_product_html_catalog' name='action_id'/>
+      <field name='alias'>product_catalog</field>
+      <field name='context'>{'shop_id':1}</field>
+      <field name='domain'>context.get('uri', {}).get('brand_id', False) and [('brandname', 'in', [int(context.get('uri', {}).get('brand_id'))]),('sale_ok', '=', True)] or [('sale_ok', '=', True)]</field>
+      <field name='name'>Products SHOP catalog</field>
+      <field name='r_metainfo'>html</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='dd_action_id' eval="str(ref('profile_jera_action_profiles_13'))"/>
+      <field name='searchable' eval='True'/>
+      <field name='search_area' eval='True'/>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_html_product_brandname_list'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>product.brandname</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>HTML Brandnames</field>
+      <field name='parser_loc'>web_shop/report/brandnames_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>html_product_brandname_list</field>
+      <field name='report_rml'>web_shop/report/brandnames.html</field>
+      <field name='report_sxw_content_data'>PHVsIGNsYXNzPSJicmFuZG5hbWUtbGlzdCI+CnslIGZvciBicmFuZCBpbiBvYmplY3RzICV9XAog
+ICAgeyUgd2l0aCBicmFuZF9wcm9kdWN0cyA9IGxlbihzZWFyY2hfaWRzKCdwcm9kdWN0LnByb2R1
+Y3QnLFsoJ2JyYW5kbmFtZScsICc9JywgYnJhbmQuaWQpLCgnc2FsZV9vaycsICc9JywgVHJ1ZSks
+J3wnLCgnc2hvcF9pZHMnLCAnaW4nLCBbaW50KGNvbnRleHQuZ2V0KCdzaG9wX2lkJykpXSksKCdz
+aG9wX2lkcycsICc9JywgRmFsc2UpXSkpICV9XAogICAgeyUgaWYgYnJhbmRfcHJvZHVjdHMgJX1c
+CiAgICA8bGk+PGEgaHJlZj0iaW5kZXgucGhwP29wdGlvbj1jb21famVyYSZ2aWV3PWplcmEmbGF5
+b3V0PWxpc3QmaWQ9cHJvZHVjdF9jYXRhbG9nJmJyYW5kX2lkPSR7YnJhbmQuaWR9Jkl0ZW1pZD0k
+e2NvbnRleHQuZ2V0KCdJdGVtaWQnKX0iIHRpdGxlPSIke2h0bWxfZXNjYXBlKF8oJ0Jyb3dzZSBm
+b3IgYWxsICVzIHByb2R1Y3RzIScpICUgYnJhbmQubmFtZSl9Ij4ke2h0bWxfZXNjYXBlKGJyYW5k
+Lm5hbWUpKycmbmJzcDsoJm5ic3A7JytzdHIoYnJhbmRfcHJvZHVjdHMpKycmbmJzcDspJ308L2E+
+PC9saT4KICAgIHslIGVuZCAlfVwKICAgIHslIGVuZCAlfVwKeyUgZW5kICV9XAo8L3VsPgoKCgo=
+</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>default</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_14'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_html_product_brandname_list' name='action_id'/>
+      <field name='context'>{'shop_id':1, 'Itemid':0}</field>
+      <field name='name'>Brandnames</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>default</field>
+      <field name='searchable' eval='True'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_html_sales_orders_report'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='domain'>context.get('guest') and [('state','=','draft'),('origin','=',context.get('jera_sid')),('partner_id','=',user.address_id.partner_id.id)] or [('state','=','draft'),('partner_id','=',user.address_id.partner_id.id)]</field>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>sale.order</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>HTML Sales Orders</field>
+      <field name='parser_loc'>web_shop/report/sales_orders_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>html_sales_orders_report</field>
+      <field name='report_rml'>web_shop/report/sales_orders.html</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>default</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_15'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_html_sales_orders_report' name='action_id'/>
+      <field name='alias'>soid</field>
+      <field name='name'>Sales Orders</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>default</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='ir.actions.act_window' id='action_product_image_product_image'>
+      <field name='context'>{}</field>
+      <field name='name'>Product Image</field>
+      <field name='res_model'>product.image</field>
+      <field name='target'>current</field>
+      <field name='view_mode'>tree,form</field>
+      <field name='view_type'>form</field>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_26'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_product_image_product_image' name='action_id'/>
+      <field name='alias'>product_image</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='ir.actions.act_window' id='action_webshop_checkout_wizard'>
+      <field name='context'>{}</field>
+      <field name='name'>Checkout</field>
+      <field name='res_model'>webshop.checkout</field>
+      <field name='target'>new</field>
+      <field name='view_mode'>form</field>
+      <field name='view_type'>form</field>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_33'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_webshop_checkout_wizard' name='action_id'/>
+      <field name='alias'>billinfo</field>
+      <field name='context'>{'states_seq':['method','bill_info','bill_company','shipp_info','shipp_method']}</field>
+      <field name='name'>Checkout</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_html_payment_invoice'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>account.invoice</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>Invoice to pay</field>
+      <field name='parser_loc'>base_payment/report/payment_invoice_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>html_payment_invoice</field>
+      <field name='report_rml'>base_payment/report/payment_invoice.html</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>default</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_176'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_html_payment_invoice' name='action_id'/>
+      <field name='alias'>inv_to_pay</field>
+      <field name='name'>Invoice to pay</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_html_payment_return'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>payment.log</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>Payment return</field>
+      <field name='parser_loc'>base_payment/report/payment_return_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>html_payment_return</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>default</field>
+      <field name='tml_source'>parser</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_178'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_html_payment_return' name='action_id'/>
+      <field name='name'>Payment return</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>default</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_206'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='jera_register.action_jera_users_wizard' name='action_id'/>
+      <field name='alias'>register</field>
+      <field name='name'>JERA Registration</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='ir.actions.report.xml' id='action_report_html_payment_invoice_list'>
+      <field search="[(u'code', '=', u'genshi-raw')]" name='out_format'/>
+      <field name='active' eval='True'/>
+      <field name='attachment_use' eval='False'/>
+      <field name='charset'>utf_8</field>
+      <field name='copies' eval='1'/>
+      <field name='domain'>context.get('guest') and [('id','=',False)] or [('type','in',('out_invoice','out_refund')),('state','not in',('draft', 'cancel')),('partner_id','=',user.address_id.partner_id and user.address_id.partner_id.id)]</field>
+      <field name='in_format'>genshi-raw</field>
+      <field name='model'>account.invoice</field>
+      <field name='multi' eval='False'/>
+      <field name='name'>My Invoices</field>
+      <field name='parser_loc'>web_shop/report/invoices_parser.py</field>
+      <field name='parser_state'>loc</field>
+      <field name='preload_mode'>static</field>
+      <field name='process_sep' eval='False'/>
+      <field name='report_name'>html_payment_invoice_list</field>
+      <field name='report_rml'>web_shop/report/invoices.html</field>
+      <field name='report_type'>aeroo</field>
+      <field name='report_wizard' eval='False'/>
+      <field name='styles_mode'>default</field>
+      <field name='tml_source'>file</field>
+      <field name='type'>ir.actions.report.xml</field>
+      <field name='fallback_false' eval='False'/>
+    </record>
+    <record model='jera.action.profiles' id='profile_jera_action_profiles_payment_invoice_list'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field ref='action_report_html_payment_invoice_list' name='action_id'/>
+      <field name='name'>My Invoices</field>
+      <field name='r_metainfo'>never</field>
+      <field name='id_security'>none</field>
+      <field name='used_user'>anonymous</field>
+      <field name='searchable' eval='False'/>
+      <field name='search_area' eval='False'/>
+    </record>
+    <record model='jera.menu.profiles' id='profile_jera_menu_profiles_5'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_12'))"/>
+      <field name='dd_click'>1</field>
+      <field name='layout'>list</field>
+      <field name='name'>Products Catalogue</field>
+      <field name='published' eval='True'/>
+      <field name='show_search'>0</field>
+      <field name='used_user'>anonymous</field>
+    </record>
+    <record model='jera.menu.profiles' id='profile_jera_menu_profiles_6'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_15'))"/>
+      <field name='dd_click'>1</field>
+      <field name='layout'>list</field>
+      <field name='name'>Shopping carts</field>
+      <field name='published' eval='True'/>
+      <field name='show_search'>0</field>
+      <field name='used_user'>anonymous</field>
+    </record>
+    <record model='jera.menu.profiles' id='profile_jera_menu_profiles_my_invoices'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_payment_invoice_list'))"/>
+      <field name='dd_click'>1</field>
+      <field name='layout'>list</field>
+      <field name='name'>My Invoices</field>
+      <field name='published' eval='True'/>
+      <field name='show_search'>0</field>
+    </record>
+    <record model='jera.module.profiles' id='profile_jera_module_profiles_4'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_14'))"/>
+      <field name='cache'>1</field>
+      <field name='cache_time' eval='900'/>
+      <field name='layout'>form</field>
+      <field name='menus'>all</field>
+      <field name='name'>Brandnames</field>
+      <field name='position'>left</field>
+      <field name='published' eval='True'/>
+      <field name='showtitle' eval='True'/>
+      <field name='used_user'>anonymous</field>
+    </record>
+    <record model='jera.module.profiles' id='profile_jera_module_profiles_5'>
+      <field search="[(u'name', '=', u'web_shop')]" name='module_id'/>
+      <field name='access'>0</field>
+      <field name='action_id' eval="str(ref('profile_jera_action_profiles_11'))"/>
+      <field name='cache'>0</field>
+      <field name='cache_time' eval='900'/>
+      <field name='layout'>form</field>
+      <field name='menus'>all</field>
+      <field name='name'>Shopping Cart</field>
+      <field name='position'>right</field>
+      <field name='published' eval='True'/>
+      <field name='showtitle' eval='True'/>
+      <field name='used_user'>anonymous</field>
+    </record>
+  </data>
+</openerp>

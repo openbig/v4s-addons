@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 ##############################################################################
-#
+#    
 #    OpenERP, Open Source Management Solution
 #    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
@@ -19,13 +19,13 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.     
 #
 ##############################################################################
 {
     "name" : "V4S - Stock",
-    "version" : "0.02 (8.0)",
-    "author" : "Grzegorz Grzelak, Tadeusz Karpiński / Thorsten Vocks for openbig.org",
+    "version" : "0.13 (6.1)",
+    "author" : "Grzegorz Grzelak / Thorsten Vocks for openbig.org",
     "website": "http://www.openbig.org",
     "category" : "Localisation/Country specific stuff",
     "description": """
@@ -34,7 +34,7 @@
     * Hersteller as supplier in report (0.05)
     * added field 'notice' in orders
     """,
-    "depends" : ["stock","base_v4s"],
+    "depends" : ["stock", "stock_location", "base_v4s"],
     "demo_xml" : [],
     "update_xml" : [
             "stock_view.xml",

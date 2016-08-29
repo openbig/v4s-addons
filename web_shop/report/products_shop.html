@@ -1,0 +1,24 @@
+${setLang(getLang('user'))}
+<table width="100%">
+    <tbody>
+        <tr class="sectiontableheader">
+            <th>${get_label(o,'name')}</th>
+            <th>${get_label(o,'standard_price')}</th>
+            <th></th>
+        </tr>
+{% for o in objects %}\
+    {% with index=(objects.index(o)+1) %}
+    {% choose index % 2 %}\
+        {% when 1 %}<tr class="sectiontableentry1">{% end %}\
+        {% when 0 %}<tr class="sectiontableentry2">{% end %}\
+        <td>${o.name}</td>
+        <td>${o.standard_price}</td>
+        <td class="oecont-button">
+            <div class="oe-button gtk-sort-descending" onclick="sendSignal(this, 'add_so_line','object',${o.id},null,'');" title="${_('Buy')}"></div>
+        </td>
+    </tr>{% end %}
+    {% end % }
+    {% end %}
+{% end %}
+    </tbody>
+</table>

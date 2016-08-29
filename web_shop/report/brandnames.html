@@ -1,0 +1,14 @@
+{% with
+    product_params = {'option':'com_jera', 'view':'jera', 'id':'product_catalog', 'Itemid': context.get('Itemid', '')};
+    product_params = dict(product_params.items() + (categ_id and [('categ_id', categ_id)] or []));
+    brand_count = show_count and brand_count_get(objects, categ_id and int(categ_id));
+%}
+<ul class="menu brandname-list">
+<li{% if not brand_id %} class="active"{% end %}><a href="index.php?${ http_builduri(product_params) }" title="${html_escape(_('Browse for all products!'))}">${html_escape(_("All Brands"))+(show_count and '&nbsp;(&nbsp;'+str(brand_count.get(0))+'&nbsp;)' or '')}</a></li>
+{% for brand in objects %}\
+    {% if (show_count and brand_count.get(brand.id)) or not show_count%}\
+    <li{% if brand_id == brand.id %} class="active"{% end %}><a href="index.php?${ http_builduri(product_params, {'brand_id': brand.id}) }" title="${html_escape(_('Browse for all %s products!') % brand.name)}">${html_escape(brand.name)+(show_count and '&nbsp;(&nbsp;'+str(brand_count.get(brand.id))+'&nbsp;)' or '')}</a></li>
+    {% end %}\
+{% end %}\
+</ul>
+{% end %}\

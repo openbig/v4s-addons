@@ -1,0 +1,147 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* report_v4s
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: report_v4s\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-02-27 19:15+0000\n"
+"PO-Revision-Date: 2013-02-27 20:28+0100\n"
+"Last-Translator: Grzegorz Grzelak <grzegorz.grzelak@openglobe.pl>\n"
+"Language-Team: OpenGLOBE <contact@openglobe.pl>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: German\n"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Picking No"
+msgstr "Lefershein-Nr."
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Cancelled Invoice"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Payment Terms:"
+msgstr "Zahlungsbedinungen:"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Supplier Invoice"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "VAT :"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "PRO-FORMA"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Taxes:"
+msgstr "Steuern:"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Description"
+msgstr "Kundenreferenz"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Price"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Invoice Date"
+msgstr "Rechnungsdatum"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Base"
+msgstr "Steuergrundbetrag"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Partner Ref."
+msgstr "Kunden-Nr."
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Total:"
+msgstr "Bruttosumme:"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Taxes"
+msgstr "Steuern"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Amount"
+msgstr "Betrag"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Delivery Address:"
+msgstr "Lieferadressen:"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Draft Invoice"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Quantity"
+msgstr "Menge"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Refund"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Fiscal Position Remark :"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Tax"
+msgstr "Umsatzsteuer"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Net Total:"
+msgstr "Nettosumme:"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Invoice"
+msgstr "Rechnung"
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Supplier Refund"
+msgstr ""
+
+#. module: report_v4s
+#: report:report_v4s.invoice_v4s:0
+msgid "Prepared by:"
+msgstr "Bearbeiter"
+
+#. module: report_v4s
+#: model:ir.actions.report.xml,name:report_v4s.account_invoices_v4s
+msgid "Invoices V4S"
+msgstr ""
+

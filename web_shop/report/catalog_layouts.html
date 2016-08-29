@@ -1,0 +1,242 @@
+${setLang(getLang('user'))}\
+{% with
+    category = categ_id and search('product.sales_category', [('id','=',categ_id)])[0] or False;
+    brandname = brand_id and search('product.brandname', [('id','=',brand_id)])[0] or False;
+    product_params = {'option':'com_jera', 'view':'jera', 'layout':'form','id':'product_single', 'Itemid': uri.get('Itemid', '')};
+    product_params = dict(product_params.items() + (brand_id and [('brand_id', brand_id)] or []))
+    product_params = dict(product_params.items() + (categ_id and [('categ_id', categ_id)] or []))
+    prices = price_get(objects)
+%}
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Set-Cookie" content="catalog_layout=${uri.get('catalog_layout', False) or cookies.get('catalog_layout', 'grid')};expire=Friday, 31-Dec-99 23:59:59 GMT" />
+        <meta name="breadcrumbs" content="index.php?option=com_jera&view=jera&layout=list&id=product_catalog&${ http_builduri({'Itemid': uri.get('Itemid', '')}) }" />
+        {% if categ_id %}\
+        <title>${html_escape(category.name)}</title>
+        <meta name="breadcrumbs" content="${html_escape(_('Categories'))}" />
+        <meta name="breadcrumbs" content="${html_escape(html_escape(category.name))};index.php?option=com_jera&view=jera&layout=list&id=product_catalog&categ_id=${categ_id}" />
+        {% end %}\
+        {% if brand_id %}\
+        <title>${html_escape(brandname.name)}</title>
+        <meta name="breadcrumbs" content="${html_escape(_('Brands'))}" />
+        <meta name="breadcrumbs" content="${html_escape(html_escape(brandname.name))};index.php?option=com_jera&view=jera&layout=list&id=product_catalog&brand_id=${brand_id}" />
+        {% end %}\
+    </head>
+    <body>
+    <style type="text/css">
+div.category-products ul.products-grid { 
+            border-bottom: 1px solid #D9DDD3;
+            position: relative;
+            margin: 0 auto;
+            width: 635px;
+            float: left;
+            clear: both;
+            }
+div.category-products ul.products-grid.last { 
+            border-bottom: 0 none;
+            }
+
+div.category-products ul.products-grid li.item {
+                        float: left;
+                        padding: 12px 10px 80px;
+                        width: 138px;
+                        background: none;
+                        border-right: 1px solid #D9DDD3;
+                        overflow: hidden;
+                        list-style-type: none;
+                        }
+
+div.category-products ul.products-grid li.last {
+                        border-right: 0 none;
+                        }
+
+div.category-products ul.products-grid li.item .product-name {
+                        font-size: 13px;
+                        display: inline-block;
+                        width: 100%;
+                        overflow: hidden;
+                        }
+
+div.category-products ul.products-grid li.item .product-name a {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            overflow-wrap: break-word;
+            word-wrap: break-word;
+            }
+
+div.category-products ul.products-grid li.item a.product-image {
+            width: 138px;
+            height: 138px;
+            text-align: center;
+            float: left;
+            }
+
+div.category-products ul.products-grid li.item a.product-image img {
+            vertical-align: top;
+            max-width: 120px;
+            max-height: 120px;
+            }
+div.category-products ul.products-grid li.item div.price-box {
+            margin: 5px 0;
+            }
+.price-box .regular-price {
+            color: #C76200;
+            font-size: 13px;
+            font-weight: bold;
+            }
+div.category-products ul.products-grid li.item div.actions {
+            bottom: 12px;
+            position: absolute;
+            }
+
+
+/*----------------------------------------*/
+
+
+div.category-products ul.products-list { list-style: none outside none;}
+
+div.category-products ul.products-list li.item {
+                        text-align: left;
+                        padding: 12px 10px;
+                        border-bottom: 1px solid #D9DDD3;
+                        height: 135px;
+                        margin-left: 0px;
+                        background: none;
+                        list-style-type: none;
+                        }
+div.category-products ul.products-list li.item.last {border-bottom: 0 none;}
+
+div.category-products ul.products-list li.item h3 { margin: 0px; }
+
+div.category-products ul.products-list li.item a.product-image {
+                                                 float: left;
+                                                 margin: 0 0 10px;
+                                                 text-align: center;
+                                                 }
+                                                 
+div.category-products ul.products-list li.item a.product-image img{
+                                                   max-height: 120px;
+                                                   max-width: 120px;
+                                                 }
+
+div.category-products ul.products-list li.item div.product-shop{
+                        margin-left: 150px;
+                        }
+
+ul.products-grid div.product-no-image, ul.products-list div.product-no-image {
+                        background: url("/images/empty_tag.png");
+                        height: 120px;
+                        width: 120px;
+                        display: inline-block;
+                    }
+            
+            
+            
+</style>
+<script type="text/javascript">
+    function openNewWindow(URLtoOpen, windowName, windowFeatures) {
+        newWindow=window.open(URLtoOpen, windowName, windowFeatures);
+    }
+
+    function openWindow(theURL,winName,features) {
+        window.open(theURL,winName,features);
+    }
+</script>
+<div class="category-products">
+    <div class="product-navigation">${_("View as:")}&nbsp;<a href="index.php?${http_builduri(uri, {'catalog_layout':'list'})}">${_('List')}</a>&nbsp;|&nbsp;<a href="index.php?${http_builduri(uri, {'catalog_layout':'grid'})}">${_('Grid')}</a></div>
+    <div class="product-navigation">${_("Order by price:")}&nbsp;<a href="index.php?${http_builduri(uri, {'order_by':'listprice.asc'})}">${_('Ascending')}</a>&nbsp;|&nbsp;<a href="index.php?${http_builduri(uri, {'order_by':'listprice.desc'})}">${_('Descending')}</a></div>
+        {% choose %}\
+        {% when (uri.get('catalog_layout', False) or cookies.get('catalog_layout', 'grid')) == 'grid' %}\
+        {% for row_ind, row_num, prod_row, is_even_row, is_odd_row, is_first_row, is_last_row in itemize(chunks(objects, 4)) %}\
+    <ul class="products-grid${ is_first_row and ' first' }${ is_last_row and ' last' }${ is_odd_row and ' odd' }${ is_even_row and ' even' }">
+        {% for prod_ind, prod_num, product, is_even_prod, is_odd_prod, is_first_prod, is_last_prod in itemize(prod_row) %}\
+        <li class="item${is_first_prod and ' first'}${is_last_prod and ' last'}">
+            <a class="product-image" title="${html_escape(product.name)}" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">
+                {% if product.image_ids %}\
+                    <img src="index.php?lang=en&option=com_jera&view=jera&layout=form&format=image&id=product_image&active_id=${ product.image_ids[0].id }&name=image_midsize"/>
+                {% end %}\
+                {% if not product.image_ids %}\
+                    <div class="product-no-image"></div>
+                {% end %}\
+            </a>
+            <h3 class="product-name">
+                <a title="${html_escape(product.name)}" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">${html_escape(len(product.name) > 50 and product.name[:50]+'...' or product.name)}</a>
+            </h3>
+            <div class="price-box">
+                {% if hasattr(product, 'paywithatweet_code') and not product.paywithatweet_code or not hasattr(product, 'paywithatweet_code') %}\
+                <span class="regular-price">
+                    <span class="price">${ prices.get(product.id) and prices.get(product.id)[0] and format_price(prices.get(product.id)) or _('Call!') }</span>
+                </span>
+                {% end %}\
+            </div>
+            
+            <div class="actions">
+                {% if (hasattr(product, 'paywithatweet_code') and not product.paywithatweet_code or not hasattr(product, 'paywithatweet_code')) and (prices.get(product.id) and prices.get(product.id)[0]) %}\
+                <button onclick="sendSignal(this,'jera_request_add_so_line','object',${product.id}, null, null, '{&quot;shop_id&quot;:${ context.get('shop_id', 0) }}');" class="button btn-cart" title="${_('Add to Cart')}" type="button">
+                    <span><span>${_('Add to Cart')}</span></span>
+                </button>
+                {% end %}\
+                {% if hasattr(product, 'paywithatweet_code') and product.paywithatweet_code %}\
+                <div class="pay-with-a-tweet">
+                    <a href="javascript:openWindow('http://www.paywithatweet.com/pay/?id=${ product.paywithatweet_code }','','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=810,height=490')">
+                        <img src="http://www.paywithatweet.com/pics/pay_button.png" alt="Pay with a Tweet" width="145" height="24" border="0" />
+                    </a>
+                </div>
+                {% end %}\
+            </div>
+        </li>
+        {% end %}\
+    </ul>
+    {% end %}\
+    {% end %}\
+    {% otherwise %}\
+    <ul id="products-list" class="products-list">
+    {% for prod_ind, prod_num, product, is_even, is_odd, is_first, is_last in itemize(objects) %}\
+        <li class="item${is_odd and ' odd'}${is_even and ' even'}${is_first and ' first'}${is_last and ' last'}">
+            <a class="product-image" title="${html_escape(product.name)}" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">
+                {% if product.image_ids %}\
+                    <img src="index.php?option=com_jera&view=jera&layout=form&format=image&id=product_image&active_id=${product.image_ids[0].id}&name=image_midsize"/>
+                {% end %}\
+                {% if not product.image_ids %}\
+                    <div class="product-no-image"></div>
+                {% end %}\
+            </a>
+            <div class="product-shop">
+                <div class="f-fix">
+                    <h3 class="product-name">
+                        <a title="${html_escape(product.name)}" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">${html_escape(product.name)}</a>
+                    </h3>
+                    <div class="price-box">
+                    {% if hasattr(product, 'paywithatweet_code') and not product.paywithatweet_code or not hasattr(product, 'paywithatweet_code') %}\
+                        <span class="regular-price">
+                            <span class="price">${ prices.get(product.id) and prices.get(product.id)[0] and format_price(prices.get(product.id)) or _('Call!') }</span>
+                        </span>
+                    {% end %}\
+                    </div>
+                    <div class="actions">
+                    {% if (hasattr(product, 'paywithatweet_code') and not product.paywithatweet_code or not hasattr(product, 'paywithatweet_code')) and prices.get(product.id)[0] %}\
+                        <button onclick="sendSignal(this, 'jera_request_add_so_line','object',${product.id}, null, null, '{&quot;shop_id&quot;:${ context.get('shop_id', 0) }}');" class="button btn-cart" title="${_('Add to Cart')}" type="button">
+                            <span><span>${_('Add to Cart')}</span></span>
+                        </button>
+                    {% end %}\
+                    {% if hasattr(product, 'paywithatweet_code') and product.paywithatweet_code %}\
+                    <div class="pay-with-a-tweet">
+                        <a href="javascript:openWindow('http://www.paywithatweet.com/pay/?id=${ product.paywithatweet_code }','','toolbar=no,location=no,status=no,menubar=no,scrollbars=no,resizable=yes,width=810,height=490')">
+                            <img src="http://www.paywithatweet.com/pics/pay_button.png" alt="Pay with a Tweet" width="145" height="24" border="0" />
+                        </a>
+                    </div>
+                    {% end %}\
+                    </div>
+                    <div class="desc std">${product.description_sale and text_remove_markup(len(product.description_sale) > 150 and product.description_sale[:150]+"..." or product.description_sale) or ''} <a title="${html_escape(product.name)}" href="index.php?${ http_builduri(product_params, {'active_id': product.id}) }">${_("Learn More!")}</a></div>
+                </div>
+            </div>
+        </li>
+    {% end %}\
+    </ul>
+    {% end %}\
+    {% end %}\
+    </div>
+    </body>
+</html>
+{% end %}\

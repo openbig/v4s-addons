@@ -1,0 +1,7 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_jera_user","jera.users","model_jera_users","jera.group_jera_reg_users",1,1,1,1
+"access_jera_config","jera.config","model_jera_config","jera.group_jera_reg_users",1,0,0,0
+"access_jera_res_user","res.users","base.model_res_users","jera.group_jera_reg_users",1,1,1,1
+"access_jera_res_partner","res.partner","base.model_res_partner","jera.group_jera_reg_users",1,0,0,0
+"access_jera_res_partner_address","res.partner.address","base.model_res_partner_address","jera.group_jera_reg_users",1,0,1,0
+"access_jera_report_mimetypes","report.mimetypes","report_aeroo.model_report_mimetypes","jera.group_jera",1,0,0,0

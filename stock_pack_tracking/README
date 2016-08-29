@@ -1,0 +1,14 @@
+Concept:
+Read the info in __openerp__.py
+
+To use serial numbers with kits you should always create kits ie. packs. Do it 
+even if it is one piece. Simply create production lot and assign it to pack
+with the same sn. 
+
+To consider creating packs only in such case.
+ 
+To do:
+- onchange in stock move - when selecting prodlot the pack should change accordingly.
+- In pick list create a wizard for selecting all products from selected pack. DONE.
+- in crm create a list of packs case is concerning.
+- in partner create a view/report of assigned packs.

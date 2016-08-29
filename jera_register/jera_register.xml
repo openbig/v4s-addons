@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="jera_users_wizard" model="ir.ui.view">
+            <field name="name">JERA Registration</field>
+            <field name="model">jera.register</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Registration">
+                    <field name="name" colspan="4" align="left" required="1"/>
+                    <field name="login" colspan="4" align="left" string="Login" required="1"/>
+                    <field name="password" password="1" colspan="4" align="left" string="Password" required="1"/>
+                    <field name="password_verify" password="1" colspan="4" align="left" required="1"/>
+                    <field name="email" colspan="4" align="left" required="1"/>
+                    <field name="context_lang" colspan="4" align="left"/>
+                    <field name="code_verify" align="left" required="1"/>
+                    <field name="captcha" widget="captcha" nolabel="1"/>
+                    <button name="jera_request_register_user" string="Register" type="object"/>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_jera_users_wizard" model="ir.actions.act_window">
+            <field name="name">JERA Registration</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">jera.register</field>
+            <field name="view_id" eval="jera_users_wizard"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- ########################################### -->
+
+        <record id="jera_users_form_view" model="ir.ui.view">
+            <field name="name">JERA Registration</field>
+            <field name="model">jera.users</field>
+            <field name="type">form</field>
+			<field name="inherit_id" ref="jera.view_jera_users_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="login" position="after">
+                        <field name="name"/>
+                    </field>
+                    <field name="email" position="attributes">
+                        <attribute name="widget">email</attribute>
+                    </field>
+                    <field name="password" position="after">
+                        <!--<field name="email" widget="email"/>-->
+                        <field name="context_lang"/>
+                    </field>
+                    <field name="user_id" position="after">
+                        <field name="confirmed"/>
+                   </field>
+                   <field name="user_id" position="attributes">
+                        <attribute name="on_change">change_user(user_id,login,email,name,context_lang)</attribute>
+                   </field>
+                </data>
+            </field>
+        </record>
+
+        <record id="jera_users_tree_view" model="ir.ui.view">
+            <field name="name">JERA Registration</field>
+            <field name="model">jera.users</field>
+            <field name="type">tree</field>
+			<field name="inherit_id" ref="jera.view_jera_users_tree"/>
+            <field name="arch" type="xml">
+                <data>
+                    <field name="login" position="before">
+                        <field name="name"/>
+                    </field>
+                    <field name="login" position="after">
+                        <!--<field name="email"/>-->
+                        <field name="context_lang"/>
+                        <field name="confirmed"/>
+                    </field>
+                </data>
+            </field>
+        </record>
+
+	    <record model="ir.actions.act_window" id="jera.jera_users_action">
+		    <field name="name">JERA users</field>
+		    <field name="res_model">jera.users</field>
+		    <field name="view_type">form</field>
+		    <field name="view_mode">tree,form</field>
+	    </record>
+
+        <record model="ir.actions.act_window.view" id="act_jera_users_tree_view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="jera_users_tree_view"/>
+            <field name="act_window_id" ref="jera.jera_users_action"/>
+        </record>
+
+        <record model="ir.actions.act_window.view" id="act_jera_users_form_view">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="jera_users_form_view"/>
+            <field name="act_window_id" ref="jera.jera_users_action"/>
+        </record>
+
+    </data>
+</openerp>
+

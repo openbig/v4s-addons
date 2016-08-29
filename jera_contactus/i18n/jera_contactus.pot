@@ -1,0 +1,159 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* jera_contactus
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.0.2\n"
+"Report-Msgid-Bugs-To: support@openerp.com\n"
+"POT-Creation-Date: 2012-06-14 08:58+0000\n"
+"PO-Revision-Date: 2012-06-14 08:58+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: jera_contactus
+#: field:jera.contactus,category:0
+msgid "Category"
+msgstr ""
+
+#. module: jera_contactus
+#: code:addons/jera_contactus/jera_contactus.py:38
+#, python-format
+msgid "Your enquiry is successfully registered!"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Message:"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,optin:0
+msgid "Opt-in"
+msgstr ""
+
+#. module: jera_contactus
+#: code:addons/jera_contactus/jera_contactus.py:41
+#, python-format
+msgid "Please enter the characters displayed in the box. If you are unable to see the text clearly, you may click image for a new code."
+msgstr ""
+
+#. module: jera_contactus
+#: help:jera.contactus,captcha:0
+msgid "Click on image to refresh"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Send"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,email_from:0
+msgid "E-mail"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,code_verify:0
+msgid "Captcha code Type characters you see"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,sid:0
+msgid "Session Id"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Phone:"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,partner_name:0
+msgid "Company"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Category:"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,phone:0
+msgid "Phone"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "E-mail:"
+msgstr ""
+
+#. module: jera_contactus
+#: code:addons/jera_contactus/jera_contactus.py:41
+#, python-format
+msgid "Captcha Input Error"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Name:"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,contact_name:0
+msgid "Name"
+msgstr ""
+
+#. module: jera_contactus
+#: model:ir.actions.act_window,name:jera_contactus.action_jera_contatus_wizard
+#: model:ir.ui.menu,name:jera_contactus.menu_jera_contactus_wizard
+msgid "Contact Us install"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Type characters:"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Subject:"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,description:0
+msgid "Message"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,code:0
+msgid "Code"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+#: field:jera.contactus,captcha:0
+msgid "Captcha"
+msgstr ""
+
+#. module: jera_contactus
+#: view:jera.contactus:0
+msgid "Company:"
+msgstr ""
+
+#. module: jera_contactus
+#: model:ir.actions.act_window,name:jera_contactus.action_jera_contactus_contact_us
+#: model:ir.model,name:jera_contactus.model_jera_contactus
+#: view:jera.contactus:0
+msgid "Contact Us"
+msgstr ""
+
+#. module: jera_contactus
+#: field:jera.contactus,name:0
+msgid "Subject"
+msgstr ""
+

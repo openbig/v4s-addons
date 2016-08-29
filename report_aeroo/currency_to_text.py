@@ -58,7 +58,9 @@ def currency_to_text(sum, currency, language):
     # find out digits after floating point - fractions
     sum_frc = int(round((sum - sum_cur) * 100,0))
     cur_in_words = dtowords(sum_cur, language)
+    #print cur_in_words
     frc_in_words = dtowords(sum_frc, language)
+    #print frc_in_words
     #------------------------------------
     if language == 'lv_LV' :
         if sum_cur == 1 or (str(sum_cur)[-1] == '1' and str(sum_cur)[-2] != '1'): # is the currency sum one
@@ -289,6 +291,7 @@ def dtowords(sum_integers, language):
             chunklength += startpos
             startpos = 0
         chunk = str(sum_integers)[startpos : startpos + chunklength]
+        #print str(startpos)+' '+str(chunklength)+' '+ chunk
         wordified = wordify(chunk, inc-1, language)
         inc += 1
         spacer = ''
@@ -298,6 +301,8 @@ def dtowords(sum_integers, language):
     return diginwords
 
 def wordify(chunk, chunknr, language):
+    #print 'chunk '+str(chunk)
+    #print 'cunknr '+str(chunknr)
     words = u''
 
     if language == 'lv_LV':

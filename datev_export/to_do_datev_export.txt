@@ -1,0 +1,210 @@
+(TV) means "it is opinion or my interpretation of opinion of Thorsten Vocks"
+[STATUS]
+(0.2) version number
+
+General
+=======
+1. Module is created for version 6.0. Should work for 5.0 but I didn't tested. When we need two versions it can need some care.
+[ACCEPTED by TV] Stay with 6.0
+
+2. Where we want to have wizard? Now it is on invoice object to select invoices for testing.
+[ACCEPTED by TV] Ok by now.
+[NEW] add a menu for wizard with 4 option for invoice typr (inovice_out, invoice_in, refund_out, refund_in and select date range or period.
+[DONE] (0.55)
+
+3. [NEW] 29.03.2011 
+Add error messages when module encounter lack of mandatory data.
+[TO DO] At the end.
+[DONE] (0.5)
+
+4. [NEW] 29.03.2011 
+Add testing of final files against XSD if it is possible and XSD is for this purpose.
+[TO DO] At the end.
+[DONE] (0.5)
+
+5. Doesn't work on web client
+[FIXED] (0.53)
+
+6. Translation
+[TO DO]
+
+7. Security
+[TO DO] (partialy done)
+
+8. Trace of exported invoices and lock for double export.
+
+9. Fulfill Datev documentation version 3.
+
+Remarks on document.xml
+=======================
+1. GUID number. Database unique number. Added on Company Configuration tab. It is number of special format. See Wikipedia.
+[DONE] (.2)
+
+2. Datev consultantNumber and customeNumber should be placed as additional fields in Company.
+Will be on Company Configuration tab as other Account settings.
+[DONE] (.2)
+
+3. content/document/description/keywords should always be "Mit Positionsbetragsverbuchung"? 
+I need indication. We use always this variant or it needs more work.
+[ACCEPTED by TV] We stay with "Mit Positionsbetragsverbuchung"
+
+4. Names of invoice files are simply invoice number (with removed "/" if exist). It is OpenERP standard for saving pdf files as attachments. So for invoice: SAJ/2011/004 you will have files: SAJ2011004.xml and SAJ2011004.pdf. If you wish to have separate prefixes for outgoing, incoming and refunds it will be no problem to change the code.
+[ACCEPTED by TV]
+
+5. description field. There is no indication what is should be there.  Now it is company.name + word " Accounting" (as in example)
+[TO DECIDE by TV]
+
+6. Repository whats that? (dv3)
+
+7. What is the processID? (dv3)
+It should be = "1" for posting but I don't understand doc.
+
+Remarks on invoices xml files
+============================
+
+Invoice Header
+------------------------------
+1. Invoice header
+In invoice delivery_date is the same as invoice_date. I don't know when it can be different. Is it possible in OpenERP at all?
+[NEW COMMENT] Thorsten suggested to look for pick list date. So module looks for pick list when SO/PO exists and takes the date of last pick list done. If it is no SO/PO or no pick list done I will fill the same date as invoice (delivery_date is mandatory).
+[DONE] (0.3)
+What the delivery date should be for refund invoice? Now it is the same date as invoice.
+[TO DECIDE by TV]
+[REMOVE]   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!! or try to check dependancy.
+[DONE] (0.54) looking for picking is independant of existence of sale, purchase and stock. If they not exists module doesn't look for them and not crushes.
+
+2. In OpenERP you cannot have iban and account number at the same time as bank account. Needs change in standard or acceptance as that fields are not mandatory. It needs another indication as I assume from examples in Germany you use separate bank number and account number in internal transfers. I don't know how it works in German OpenERP. In Poland we use one full account number which is something like bank code and account number concatenation. Our full account number after preceding ciuntry code "PL" is simply IBAN. It is probably closer to OpenERP standard. So Bank accounts needs some care.
+Bank codes and numbers needs more work. Probably internal checking needed.
+[COMMENTED by TV]
+[TO RECONSIDER by GG]
+Now I see that it would be no problem as it is now. Both IBAN and bank account are optional and they will be added to export exclusively (IBAN exclusive or Kontonummer). So it will depend of which number (IBAN or account) user enters to invoice. And reasonably he should enter account for domestic invoices and IBAN for export/import invoices. Module will work correctly in current functionality.
+[GG OPINION] Leave it as it is.
+
+3. German domestic VAT number is probably different than one with DExxxxxxxxx. Polish government warns us about it. If you have to have two VAT numbers it needs change of standard and I need indication how it should behaviour (how in internal invoices and how with foreign invoices).
+[COMMENTED by TV]
+[TO RECONSIDER by GG]
+[GG OPINION] Now if VAT number exists in partner it will be used as it is (it means international VAT number with DE). It is standard OpenERP functionality. If we need domestic VAT number apart of international we have to add a field to partner but I believe this requirement doesn't relate to Datev export and should be done outside of this module. When some special localization module for domestic VAT number is done we can make Datev Export module dependent of this module and use another field.
+[GG OPINION 2] I see in documentation there are two VAT ids as I described and one of them is mandatory vat_id or tax_no. vat_id is exactly the VAT number from OpenERP (for EU operations with country code). tax_no is domestic tax number which deosn't wxists in standard OpenERP. So we have to have this number. How it is get in your current program?
+Another question is if we really should make it mandatory.
+[TV ANSWER] Germany has only one VAT no. 
+[GG OPINION] if so Leave is as it is.
+
+
+4. [INFO] Account numbers has limitation in Datev export. Fe. they have predicted size range and only digits are allowed. I don't provide any validation as I think account numbers should be correctly designed in OpenERP.
+Information for (TV): Account code must be from 5 to 9 digits.
+[COMMENTED by TV] Comment was about adding individual customer accounts which can be longer than 4 digits.
+[GG OPINION] Individual accounts are needless for OpenERP (I had such requirement in Poland too). I see that in standard German account chart supplied to OpenERP download discussed accounts are 6 digits. I think I have nothing to do.
+
+5. [NEW] Payment conditions
+Datev XML format needs dates. OpenERP has one date on whole invoice and only days to calculate in payment condition lines.
+[DONE] (.2)
+FYI: In payment_conditions element you can supply field when payment is due and another field when payment is done (partially or fully). I am not going to implement it as is would be a lot of work. Can be remembered for future. If needed at all.
+
+6. [NEW]
+For refund invoices it is additional field in invoice_info: drawee_no (Rechnungsnummer, auf die sich die Gutschrift bezieht)
+There is no relation from refund invoice to invoice refunded in standard code. (I did it in Polish localization). So I have to (1) know if such field exists in German localization or will have to (2) take refunded invoice number from reconciliation (if it exist). Solution (2) will need more coding.
+[COMMENTED by TV]
+[TO RECONSIDER by GG]
+[TO DO] Solution 2.
+[DONE] (0.4)
+
+7. [NEW] Should we fill accounting_info field? (Not mandatory)
+Das Element accounting_info enthält Kontierungsinformationen für die Rechnungswesenprogramme, die in der Regel nicht aus einer
+Rechnung hervorgehen. Werden die Kontierungsinformationen angegeben, muss mindestens der booking_text (Buchungstext) enthalten
+sein. Das Element accounting_info gibt es auf Positionsebene und auf Rechnungsebene.
+
+cost_category_id 	Kost 1  Kann
+cost_category_id2 	Kost 2 Kann
+cost_amount 		Kostmenge Kann
+account_no 		Sachkontonummer Kann (Surprisingly this account no can be 1 - 99999999)
+exchange_rate* 		Umrechnungskurs Kann
+eu_tax_rate 		EU-Steuersatz Kann
+bu_code 		BU-Schlüssel Kann
+booking_text 		Buchungstext Muss (mandatory when account_info exists)
+[TO DECIDE by TV]
+
+8. [NEW] Should we fill delivery period? (Not mandatory)
+Das Element delivery_period enthält den Lieferungs- bzw. den Leistungszeitraum. Als Beispiel sei die Telefonrechnung genannt, die sich in
+der Regel auf einen Leistungszeitraum bezieht. Wird der Lieferungs- bzw. der Leistungszeitraum bestimmt, müssen sowohl Zeitraum von
+(delivery_date_start) als auch Zeitraum bis (delivery_date_end) angegeben werden
+
+delivery_date_start 	Zeitraum von Muss
+delivery_date_end 	Zeitraum bis Muss
+[TO DECIDE by TV]
+
+9. [NEW] Should we fill invoice_recipient (Abweichender Rechnungsempfänger)?
+Das Element invoice_recipient beschreibt den abweichenden Rechnungsempfänger. Es müssen mindestens der vollständige Name und die
+Anschrift angegeben werden. Letztere Angaben werden in dem Element address bestimmt
+[GG OPINION] Ignore it. I already use invoice address as invoice party.
+
+10. Should we fill Delivery_party (Lieferungsempfänger)?
+Das Element delivery_party beschreibt den Lieferungsempfänger. Es müssen mindestens der vollständige Name und die Anschrift
+angegeben werden. Letztere Angaben werden in dem Element address bestimmt.
+[GG OPINION] use the Shipping address from SO if SO exists and shipping address is different than invoice address.
+[TO DO] Can be done as lowest priority. It has no influence for accounting probably.
+[TO DECIDE by TV]
+
+11. Should we fill Delivery_recipient (Abweichender Lieferungsempfänger)?
+Das Element delivery_recipient beschreibt den abweichenden Lieferungsempfänger. Es müssen mindestens der vollständige Name und die
+Anschrift angegeben werden. Letztere Angaben werden in dem Element address bestimmt.
+[GG OPINION] Ignore it. No such field in OpenERP. What would be the difference between Delivery_party and delivery_recipient?
+
+12. Should we fill Supplier_issuer (Abweichender Rechnungsaussteller)?
+Das Element supplier_issuer beschreibt den abweichenden Rechnungsaussteller. Es müssen mindestens der vollständige Name und die
+Anschrift angegeben werden. Letztere Angaben werden in dem Element address bestimmt.
+[GG OPINION] Ignore it. No such field in OpenERP. 
+
+Invoice Lines
+-----------------------------------------
+
+1. Invoice line tax amount and gross amount
+Invoice line has no tax amount and gross amount. These fields are not mandatory but probably nice to have. 
+To have them we have to expand invoice line (I did it for polish localization).
+I will take subtotal and count tax and gross as it is calculated in system for tax lines (I use the same function). Should be OK.
+[DONE] (.21)
+This solution will need good testing !!!!!!!!!!!!!!!!!!
+
+2. 26.03.2011
+For invoice lines the tax rate (fe. "19.00") is not always on first level of tax definition (on first level could be 1.00 and on second 0.19). We assume that when sum of taxes on invoice is not 0 all line taxes has only one tax on first level only.
+[DONE] (0.4)
+
+3. [NEW] 26.03.2011
+gross_price_line_amount - According to datev description it should be 'gross price * quantity'. Now I coded as 'subtotal + tax' (it is natural for OpenERP). Can I leave it as it is? Otherwise we can have rounding differences.
+[TO DECIDE by TV]
+
+4. [NEW] 29.03.2011
+cause_of_tax_exemption - Should we have this field in invoice line tax entry? And if so from where should I get it in OpenERP?
+[TO DECIDE by TV]
+
+Invoice Footer
+------------------------------------------
+
+1. Invoice footer (total) tax rate
+[Need wide consideration !!!] I have coded it as tax rate calculation closest to one of invoice line fe. in invoice tax line we have 0.49/7.01 = 0.069 and the closest value from one of invoice line is for sure 0.07. So I enter 0.07.
+[DONE] (0.3)  Need strange use case testing. !!
+We have format inconsistency problem when tax rate is 0 the tax amount also should be 0 but it is not allowed by Datev format. We ignore the problem as XSD test passes when tax_amount is omitted.
+[DONE] (0.4)
+
+2. In tax_line we don't have gross field in OpenERP but in my datev_export module gross_price_line_amount is simply sum of tax and base. We can leave it this way I think.
+[ACCEPTED by TV]
+
+
+Remarks on invoice picture files
+=================================
+1. Issued invoices: Currently the module uses printing method which takes attachment with standard name set in report configuration. But if attachment doesn't exists the datev_export module creates it (and takes). 
+
+If we should take attachment only when it exists (no picture file when no attachment) I need indication.
+[GG OPINION] Leave it as it is.
+
+2. Received invoices.
+[GG OPINION] Take any real attachment of any name and any type.
+[TO DO]
+[DONE] (0.4)
+If more than one file in attachment no rule which will be taken. Name is concatenated as invoice name plus real file name. Module dosn't create file for incoming invoices.
+
+========================================================================
+Below information is for testing module output against validation XSD files enclosed on Datev disc.
+To remember how to test xml files against xsd provided:
+xmllint --schema Belegverwaltung_online_invoice.xsd SAJ2011001.xml
+xmllint --schema Document.xsd document.xml
+ 

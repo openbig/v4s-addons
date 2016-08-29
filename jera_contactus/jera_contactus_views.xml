@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+    <!--Contact Us form-->
+    <record model='ir.ui.view' id='view_jera_contactus_form'>
+      <field name='name'>jera.contactus.form</field>
+      <field name='model'>jera.contactus</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <form string='Contact Us'>
+          <field required='1' name='contact_name'/>
+          <field name='partner_name'/>
+          <field required='1' name='email_from'/>
+          <field name='phone'/>
+          <field colspan='4' name='category'/>
+          <field colspan='4' required='1' name='name'/>
+          <field colspan='4' nolabel='1' name='description'/>
+          <field name='optin'/>
+          <separator colspan='4'/>
+          <group colspan='2' col='2' string='Captcha'>
+            <field nolabel='1' widget='captcha' name='captcha'/>
+            <label colspan='2' string='Type characters:'/>
+            <field nolabel='1' required='1' name='code_verify'/>
+          </group>
+          <separator colspan='4'/>
+          <button align='right' default_focus='1' type='object' name='jera_request_send_message' string='Send'/>
+        </form>
+      </field>
+    </record>
+    <!--Contact Us form-->
+    <record model='ir.ui.view' id='view_jera_contactus_form_vertical'>
+      <field name='name'>jera.contactus.form_vertical</field>
+      <field name='model'>jera.contactus</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <form string='Contact Us'>
+          <label colspan='4' string='Name:'/>
+          <field colspan='4' nolabel='1' required='1' name='contact_name'/>
+          <label colspan='4' string='Company:'/>
+          <field colspan='4' nolabel='1' name='partner_name'/>
+          <label colspan='4' string='E-mail:'/>
+          <field colspan='4' nolabel='1' required='1' name='email_from'/>
+          <label colspan='4' string='Phone:'/>
+          <field colspan='4' nolabel='1' name='phone'/>
+          <label colspan='4' string='Category:'/>
+          <field colspan='4' nolabel='1' name='category'/>
+          <label colspan='4' string='Subject:'/>
+          <field colspan='4' nolabel='1' required='1' name='name'/>
+          <label colspan='4' string='Message:'/>
+          <field colspan='4' nolabel='1' name='description'/>
+          <field name='optin'/>
+          <separator colspan='4'/>
+          <group colspan='4' col='2' string='Captcha'>
+            <field nolabel='1' widget='captcha' name='captcha'/>
+            <label colspan='2' string='Type characters:'/>
+            <field nolabel='1' required='1' name='code_verify'/>
+          </group>
+          <separator colspan='4'/>
+          <button align='right' default_focus='1' type='object' name='jera_request_send_message' string='Send'/>
+        </form>
+      </field>
+    </record>
+    <!-- -->
+  </data>
+</openerp>
+

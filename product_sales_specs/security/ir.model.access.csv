@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_product_image","product.image","model_product_image","base.group_user",1,1,1,1
+"access_product_sales_category","product.sales_category","model_product_sales_category","base.group_user",1,1,1,1
+"access_product_brandname","product.brandname","model_product_brandname","base.group_user",1,1,1,1
+

@@ -29,17 +29,14 @@
 #
 ##############################################################################
 
-import logging
-logger = logging.getLogger('report_aeroo')
-
-from openerp.report import report_sxw
-from openerp.report.report_sxw import rml_parse
+from report import report_sxw
+from report.report_sxw import rml_parse
 import lorem
 import random
 
-class Parser(rml_parse):
+class Parser(report_sxw.rml_parse):
     def __init__(self, cr, uid, name, context):
-        super(self.__class__, self).__init__(cr, uid, name, context)
+        super(Parser, self).__init__(cr, uid, name, context)
         self.localcontext.update({
             'lorem':lorem.do_lorem,
             'random':random,

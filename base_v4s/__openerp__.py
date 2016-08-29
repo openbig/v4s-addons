@@ -33,8 +33,7 @@
     "description": """
     Added new fields to customer view.
     """,
-    # "report_aeroo", "asterisk_click2dial"
-    "depends" : ["base","report_aeroo"],
+    "depends" : ["base", "report_aeroo", "asterisk_click2dial"],
     "demo_xml" : [],
     "update_xml" : [
                     "res_partner_view.xml",

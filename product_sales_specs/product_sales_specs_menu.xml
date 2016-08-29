@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+    <record model='ir.actions.act_window' id='action_product_sales_category_products_sales_categories'>
+      <field name='context'>{}</field>
+      <field name='name'>Products Sales Categories</field>
+      <field name='res_model'>product.sales_category</field>
+      <field name='target'>current</field>
+      <field name='view_mode'>tree,form</field>
+      <field name='view_type'>form</field>
+    </record>
+    <menuitem name='Products Sales Categories' parent='product.prod_config_main' sequence='10' action='action_product_sales_category_products_sales_categories' id='product_sales_category_products_sales_categories_menu' icon='STOCK_JUSTIFY_FILL'/>
+    <record model='ir.actions.act_window' id='action_product_brandname_brandnames'>
+      <field name='context'>{}</field>
+      <field name='name'>Brandnames</field>
+      <field name='res_model'>product.brandname</field>
+      <field name='target'>current</field>
+      <field name='view_mode'>tree,form</field>
+      <field name='view_type'>form</field>
+    </record>
+    <menuitem name='Brandnames' parent='product.prod_config_main' sequence='10' action='action_product_brandname_brandnames' id='product_brandname_brandnames_menu' icon='STOCK_JUSTIFY_FILL'/>
+  </data>
+</openerp>

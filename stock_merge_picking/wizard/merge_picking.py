@@ -12,10 +12,9 @@
 #    This is a complete rewrite.
 #
 ##############################################################################
-import logging
 
-from openerp.osv import osv, fields
-from openerp.tools.translate import _
+from osv import osv, fields
+from tools.translate import _
 
 class stock_picking_merge_wizard(osv.osv_memory):
     _name = "stock.picking.merge.wizard"
@@ -26,17 +25,17 @@ class stock_picking_merge_wizard(osv.osv_memory):
         "picking_ids": fields.many2many("stock.picking","wizard_stock_move_picking_merge_chosen","merge_id","picking_id"),
 
         "target_picking_id_state": fields.related("target_picking_id", "state", type="char", string="Target Picking State"),
-        "target_picking_id_type": fields.related("target_picking_id", "picking_type_id", relation='stock.picking.type', type="many2one", string="Target Picking Type"),
+        "target_picking_id_type": fields.related("target_picking_id", "type", type="char", string="Target Picking Type"),
         "target_picking_id_invoice_state": fields.related("target_picking_id", "invoice_state", type="char", string="Target Picking Invoice State"),
 
         # basic stock.picking relations are related here, they are used for the many2many field domain
         # all non-basic relations are checked after being choosen, in do_check
-        # "target_picking_id_stock_journal_id": fields.related("target_picking_id", "stock_journal_id", type="many2one", relation='stock.journal', string="Target Picking Journal ID"),
+        "target_picking_id_stock_journal_id": fields.related("target_picking_id", "stock_journal_id", type="many2one", relation='stock.journal', string="Target Picking Journal ID"),
         "target_picking_id_location_id": fields.related("target_picking_id", "location_id", type="many2one", relation='stock.location', string="Target Picking Location"),
         "target_picking_id_location_dest_id": fields.related("target_picking_id", "location_dest_id", type="many2one", relation='stock.location', string="Target Picking Destination Location"),
-        "target_picking_id_address_id": fields.related("target_picking_id", "partner_id", type="many2one", relation='res.partner', string="Target Picking Adress"),
+        "target_picking_id_address_id": fields.related("target_picking_id", "address_id", type="many2one", relation='res.partner.address', string="Target Picking Adress"),
         "target_picking_id_company_id": fields.related("target_picking_id", "company_id", type="many2one", relation='res.company', string="Target Picking Company"),
-
+        
         "commit_merge": fields.boolean("Commit merge"),
     }        
   
@@ -69,19 +68,17 @@ class stock_picking_merge_wizard(osv.osv_memory):
         fields_search = fields_pool.search(cr, uid, [('ttype','=','many2one'),('model','=','stock.picking'),('relation','!=',self._name)])
         failedfields = []
         for field in fields_pool.browse(cr, uid, fields_search, context):
-            # don't handle specialhandlers fields as incompatible
+
+            # don't handle specialhandlers fields as incompatible            
             if field.name in self.get_specialhandlers().keys():
                 continue
             
             # compare fields
-            try:
-                related_target_id = getattr(target, field.name)
-                related_merge_id = getattr(merge, field.name)
-                #print related_target_id, related_merge_id
-                if (related_target_id.id != related_merge_id.id):
-                    failedfields.append(field)
-            except:
-                pass
+            related_target_id = getattr(target, field.name)
+            related_merge_id = getattr(merge, field.name)
+            #print related_target_id, related_merge_id
+            if (related_target_id.id != related_merge_id.id):
+                failedfields.append(field)
         #print 'field resu', failedfields, len(failedfields)==0
         return {'result': True, 'fields': failedfields}
     
@@ -97,7 +94,7 @@ class stock_picking_merge_wizard(osv.osv_memory):
             # search if there are any compatible merges at all
             similiar_ids = picking_pool.search(cr, uid, [('id','!=',session.target_picking_id.id),
                                                 ('state','=',session.target_picking_id.state),
-                                                ('picking_type_id','=',session.target_picking_id.picking_type_id.id),
+                                                ('type','=',session.target_picking_id.type),
                                                 ('invoice_state','=',session.target_picking_id.invoice_state),
                                                ])
             #print similiar_ids
@@ -110,13 +107,14 @@ class stock_picking_merge_wizard(osv.osv_memory):
                     found_incompatible = True
                     for f in is_compatible['fields']:
                         desc = self.get_fieldname_translation(cr, uid, f, context)
-                        incompatible_notes += "\n" + _('%s: %s (%s) differs.') % (unicode(merge.name), desc, f.name)
-        if not found:
+                        incompatible_notes += "\n" + _('%s: %s (%s) differs.') % (unicode(merge.name), desc, f.name) 
+        
+        if not found: 
             #if (found_incompatible):
                 #raise osv.except_osv(_('Note'),_('There are no compatible pickings to be merged.') + "\n" + incompatible_notes)
             #else:
             raise osv.except_osv(_('Note'),_('There are no compatible pickings to be merged.'))
-
+            
             return self.return_view(cr, uid, 'merge_picking_form_init', ids[0])
         # else:
         return self.return_view(cr, uid, 'merge_picking_form_target', ids[0])
@@ -180,7 +178,8 @@ class stock_picking_merge_wizard(osv.osv_memory):
                         ex += "\n" + desc + " (" + f.name + ")" 
                     raise osv.except_osv(_('Warning'), ex)
                     return self.return_view(cr, uid, 'merge_picking_form_target', ids[0])
-        return self.return_view(cr, uid, 'merge_picking_form_checked', ids[0])
+         
+        return self.return_view(cr, uid, 'merge_picking_form_checked', ids[0])        
     
     def do_merge(self, cr, uid, ids, context=None):
         # bail out if checkbox not set
@@ -241,8 +240,8 @@ class stock_picking_merge_wizard(osv.osv_memory):
                 
                 # if any one merge is NOT auto_picking, then the target is not.
                 # should never occur, as auto_picking would set it to done instantly, which can't be merged
-                # if (not (merge.auto_picking)):
-                #     target_changes['auto_picking'] = False
+                if (not (merge.auto_picking)):
+                    target_changes['auto_picking'] = False
                 
                 # search for all outgoing related fields.
                 # we handle only ougoing many2one (incoming one2many may not exist for that) here

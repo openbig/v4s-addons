@@ -22,26 +22,27 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
-import logging
 
-from openerp.osv import osv, fields
+from osv import osv, fields
 
 class stock_picking(osv.osv):
     _inherit = 'stock.picking'
-
     _columns = {
         'create_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
         'write_uid': fields.many2one('res.users', 'Warehouse Worker', readonly=1),
-        'client_order_ref': fields.char('Customer Reference', size=128),
+        'client_order_ref': fields.related('sale_id', 'client_order_ref', type='char', string='Customer Reference'),
     }
-
-
+    
+        
     def _prepare_invoice(self, cr, uid, picking, partner, inv_type, journal_id, context=None):
-        invoice_vals = super(stock_picking, self)._prepare_invoice(cr, uid, picking, partner, inv_type, journal_id, context=context)
-
-        if picking.sale_id and inv_type in ('out_invoice', 'out_refund') and not invoice_vals.has_key('client_order_ref'):
+      invoice_vals = super(stock_picking, self)._prepare_invoice(cr, uid, picking, partner, inv_type, journal_id, context=context)
+      
+      if picking.sale_id and inv_type in ('out_invoice', 'out_refund') and not invoice_vals.has_key('client_order_ref'):
             invoice_vals['client_order_ref'] = picking.client_order_ref or ''
 
-        return invoice_vals
+      return invoice_vals
 
+      
+      
 stock_picking()
+# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

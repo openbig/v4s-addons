@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+		<!-- configuration wizard view -->
+        <record id="view_hibiscus_config_wizard" model="ir.ui.view">
+            <field name="name">hibiscus Configure Wizard</field>
+            <field name="model">hibiscus.config.wizard</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Hibiscus Configuration">
+                    <group colspan="4">
+
+<!--                    <field name="name" />
+			<field name="active"/>
+			<newline/>
+-->
+			<label string="Enter Hibiscus host parameters. After synchronization some wrong configuration will be removed." colspan="4" />
+			<label string="Some new Default Settings for Bank Integration, Banks and Bank Accounts will be created. Please review them." colspan="4" />
+			<field name="company_id" colspan="4" />
+			<newline/>
+			<field name="server" colspan="4" />
+			<newline/>
+			<field name="port" colspan="4"/>
+			<newline/>
+			<field name="user" colspan="4"/>
+			<newline/>
+			<field name="password" colspan="4" password="True"/>
+			<newline/>
+			<field name="secure" colspan="4"/>
+                    </group>
+                    <group>
+                        <button icon="gtk-cancel" special="cancel" string="Cancel" />  <!--name="action_cancel" type="object"  -->
+                        <button icon="gtk-ok" name="action_create" string="Continue" type="object"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+	<record id="action_hibiscus_config_wizard" model="ir.actions.act_window">
+            <field name="name">hibiscus Configure Wizard </field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">hibiscus.config.wizard</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+            <field name="target">new</field>
+        </record>
+
+        <!-- Add a menu item for it -->
+        <menuitem name="Import Hibiscus Accounts"
+            id="menu_action_import_hibiscus_accounts"
+            parent="bank_integration.menu_finance_banking_settings"
+            action="action_hibiscus_config_wizard"
+            sequence="20"
+         />
+
+        <!-- Add the import wizard to the statement's right menu -->
+        <act_window name="Import Hibiscus Accounts"
+            res_model="hibiscus.config.wizard"
+            src_model="bank.integration.settings"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="act_import_hibiscus_accounts_wizard"/>
+
+
+    </data>
+</openerp>

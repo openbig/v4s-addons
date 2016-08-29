@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+     <data>
+
+        <record id="account_payment_make_payment_view_banking" model="ir.ui.view">
+             <field name="name">account.payment.make.payment.form.banking</field>
+             <field name="model">account.payment.make.payment</field>
+	     <field name="inherit_id" ref="account_payment.account_payment_make_payment_view"/>
+             <field name="type">form</field>
+             <field name="arch" type="xml">
+              <form string="Make Payment" position="replace">
+                 <form string="Make Payment">
+		     <field name="state" invisible = "True"/>
+		   <group  colspan="4" states="create">
+		     <separator string="Are you sure you want to make payment?" colspan="4"/>
+		     <newline/>
+		   </group>
+		   <group  colspan="4" states="finish">
+		     <separator string="The file to sent to bank" colspan="4"/>
+                     <field name="filename" colspan="4" />
+                     <newline/>
+                     <field name="file" colspan="4" filename="filename" />
+		   </group>
+		<newline/>
+		<group  colspan="2" col="4">
+		   <button special="cancel" string="Cancel" icon="gtk-cancel"/>
+		   <button name="launch_wizard" string="Yes" type="object" icon="gtk-ok" default_focus="1" states="create"/>
+	 	</group>
+	       </form>
+	      </form>
+
+<!--
+                <data>
+                    <xpath expr="/form/separator" position="replace">
+		     <group colspan ="4" col="1">
+                        <separator string="Are you sure you want to make payment?"/>
+			<field name="state" invisible = "True"/>
+                        <field name="file"  attrs="{'readonly': [('state', '=', 'create')]}"/>
+		     </group>
+                    </xpath>
+                    <xpath expr="/form/group/button[@name='launch_wizard']" position="attributes">
+                        <attribute name="states">create</attribute>
+                    </xpath>
+
+                </data>
+-->
+
+	     </field>
+	</record>
+
+<!--
+               <form string="Make Payment">
+		<separator string="Are you sure you want to make payment?"/>
+		<newline/>
+		<group  colspan="2" col="4">
+		   <button special="cancel" string="Cancel" icon="gtk-cancel"/>
+		   <button name="launch_wizard" string="Yes" type="object" icon="gtk-ok" default_focus="1"/>
+	 	</group>
+	       </form>
+-->
+<!--
+		<record id="action_account_payment_make_payment" model="ir.actions.act_window">
+			<field name="name">Export Payment</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">account.payment.make.payment</field>
+			<field name="view_type">form</field>
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="account_payment_make_payment_view_banking"/>
+			<field name="target">new</field>
+		</record>
+-->
+
+        <!-- Add the import wizard to the payment order right menu -->
+        <act_window name="Export Payment"
+            res_model="account.payment.make.payment"
+            src_model="payment.order"
+            view_mode="form"
+            target="new"
+            key2="client_action_multi"
+            id="act_account_banking_export_payment"/>
+
+
+	</data>
+</openerp>

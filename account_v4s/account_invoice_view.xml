@@ -8,16 +8,26 @@
             <field name="inherit_id" ref="account.invoice_form"/>
             <field name="type">form</field>
             <field name="arch" type="xml">
-
-              <button name="invoice_print" position="replace" >
-                <button name="%(account_invoices_v4s)d" string="Print Invoice" type="action" icon="gtk-print" states="open,paid,proforma,sale,proforma2" />
+              
+              <button name="%(account.account_invoices)d" position="replace" >
+                    <button name="%(account_invoices_v4s)d" string="Print Invoice" type="action" icon="gtk-print" states="open,paid,proforma,sale,proforma2" />
               </button>
-              <!--<button name="%(account.account_invoices)d" position="replace" >-->
-                <!--<button name="%(account_invoices_v4s)d" string="Print Invoice" type="action" icon="gtk-print" states="open,paid,proforma,sale,proforma2" />-->
-              <!--</button>-->
-
+              
             </field>
-        </record>
-
+        </record>  
+        
+<!--        <record id="invoice_supplier_form_account_v4s" model="ir.ui.view">
+            <field name="name">account.invoice.supplier.form</field>
+            <field name="model">account.invoice</field>
+            <field name="inherit_id" ref="account.invoice_supplier_form"/>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+              
+              
+              
+            </field>
+        </record>  
+        -->
+        
     </data>
 </openerp>

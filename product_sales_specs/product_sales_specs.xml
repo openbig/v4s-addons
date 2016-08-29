@@ -1,0 +1,192 @@
+<?xml version='1.0' encoding='utf-8'?>
+<openerp>
+  <data>
+    <!--Brandname form-->
+    <record model='ir.ui.view' id='view_product_brandname_form'>
+      <field name='name'>product.brandname.form</field>
+      <field name='model'>product.brandname</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <form string='Brandname'>
+          <group colspan='4' col='6'>
+            <field colspan='2' name='code'/>
+            <field colspan='4' name='name'/>
+          </group>
+          <field colspan='4' name='logo_image'/>
+        </form>
+      </field>
+    </record>
+    <!--Sale Categories form-->
+    <record model='ir.ui.view' id='view_product_sales_category_form'>
+      <field name='name'>product.sales_category.form</field>
+      <field name='model'>product.sales_category</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <form string='Sale Categories'>
+          <field name='parent_id'/>
+          <field name='name'/>
+          <field name='description'/>
+          <separator colspan='4'/>
+          <field name='publish'/>
+          <field name='type'/>
+        </form>
+      </field>
+    </record>
+    <!--Sale Categories tree-->
+    <record model='ir.ui.view' id='view_product_sales_category_tree'>
+      <field name='name'>product.sales_category.tree</field>
+      <field name='model'>product.sales_category</field>
+      <field name='type'>tree</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <tree string='Sale Categories'>
+          <field name='name'/>
+          <field name='parent_id'/>
+          <field name='description'/>
+          <field name='publish'/>
+        </tree>
+      </field>
+    </record>
+    <!--Product Image form-->
+    <record model='ir.ui.view' id='view_product_image_form'>
+      <field name='name'>product.image.form</field>
+      <field name='model'>product.image</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <form string='Product Image'>
+          <notebook>
+            <page string='Data'>
+              <group colspan='1' col='2'>
+                <field name='autocreated'/>
+              </group>
+              <newline/>
+              <group colspan='4' col='2'>
+                <group colspan='2' col='2'>
+                  <separator colspan='2' string='Full Scale Image'/>
+                  <field on_change="on_change_image('fullscale', image_fullscale)" name='image_fullscale' attrs="{'readonly':[('autocreated','=',True)], 'required':[('autocreated','=',False)]}"/>
+                  <group colspan='2' col='4'>
+                    <field name='fullscale_size_x'/>
+                    <field name='fullscale_size_y'/>
+                  </group>
+                </group>
+                <group colspan='2' col='2'>
+                  <separator colspan='2' string='Large Image'/>
+                  <field name='large_gen' attrs="{'readonly':[('autocreated','=',True)]}"/>
+                  <field on_change="on_change_image('large', image_large)" name='image_large' attrs="{'readonly':['|',('autocreated','=',True),('large_gen','=',True)], 'required':[('large_gen','=',False)]}"/>
+                  <group colspan='2' col='4'>
+                    <field name='large_size_x'/>
+                    <field name='large_size_y'/>
+                  </group>
+                </group>
+                <group colspan='2' col='2'>
+                  <separator colspan='2' string='Midsized Image'/>
+                  <field name='midsize_gen' attrs="{'readonly':[('autocreated','=',True)]}"/>
+                  <field on_change="on_change_image('midsize', image_midsize)" name='image_midsize' attrs="{'readonly':['|',('autocreated','=',True),('midsize_gen','=',True)], 'required':[('midsize_gen','=',False)]}"/>
+                  <group colspan='2' col='4'>
+                    <field name='midsize_size_x'/>
+                    <field name='midsize_size_y'/>
+                  </group>
+                </group>
+                <group colspan='2' col='2'>
+                  <separator colspan='2' string='Thumbnail Image'/>
+                  <field name='thumb_gen' attrs="{'readonly':[('autocreated','=',True)]}"/>
+                  <field on_change="on_change_image('thumb', image_thumb)" name='image_thumb' attrs="{'readonly':['|',('autocreated','=',True),('thumb_gen','=',True)], 'required':[('thumb_gen','=',False)]}"/>
+                  <group colspan='2' col='4'>
+                    <field name='thumb_size_x'/>
+                    <field name='thumb_size_y'/>
+                  </group>
+                </group>
+              </group>
+              <separator colspan='4'/>
+              <group colspan='1' col='2'>
+                <field name='sequence'/>
+              </group>
+            </page>
+            <page string='Meta Info'>
+              <field name='fullscale_md5'/>
+            </page>
+          </notebook>
+        </form>
+      </field>
+    </record>
+    <!--Product Image tree-->
+    <record model='ir.ui.view' id='view_product_image_tree'>
+      <field name='name'>product.image.tree</field>
+      <field name='model'>product.image</field>
+      <field name='type'>tree</field>
+      <field name='priority'>16</field>
+      <field type='xml' name='arch'>
+        <tree string='Product Image'>
+          <field name='sequence'/>
+          <field name='autocreated'/>
+          <field name='thumb_gen' string='Auto Thumb.'/>
+          <field name='midsize_gen' string='Auto Mid.'/>
+          <field name='large_gen' string='Auto Large'/>
+        </tree>
+      </field>
+    </record>
+    <!--product.product form-->
+    <record model='ir.ui.view' id='view_product_product_form_inherit'>
+      <field name='name'>product.product.form.inherit</field>
+      <field name='model'>product.product</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field ref='product.product_normal_form_view' name='inherit_id'/>
+      <field type='xml' name='arch'>
+        <data>
+          <notebook position='inside'>
+            <page string='Sales Specs'>
+              <field name='brandname'/>
+              <newline/>
+              <group colspan='2' col='2' string='Product Images'>
+                <field nolabel='1' name='image_ids'/>
+              </group>
+              <group colspan='2' col='2' string='Limit to Selected Shops'>
+                <field nolabel='1' name='shop_ids'/>
+              </group>
+              <group colspan='2' col='2' string='Categories'>
+                <field name='prim_sales_category_id'/>
+                <field colspan='2' nolabel='1' name='sales_category_ids'/>
+              </group>
+            </page>
+            <page string='Promotions'>
+              <field colspan='2' name='paywithatweet_code'/>
+              <group colspan='4' string='Cross-Selling Products' col='2'>
+                <field colspan='2' nolabel='1' name='cross_selling_product_ids'/>
+              </group>
+              <group colspan='4' string='Up-Selling Products' col='2'>
+                <field colspan='2' nolabel='1' name='up_selling_product_ids'/>
+              </group>
+              <group colspan='4' string='Related Products' col='2'>
+                <field colspan='2' nolabel='1' name='related_product_ids'/>
+              </group>
+            </page>
+          </notebook>
+        </data>
+      </field>
+    </record>
+    <!--sale.shop form-->
+    <record model='ir.ui.view' id='view_product_shop_form_inherit'>
+      <field name='name'>product.shop.form.inherit</field>
+      <field name='model'>sale.shop</field>
+      <field name='type'>form</field>
+      <field name='priority'>16</field>
+      <field ref='sale.view_shop_form' name='inherit_id'/>
+      <field type='xml' name='arch'>
+        <data>
+          <field position='after' name='company_id'>
+            <field name='available_products'/>
+          </field>
+          <field position='before' name='payment_default_id'>
+            <field widget='selection' name='position_default_id'/>
+          </field>
+        </data>
+      </field>
+    </record>
+    <!-- -->
+  </data>
+</openerp>
+
