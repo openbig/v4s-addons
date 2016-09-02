@@ -38,6 +38,7 @@
     "update_xml" : [
                     "res_partner_view.xml",
                     "stylesheet.xml",
+                    "product_view.xml",
                     ],
     "active": False,
     "installable": True
