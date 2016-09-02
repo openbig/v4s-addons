@@ -28,7 +28,7 @@
                 <field name="city"/>
             </field>
             
-            <field name="phone" position="replace">
+            <field name="phone" position="after">
                 <field name="zip"/>
             </field>
             
