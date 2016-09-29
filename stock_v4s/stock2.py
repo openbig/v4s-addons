@@ -22,19 +22,29 @@
 #    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+import logging
+l = logging.getLogger()
 
-import time
-from openerp.report import report_sxw
-from openerp.osv import osv
-import openerp.pooler
-
-class Parser(report_sxw.rml_parse):
-    def __init__(self, cr, uid, name, context):
-        super(Parser, self).__init__(cr, uid, name, context=context)
-        self.localcontext.update({
-            'time': time,
-        })
+from openerp import models, fields, api, _
+from openerp import api
+import datetime
 
 
-report_sxw.report_sxw('report.stock_v4s.picking_v4s','stock.picking','addons/stock_v4s/report/picking.rml',parser=Parser)
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+class StockPicking(models.Model):  # jak w sale.py
+    _inherit = "stock.picking"
+
+
+    @api.one
+    def _compute_purchase_id(self):
+        purchase_ids = []
+        for move_id in self.move_lines:
+            if move_id.purchase_line_id:
+                if move_id.purchase_line_id.order_id:
+                    self.purchase_id = move_id.purchase_line_id.order_id
+                    if self.client_order_ref == False:
+                        if move_id.purchase_line_id.order_id.partner_ref:
+                            self.write({'client_order_ref':move_id.purchase_line_id.order_id.partner_ref})
+                            self.client_order_ref = move_id.purchase_line_id.order_id.partner_ref
+                    return
+
+    purchase_id = fields.Many2one(string="Purchase Order",comodel_name="purchase.order", compute=_compute_purchase_id)
